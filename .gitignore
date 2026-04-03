@@ -1,0 +1,32 @@
+# Unreal Engine 5 .gitignore
+
+# Build/Generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# Mac
+.DS_Store
+
+# Marketplace assets (re-download from Epic Launcher)
+Content/ShoppingMall/
+Content/ElectronicsShop/
+
+# Thumbnails
+*.thumb
+
+# Asset caches
+*.BI.json
+*.TPS
