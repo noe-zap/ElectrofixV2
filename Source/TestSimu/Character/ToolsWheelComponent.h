@@ -46,6 +46,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Tools Wheel")
 	int32 SelectedSlotIndex;
 
+	UPROPERTY(BlueprintReadOnly, Category = "Tools Wheel")
+	bool bHasToolEquipped;
+
 	// --- Delegates ---
 
 	UPROPERTY(BlueprintAssignable, Category = "Tools Wheel|Events")

@@ -14,6 +14,7 @@ UToolsWheelComponent::UToolsWheelComponent()
 	bIsWheelOpen = false;
 	SelectedSlotIndex = -1;
 	CurrentTool = nullptr;
+	bHasToolEquipped = false;
 	WheelWidget = nullptr;
 }
 
@@ -123,6 +124,7 @@ void UToolsWheelComponent::UnequipCurrentTool()
 		CurrentTool->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		CurrentTool->Destroy();
 		CurrentTool = nullptr;
+		bHasToolEquipped = false;
 	}
 }
 
@@ -171,11 +173,13 @@ void UToolsWheelComponent::ServerEquipTool_Implementation(int32 SlotIndex)
 
 	NewTool->OnEquipped(GetOwner());
 	CurrentTool = NewTool;
+	bHasToolEquipped = true;
 	OnToolEquipped.Broadcast(CurrentTool);
 }
 
 void UToolsWheelComponent::OnRep_CurrentTool()
 {
+	bHasToolEquipped = (CurrentTool != nullptr);
 	OnToolEquipped.Broadcast(CurrentTool);
 }
 
