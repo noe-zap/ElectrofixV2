@@ -1,5 +1,6 @@
 #include "XRayScanner.h"
 #include "Camera/PlayerCameraManager.h"
+#include "DrawDebugHelpers.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
@@ -119,10 +120,15 @@ void AXRayScanner::UpdatePositionFromMouse(float DeltaTime)
 
 void AXRayScanner::PerformScanTrace()
 {
-	// Start the trace slightly behind the actor so it doesn't begin inside geometry
-	const FVector Forward = GetActorForwardVector();
-	const FVector TraceStart = GetActorLocation() - Forward * 5.f;
-	const FVector TraceEnd = TraceStart + Forward * TraceDistance;
+	// Trace straight down (-Z) since the repair order is flat on a table
+	const FVector TraceStart = GetActorLocation();
+	const FVector TraceEnd = TraceStart + FVector(0.f, 0.f, -1.f) * TraceDistance;
+
+	// Debug draw the trace line (green = trace, red = hit point)
+	DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, -1.f, 0, 1.f);
+
+	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Tracing from (%.1f, %.1f, %.1f) to (%.1f, %.1f, %.1f)"),
+		TraceStart.X, TraceStart.Y, TraceStart.Z, TraceEnd.X, TraceEnd.Y, TraceEnd.Z);
 
 	FHitResult Hit;
 	FCollisionQueryParams Params;
