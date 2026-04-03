@@ -2,7 +2,6 @@
 #include "Camera/PlayerCameraManager.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
-#include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInstanceDynamic.h"
 
@@ -12,25 +11,28 @@ AXRayScanner::AXRayScanner()
 	PrimaryActorTick.bStartWithTickEnabled = false;
 }
 
-void AXRayScanner::UseStart_Implementation()
+void AXRayScanner::ActivateScanner(FVector Location, FRotator Rotation)
 {
-	APlayerController* PC = GetOwnerPlayerController();
-	if (!PC || !PC->IsLocalController())
-	{
-		return;
-	}
-
 	bIsScanning = true;
+	TargetLocation = Location;
+	SetActorLocation(Location);
+	SetActorRotation(Rotation);
+	SetActorTickEnabled(true);
+	SetActorHiddenInGame(false);
 
-	if (PC->PlayerCameraManager)
+	// Store initial mouse position so first tick doesn't cause a jump
+	APlayerController* PC = GetPlayerController();
+	if (PC)
 	{
-		OriginalFOV = PC->PlayerCameraManager->GetFOVAngle();
+		float MouseX, MouseY;
+		PC->GetMousePosition(MouseX, MouseY);
+		LastMousePosition = FVector2D(MouseX, MouseY);
 	}
 
-	SetActorTickEnabled(true);
+	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Activated at (%.1f, %.1f, %.1f)"), Location.X, Location.Y, Location.Z);
 }
 
-void AXRayScanner::UseStop_Implementation()
+void AXRayScanner::DeactivateScanner()
 {
 	if (!bIsScanning)
 	{
@@ -39,88 +41,101 @@ void AXRayScanner::UseStop_Implementation()
 
 	bIsScanning = false;
 	RestoreAllMaterials();
-
-	// Tick stays enabled to lerp FOV back to original — disabled once restored
-}
-
-void AXRayScanner::OnUnequipped_Implementation()
-{
-	if (bIsScanning)
-	{
-		UseStop();
-	}
-
-	// Snap FOV back immediately since the tool is being destroyed
-	APlayerController* PC = GetOwnerPlayerController();
-	if (PC && PC->PlayerCameraManager)
-	{
-		PC->PlayerCameraManager->UnlockFOV();
-	}
-
 	SetActorTickEnabled(false);
+	SetActorHiddenInGame(true);
 
-	Super::OnUnequipped_Implementation();
+	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Deactivated"));
 }
 
 void AXRayScanner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	APlayerController* PC = GetOwnerPlayerController();
-	if (!PC || !PC->PlayerCameraManager)
+	if (!bIsScanning)
 	{
 		return;
 	}
 
-	// Determine FOV target
-	const float DesiredFOV = bIsScanning ? TargetFOV : OriginalFOV;
-	const float CurrentFOV = PC->PlayerCameraManager->GetFOVAngle();
-	const float NewFOV = FMath::FInterpTo(CurrentFOV, DesiredFOV, DeltaTime, FOVInterpSpeed);
-
-	PC->PlayerCameraManager->SetFOV(NewFOV);
-
-	if (bIsScanning)
-	{
-		PerformScanTrace();
-	}
-	else
-	{
-		// Done restoring FOV — disable tick
-		if (FMath::IsNearlyEqual(NewFOV, OriginalFOV, 0.1f))
-		{
-			PC->PlayerCameraManager->UnlockFOV();
-			SetActorTickEnabled(false);
-		}
-	}
+	UpdatePositionFromMouse(DeltaTime);
+	PerformScanTrace();
 }
 
-void AXRayScanner::PerformScanTrace()
+void AXRayScanner::UpdatePositionFromMouse(float DeltaTime)
 {
-	APlayerController* PC = GetOwnerPlayerController();
+	APlayerController* PC = GetPlayerController();
 	if (!PC)
 	{
 		return;
 	}
 
-	FVector ViewLocation;
-	FRotator ViewRotation;
-	PC->GetPlayerViewPoint(ViewLocation, ViewRotation);
+	float MouseX, MouseY;
+	if (!PC->GetMousePosition(MouseX, MouseY))
+	{
+		return;
+	}
 
-	const FVector TraceEnd = ViewLocation + ViewRotation.Vector() * TraceDistance;
+	const FVector2D CurrentMouse(MouseX, MouseY);
+	const FVector2D Delta = CurrentMouse - LastMousePosition;
+	LastMousePosition = CurrentMouse;
+
+	// Get camera right/up vectors to map screen movement to world movement
+	APlayerCameraManager* CamManager = PC->PlayerCameraManager;
+	if (!CamManager)
+	{
+		return;
+	}
+
+	const FRotator CamRotation = CamManager->GetCameraRotation();
+	const FVector CamRight = FRotationMatrix(CamRotation).GetUnitAxis(EAxis::Y);
+	const FVector CamUp = FRotationMatrix(CamRotation).GetUnitAxis(EAxis::Z);
+
+	// Project camera axes onto the horizontal plane (only X/Y, no Z)
+	FVector Right2D = FVector(CamRight.X, CamRight.Y, 0.f).GetSafeNormal();
+	FVector Up2D = FVector(CamUp.X, CamUp.Y, 0.f).GetSafeNormal();
+
+	// Update target position based on mouse delta (screen Y is inverted relative to world up)
+	TargetLocation += (Right2D * Delta.X - Up2D * Delta.Y) * MouseSensitivity;
+
+	// Clamp target to screen bounds
+	int32 ViewportX, ViewportY;
+	PC->GetViewportSize(ViewportX, ViewportY);
+
+	FVector2D ScreenPos;
+	if (PC->ProjectWorldLocationToScreen(TargetLocation, ScreenPos))
+	{
+		if (ScreenPos.X < 0.f || ScreenPos.X > ViewportX ||
+			ScreenPos.Y < 0.f || ScreenPos.Y > ViewportY)
+		{
+			// Reject the move — revert target
+			TargetLocation -= (Right2D * Delta.X - Up2D * Delta.Y) * MouseSensitivity;
+		}
+	}
+
+	// Smoothly interpolate actual position toward target (lag/sway effect)
+	const FVector CurrentLocation = GetActorLocation();
+	const FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveInterpSpeed);
+	SetActorLocation(NewLocation);
+}
+
+void AXRayScanner::PerformScanTrace()
+{
+	// Start the trace slightly behind the actor so it doesn't begin inside geometry
+	const FVector Forward = GetActorForwardVector();
+	const FVector TraceStart = GetActorLocation() - Forward * 5.f;
+	const FVector TraceEnd = TraceStart + Forward * TraceDistance;
 
 	FHitResult Hit;
 	FCollisionQueryParams Params;
 	Params.AddIgnoredActor(this);
-	Params.AddIgnoredActor(GetOwner());
 
-	if (!GetWorld()->LineTraceSingleByChannel(Hit, ViewLocation, TraceEnd, ECC_Visibility, Params))
+	if (!GetWorld()->LineTraceSingleByChannel(Hit, TraceStart, TraceEnd, ECC_Visibility, Params))
 	{
-		UE_LOG(LogTemp, Verbose, TEXT("XRayScanner: Trace hit nothing"));
+		UE_LOG(LogTemp, Verbose, TEXT("XRayScanner: Scan trace hit nothing"));
 		return;
 	}
 
 	AActor* HitActor = Hit.GetActor();
-	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Trace hit Actor='%s' Component='%s'"),
+	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Scan trace hit Actor='%s' Component='%s'"),
 		HitActor ? *HitActor->GetName() : TEXT("null"),
 		Hit.GetComponent() ? *Hit.GetComponent()->GetName() : TEXT("null"));
 
@@ -141,7 +156,7 @@ void AXRayScanner::PerformScanTrace()
 		}
 	}
 
-	// Hit a RepairOrder actor — find the first static mesh component with tag XRayScanner inside it
+	// Hit a RepairOrder actor — find first static mesh component with tag XRayScanner
 	if (HitActor->ActorHasTag(RepairOrderTag))
 	{
 		TArray<UStaticMeshComponent*> MeshComponents;
@@ -160,11 +175,7 @@ void AXRayScanner::PerformScanTrace()
 
 		UE_LOG(LogTemp, Log, TEXT("XRayScanner: RepairOrder '%s' has no component with tag '%s'"),
 			*HitActor->GetName(), *XRayTag.ToString());
-		return;
 	}
-
-	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Actor '%s' has neither tag '%s' nor '%s'"),
-		*HitActor->GetName(), *XRayTag.ToString(), *RepairOrderTag.ToString());
 }
 
 void AXRayScanner::ApplyXRayMaterial(UStaticMeshComponent* MeshComp, const FVector& HitLocation)
@@ -199,18 +210,14 @@ void AXRayScanner::ApplyXRayMaterial(UStaticMeshComponent* MeshComp, const FVect
 		AffectedMeshes.Add(MeshComp, MoveTemp(OriginalMats));
 	}
 
-	// Update sphere mask center to follow the hit point
-	if (ActiveDynamicMaterials.Num() > 0)
+	// Update sphere mask center to follow the scanner position
+	for (int32 i = 0; i < MeshComp->GetNumMaterials(); ++i)
 	{
-		// Find the dynamic material for this mesh (last added if new, or search)
-		for (int32 i = 0; i < MeshComp->GetNumMaterials(); ++i)
+		UMaterialInstanceDynamic* DynMat = Cast<UMaterialInstanceDynamic>(MeshComp->GetMaterial(i));
+		if (DynMat)
 		{
-			UMaterialInstanceDynamic* DynMat = Cast<UMaterialInstanceDynamic>(MeshComp->GetMaterial(i));
-			if (DynMat)
-			{
-				DynMat->SetVectorParameterValue(HitLocationParamName, FLinearColor(HitLocation.X, HitLocation.Y, HitLocation.Z, 1.f));
-				break;
-			}
+			DynMat->SetVectorParameterValue(HitLocationParamName, FLinearColor(HitLocation.X, HitLocation.Y, HitLocation.Z, 1.f));
+			break;
 		}
 	}
 }
@@ -236,12 +243,7 @@ void AXRayScanner::RestoreAllMaterials()
 	ActiveDynamicMaterials.Empty();
 }
 
-APlayerController* AXRayScanner::GetOwnerPlayerController() const
+APlayerController* AXRayScanner::GetPlayerController() const
 {
-	APawn* OwnerPawn = Cast<APawn>(GetOwner());
-	if (OwnerPawn)
-	{
-		return Cast<APlayerController>(OwnerPawn->GetController());
-	}
-	return nullptr;
+	return GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
 }

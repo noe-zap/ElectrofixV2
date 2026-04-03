@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Tools/Tool.h"
+#include "GameFramework/Actor.h"
 #include "XRayScanner.generated.h"
 
 USTRUCT()
@@ -14,7 +14,7 @@ struct FMaterialSlotArray
 };
 
 UCLASS(Blueprintable, BlueprintType)
-class TESTSIMU_API AXRayScanner : public ATool
+class TESTSIMU_API AXRayScanner : public AActor
 {
 	GENERATED_BODY()
 
@@ -27,13 +27,7 @@ public:
 	TObjectPtr<UMaterialInterface> XRayMaterial;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
-	float TraceDistance = 5000.f;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
-	float TargetFOV = 60.f;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
-	float FOVInterpSpeed = 10.f;
+	float TraceDistance = 500.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
 	FName XRayTag = FName("XRayScanner");
@@ -45,15 +39,34 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner|Material")
 	FName HitLocationParamName = FName("ScanCenter");
 
+	/** How fast the scanner moves with the mouse */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
+	float MouseSensitivity = 0.1f;
+
+	/** How fast the scanner interpolates to the target position (lower = more lag/sway) */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
+	float MoveInterpSpeed = 8.f;
+
+	// --- Blueprint API ---
+
+	/** Call this from Blueprint to activate the scanner at a given location and rotation. */
+	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
+	void ActivateScanner(FVector Location, FRotator Rotation);
+
+	/** Call this from Blueprint to deactivate. Restores all materials and stops ticking. */
+	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
+	void DeactivateScanner();
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "XRay Scanner")
+	bool IsScanning() const { return bIsScanning; }
+
 protected:
-	virtual void UseStart_Implementation() override;
-	virtual void UseStop_Implementation() override;
-	virtual void OnUnequipped_Implementation() override;
 	virtual void Tick(float DeltaTime) override;
 
 private:
 	bool bIsScanning = false;
-	float OriginalFOV = 90.f;
+	FVector2D LastMousePosition = FVector2D::ZeroVector;
+	FVector TargetLocation = FVector::ZeroVector;
 
 	UPROPERTY()
 	TMap<TObjectPtr<UStaticMeshComponent>, FMaterialSlotArray> AffectedMeshes;
@@ -61,8 +74,9 @@ private:
 	UPROPERTY()
 	TArray<TObjectPtr<UMaterialInstanceDynamic>> ActiveDynamicMaterials;
 
+	void UpdatePositionFromMouse(float DeltaTime);
 	void PerformScanTrace();
 	void ApplyXRayMaterial(UStaticMeshComponent* MeshComp, const FVector& HitLocation);
 	void RestoreAllMaterials();
-	APlayerController* GetOwnerPlayerController() const;
+	APlayerController* GetPlayerController() const;
 };
