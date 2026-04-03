@@ -29,4 +29,10 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, Category = "Tool")
 	void OnUnequipped();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Tool")
+	void UseStart();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Tool")
+	void UseStop();
 };
