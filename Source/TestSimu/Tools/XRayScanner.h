@@ -14,6 +14,9 @@ struct FMaterialSlotArray
 	TArray<TObjectPtr<UMaterialInterface>> Materials;
 };
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnBrokenPartFound, FName, PartId, int32, TotalFound);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllBrokenPartsFound);
+
 UCLASS(Blueprintable, BlueprintType)
 class TESTSIMU_API AXRayScanner : public AActor
 {
@@ -73,6 +76,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
 	void SetBrokenPartIds(const TArray<FName>& InBrokenPartIds);
 
+	UPROPERTY(BlueprintAssignable, Category = "XRay Scanner")
+	FOnBrokenPartFound OnBrokenPartFound;
+
+	UPROPERTY(BlueprintAssignable, Category = "XRay Scanner")
+	FOnAllBrokenPartsFound OnAllBrokenPartsFound;
+
 protected:
 	virtual void Tick(float DeltaTime) override;
 
@@ -98,5 +107,10 @@ private:
 	void ApplyXRayMaterial(UStaticMeshComponent* MeshComp, const FVector& HitLocation);
 	void RestoreAllMaterials();
 	void CheckForBrokenPart(UStaticMeshComponent* MeshComp);
+	void OnAllPartsFoundEventDelay();
+	void OnAllPartsFoundHideDelay();
 	APlayerController* GetPlayerController() const;
+
+	FTimerHandle AllPartsFoundEventTimerHandle;
+	FTimerHandle AllPartsFoundHideTimerHandle;
 };

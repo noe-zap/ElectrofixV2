@@ -4,6 +4,7 @@
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "TimerManager.h"
 
 AXRayScanner::AXRayScanner()
 {
@@ -48,6 +49,8 @@ void AXRayScanner::DeactivateScanner()
 
 	bIsScanning = false;
 	FoundBrokenParts.Empty();
+	GetWorldTimerManager().ClearTimer(AllPartsFoundEventTimerHandle);
+	GetWorldTimerManager().ClearTimer(AllPartsFoundHideTimerHandle);
 	RestoreAllMaterials();
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
@@ -265,15 +268,40 @@ void AXRayScanner::CheckForBrokenPart(UStaticMeshComponent* MeshComp)
 			FoundBrokenParts.Add(Tag);
 			UE_LOG(LogTemp, Log, TEXT("XRayScanner: Broken part found: %s (%d/%d)"),
 				*Tag.ToString(), FoundBrokenParts.Num(), BrokenPartIds.Num());
+			OnBrokenPartFound.Broadcast(Tag, FoundBrokenParts.Num());
 
 			if (FoundBrokenParts.Num() >= BrokenPartIds.Num())
 			{
 				UE_LOG(LogTemp, Log, TEXT("XRayScanner: All broken parts scanned!"));
-				DeactivateScanner();
+				bIsScanning = false;
+				SetActorTickEnabled(false);
+				GetWorldTimerManager().SetTimer(AllPartsFoundEventTimerHandle, this,
+					&AXRayScanner::OnAllPartsFoundEventDelay, 1.f, false);
+				GetWorldTimerManager().SetTimer(AllPartsFoundHideTimerHandle, this,
+					&AXRayScanner::OnAllPartsFoundHideDelay, 2.f, false);
 				return;
 			}
 		}
 	}
+}
+
+void AXRayScanner::OnAllPartsFoundEventDelay()
+{
+	OnAllBrokenPartsFound.Broadcast();
+
+	APlayerController* PC = GetPlayerController();
+	if (PC)
+	{
+		PC->bShowMouseCursor = true;
+		PC->SetInputMode(FInputModeUIOnly());
+	}
+}
+
+void AXRayScanner::OnAllPartsFoundHideDelay()
+{
+	RestoreAllMaterials();
+	FoundBrokenParts.Empty();
+	SetActorHiddenInGame(true);
 }
 
 void AXRayScanner::RestoreAllMaterials()

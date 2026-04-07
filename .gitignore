@@ -23,6 +23,9 @@ Build/
 # Marketplace assets (re-download from Epic Launcher)
 Content/ShoppingMall/
 Content/ElectronicsShop/
+Content/IconCreator/
+Content/UI_Placement/
+
 
 # Thumbnails
 *.thumb
