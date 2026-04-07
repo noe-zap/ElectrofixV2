@@ -24,7 +24,6 @@ public:
 
 	// --- Components ---
 
-	/** The point from which the line trace originates. Position it in Blueprint. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "XRay Scanner")
 	TObjectPtr<USceneComponent> TraceOrigin;
 
@@ -42,38 +41,37 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
 	FName RepairOrderTag = FName("RepairOrder");
 
-	/** Material parameter name for the sphere mask center position */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner|Material")
 	FName HitLocationParamName = FName("ScanCenter");
 
-	/** How fast the scanner moves with the mouse */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner|Material")
+	FName BaseColorTextureParamName = FName("BaseColorTexture");
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
 	float MouseSensitivity = 0.1f;
 
-	/** How fast the scanner interpolates to the target position (lower = more lag/sway) */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
 	float MoveInterpSpeed = 8.f;
 
-	/** Min bounds offset relative to the activation location */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Bounds")
 	FVector BoundsMin = FVector(-50.f, -50.f, -50.f);
 
-	/** Max bounds offset relative to the activation location */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Bounds")
 	FVector BoundsMax = FVector(50.f, 50.f, 50.f);
 
 	// --- Blueprint API ---
 
-	/** Call this from Blueprint to activate the scanner at a given location and rotation. */
 	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
-	void ActivateScanner(FVector Location, FRotator Rotation);
+	void ActivateScanner(FVector Location, FRotator Rotation, const TArray<FName>& InBrokenPartIds);
 
-	/** Call this from Blueprint to deactivate. Restores all materials and stops ticking. */
 	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
 	void DeactivateScanner();
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "XRay Scanner")
 	bool IsScanning() const { return bIsScanning; }
+
+	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
+	void SetBrokenPartIds(const TArray<FName>& InBrokenPartIds);
 
 protected:
 	virtual void Tick(float DeltaTime) override;
@@ -82,6 +80,12 @@ private:
 	bool bIsScanning = false;
 	FVector TargetLocation = FVector::ZeroVector;
 	FVector ActivationOrigin = FVector::ZeroVector;
+
+	UPROPERTY()
+	TArray<FName> BrokenPartIds;
+
+	UPROPERTY()
+	TArray<FName> FoundBrokenParts;
 
 	UPROPERTY()
 	TMap<TObjectPtr<UStaticMeshComponent>, FMaterialSlotArray> AffectedMeshes;
@@ -93,5 +97,6 @@ private:
 	void PerformScanTrace();
 	void ApplyXRayMaterial(UStaticMeshComponent* MeshComp, const FVector& HitLocation);
 	void RestoreAllMaterials();
+	void CheckForBrokenPart(UStaticMeshComponent* MeshComp);
 	APlayerController* GetPlayerController() const;
 };
