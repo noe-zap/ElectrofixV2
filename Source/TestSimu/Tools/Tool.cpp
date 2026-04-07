@@ -21,3 +21,11 @@ void ATool::OnEquipped_Implementation(AActor* NewOwner)
 void ATool::OnUnequipped_Implementation()
 {
 }
+
+void ATool::UseStart_Implementation()
+{
+}
+
+void ATool::UseStop_Implementation()
+{
+}
