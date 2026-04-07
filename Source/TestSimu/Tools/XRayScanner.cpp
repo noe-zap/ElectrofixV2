@@ -1,6 +1,5 @@
 #include "XRayScanner.h"
 #include "Camera/PlayerCameraManager.h"
-#include "DrawDebugHelpers.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
@@ -10,27 +9,20 @@ AXRayScanner::AXRayScanner()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = false;
+
+	TraceOrigin = CreateDefaultSubobject<USceneComponent>(TEXT("TraceOrigin"));
+	TraceOrigin->SetupAttachment(RootComponent);
 }
 
 void AXRayScanner::ActivateScanner(FVector Location, FRotator Rotation)
 {
 	bIsScanning = true;
 	TargetLocation = Location;
+	ActivationOrigin = Location;
 	SetActorLocation(Location);
 	SetActorRotation(Rotation);
 	SetActorTickEnabled(true);
 	SetActorHiddenInGame(false);
-
-	// Store initial mouse position so first tick doesn't cause a jump
-	APlayerController* PC = GetPlayerController();
-	if (PC)
-	{
-		float MouseX, MouseY;
-		PC->GetMousePosition(MouseX, MouseY);
-		LastMousePosition = FVector2D(MouseX, MouseY);
-	}
-
-	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Activated at (%.1f, %.1f, %.1f)"), Location.X, Location.Y, Location.Z);
 }
 
 void AXRayScanner::DeactivateScanner()
@@ -69,66 +61,53 @@ void AXRayScanner::UpdatePositionFromMouse(float DeltaTime)
 		return;
 	}
 
-	float MouseX, MouseY;
-	if (!PC->GetMousePosition(MouseX, MouseY))
+	float DeltaX, DeltaY;
+	PC->GetInputMouseDelta(DeltaX, DeltaY);
+
+	// Only update the target when the mouse is actually moving
+	if (!FMath::IsNearlyZero(DeltaX) || !FMath::IsNearlyZero(DeltaY))
 	{
-		return;
-	}
-
-	const FVector2D CurrentMouse(MouseX, MouseY);
-	const FVector2D Delta = CurrentMouse - LastMousePosition;
-	LastMousePosition = CurrentMouse;
-
-	// Get camera right/up vectors to map screen movement to world movement
-	APlayerCameraManager* CamManager = PC->PlayerCameraManager;
-	if (!CamManager)
-	{
-		return;
-	}
-
-	const FRotator CamRotation = CamManager->GetCameraRotation();
-	const FVector CamRight = FRotationMatrix(CamRotation).GetUnitAxis(EAxis::Y);
-	const FVector CamUp = FRotationMatrix(CamRotation).GetUnitAxis(EAxis::Z);
-
-	// Project camera axes onto the horizontal plane (only X/Y, no Z)
-	FVector Right2D = FVector(CamRight.X, CamRight.Y, 0.f).GetSafeNormal();
-	FVector Up2D = FVector(CamUp.X, CamUp.Y, 0.f).GetSafeNormal();
-
-	// Update target position based on mouse delta (screen Y is inverted relative to world up)
-	TargetLocation += (Right2D * Delta.X - Up2D * Delta.Y) * MouseSensitivity;
-
-	// Clamp target to screen bounds
-	int32 ViewportX, ViewportY;
-	PC->GetViewportSize(ViewportX, ViewportY);
-
-	FVector2D ScreenPos;
-	if (PC->ProjectWorldLocationToScreen(TargetLocation, ScreenPos))
-	{
-		if (ScreenPos.X < 0.f || ScreenPos.X > ViewportX ||
-			ScreenPos.Y < 0.f || ScreenPos.Y > ViewportY)
+		APlayerCameraManager* CamManager = PC->PlayerCameraManager;
+		if (CamManager)
 		{
-			// Reject the move — revert target
-			TargetLocation -= (Right2D * Delta.X - Up2D * Delta.Y) * MouseSensitivity;
+			const FRotator CamRotation = CamManager->GetCameraRotation();
+			const FVector CamRight = FRotationMatrix(CamRotation).GetUnitAxis(EAxis::Y);
+			const FVector CamUp = FRotationMatrix(CamRotation).GetUnitAxis(EAxis::Z);
+
+			// Project camera axes onto the horizontal plane (only X/Y, no Z)
+			FVector Right2D = FVector(CamRight.X, CamRight.Y, 0.f).GetSafeNormal();
+			FVector Up2D = FVector(CamUp.X, CamUp.Y, 0.f).GetSafeNormal();
+
+			TargetLocation += (Right2D * DeltaX + Up2D * DeltaY) * MouseSensitivity;
 		}
 	}
 
+	// Clamp target to configurable world-space bounds relative to activation origin
+	const FVector ClampedMin = ActivationOrigin + BoundsMin;
+	const FVector ClampedMax = ActivationOrigin + BoundsMax;
+	TargetLocation.X = FMath::Clamp(TargetLocation.X, ClampedMin.X, ClampedMax.X);
+	TargetLocation.Y = FMath::Clamp(TargetLocation.Y, ClampedMin.Y, ClampedMax.Y);
+	TargetLocation.Z = FMath::Clamp(TargetLocation.Z, ClampedMin.Z, ClampedMax.Z);
+
 	// Smoothly interpolate actual position toward target (lag/sway effect)
 	const FVector CurrentLocation = GetActorLocation();
-	const FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveInterpSpeed);
+	FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, DeltaTime, MoveInterpSpeed);
+
+	// Clamp the interpolated position too so the actor never visually exceeds bounds
+	NewLocation.X = FMath::Clamp(NewLocation.X, ClampedMin.X, ClampedMax.X);
+	NewLocation.Y = FMath::Clamp(NewLocation.Y, ClampedMin.Y, ClampedMax.Y);
+	NewLocation.Z = FMath::Clamp(NewLocation.Z, ClampedMin.Z, ClampedMax.Z);
 	SetActorLocation(NewLocation);
 }
 
 void AXRayScanner::PerformScanTrace()
 {
-	// Trace straight down (-Z) since the repair order is flat on a table
-	const FVector TraceStart = GetActorLocation();
+	// Trace straight down (-Z) from the configurable TraceOrigin point
+	const FVector TraceStart = TraceOrigin->GetComponentLocation();
 	const FVector TraceEnd = TraceStart + FVector(0.f, 0.f, -1.f) * TraceDistance;
 
 	// Debug draw the trace line (green = trace, red = hit point)
-	DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, -1.f, 0, 1.f);
-
-	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Tracing from (%.1f, %.1f, %.1f) to (%.1f, %.1f, %.1f)"),
-		TraceStart.X, TraceStart.Y, TraceStart.Z, TraceEnd.X, TraceEnd.Y, TraceEnd.Z);
+	//DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, -1.f, 0, 1.f);
 
 	FHitResult Hit;
 	FCollisionQueryParams Params;
@@ -141,10 +120,6 @@ void AXRayScanner::PerformScanTrace()
 	}
 
 	AActor* HitActor = Hit.GetActor();
-	UE_LOG(LogTemp, Log, TEXT("XRayScanner: Scan trace hit Actor='%s' Component='%s'"),
-		HitActor ? *HitActor->GetName() : TEXT("null"),
-		Hit.GetComponent() ? *Hit.GetComponent()->GetName() : TEXT("null"));
-
 	if (!HitActor)
 	{
 		return;
@@ -156,7 +131,6 @@ void AXRayScanner::PerformScanTrace()
 		UStaticMeshComponent* MeshComp = Cast<UStaticMeshComponent>(Hit.GetComponent());
 		if (MeshComp)
 		{
-			UE_LOG(LogTemp, Log, TEXT("XRayScanner: Direct hit — applying to '%s'"), *MeshComp->GetName());
 			ApplyXRayMaterial(MeshComp, Hit.ImpactPoint);
 			return;
 		}
@@ -172,15 +146,11 @@ void AXRayScanner::PerformScanTrace()
 		{
 			if (MeshComp && MeshComp->ComponentHasTag(XRayTag))
 			{
-				UE_LOG(LogTemp, Log, TEXT("XRayScanner: RepairOrder hit — applying to component '%s' in '%s'"),
-					*MeshComp->GetName(), *HitActor->GetName());
 				ApplyXRayMaterial(MeshComp, Hit.ImpactPoint);
 				return;
 			}
 		}
 
-		UE_LOG(LogTemp, Log, TEXT("XRayScanner: RepairOrder '%s' has no component with tag '%s'"),
-			*HitActor->GetName(), *XRayTag.ToString());
 	}
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/SceneComponent.h"
 #include "GameFramework/Actor.h"
 #include "XRayScanner.generated.h"
 
@@ -20,6 +21,12 @@ class TESTSIMU_API AXRayScanner : public AActor
 
 public:
 	AXRayScanner();
+
+	// --- Components ---
+
+	/** The point from which the line trace originates. Position it in Blueprint. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "XRay Scanner")
+	TObjectPtr<USceneComponent> TraceOrigin;
 
 	// --- Configuration ---
 
@@ -47,6 +54,14 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "XRay Scanner")
 	float MoveInterpSpeed = 8.f;
 
+	/** Min bounds offset relative to the activation location */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Bounds")
+	FVector BoundsMin = FVector(-50.f, -50.f, -50.f);
+
+	/** Max bounds offset relative to the activation location */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Bounds")
+	FVector BoundsMax = FVector(50.f, 50.f, 50.f);
+
 	// --- Blueprint API ---
 
 	/** Call this from Blueprint to activate the scanner at a given location and rotation. */
@@ -65,8 +80,8 @@ protected:
 
 private:
 	bool bIsScanning = false;
-	FVector2D LastMousePosition = FVector2D::ZeroVector;
 	FVector TargetLocation = FVector::ZeroVector;
+	FVector ActivationOrigin = FVector::ZeroVector;
 
 	UPROPERTY()
 	TMap<TObjectPtr<UStaticMeshComponent>, FMaterialSlotArray> AffectedMeshes;
