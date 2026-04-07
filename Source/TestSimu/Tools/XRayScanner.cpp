@@ -42,11 +42,6 @@ void AXRayScanner::SetBrokenPartIds(const TArray<FName>& InBrokenPartIds)
 
 void AXRayScanner::DeactivateScanner()
 {
-	if (!bIsScanning)
-	{
-		return;
-	}
-
 	bIsScanning = false;
 	FoundBrokenParts.Empty();
 	GetWorldTimerManager().ClearTimer(AllPartsFoundEventTimerHandle);
