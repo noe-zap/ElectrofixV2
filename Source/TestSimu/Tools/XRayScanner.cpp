@@ -4,7 +4,6 @@
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInstanceDynamic.h"
-#include "TimerManager.h"
 
 AXRayScanner::AXRayScanner()
 {
@@ -43,9 +42,9 @@ void AXRayScanner::SetBrokenPartIds(const TArray<FName>& InBrokenPartIds)
 void AXRayScanner::DeactivateScanner()
 {
 	bIsScanning = false;
+	bIsWaitingToReturn = false;
+	bIsReturningToStart = false;
 	FoundBrokenParts.Empty();
-	GetWorldTimerManager().ClearTimer(AllPartsFoundEventTimerHandle);
-	GetWorldTimerManager().ClearTimer(AllPartsFoundHideTimerHandle);
 	RestoreAllMaterials();
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
@@ -54,6 +53,44 @@ void AXRayScanner::DeactivateScanner()
 void AXRayScanner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (bIsWaitingToReturn)
+	{
+		ReturnWaitTimer -= DeltaTime;
+		if (ReturnWaitTimer <= 0.f)
+		{
+			bIsWaitingToReturn = false;
+			bIsReturningToStart = true;
+			RestoreAllMaterials();
+		}
+		return;
+	}
+
+	if (bIsReturningToStart)
+	{
+		const FVector CurrentLocation = GetActorLocation();
+		const FVector NewLocation = FMath::VInterpTo(CurrentLocation, ActivationOrigin, DeltaTime, MoveInterpSpeed);
+		SetActorLocation(NewLocation);
+
+		if (FVector::Dist(NewLocation, ActivationOrigin) < 0.5f)
+		{
+			bIsReturningToStart = false;
+			SetActorTickEnabled(false);
+			SetActorLocation(ActivationOrigin);
+
+			OnAllBrokenPartsFound.Broadcast();
+
+			APlayerController* PC = GetPlayerController();
+			if (PC)
+			{
+				PC->bShowMouseCursor = true;
+				PC->SetInputMode(FInputModeUIOnly());
+			}
+
+			FoundBrokenParts.Empty();
+		}
+		return;
+	}
 
 	if (!bIsScanning)
 	{
@@ -267,36 +304,14 @@ void AXRayScanner::CheckForBrokenPart(UStaticMeshComponent* MeshComp)
 
 			if (FoundBrokenParts.Num() >= BrokenPartIds.Num())
 			{
-				UE_LOG(LogTemp, Log, TEXT("XRayScanner: All broken parts scanned!"));
+				UE_LOG(LogTemp, Log, TEXT("XRayScanner: All broken parts scanned! Returning to start."));
 				bIsScanning = false;
-				SetActorTickEnabled(false);
-				GetWorldTimerManager().SetTimer(AllPartsFoundEventTimerHandle, this,
-					&AXRayScanner::OnAllPartsFoundEventDelay, 1.f, false);
-				GetWorldTimerManager().SetTimer(AllPartsFoundHideTimerHandle, this,
-					&AXRayScanner::OnAllPartsFoundHideDelay, 2.f, false);
+				bIsWaitingToReturn = true;
+				ReturnWaitTimer = 1.f;
 				return;
 			}
 		}
 	}
-}
-
-void AXRayScanner::OnAllPartsFoundEventDelay()
-{
-	OnAllBrokenPartsFound.Broadcast();
-
-	APlayerController* PC = GetPlayerController();
-	if (PC)
-	{
-		PC->bShowMouseCursor = true;
-		PC->SetInputMode(FInputModeUIOnly());
-	}
-}
-
-void AXRayScanner::OnAllPartsFoundHideDelay()
-{
-	RestoreAllMaterials();
-	FoundBrokenParts.Empty();
-	SetActorHiddenInGame(true);
 }
 
 void AXRayScanner::RestoreAllMaterials()
