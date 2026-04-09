@@ -87,6 +87,9 @@ protected:
 
 private:
 	bool bIsScanning = false;
+	bool bIsWaitingToReturn = false;
+	bool bIsReturningToStart = false;
+	float ReturnWaitTimer = 0.f;
 	FVector TargetLocation = FVector::ZeroVector;
 	FVector ActivationOrigin = FVector::ZeroVector;
 
@@ -107,10 +110,5 @@ private:
 	void ApplyXRayMaterial(UStaticMeshComponent* MeshComp, const FVector& HitLocation);
 	void RestoreAllMaterials();
 	void CheckForBrokenPart(UStaticMeshComponent* MeshComp);
-	void OnAllPartsFoundEventDelay();
-	void OnAllPartsFoundHideDelay();
 	APlayerController* GetPlayerController() const;
-
-	FTimerHandle AllPartsFoundEventTimerHandle;
-	FTimerHandle AllPartsFoundHideTimerHandle;
 };
