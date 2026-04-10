@@ -16,7 +16,7 @@ class TESTSIMU_API UMyBlueprintFunctionLibrary : public UBlueprintFunctionLibrar
 
 public:
 	UFUNCTION(BlueprintPure, Category = "Utilities")
-	static FText MinutesToTimeText(float Minutes);
+	static FText MinutesToTimeText(int32 Minutes);
 
 	UFUNCTION(BlueprintPure, Category = "Utilities")
 	static TArray<FName> GetRandomUniqueElements(const TArray<FName>& Names);

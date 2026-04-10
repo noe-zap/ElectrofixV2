@@ -3,11 +3,10 @@
 
 #include "FunctionLibrary/MyBlueprintFunctionLibrary.h"
 
-FText UMyBlueprintFunctionLibrary::MinutesToTimeText(float Minutes)
+FText UMyBlueprintFunctionLibrary::MinutesToTimeText(int32 Minutes)
 {
-	const int32 TotalMinutes = FMath::FloorToInt(Minutes);
-	const int32 Hours = TotalMinutes / 60;
-	const int32 Mins = TotalMinutes % 60;
+	const int32 Hours = Minutes / 60;
+	const int32 Mins = Minutes % 60;
 
 	if (Hours >= 1)
 	{
