@@ -10,6 +10,19 @@ const FName AWorkshopDevice::BrokenTag = FName("Broken");
 const FName AWorkshopDevice::ScrewTag = FName("Screw");
 const FName AWorkshopDevice::ScrewDriverTag = FName("ScrewDriver");
 
+void AWorkshopDevice::SetupWorkshopCollision(UStaticMeshComponent* Comp)
+{
+	if (!Comp) return;
+	Comp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	Comp->SetCollisionResponseToAllChannels(ECR_Ignore);
+	Comp->SetCollisionResponseToChannel(WorkshopChannel, ECR_Block);
+
+	UE_LOG(LogTemp, Warning, TEXT("  SetupWorkshopCollision - %s | CollisionEnabled: %d | HasCollision: %s"),
+		*Comp->GetName(),
+		(int32)Comp->GetCollisionEnabled(),
+		Comp->GetCollisionResponseToChannel(WorkshopChannel) == ECR_Block ? TEXT("Block") : TEXT("NotBlock"));
+}
+
 AWorkshopDevice::AWorkshopDevice()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -56,7 +69,14 @@ void AWorkshopDevice::Repair(const TArray<FName>& BrokenPartIds, FVector SpawnLo
 			SlotOccupants.Add(FirstTag, Mesh);
 			Mesh->ComponentTags.AddUnique(BrokenTag);
 			Mesh->SetOverlayMaterial(BrokenMatOverlay);
+			SetupWorkshopCollision(Mesh);
 			UE_LOG(LogTemp, Warning, TEXT("  Slot registered: %s (Mesh: %s)"), *FirstTag.ToString(), *Mesh->GetName());
+		}
+
+		// Setup collision for screws and screwdriver
+		if (Mesh->ComponentTags.Contains(ScrewTag) || Mesh->ComponentTags.Contains(ScrewDriverTag))
+		{
+			SetupWorkshopCollision(Mesh);
 		}
 	}
 
@@ -124,6 +144,34 @@ void AWorkshopDevice::RegisterScrews()
 	}
 }
 
+UStaticMeshComponent* AWorkshopDevice::SpawnNewPart(UStaticMesh* Mesh, FName BrokenPartId)
+{
+	if (!Mesh)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::SpawnNewPart - Mesh is null"));
+		return nullptr;
+	}
+
+	UStaticMeshComponent* NewComp = NewObject<UStaticMeshComponent>(this);
+	NewComp->SetStaticMesh(Mesh);
+	NewComp->ComponentTags.Add(BrokenPartId);
+	NewComp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	NewComp->SetCollisionResponseToAllChannels(ECR_Block);
+	NewComp->SetCollisionResponseToChannel(WorkshopChannel, ECR_Block);
+	NewComp->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
+	NewComp->RegisterComponent();
+
+	// Position above the device
+	FVector SpawnLoc = GetActorLocation();
+	SpawnLoc.Z += SpawnHeightOffset;
+	NewComp->SetWorldLocation(SpawnLoc);
+
+	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::SpawnNewPart - Spawned new part with PartId '%s' at %s"),
+		*BrokenPartId.ToString(), *SpawnLoc.ToString());
+
+	return NewComp;
+}
+
 void AWorkshopDevice::StopRepair()
 {
 	TArray<UStaticMeshComponent*> AllMeshes;
@@ -184,28 +232,25 @@ void AWorkshopDevice::Tick(float DeltaTime)
 
 	if (bHoldingScrewDriver)
 	{
-		// --- ScrewDriver Mode ---
-		UpdateScrewDriverPosition(DeltaTime);
-
-		if (ActiveScrew)
+		// --- ScrewDriver Mode (hold to use) ---
+		if (bLeftMouseDown)
 		{
-			if (bLeftMouseDown)
+			UpdateScrewDriverPosition(DeltaTime);
+
+			if (ActiveScrew)
 			{
+				// Continue unscrewing while hovering the same screw
 				UpdateUnscrew(DeltaTime);
 			}
 			else
 			{
-				// Released before timer finished
-				CancelUnscrew();
+				// Check every frame if we're hovering a screw
+				TryStartUnscrew();
 			}
 		}
-		else if (bLeftMousePressed)
+		else
 		{
-			TryStartUnscrew();
-		}
-
-		if (bRightMousePressed)
-		{
+			// Released — drop screwdriver
 			if (ActiveScrew)
 			{
 				CancelUnscrew();
@@ -262,23 +307,32 @@ void AWorkshopDevice::TryGrabPart()
 	FCollisionQueryParams Params;
 	Params.bTraceComplex = true;
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, ECC_Visibility, Params);
-
-	if (bDebugTrace && bHit)
-	{
-		DrawDebugSphere(GetWorld(), Hit.ImpactPoint, 5.f, 12, FColor::Red, false, 2.f);
-		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryGrabPart - Hit: %s, Component: %s"),
-			*Hit.GetActor()->GetName(), *Hit.GetComponent()->GetName());
-	}
+	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, WorkshopChannel, Params);
 
 	if (!bHit)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryGrabPart - Workshop trace hit NOTHING"));
 		return;
 	}
 
-	UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
-	if (!HitMesh || HitMesh->ComponentTags.Num() == 0)
+	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryGrabPart - Hit: %s | Component: %s"),
+		Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("null"),
+		Hit.GetComponent() ? *Hit.GetComponent()->GetName() : TEXT("null"));
+
+	if (bDebugTrace)
 	{
+		DrawDebugSphere(GetWorld(), Hit.ImpactPoint, 5.f, 12, FColor::Red, false, 2.f);
+	}
+
+	UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
+	if (!HitMesh)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("  TryGrabPart - Not a StaticMeshComponent"));
+		return;
+	}
+	if (HitMesh->ComponentTags.Num() == 0)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("  TryGrabPart - Component has no tags"));
 		return;
 	}
 
@@ -301,8 +355,9 @@ void AWorkshopDevice::TryGrabPart()
 		return;
 	}
 
-	// Check if part is locked by screws
-	if (IsPartLockedByScrews(PartId))
+	// Check if part is locked by screws (only for broken parts still in their slot)
+	bool bIsBrokenPart = HitMesh->ComponentTags.Contains(BrokenTag);
+	if (bIsBrokenPart && IsPartLockedByScrews(PartId))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("  Part '%s' is locked by screws - cannot drag"), *PartId.ToString());
 		return;
@@ -569,25 +624,53 @@ void AWorkshopDevice::TryStartUnscrew()
 
 	if (bDebugTrace)
 	{
-		DrawDebugLine(GetWorld(), WorldLocation, TraceEnd, FColor::Cyan, false, 2.f, 0, 1.f);
+		DrawDebugLine(GetWorld(), WorldLocation, TraceEnd, FColor::Cyan, false, 0.1f, 0, 1.f);
 	}
 
 	FHitResult Hit;
 	FCollisionQueryParams Params;
 	Params.bTraceComplex = true;
-
-	if (!GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, ECC_Visibility, Params))
+	if (ScrewDriverComp)
 	{
+		Params.AddIgnoredComponent(ScrewDriverComp);
+	}
+
+	if (!GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, WorkshopChannel, Params))
+	{
+		static double LastLogTime_NoHit = 0;
+		if (GetWorld()->GetTimeSeconds() - LastLogTime_NoHit > 1.0)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("  TryStartUnscrew - Line trace hit nothing"));
+			LastLogTime_NoHit = GetWorld()->GetTimeSeconds();
+		}
 		return;
 	}
 
 	UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
+
+	// Log what we're hitting (throttled to once per second)
+	static double LastLogTime_Hit = 0;
+	if (GetWorld()->GetTimeSeconds() - LastLogTime_Hit > 1.0)
+	{
+		FString TagsStr = TEXT("none");
+		if (HitMesh && HitMesh->ComponentTags.Num() > 0)
+		{
+			TagsStr.Empty();
+			for (const FName& Tag : HitMesh->ComponentTags)
+			{
+				TagsStr += Tag.ToString() + TEXT(", ");
+			}
+		}
+		UE_LOG(LogTemp, Warning, TEXT("  TryStartUnscrew - Hit: %s | Component: %s | Tags: [%s] | InScrewMap: %s"),
+			Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("null"),
+			Hit.GetComponent() ? *Hit.GetComponent()->GetName() : TEXT("null"),
+			*TagsStr,
+			(HitMesh && ScrewToPartMap.Contains(HitMesh)) ? TEXT("YES") : TEXT("NO"));
+		LastLogTime_Hit = GetWorld()->GetTimeSeconds();
+	}
+
 	if (!HitMesh || !ScrewToPartMap.Contains(HitMesh))
 	{
-		if (bDebugTrace)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryStartUnscrew - Hit is not a registered screw"));
-		}
 		return;
 	}
 

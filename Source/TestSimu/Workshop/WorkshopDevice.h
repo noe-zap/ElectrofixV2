@@ -34,6 +34,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Workshop")
 	void StopRepair();
 
+	UFUNCTION(BlueprintCallable, Category = "Workshop")
+	UStaticMeshComponent* SpawnNewPart(UStaticMesh* Mesh, FName BrokenPartId);
+
 	UPROPERTY(BlueprintAssignable, Category = "Workshop")
 	FOnPartSnappedBack OnPartSnappedBack;
 
@@ -45,6 +48,9 @@ public:
 
 protected:
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
+	float SpawnHeightOffset = 30.f;
 
 	// --- Part Drag Settings ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
@@ -107,6 +113,10 @@ private:
 	void FinishUnscrew();
 	void CancelUnscrew();
 	void RegisterScrews();
+
+	// --- Collision ---
+	static constexpr ECollisionChannel WorkshopChannel = ECC_GameTraceChannel1;
+	void SetupWorkshopCollision(UStaticMeshComponent* Comp);
 
 	// --- Tags ---
 	static const FName BrokenTag;
