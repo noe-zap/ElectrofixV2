@@ -10,6 +10,18 @@ class UMaterialInterface;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartSnappedBack, FName, PartId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllPartsRepaired);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnScrewRemoved, FName, PartId);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCoverRemoved);
+
+UENUM()
+enum class ECoverRemovalState : uint8
+{
+	Inactive,
+	ToolAtBase,
+	ToolMovingToSnap,
+	Pulling,
+	Animating,
+	Done
+};
 
 USTRUCT()
 struct FScrewArray
@@ -46,13 +58,18 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Workshop")
 	FOnScrewRemoved OnScrewRemoved;
 
+	UPROPERTY(BlueprintAssignable, Category = "Workshop")
+	FOnCoverRemoved OnCoverRemoved;
+
 protected:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
 	float SpawnHeightOffset = 30.f;
 
-	// --- Part Drag Settings ---
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
+	FVector SpawnOffset = FVector(-30.f, 0.f, 0.f);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
 	UMaterialInterface* BrokenMatOverlay = nullptr;
 
@@ -85,13 +102,51 @@ protected:
 	float ScrewLiftDistance = 5.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
-	float ScrewEjectImpulse = 200.f;
+	float ScrewSnapDistance = 15.f;
 
-	// --- Debug ---
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	float ScrewDriverHeightAboveScrew = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	float ScrewDriverPickupLift = 10.f;
+
+	// --- Cover Settings ---
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover")
+	bool bHasCover = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverPullThreshold = 200.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverToolMoveSpeed = 5.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverAnimSpeed = 5.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverToolArcHeight = 20.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverPullRotationScale = 0.1f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverPullVisualScale = 0.05f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
+	float CoverPullMaxOffset = 10.f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Debug")
 	bool bDebugTrace = false;
 
 private:
+	// --- Cover Pull ---
+	void InitCoverPhase();
+	void UpdateCoverPhase(float DeltaTime);
+	void UpdateCoverToolMoving(float DeltaTime);
+	void UpdateCoverPulling(float DeltaTime);
+	void UpdateCoverAnimating(float DeltaTime);
+	void FinishCoverRemoval();
+
 	// --- Part Drag ---
 	void TryGrabPart();
 	void UpdateDrag(float DeltaTime);
@@ -100,28 +155,34 @@ private:
 	bool IsSlotRepaired(FName PartId) const;
 	bool AreAllSlotsRepaired() const;
 	bool IsPartLockedByScrews(FName PartId) const;
-	FName GetPartId(UStaticMeshComponent* Comp) const;
+	FName GetBasePartId(UStaticMeshComponent* Comp) const;
+	bool IsBrokenTag(const FName& Tag) const;
 
-	// --- Screw Driver ---
-	void TryPickUpScrewDriver();
-	void DropScrewDriver();
-	void UpdateScrewDriverPosition(float DeltaTime);
+	// --- ScrewDriver ---
+	void TryGrabScrewDriver();
+	void UpdateScrewDriver(float DeltaTime);
+	void ReleaseScrewDriver();
 
-	// --- Screw Unscrewing ---
-	void TryStartUnscrew();
+	// --- Screws ---
+	void RegisterScrews();
+	UStaticMeshComponent* FindNearestScrew() const;
+	void StartUnscrew(UStaticMeshComponent* Screw);
 	void UpdateUnscrew(float DeltaTime);
 	void FinishUnscrew();
 	void CancelUnscrew();
-	void RegisterScrews();
 
 	// --- Collision ---
 	static constexpr ECollisionChannel WorkshopChannel = ECC_GameTraceChannel1;
 	void SetupWorkshopCollision(UStaticMeshComponent* Comp);
 
 	// --- Tags ---
-	static const FName BrokenTag;
+	static const FString BrokenSuffix;
 	static const FName ScrewTag;
 	static const FName ScrewDriverTag;
+	static const FName CoverToolTag;
+	static const FName CoverTag;
+	static const FName CoverToolPosTag;
+	static const FName CoverPosTag;
 
 	// --- Part State ---
 	UPROPERTY()
@@ -150,8 +211,8 @@ private:
 	UStaticMeshComponent* ScrewDriverComp = nullptr;
 
 	bool bHoldingScrewDriver = false;
-	FVector ScrewDriverTargetLocation = FVector::ZeroVector;
 	FTransform ScrewDriverOriginalTransform;
+	FVector ScrewDriverDragTarget = FVector::ZeroVector;
 
 	// --- Unscrew State ---
 	UPROPERTY()
@@ -161,8 +222,39 @@ private:
 	FVector ScrewStartLocation = FVector::ZeroVector;
 	FRotator ScrewStartRotation = FRotator::ZeroRotator;
 
+	// --- Hover ---
+	void UpdateHover();
+
+	UPROPERTY()
+	UStaticMeshComponent* HoveredComponent = nullptr;
+
+	// --- Cover State ---
+	ECoverRemovalState CoverState = ECoverRemovalState::Inactive;
+
+	UPROPERTY()
+	UStaticMeshComponent* CoverToolComp = nullptr;
+
+	UPROPERTY()
+	UStaticMeshComponent* CoverComp = nullptr;
+
+	UPROPERTY()
+	USceneComponent* CoverToolPosComp = nullptr;
+
+	UPROPERTY()
+	USceneComponent* CoverPosComp = nullptr;
+
+	FTransform CoverToolOriginalTransform;
+	FTransform CoverOriginalTransform;
+	float CoverToolMoveAlpha = 0.f;
+	float CoverPullAccumulator = 0.f;
+	float CoverAnimAlpha = 0.f;
+
+	FVector CoverAnimStartPos = FVector::ZeroVector;
+	FQuat CoverAnimStartQuat = FQuat::Identity;
+	FVector ToolAnimStartPos = FVector::ZeroVector;
+	FQuat ToolAnimStartQuat = FQuat::Identity;
+
 	// --- Input ---
 	bool bWasLeftMouseDown = false;
-	bool bWasRightMouseDown = false;
 	bool bIsRepairing = false;
 };

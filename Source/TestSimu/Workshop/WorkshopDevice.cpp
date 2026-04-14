@@ -3,24 +3,23 @@
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
 #include "DrawDebugHelpers.h"
-#include "EngineUtils.h"
-#include "Kismet/GameplayStatics.h"
 
-const FName AWorkshopDevice::BrokenTag = FName("Broken");
+const FString AWorkshopDevice::BrokenSuffix = TEXT("_broken");
 const FName AWorkshopDevice::ScrewTag = FName("Screw");
 const FName AWorkshopDevice::ScrewDriverTag = FName("ScrewDriver");
+const FName AWorkshopDevice::CoverToolTag = FName("CoverTool");
+const FName AWorkshopDevice::CoverTag = FName("Cover");
+const FName AWorkshopDevice::CoverToolPosTag = FName("CoverToolPos");
+const FName AWorkshopDevice::CoverPosTag = FName("CoverPos");
 
 void AWorkshopDevice::SetupWorkshopCollision(UStaticMeshComponent* Comp)
 {
 	if (!Comp) return;
 	Comp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	Comp->SetCollisionResponseToAllChannels(ECR_Ignore);
+	Comp->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
+	Comp->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Block);
 	Comp->SetCollisionResponseToChannel(WorkshopChannel, ECR_Block);
-
-	UE_LOG(LogTemp, Warning, TEXT("  SetupWorkshopCollision - %s | CollisionEnabled: %d | HasCollision: %s"),
-		*Comp->GetName(),
-		(int32)Comp->GetCollisionEnabled(),
-		Comp->GetCollisionResponseToChannel(WorkshopChannel) == ECR_Block ? TEXT("Block") : TEXT("NotBlock"));
 }
 
 AWorkshopDevice::AWorkshopDevice()
@@ -47,9 +46,15 @@ void AWorkshopDevice::Repair(const TArray<FName>& BrokenPartIds, FVector SpawnLo
 	bHoldingScrewDriver = false;
 	ActiveScrew = nullptr;
 	bWasLeftMouseDown = false;
-	bWasRightMouseDown = false;
+	CoverToolComp = nullptr;
+	CoverComp = nullptr;
+	CoverToolPosComp = nullptr;
+	CoverPosComp = nullptr;
+	CoverState = ECoverRemovalState::Inactive;
+	CoverToolMoveAlpha = 0.f;
+	CoverPullAccumulator = 0.f;
+	CoverAnimAlpha = 0.f;
 
-	// Register broken part slots
 	TArray<UStaticMeshComponent*> AllMeshes;
 	GetComponents<UStaticMeshComponent>(AllMeshes);
 
@@ -63,27 +68,38 @@ void AWorkshopDevice::Repair(const TArray<FName>& BrokenPartIds, FVector SpawnLo
 		}
 
 		FName FirstTag = Mesh->ComponentTags[0];
+		UE_LOG(LogTemp, Warning, TEXT("  Mesh: %s | FirstTag: %s"), *Mesh->GetName(), *FirstTag.ToString());
+
 		if (BrokenPartIds.Contains(FirstTag))
 		{
+			// Store slot transform keyed by original PartId
 			SlotTransforms.Add(FirstTag, Mesh->GetComponentTransform());
 			SlotOccupants.Add(FirstTag, Mesh);
-			Mesh->ComponentTags.AddUnique(BrokenTag);
+
+			// Rename tag: "HDD" -> "HDD_broken"
+			FName BrokenTag = FName(FirstTag.ToString() + BrokenSuffix);
+			Mesh->ComponentTags[0] = BrokenTag;
+
 			Mesh->SetOverlayMaterial(BrokenMatOverlay);
 			SetupWorkshopCollision(Mesh);
-			UE_LOG(LogTemp, Warning, TEXT("  Slot registered: %s (Mesh: %s)"), *FirstTag.ToString(), *Mesh->GetName());
+			UE_LOG(LogTemp, Warning, TEXT("  -> Slot registered: %s (renamed to %s)"), *FirstTag.ToString(), *BrokenTag.ToString());
 		}
 
 		// Setup collision for screws and screwdriver
 		if (Mesh->ComponentTags.Contains(ScrewTag) || Mesh->ComponentTags.Contains(ScrewDriverTag))
 		{
 			SetupWorkshopCollision(Mesh);
+			UE_LOG(LogTemp, Warning, TEXT("  -> Screw/ScrewDriver collision setup: %s"), *Mesh->GetName());
 		}
 	}
 
-	// Register screws via overlap detection
 	RegisterScrews();
-
 	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::Repair - %d slots, %d screws registered"), SlotTransforms.Num(), ScrewToPartMap.Num());
+
+	if (bHasCover)
+	{
+		InitCoverPhase();
+	}
 
 	bIsRepairing = true;
 	SetActorTickEnabled(true);
@@ -108,11 +124,12 @@ void AWorkshopDevice::RegisterScrews()
 		{
 			continue;
 		}
-		FName FirstTag = Mesh->ComponentTags[0];
-		if (SlotTransforms.Contains(FirstTag))
+		// Tags have already been renamed to X_broken, so use GetBasePartId
+		FName BaseId = GetBasePartId(Mesh);
+		if (SlotTransforms.Contains(BaseId))
 		{
 			FPartBounds PB;
-			PB.PartId = FirstTag;
+			PB.PartId = BaseId;
 			PB.Bounds = Mesh->Bounds.GetBox();
 			PartBoundsList.Add(PB);
 		}
@@ -136,8 +153,6 @@ void AWorkshopDevice::RegisterScrews()
 
 				FScrewArray& ScrewArr = PartScrewsMap.FindOrAdd(PB.PartId);
 				ScrewArr.Screws.Add(Mesh);
-
-				UE_LOG(LogTemp, Warning, TEXT("  Screw '%s' assigned to part '%s'"), *Mesh->GetName(), *PB.PartId.ToString());
 				break;
 			}
 		}
@@ -148,44 +163,65 @@ UStaticMeshComponent* AWorkshopDevice::SpawnNewPart(UStaticMesh* Mesh, FName Bro
 {
 	if (!Mesh)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::SpawnNewPart - Mesh is null"));
 		return nullptr;
 	}
 
 	UStaticMeshComponent* NewComp = NewObject<UStaticMeshComponent>(this);
 	NewComp->SetStaticMesh(Mesh);
 	NewComp->ComponentTags.Add(BrokenPartId);
-	NewComp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	NewComp->SetCollisionResponseToAllChannels(ECR_Block);
-	NewComp->SetCollisionResponseToChannel(WorkshopChannel, ECR_Block);
 	NewComp->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
 	NewComp->RegisterComponent();
 
-	// Position above the device
-	FVector SpawnLoc = GetActorLocation();
-	SpawnLoc.Z += SpawnHeightOffset;
-	NewComp->SetWorldLocation(SpawnLoc);
+	SetupWorkshopCollision(NewComp);
 
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::SpawnNewPart - Spawned new part with PartId '%s' at %s"),
-		*BrokenPartId.ToString(), *SpawnLoc.ToString());
+	// Match scale from the broken part's slot
+	FTransform* SlotTransform = SlotTransforms.Find(BrokenPartId);
+	FVector SpawnLoc = GetActorLocation() + GetActorRotation().RotateVector(SpawnOffset);
+	SpawnLoc.Z += SpawnHeightOffset;
+
+	NewComp->SetWorldLocation(SpawnLoc);
+	if (SlotTransform)
+	{
+		NewComp->SetWorldScale3D(SlotTransform->GetScale3D());
+	}
+
+	NewComp->SetSimulatePhysics(true);
 
 	return NewComp;
 }
 
 void AWorkshopDevice::StopRepair()
 {
+	// Reset cover to original transforms if mid-phase
+	if (CoverState != ECoverRemovalState::Inactive && CoverState != ECoverRemovalState::Done)
+	{
+		if (CoverToolComp) CoverToolComp->SetWorldTransform(CoverToolOriginalTransform);
+		if (CoverComp) CoverComp->SetWorldTransform(CoverOriginalTransform);
+	}
+	CoverState = ECoverRemovalState::Inactive;
+	CoverToolComp = nullptr;
+	CoverComp = nullptr;
+	CoverToolPosComp = nullptr;
+	CoverPosComp = nullptr;
+	CoverToolMoveAlpha = 0.f;
+	CoverPullAccumulator = 0.f;
+	CoverAnimAlpha = 0.f;
+
+	if (bHoldingScrewDriver)
+	{
+		ReleaseScrewDriver();
+	}
+	if (ActiveScrew)
+	{
+		CancelUnscrew();
+	}
+
 	TArray<UStaticMeshComponent*> AllMeshes;
 	GetComponents<UStaticMeshComponent>(AllMeshes);
 	for (UStaticMeshComponent* Mesh : AllMeshes)
 	{
-		Mesh->ComponentTags.Remove(BrokenTag);
 		Mesh->SetOverlayMaterial(nullptr);
 		Mesh->SetSimulatePhysics(false);
-	}
-
-	if (bHoldingScrewDriver)
-	{
-		DropScrewDriver();
 	}
 
 	ActiveBrokenPartIds.Empty();
@@ -196,8 +232,12 @@ void AWorkshopDevice::StopRepair()
 	DraggedComponent = nullptr;
 	ScrewDriverComp = nullptr;
 	ActiveScrew = nullptr;
+	if (HoveredComponent)
+	{
+		HoveredComponent->SetRenderCustomDepth(false);
+		HoveredComponent = nullptr;
+	}
 	bWasLeftMouseDown = false;
-	bWasRightMouseDown = false;
 	bIsRepairing = false;
 	SetActorTickEnabled(false);
 }
@@ -221,41 +261,57 @@ void AWorkshopDevice::Tick(float DeltaTime)
 		return;
 	}
 
+	// --- Cover Phase (runs before everything else) ---
+	if (CoverState != ECoverRemovalState::Inactive && CoverState != ECoverRemovalState::Done)
+	{
+		UpdateHover();
+		UpdateCoverPhase(DeltaTime);
+		return;
+	}
+
+	UpdateHover();
+
 	const bool bLeftMouseDown = PC->IsInputKeyDown(EKeys::LeftMouseButton);
 	const bool bLeftMousePressed = bLeftMouseDown && !bWasLeftMouseDown;
 	const bool bLeftMouseReleased = !bLeftMouseDown && bWasLeftMouseDown;
 	bWasLeftMouseDown = bLeftMouseDown;
 
-	const bool bRightMouseDown = PC->IsInputKeyDown(EKeys::RightMouseButton);
-	const bool bRightMousePressed = bRightMouseDown && !bWasRightMouseDown;
-	bWasRightMouseDown = bRightMouseDown;
-
 	if (bHoldingScrewDriver)
 	{
-		// --- ScrewDriver Mode (hold to use) ---
-		if (bLeftMouseDown)
+		// --- ScrewDriver Mode ---
+		if (ActiveScrew)
 		{
-			UpdateScrewDriverPosition(DeltaTime);
-
-			if (ActiveScrew)
+			// Currently unscrewing
+			if (bLeftMouseDown)
 			{
-				// Continue unscrewing while hovering the same screw
 				UpdateUnscrew(DeltaTime);
 			}
 			else
 			{
-				// Check every frame if we're hovering a screw
-				TryStartUnscrew();
+				// Released — cancel unscrew
+				CancelUnscrew();
 			}
 		}
 		else
 		{
-			// Released — drop screwdriver
-			if (ActiveScrew)
+			// Move screwdriver and snap to nearby screws
+			UpdateScrewDriver(DeltaTime);
+
+			if (bLeftMousePressed)
 			{
-				CancelUnscrew();
+				// Check if snapped to a screw
+				UStaticMeshComponent* NearestScrew = FindNearestScrew();
+				if (NearestScrew)
+				{
+					// Start unscrewing
+					StartUnscrew(NearestScrew);
+				}
+				else
+				{
+					// Not near a screw — drop screwdriver
+					ReleaseScrewDriver();
+				}
 			}
-			DropScrewDriver();
 		}
 	}
 	else
@@ -275,6 +331,93 @@ void AWorkshopDevice::Tick(float DeltaTime)
 		{
 			ReleasePart();
 		}
+	}
+}
+
+// ============================================================
+// Hover
+// ============================================================
+
+void AWorkshopDevice::UpdateHover()
+{
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC)
+	{
+		return;
+	}
+
+	FVector WorldLocation, WorldDirection;
+	if (!PC->DeprojectMousePositionToWorld(WorldLocation, WorldDirection))
+	{
+		return;
+	}
+
+	FVector TraceEnd = WorldLocation + WorldDirection * DragTraceDistance;
+	FHitResult Hit;
+	FCollisionQueryParams Params;
+	Params.bTraceComplex = true;
+
+	UStaticMeshComponent* NewHovered = nullptr;
+
+	if (GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, WorkshopChannel, Params))
+	{
+		UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
+		if (HitMesh && HitMesh->ComponentTags.Num() > 0)
+		{
+			bool bCanInteract = false;
+
+			if (CoverState == ECoverRemovalState::ToolAtBase)
+			{
+				// During cover phase, only meshes with CoverTool tag are interactable
+				bCanInteract = HitMesh->ComponentTags.Contains(CoverToolTag);
+			}
+			else if (CoverState != ECoverRemovalState::Inactive && CoverState != ECoverRemovalState::Done)
+			{
+				// During other cover states, nothing is hoverable
+				bCanInteract = false;
+			}
+			else if (bHoldingScrewDriver)
+			{
+				// While holding screwdriver, only screws are interactable
+				bCanInteract = ScrewToPartMap.Contains(HitMesh);
+			}
+			else
+			{
+				// Not holding screwdriver: screwdriver, unlocked parts, and new parts
+				if (HitMesh->ComponentTags.Contains(ScrewDriverTag))
+				{
+					bCanInteract = true;
+				}
+				else
+				{
+					FName BaseId = GetBasePartId(HitMesh);
+					if (ActiveBrokenPartIds.Contains(BaseId) && !IsPartLockedByScrews(BaseId))
+					{
+						bCanInteract = true;
+					}
+				}
+			}
+
+			if (bCanInteract)
+			{
+				NewHovered = HitMesh;
+			}
+		}
+	}
+
+	if (NewHovered != HoveredComponent)
+	{
+		if (HoveredComponent)
+		{
+			HoveredComponent->SetRenderCustomDepth(false);
+		}
+
+		if (NewHovered)
+		{
+			NewHovered->SetRenderCustomDepth(true);
+		}
+
+		HoveredComponent = NewHovered;
 	}
 }
 
@@ -311,13 +454,9 @@ void AWorkshopDevice::TryGrabPart()
 
 	if (!bHit)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryGrabPart - Workshop trace hit NOTHING"));
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - Line trace hit NOTHING on WorkshopChannel"));
 		return;
 	}
-
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryGrabPart - Hit: %s | Component: %s"),
-		Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("null"),
-		Hit.GetComponent() ? *Hit.GetComponent()->GetName() : TEXT("null"));
 
 	if (bDebugTrace)
 	{
@@ -327,42 +466,60 @@ void AWorkshopDevice::TryGrabPart()
 	UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
 	if (!HitMesh)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("  TryGrabPart - Not a StaticMeshComponent"));
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - Hit component is not a StaticMeshComponent: %s"), *Hit.GetComponent()->GetName());
 		return;
 	}
 	if (HitMesh->ComponentTags.Num() == 0)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("  TryGrabPart - Component has no tags"));
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - Hit mesh '%s' has NO tags"), *HitMesh->GetName());
 		return;
 	}
+
+	UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - Hit: %s | Tags[0]: %s | CollisionEnabled: %d"),
+		*HitMesh->GetName(), *HitMesh->ComponentTags[0].ToString(), (int32)HitMesh->GetCollisionEnabled());
 
 	// Check if clicking on the screwdriver
 	if (HitMesh->ComponentTags.Contains(ScrewDriverTag))
 	{
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - Clicked ScrewDriver"));
 		ScrewDriverComp = HitMesh;
 		ScrewDriverOriginalTransform = HitMesh->GetComponentTransform();
-		TryPickUpScrewDriver();
+		if (ScrewDriverComp->IsSimulatingPhysics())
+		{
+			ScrewDriverComp->SetSimulatePhysics(false);
+		}
+		ScrewDriverComp->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+		FVector LiftedPos = ScrewDriverComp->GetComponentLocation();
+		LiftedPos.Z += ScrewDriverPickupLift;
+		ScrewDriverComp->SetWorldLocation(LiftedPos);
+		ScrewDriverDragTarget = LiftedPos;
+		bHoldingScrewDriver = true;
+
+		// Rotate 90° on pitch to point downward (ready to unscrew)
+		FRotator ReadyRotation = ScrewDriverComp->GetComponentRotation();
+		ReadyRotation.Pitch -= 90.f;
+		ScrewDriverComp->SetWorldRotation(ReadyRotation);
+
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabScrewDriver - PICKED UP: %s"), *ScrewDriverComp->GetName());
 		return;
 	}
 
-	FName PartId = HitMesh->ComponentTags[0];
+	// Get base part id (strips _broken suffix if present)
+	FName PartId = GetBasePartId(HitMesh);
 	if (!ActiveBrokenPartIds.Contains(PartId))
 	{
-		if (bDebugTrace)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("  First tag '%s' not in ActiveBrokenPartIds"), *PartId.ToString());
-		}
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - PartId '%s' not in ActiveBrokenPartIds"), *PartId.ToString());
 		return;
 	}
 
-	// Check if part is locked by screws (only for broken parts still in their slot)
-	bool bIsBrokenPart = HitMesh->ComponentTags.Contains(BrokenTag);
-	if (bIsBrokenPart && IsPartLockedByScrews(PartId))
+	// Can't grab parts that still have screws
+	if (IsPartLockedByScrews(PartId))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("  Part '%s' is locked by screws - cannot drag"), *PartId.ToString());
+		UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - Part '%s' is locked by screws"), *PartId.ToString());
 		return;
 	}
 
+	UE_LOG(LogTemp, Warning, TEXT("TryGrabPart - GRABBED: %s (PartId: %s)"), *HitMesh->GetName(), *PartId.ToString());
 	DraggedComponent = HitMesh;
 
 	// Clear slot if this mesh was occupying one
@@ -388,9 +545,6 @@ void AWorkshopDevice::TryGrabPart()
 	}
 	DraggedComponent->SetWorldLocation(LiftedPos);
 	DragTargetLocation = LiftedPos;
-
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryGrabPart - Grabbed: %s (PartId: %s)"),
-		*DraggedComponent->GetName(), *PartId.ToString());
 }
 
 void AWorkshopDevice::UpdateDrag(float DeltaTime)
@@ -418,7 +572,7 @@ void AWorkshopDevice::UpdateDrag(float DeltaTime)
 		DragTargetLocation += CamRight * MouseX * DragScale + CamForward * MouseY * DragScale;
 	}
 
-	FName PartId = GetPartId(DraggedComponent);
+	FName PartId = GetBasePartId(DraggedComponent);
 	if (FTransform* SlotTransform = SlotTransforms.Find(PartId))
 	{
 		DragTargetLocation.Z = SlotTransform->GetLocation().Z + DragLiftHeight;
@@ -445,7 +599,7 @@ void AWorkshopDevice::UpdateDrag(float DeltaTime)
 
 void AWorkshopDevice::ReleasePart()
 {
-	FName PartId = GetPartId(DraggedComponent);
+	FName PartId = GetBasePartId(DraggedComponent);
 
 	FTransform* SlotTransform = SlotTransforms.Find(PartId);
 	if (!SlotTransform)
@@ -456,9 +610,6 @@ void AWorkshopDevice::ReleasePart()
 	}
 
 	float Distance = FVector::Dist(DraggedComponent->GetComponentLocation(), SlotTransform->GetLocation());
-
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::ReleasePart - %s (PartId: %s), Distance: %.1f, Threshold: %.1f"),
-		*DraggedComponent->GetName(), *PartId.ToString(), Distance, SnapDistanceThreshold);
 
 	TObjectPtr<UStaticMeshComponent>* CurrentOccupant = SlotOccupants.Find(PartId);
 	bool bSlotFree = !CurrentOccupant || !(*CurrentOccupant);
@@ -486,13 +637,8 @@ void AWorkshopDevice::SnapToSlot(UStaticMeshComponent* Comp, FName PartId)
 
 	OnPartSnappedBack.Broadcast(PartId);
 
-	bool bSlotRepaired = IsSlotRepaired(PartId);
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::SnapToSlot - %s snapped to slot %s (Repaired: %s)"),
-		*Comp->GetName(), *PartId.ToString(), bSlotRepaired ? TEXT("YES") : TEXT("NO"));
-
 	if (AreAllSlotsRepaired())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice - All slots repaired!"));
 		OnAllPartsRepaired.Broadcast();
 	}
 }
@@ -510,7 +656,11 @@ bool AWorkshopDevice::IsSlotRepaired(FName PartId) const
 	{
 		return false;
 	}
-	return !(*Occupant)->ComponentTags.Contains(BrokenTag);
+	if ((*Occupant)->ComponentTags.Num() == 0)
+	{
+		return false;
+	}
+	return !IsBrokenTag((*Occupant)->ComponentTags[0]);
 }
 
 bool AWorkshopDevice::AreAllSlotsRepaired() const
@@ -525,51 +675,267 @@ bool AWorkshopDevice::AreAllSlotsRepaired() const
 	return true;
 }
 
-FName AWorkshopDevice::GetPartId(UStaticMeshComponent* Comp) const
+FName AWorkshopDevice::GetBasePartId(UStaticMeshComponent* Comp) const
 {
-	if (Comp && Comp->ComponentTags.Num() > 0)
+	if (!Comp || Comp->ComponentTags.Num() == 0)
 	{
-		return Comp->ComponentTags[0];
+		return NAME_None;
 	}
-	return NAME_None;
+
+	FString TagStr = Comp->ComponentTags[0].ToString();
+	if (TagStr.EndsWith(BrokenSuffix))
+	{
+		TagStr.LeftChopInline(BrokenSuffix.Len());
+	}
+	return FName(*TagStr);
+}
+
+bool AWorkshopDevice::IsBrokenTag(const FName& Tag) const
+{
+	return Tag.ToString().EndsWith(BrokenSuffix);
+}
+
+// ============================================================
+// Cover Pull
+// ============================================================
+
+void AWorkshopDevice::InitCoverPhase()
+{
+	// Cover, CoverToolPos, CoverPos are child components of the WorkshopDevice
+	TArray<UStaticMeshComponent*> AllMeshes;
+	GetComponents<UStaticMeshComponent>(AllMeshes);
+	for (UStaticMeshComponent* Mesh : AllMeshes)
+	{
+		if (Mesh->ComponentTags.Contains(CoverTag))
+		{
+			CoverComp = Mesh;
+		}
+	}
+
+	TArray<USceneComponent*> AllSceneComps;
+	GetComponents<USceneComponent>(AllSceneComps);
+	for (USceneComponent* SC : AllSceneComps)
+	{
+		if (SC->ComponentTags.Contains(CoverToolPosTag))
+		{
+			CoverToolPosComp = SC;
+		}
+		else if (SC->ComponentTags.Contains(CoverPosTag))
+		{
+			CoverPosComp = SC;
+		}
+	}
+
+	// CoverTool is a separate actor (like the ScrewDriver) — found via raycast on click
+	if (CoverComp && CoverToolPosComp && CoverPosComp)
+	{
+		CoverOriginalTransform = CoverComp->GetComponentTransform();
+		CoverState = ECoverRemovalState::ToolAtBase;
+		UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Initialized. Waiting for tool click. (CoverTool found via raycast)"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Missing child components. Cover:%d ToolPos:%d CoverPos:%d"),
+			CoverComp != nullptr, CoverToolPosComp != nullptr, CoverPosComp != nullptr);
+		CoverState = ECoverRemovalState::Done;
+	}
+}
+
+void AWorkshopDevice::UpdateCoverPhase(float DeltaTime)
+{
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC) return;
+
+	const bool bLeftMouseDown = PC->IsInputKeyDown(EKeys::LeftMouseButton);
+	const bool bLeftMousePressed = bLeftMouseDown && !bWasLeftMouseDown;
+	bWasLeftMouseDown = bLeftMouseDown;
+
+	switch (CoverState)
+	{
+	case ECoverRemovalState::ToolAtBase:
+		if (bLeftMousePressed)
+		{
+			FVector WorldLocation, WorldDirection;
+			if (PC->DeprojectMousePositionToWorld(WorldLocation, WorldDirection))
+			{
+				FVector TraceEnd = WorldLocation + WorldDirection * DragTraceDistance;
+				FHitResult Hit;
+				FCollisionQueryParams Params;
+				Params.bTraceComplex = true;
+
+				if (GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, WorkshopChannel, Params))
+				{
+					UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
+					if (HitMesh && HitMesh->ComponentTags.Contains(CoverToolTag))
+					{
+						// Found the CoverTool via raycast (separate actor, like ScrewDriver)
+						CoverToolComp = HitMesh;
+						CoverToolOriginalTransform = CoverToolComp->GetComponentTransform();
+						CoverToolMoveAlpha = 0.f;
+						CoverState = ECoverRemovalState::ToolMovingToSnap;
+						UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Tool clicked, moving to snap position."));
+					}
+				}
+			}
+		}
+		break;
+
+	case ECoverRemovalState::ToolMovingToSnap:
+		UpdateCoverToolMoving(DeltaTime);
+		break;
+
+	case ECoverRemovalState::Pulling:
+		UpdateCoverPulling(DeltaTime);
+		break;
+
+	case ECoverRemovalState::Animating:
+		UpdateCoverAnimating(DeltaTime);
+		break;
+
+	default:
+		break;
+	}
+}
+
+void AWorkshopDevice::UpdateCoverToolMoving(float DeltaTime)
+{
+	CoverToolMoveAlpha = FMath::Clamp(CoverToolMoveAlpha + DeltaTime * CoverToolMoveSpeed, 0.f, 1.f);
+
+	// Smoothstep: t^2 * (3 - 2t)
+	float T = CoverToolMoveAlpha;
+	float Smooth = T * T * (3.f - 2.f * T);
+
+	FVector Start = CoverToolOriginalTransform.GetLocation();
+	FVector End = CoverToolPosComp->GetComponentLocation();
+	FVector Pos = FMath::Lerp(Start, End, Smooth);
+	Pos.Z += FMath::Sin(Smooth * PI) * CoverToolArcHeight;
+
+	CoverToolComp->SetWorldLocation(Pos);
+
+	FQuat StartQuat = CoverToolOriginalTransform.GetRotation();
+	FQuat EndQuat = CoverToolPosComp->GetComponentQuat();
+	CoverToolComp->SetWorldRotation(FQuat::Slerp(StartQuat, EndQuat, Smooth));
+
+	if (CoverToolMoveAlpha >= 1.f)
+	{
+		CoverToolComp->SetWorldLocation(End);
+		CoverToolComp->SetWorldRotation(EndQuat.Rotator());
+		CoverPullAccumulator = 0.f;
+		CoverState = ECoverRemovalState::Pulling;
+		UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Tool snapped. Begin pulling."));
+	}
+}
+
+void AWorkshopDevice::UpdateCoverPulling(float DeltaTime)
+{
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC) return;
+
+	const bool bLeftMouseDown = PC->IsInputKeyDown(EKeys::LeftMouseButton);
+
+	if (bLeftMouseDown)
+	{
+		float MouseX, MouseY;
+		PC->GetInputMouseDelta(MouseX, MouseY);
+
+		// Negative MouseY in UE = mouse moving down on screen = pulling
+		CoverPullAccumulator = FMath::Max(0.f, CoverPullAccumulator - MouseY);
+
+		float RotAngle = CoverPullAccumulator * CoverPullRotationScale;
+
+		// Rotate cover tool on Pitch
+		FRotator ToolRot = CoverToolPosComp->GetComponentRotation();
+		ToolRot.Pitch -= RotAngle;
+		CoverToolComp->SetWorldRotation(ToolRot);
+		CoverToolComp->SetWorldLocation(CoverToolPosComp->GetComponentLocation());
+
+		// Rotate cover on Pitch (half rate for subtlety)
+		FRotator CoverRot = CoverOriginalTransform.GetRotation().Rotator();
+		CoverRot.Pitch += RotAngle * 0.5f;
+		CoverComp->SetWorldRotation(CoverRot);
+
+		if (CoverPullAccumulator >= CoverPullThreshold)
+		{
+			// Save current transforms for animation start
+			CoverAnimStartPos = CoverComp->GetComponentLocation();
+			CoverAnimStartQuat = CoverComp->GetComponentQuat();
+			ToolAnimStartPos = CoverToolComp->GetComponentLocation();
+			ToolAnimStartQuat = CoverToolComp->GetComponentQuat();
+			CoverAnimAlpha = 0.f;
+			CoverState = ECoverRemovalState::Animating;
+			UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Pull threshold reached. Animating removal."));
+		}
+	}
+}
+
+void AWorkshopDevice::UpdateCoverAnimating(float DeltaTime)
+{
+	CoverAnimAlpha = FMath::Clamp(CoverAnimAlpha + DeltaTime * CoverAnimSpeed, 0.f, 1.f);
+
+	// Smoothstep: t^2 * (3 - 2t)
+	float T = CoverAnimAlpha;
+	float Smooth = T * T * (3.f - 2.f * T);
+
+	// Cover: fly from current to CoverPos with arc
+	if (CoverComp && CoverPosComp)
+	{
+		FVector CoverEnd = CoverPosComp->GetComponentLocation();
+		FVector CoverPos = FMath::Lerp(CoverAnimStartPos, CoverEnd, Smooth);
+		CoverPos.Z += FMath::Sin(Smooth * PI) * CoverToolArcHeight;
+		CoverComp->SetWorldLocation(CoverPos);
+
+		FQuat CoverEndQuat = CoverPosComp->GetComponentQuat();
+		CoverComp->SetWorldRotation(FQuat::Slerp(CoverAnimStartQuat, CoverEndQuat, Smooth));
+	}
+
+	// CoverTool: return to original position with arc
+	if (CoverToolComp)
+	{
+		FVector ToolEnd = CoverToolOriginalTransform.GetLocation();
+		FVector ToolPos = FMath::Lerp(ToolAnimStartPos, ToolEnd, Smooth);
+		ToolPos.Z += FMath::Sin(Smooth * PI) * CoverToolArcHeight * 0.5f;
+		CoverToolComp->SetWorldLocation(ToolPos);
+
+		CoverToolComp->SetWorldRotation(FQuat::Slerp(ToolAnimStartQuat, CoverToolOriginalTransform.GetRotation(), Smooth));
+	}
+
+	if (CoverAnimAlpha >= 1.f)
+	{
+		FinishCoverRemoval();
+	}
+}
+
+void AWorkshopDevice::FinishCoverRemoval()
+{
+	// Snap to final positions
+	if (CoverComp && CoverPosComp)
+	{
+		CoverComp->SetWorldLocation(CoverPosComp->GetComponentLocation());
+		CoverComp->SetWorldRotation(CoverPosComp->GetComponentRotation());
+	}
+	if (CoverToolComp)
+	{
+		CoverToolComp->SetWorldTransform(CoverToolOriginalTransform);
+		CoverToolComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
+
+	CoverState = ECoverRemovalState::Done;
+	OnCoverRemoved.Broadcast();
+	UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Complete. Transitioning to screw/drag flow."));
 }
 
 // ============================================================
 // ScrewDriver
 // ============================================================
 
-void AWorkshopDevice::TryPickUpScrewDriver()
+void AWorkshopDevice::TryGrabScrewDriver()
 {
-	if (!ScrewDriverComp)
-	{
-		return;
-	}
-
-	bHoldingScrewDriver = true;
-	ScrewDriverComp->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
-	ScrewDriverTargetLocation = ScrewDriverComp->GetComponentLocation();
-
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice - ScrewDriver picked up"));
+	// Handled inline in TryGrabPart via line trace hit
 }
 
-void AWorkshopDevice::DropScrewDriver()
+void AWorkshopDevice::UpdateScrewDriver(float DeltaTime)
 {
 	if (!ScrewDriverComp)
-	{
-		return;
-	}
-
-	bHoldingScrewDriver = false;
-
-	// Return screwdriver to original position
-	ScrewDriverComp->SetWorldTransform(ScrewDriverOriginalTransform);
-
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice - ScrewDriver dropped"));
-}
-
-void AWorkshopDevice::UpdateScrewDriverPosition(float DeltaTime)
-{
-	if (!ScrewDriverComp || ActiveScrew)
 	{
 		return;
 	}
@@ -580,120 +946,101 @@ void AWorkshopDevice::UpdateScrewDriverPosition(float DeltaTime)
 		return;
 	}
 
-	float MouseX, MouseY;
-	PC->GetInputMouseDelta(MouseX, MouseY);
-
-	if (MouseX != 0.f || MouseY != 0.f)
+	// Project mouse onto a horizontal plane at screwdriver height
+	FVector WorldLocation, WorldDirection;
+	if (PC->DeprojectMousePositionToWorld(WorldLocation, WorldDirection))
 	{
-		FVector CamLoc;
-		FRotator CamRot;
-		PC->GetPlayerViewPoint(CamLoc, CamRot);
-
-		FVector CamRight = FRotationMatrix(CamRot).GetUnitAxis(EAxis::Y);
-		FVector CamForward = FRotationMatrix(CamRot).GetUnitAxis(EAxis::X);
-		CamForward.Z = 0.f;
-		CamForward.Normalize();
-
-		ScrewDriverTargetLocation += CamRight * MouseX * DragScale + CamForward * MouseY * DragScale;
+		float PlaneZ = ScrewDriverDragTarget.Z;
+		if (!FMath::IsNearlyZero(WorldDirection.Z))
+		{
+			float T = (PlaneZ - WorldLocation.Z) / WorldDirection.Z;
+			if (T > 0.f)
+			{
+				FVector PlaneHit = WorldLocation + WorldDirection * T;
+				PlaneHit.Z = PlaneZ;
+				ScrewDriverDragTarget = PlaneHit;
+			}
+		}
 	}
 
+	// Snap above nearest screw if close enough, otherwise follow mouse
+	UStaticMeshComponent* NearestScrew = FindNearestScrew();
+	FVector TargetLoc;
+	if (NearestScrew)
+	{
+		TargetLoc = NearestScrew->GetComponentLocation();
+		TargetLoc.Z += ScrewDriverHeightAboveScrew;
+	}
+	else
+	{
+		TargetLoc = ScrewDriverDragTarget;
+	}
+
+	// Smooth transition to target
 	FVector CurrentLoc = ScrewDriverComp->GetComponentLocation();
-	FVector NewLoc = FMath::VInterpTo(CurrentLoc, ScrewDriverTargetLocation, DeltaTime, DragInterpSpeed);
+	FVector NewLoc = FMath::VInterpTo(CurrentLoc, TargetLoc, DeltaTime, DragInterpSpeed);
 	ScrewDriverComp->SetWorldLocation(NewLoc);
 }
 
-// ============================================================
-// Screw Unscrewing
-// ============================================================
-
-void AWorkshopDevice::TryStartUnscrew()
+void AWorkshopDevice::ReleaseScrewDriver()
 {
-	APlayerController* PC = GetWorld()->GetFirstPlayerController();
-	if (!PC)
+	if (!ScrewDriverComp)
 	{
 		return;
 	}
 
-	FVector WorldLocation, WorldDirection;
-	if (!PC->DeprojectMousePositionToWorld(WorldLocation, WorldDirection))
+	UE_LOG(LogTemp, Warning, TEXT("ReleaseScrewDriver - DROPPED"));
+	bHoldingScrewDriver = false;
+	SetupWorkshopCollision(ScrewDriverComp);
+	ScrewDriverComp->SetSimulatePhysics(true);
+}
+
+// ============================================================
+// Screws
+// ============================================================
+
+UStaticMeshComponent* AWorkshopDevice::FindNearestScrew() const
+{
+	if (!ScrewDriverComp)
 	{
-		return;
+		return nullptr;
 	}
 
-	FVector TraceEnd = WorldLocation + WorldDirection * DragTraceDistance;
+	FVector DriverLoc = ScrewDriverComp->GetComponentLocation();
+	UStaticMeshComponent* Nearest = nullptr;
+	float NearestDist = ScrewSnapDistance;
 
-	if (bDebugTrace)
+	for (const auto& Pair : ScrewToPartMap)
 	{
-		DrawDebugLine(GetWorld(), WorldLocation, TraceEnd, FColor::Cyan, false, 0.1f, 0, 1.f);
-	}
-
-	FHitResult Hit;
-	FCollisionQueryParams Params;
-	Params.bTraceComplex = true;
-	if (ScrewDriverComp)
-	{
-		Params.AddIgnoredComponent(ScrewDriverComp);
-	}
-
-	if (!GetWorld()->LineTraceSingleByChannel(Hit, WorldLocation, TraceEnd, WorkshopChannel, Params))
-	{
-		static double LastLogTime_NoHit = 0;
-		if (GetWorld()->GetTimeSeconds() - LastLogTime_NoHit > 1.0)
+		UStaticMeshComponent* Screw = Pair.Key;
+		float Dist = FVector::Dist(DriverLoc, Screw->GetComponentLocation());
+		if (Dist < NearestDist)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("  TryStartUnscrew - Line trace hit nothing"));
-			LastLogTime_NoHit = GetWorld()->GetTimeSeconds();
+			NearestDist = Dist;
+			Nearest = Screw;
 		}
-		return;
 	}
 
-	UStaticMeshComponent* HitMesh = Cast<UStaticMeshComponent>(Hit.GetComponent());
+	return Nearest;
+}
 
-	// Log what we're hitting (throttled to once per second)
-	static double LastLogTime_Hit = 0;
-	if (GetWorld()->GetTimeSeconds() - LastLogTime_Hit > 1.0)
-	{
-		FString TagsStr = TEXT("none");
-		if (HitMesh && HitMesh->ComponentTags.Num() > 0)
-		{
-			TagsStr.Empty();
-			for (const FName& Tag : HitMesh->ComponentTags)
-			{
-				TagsStr += Tag.ToString() + TEXT(", ");
-			}
-		}
-		UE_LOG(LogTemp, Warning, TEXT("  TryStartUnscrew - Hit: %s | Component: %s | Tags: [%s] | InScrewMap: %s"),
-			Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("null"),
-			Hit.GetComponent() ? *Hit.GetComponent()->GetName() : TEXT("null"),
-			*TagsStr,
-			(HitMesh && ScrewToPartMap.Contains(HitMesh)) ? TEXT("YES") : TEXT("NO"));
-		LastLogTime_Hit = GetWorld()->GetTimeSeconds();
-	}
-
-	if (!HitMesh || !ScrewToPartMap.Contains(HitMesh))
-	{
-		return;
-	}
-
-	ActiveScrew = HitMesh;
+void AWorkshopDevice::StartUnscrew(UStaticMeshComponent* Screw)
+{
+	ActiveScrew = Screw;
 	UnscrewTimer = 0.f;
-	ScrewStartLocation = ActiveScrew->GetComponentLocation();
-	ScrewStartRotation = ActiveScrew->GetComponentRotation();
+	ScrewStartLocation = Screw->GetComponentLocation();
+	ScrewStartRotation = Screw->GetComponentRotation();
 
-	// Move screwdriver to screw position
-	if (ScrewDriverComp)
-	{
-		ScrewDriverTargetLocation = ScrewStartLocation;
-		ScrewDriverComp->SetWorldLocation(ScrewStartLocation);
-	}
-
-	FName* PartId = ScrewToPartMap.Find(ActiveScrew);
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::TryStartUnscrew - Unscrewing '%s' from part '%s'"),
-		*ActiveScrew->GetName(), PartId ? *PartId->ToString() : TEXT("unknown"));
+	// Snap screwdriver above the screw
+	FVector AboveScrew = ScrewStartLocation;
+	AboveScrew.Z += ScrewDriverHeightAboveScrew;
+	ScrewDriverComp->SetWorldLocation(AboveScrew);
+	ScrewDriverDragTarget = AboveScrew;
 }
 
 void AWorkshopDevice::UpdateUnscrew(float DeltaTime)
 {
-	if (!ActiveScrew)
+	if (!ActiveScrew || !ScrewDriverComp)
 	{
 		return;
 	}
@@ -701,10 +1048,9 @@ void AWorkshopDevice::UpdateUnscrew(float DeltaTime)
 	UnscrewTimer += DeltaTime;
 	float Alpha = FMath::Clamp(UnscrewTimer / UnscrewDuration, 0.f, 1.f);
 
-	// Rotate screw around local Z
-	float RotationAngle = UnscrewTimer * ScrewRotationSpeed;
+	// Rotate screw
 	FRotator NewRotation = ScrewStartRotation;
-	NewRotation.Yaw += RotationAngle;
+	NewRotation.Yaw += UnscrewTimer * ScrewRotationSpeed;
 
 	// Lift screw upward
 	FVector NewLocation = ScrewStartLocation;
@@ -712,13 +1058,16 @@ void AWorkshopDevice::UpdateUnscrew(float DeltaTime)
 
 	ActiveScrew->SetWorldLocationAndRotation(NewLocation, NewRotation);
 
-	// Rotate screwdriver too
-	if (ScrewDriverComp)
-	{
-		FRotator DriverRot = ScrewDriverComp->GetComponentRotation();
-		DriverRot.Yaw = ScrewStartRotation.Yaw + RotationAngle;
-		ScrewDriverComp->SetWorldLocationAndRotation(NewLocation, DriverRot);
-	}
+	// Keep screwdriver above the screw (smooth)
+	FVector DriverTarget = NewLocation;
+	DriverTarget.Z += ScrewDriverHeightAboveScrew;
+	FVector DriverCurrent = ScrewDriverComp->GetComponentLocation();
+	ScrewDriverComp->SetWorldLocation(FMath::VInterpTo(DriverCurrent, DriverTarget, DeltaTime, DragInterpSpeed));
+
+	// Rotate screwdriver with the screw
+	FRotator DriverRot = ScrewDriverComp->GetComponentRotation();
+	DriverRot.Yaw = NewRotation.Yaw;
+	ScrewDriverComp->SetWorldRotation(DriverRot);
 
 	if (UnscrewTimer >= UnscrewDuration)
 	{
@@ -736,30 +1085,21 @@ void AWorkshopDevice::FinishUnscrew()
 	FName* PartIdPtr = ScrewToPartMap.Find(ActiveScrew);
 	FName PartId = PartIdPtr ? *PartIdPtr : NAME_None;
 
-	// Detach and eject screw
-	ActiveScrew->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
-	ActiveScrew->SetSimulatePhysics(true);
+	// Hide the screw
+	ActiveScrew->SetVisibility(false);
+	ActiveScrew->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	FVector EjectDir = FVector::UpVector;
-	ActiveScrew->AddImpulse(EjectDir * ScrewEjectImpulse, NAME_None, true);
-
-	// Remove screw from maps
+	// Remove from maps
 	ScrewToPartMap.Remove(ActiveScrew);
 	if (FScrewArray* ScrewArr = PartScrewsMap.Find(PartId))
 	{
 		ScrewArr->Screws.Remove(ActiveScrew);
-		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::FinishUnscrew - Screw removed from part '%s' (%d screws remaining)"),
-			*PartId.ToString(), ScrewArr->Screws.Num());
 	}
 
 	OnScrewRemoved.Broadcast(PartId);
 
-	// Move screwdriver back to free movement
-	if (ScrewDriverComp)
-	{
-		ScrewDriverTargetLocation = ScrewDriverComp->GetComponentLocation();
-	}
-
+	// Reset screwdriver to free movement
+	ScrewDriverDragTarget = ScrewDriverComp->GetComponentLocation();
 	ActiveScrew = nullptr;
 	UnscrewTimer = 0.f;
 }
@@ -774,14 +1114,6 @@ void AWorkshopDevice::CancelUnscrew()
 	// Reset screw to original position
 	ActiveScrew->SetWorldLocationAndRotation(ScrewStartLocation, ScrewStartRotation);
 
-	// Move screwdriver back to free movement
-	if (ScrewDriverComp)
-	{
-		ScrewDriverTargetLocation = ScrewDriverComp->GetComponentLocation();
-	}
-
 	ActiveScrew = nullptr;
 	UnscrewTimer = 0.f;
-
-	UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice::CancelUnscrew - Unscrew cancelled"));
 }
