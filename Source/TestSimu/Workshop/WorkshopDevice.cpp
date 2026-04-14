@@ -192,10 +192,14 @@ UStaticMeshComponent* AWorkshopDevice::SpawnNewPart(UStaticMesh* Mesh, FName Bro
 
 void AWorkshopDevice::StopRepair()
 {
-	// Reset cover to original transforms if mid-phase
-	if (CoverState != ECoverRemovalState::Inactive && CoverState != ECoverRemovalState::Done)
+	// Reset cover state
+	if (CoverState != ECoverRemovalState::Inactive)
 	{
-		if (CoverToolComp) CoverToolComp->SetWorldTransform(CoverToolOriginalTransform);
+		if (CoverToolComp)
+		{
+			CoverToolComp->SetWorldTransform(CoverToolOriginalTransform);
+			SetupWorkshopCollision(CoverToolComp);
+		}
 		if (CoverComp) CoverComp->SetWorldTransform(CoverOriginalTransform);
 	}
 	CoverState = ECoverRemovalState::Inactive;
