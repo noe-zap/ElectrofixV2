@@ -10,7 +10,18 @@ class UMaterialInterface;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartSnappedBack, FName, PartId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllPartsRepaired);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnScrewRemoved, FName, PartId);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnScrewInserted, FName, PartId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCoverRemoved);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRepairFinished);
+
+UENUM()
+enum class EScrewState : uint8
+{
+	Snapped,
+	Free,
+	Attached,
+	Screwing
+};
 
 UENUM()
 enum class ECoverRemovalState : uint8
@@ -59,7 +70,13 @@ public:
 	FOnScrewRemoved OnScrewRemoved;
 
 	UPROPERTY(BlueprintAssignable, Category = "Workshop")
+	FOnScrewInserted OnScrewInserted;
+
+	UPROPERTY(BlueprintAssignable, Category = "Workshop")
 	FOnCoverRemoved OnCoverRemoved;
+
+	UPROPERTY(BlueprintAssignable, Category = "Workshop")
+	FOnRepairFinished OnRepairFinished;
 
 protected:
 	virtual void Tick(float DeltaTime) override;
@@ -110,6 +127,21 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
 	float ScrewDriverPickupLift = 10.f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	float ScrewPickupDistance = 20.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	float ScrewSlotSnapDistance = 15.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	float ScrewInDuration = 2.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	float MaxScrewDistance = 100.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Screws")
+	FVector ScrewAttachOffset = FVector(0.f, 0.f, 0.f);
+
 	// --- Cover Settings ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover")
 	bool bHasCover = false;
@@ -134,6 +166,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Cover", meta = (EditCondition = "bHasCover"))
 	float CoverPullMaxOffset = 10.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
+	float ResetAnimSpeed = 3.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Debug")
 	bool bDebugTrace = false;
@@ -170,6 +205,23 @@ private:
 	void UpdateUnscrew(float DeltaTime);
 	void FinishUnscrew();
 	void CancelUnscrew();
+
+	// --- Screw Pickup & Insertion ---
+	UStaticMeshComponent* FindNearestFreeScrew() const;
+	void AttachScrewToDriver(UStaticMeshComponent* Screw);
+	void DetachScrewFromDriver();
+	UStaticMeshComponent* FindNearestEmptyScrewSlot() const;
+	void StartScrewIn(UStaticMeshComponent* SlotScrew);
+	void UpdateScrewIn(float DeltaTime);
+	void FinishScrewIn();
+	void CancelScrewIn();
+	bool AreAllScrewsInserted() const;
+	void ConstrainFreeScrews();
+
+	// --- Reset Animation ---
+	void StartResetAnimation();
+	void UpdateResetAnimation(float DeltaTime);
+	void FinishResetAnimation();
 
 	// --- Collision ---
 	static constexpr ECollisionChannel WorkshopChannel = ECC_GameTraceChannel1;
@@ -253,6 +305,16 @@ private:
 	FQuat CoverAnimStartQuat = FQuat::Identity;
 	FVector ToolAnimStartPos = FVector::ZeroVector;
 	FQuat ToolAnimStartQuat = FQuat::Identity;
+
+	// --- Reset Animation State ---
+	bool bResettingAfterRepair = false;
+	float ResetAnimAlpha = 0.f;
+	FVector ResetCoverStartPos = FVector::ZeroVector;
+	FQuat ResetCoverStartQuat = FQuat::Identity;
+	FVector ResetCoverToolStartPos = FVector::ZeroVector;
+	FQuat ResetCoverToolStartQuat = FQuat::Identity;
+	FVector ResetScrewDriverStartPos = FVector::ZeroVector;
+	FQuat ResetScrewDriverStartQuat = FQuat::Identity;
 
 	// --- Input ---
 	bool bWasLeftMouseDown = false;

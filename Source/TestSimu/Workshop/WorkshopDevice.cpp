@@ -259,6 +259,13 @@ void AWorkshopDevice::Tick(float DeltaTime)
 		return;
 	}
 
+	// --- Reset Animation Phase (blocks all interaction) ---
+	if (bResettingAfterRepair)
+	{
+		UpdateResetAnimation(DeltaTime);
+		return;
+	}
+
 	APlayerController* PC = GetWorld()->GetFirstPlayerController();
 	if (!PC)
 	{
@@ -644,6 +651,7 @@ void AWorkshopDevice::SnapToSlot(UStaticMeshComponent* Comp, FName PartId)
 	if (AreAllSlotsRepaired())
 	{
 		OnAllPartsRepaired.Broadcast();
+		StartResetAnimation();
 	}
 }
 
@@ -926,6 +934,81 @@ void AWorkshopDevice::FinishCoverRemoval()
 	CoverState = ECoverRemovalState::Done;
 	OnCoverRemoved.Broadcast();
 	UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Complete. Transitioning to screw/drag flow."));
+}
+
+// ============================================================
+// Reset Animation
+// ============================================================
+
+void AWorkshopDevice::StartResetAnimation()
+{
+	bResettingAfterRepair = true;
+	ResetAnimAlpha = 0.f;
+
+	if (CoverComp)
+	{
+		ResetCoverStartPos = CoverComp->GetComponentLocation();
+		ResetCoverStartQuat = CoverComp->GetComponentQuat();
+	}
+	if (CoverToolComp)
+	{
+		ResetCoverToolStartPos = CoverToolComp->GetComponentLocation();
+		ResetCoverToolStartQuat = CoverToolComp->GetComponentQuat();
+	}
+	if (ScrewDriverComp)
+	{
+		ResetScrewDriverStartPos = ScrewDriverComp->GetComponentLocation();
+		ResetScrewDriverStartQuat = ScrewDriverComp->GetComponentQuat();
+	}
+}
+
+void AWorkshopDevice::UpdateResetAnimation(float DeltaTime)
+{
+	ResetAnimAlpha = FMath::Clamp(ResetAnimAlpha + DeltaTime * ResetAnimSpeed, 0.f, 1.f);
+	const float Smooth = ResetAnimAlpha * ResetAnimAlpha * (3.f - 2.f * ResetAnimAlpha);
+
+	if (CoverComp)
+	{
+		FVector Pos = FMath::Lerp(ResetCoverStartPos, CoverOriginalTransform.GetLocation(), Smooth);
+		CoverComp->SetWorldLocation(Pos);
+		CoverComp->SetWorldRotation(FQuat::Slerp(ResetCoverStartQuat, CoverOriginalTransform.GetRotation(), Smooth));
+	}
+	if (CoverToolComp)
+	{
+		FVector Pos = FMath::Lerp(ResetCoverToolStartPos, CoverToolOriginalTransform.GetLocation(), Smooth);
+		CoverToolComp->SetWorldLocation(Pos);
+		CoverToolComp->SetWorldRotation(FQuat::Slerp(ResetCoverToolStartQuat, CoverToolOriginalTransform.GetRotation(), Smooth));
+	}
+	if (ScrewDriverComp)
+	{
+		FVector Pos = FMath::Lerp(ResetScrewDriverStartPos, ScrewDriverOriginalTransform.GetLocation(), Smooth);
+		ScrewDriverComp->SetWorldLocation(Pos);
+		ScrewDriverComp->SetWorldRotation(FQuat::Slerp(ResetScrewDriverStartQuat, ScrewDriverOriginalTransform.GetRotation(), Smooth));
+	}
+
+	if (ResetAnimAlpha >= 1.f)
+	{
+		FinishResetAnimation();
+	}
+}
+
+void AWorkshopDevice::FinishResetAnimation()
+{
+	if (CoverComp)
+	{
+		CoverComp->SetWorldTransform(CoverOriginalTransform);
+	}
+	if (CoverToolComp)
+	{
+		CoverToolComp->SetWorldTransform(CoverToolOriginalTransform);
+	}
+	if (ScrewDriverComp)
+	{
+		ScrewDriverComp->SetWorldTransform(ScrewDriverOriginalTransform);
+	}
+
+	bResettingAfterRepair = false;
+	OnRepairFinished.Broadcast();
 }
 
 // ============================================================
