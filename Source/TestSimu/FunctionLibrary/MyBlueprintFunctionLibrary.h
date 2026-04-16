@@ -19,5 +19,8 @@ public:
 	static FText MinutesToTimeText(int32 Minutes);
 
 	UFUNCTION(BlueprintPure, Category = "Utilities")
+	static FText OverTimeToTimeText(int32 Minutes);
+
+	UFUNCTION(BlueprintPure, Category = "Utilities")
 	static TArray<FName> GetRandomUniqueElements(const TArray<FName>& Names);
 };
