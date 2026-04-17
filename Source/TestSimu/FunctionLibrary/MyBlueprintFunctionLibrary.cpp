@@ -50,3 +50,9 @@ TArray<FName> UMyBlueprintFunctionLibrary::GetRandomUniqueElements(const TArray<
 	return Shuffled;
 }
 
+float UMyBlueprintFunctionLibrary::CalculateXPFromOvertime(float OvertimeCost, float BaseXP, float MaxOvertimeCost)
+{
+	const float Ratio = FMath::Clamp(1.0f - (OvertimeCost / MaxOvertimeCost), 0.0f, 1.0f);
+	return BaseXP * Ratio;
+}
+
