@@ -16,6 +16,20 @@ FText UMyBlueprintFunctionLibrary::MinutesToTimeText(int32 Minutes)
 	return FText::FromString(FString::Printf(TEXT("%d min"), Mins));
 }
 
+FText UMyBlueprintFunctionLibrary::OverTimeToTimeText(int32 Minutes)
+{
+	const int32 Absolute = FMath::Abs(Minutes);
+	const int32 Hours = Absolute / 60;
+	const int32 Mins = Absolute % 60;
+
+	if (Hours >= 1)
+	{
+		return FText::FromString(FString::Printf(TEXT("+%dh%02d"), Hours, Mins));
+	}
+
+	return FText::FromString(FString::Printf(TEXT("+%d min"), Mins));
+}
+
 TArray<FName> UMyBlueprintFunctionLibrary::GetRandomUniqueElements(const TArray<FName>& Names)
 {
 	if (Names.Num() == 0)
@@ -34,5 +48,11 @@ TArray<FName> UMyBlueprintFunctionLibrary::GetRandomUniqueElements(const TArray<
 
 	Shuffled.SetNum(Count);
 	return Shuffled;
+}
+
+float UMyBlueprintFunctionLibrary::CalculateXPFromOvertime(float OvertimeCost, float BaseXP, float MaxOvertimeCost)
+{
+	const float Ratio = FMath::Clamp(1.0f - (OvertimeCost / MaxOvertimeCost), 0.0f, 1.0f);
+	return BaseXP * Ratio;
 }
 

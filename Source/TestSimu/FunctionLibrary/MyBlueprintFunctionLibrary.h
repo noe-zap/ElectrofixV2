@@ -19,5 +19,11 @@ public:
 	static FText MinutesToTimeText(int32 Minutes);
 
 	UFUNCTION(BlueprintPure, Category = "Utilities")
+	static FText OverTimeToTimeText(int32 Minutes);
+
+	UFUNCTION(BlueprintPure, Category = "Utilities")
 	static TArray<FName> GetRandomUniqueElements(const TArray<FName>& Names);
+
+	UFUNCTION(BlueprintPure, Category = "Shop")
+	static float CalculateXPFromOvertime(float OvertimeCost, float BaseXP = 20.0f, float MaxOvertimeCost = 60.0f);
 };
