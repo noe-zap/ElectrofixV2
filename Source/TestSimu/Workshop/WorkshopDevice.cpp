@@ -632,6 +632,20 @@ void AWorkshopDevice::ReleasePart()
 	else
 	{
 		DraggedComponent->SetSimulatePhysics(true);
+
+		bool bAllSlotsEmpty = true;
+		for (const auto& Pair : SlotOccupants)
+		{
+			if (Pair.Value != nullptr)
+			{
+				bAllSlotsEmpty = false;
+				break;
+			}
+		}
+		if (bAllSlotsEmpty)
+		{
+			OnAllBrokenPartsRemoved.Broadcast();
+		}
 	}
 
 	DraggedComponent = nullptr;
@@ -1184,6 +1198,11 @@ void AWorkshopDevice::FinishUnscrew()
 	}
 
 	OnScrewRemoved.Broadcast(PartId);
+
+	if (ScrewToPartMap.Num() == 0)
+	{
+		OnAllScrewsRemoved.Broadcast();
+	}
 
 	// Reset screwdriver to free movement
 	ScrewDriverDragTarget = ScrewDriverComp->GetComponentLocation();

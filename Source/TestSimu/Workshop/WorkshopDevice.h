@@ -10,8 +10,10 @@ class UMaterialInterface;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartSnappedBack, FName, PartId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllPartsRepaired);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnScrewRemoved, FName, PartId);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllScrewsRemoved);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnScrewInserted, FName, PartId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCoverRemoved);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllBrokenPartsRemoved);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRepairFinished);
 
 UENUM()
@@ -70,10 +72,16 @@ public:
 	FOnScrewRemoved OnScrewRemoved;
 
 	UPROPERTY(BlueprintAssignable, Category = "Workshop")
+	FOnAllScrewsRemoved OnAllScrewsRemoved;
+
+	UPROPERTY(BlueprintAssignable, Category = "Workshop")
 	FOnScrewInserted OnScrewInserted;
 
 	UPROPERTY(BlueprintAssignable, Category = "Workshop")
 	FOnCoverRemoved OnCoverRemoved;
+
+	UPROPERTY(BlueprintAssignable, Category = "Workshop")
+	FOnAllBrokenPartsRemoved OnAllBrokenPartsRemoved;
 
 	UPROPERTY(BlueprintAssignable, Category = "Workshop")
 	FOnRepairFinished OnRepairFinished;

@@ -45,3 +45,11 @@ void UTutorialFunctionLibrary::ReportTutorialEvent(const UObject* WorldContextOb
 		Mgr->ReportEvent(EventId, Source);
 	}
 }
+
+void UTutorialFunctionLibrary::RewindTutorialToTask(const UObject* WorldContextObject, FName EventId)
+{
+	if (UTutorialManagerComponent* Mgr = GetTutorialManager(WorldContextObject))
+	{
+		Mgr->RewindCurrentStepToTask(EventId);
+	}
+}

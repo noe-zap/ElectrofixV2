@@ -60,6 +60,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Tutorial")
 	void ReportEvent(FName EventId, AActor* Source);
 
+	// Server-authoritative: within the current step, clear the completion bit of the task whose
+	// EventId matches, plus every task after it. No-op if the tutorial isn't active, the EventId
+	// isn't found in the current step, or called on a non-authority role.
+	UFUNCTION(BlueprintCallable, Category = "Tutorial")
+	void RewindCurrentStepToTask(FName EventId);
+
 	// Jump straight to completed state (server auth; call from debug / save-load).
 	UFUNCTION(BlueprintCallable, Category = "Tutorial")
 	void SkipTutorial();
@@ -128,6 +134,14 @@ private:
 
 	// Spawn the arrow actor on the server (if missing) and re-point it at the current focused task target.
 	void UpdateArrowForCurrentTask();
+
+	// Server-only: events that didn't match the current step when reported. Drained into a
+	// step's mask when that step becomes active, so doing a task early (including same-ID ones
+	// in future steps) credits the player when the matching step arrives.
+	void ApplyUnconsumedEvents();
+
+	UPROPERTY()
+	TArray<FName> UnconsumedEvents;
 
 	UPROPERTY()
 	TObjectPtr<ATutorialArrow> ArrowInstance;

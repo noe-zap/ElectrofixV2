@@ -48,6 +48,45 @@ void UTutorialManagerComponent::ReportEvent(FName EventId, AActor* Source)
 	}
 }
 
+void UTutorialManagerComponent::RewindCurrentStepToTask(FName EventId)
+{
+	if (GetOwnerRole() != ROLE_Authority || EventId.IsNone() || !IsTutorialActive())
+	{
+		return;
+	}
+
+	const FTutorialStepData& Step = TutorialSequence->Steps[CurrentStepIndex];
+	int32 TargetIdx = INDEX_NONE;
+	for (int32 i = 0; i < Step.Tasks.Num() && i < 32; ++i)
+	{
+		if (Step.Tasks[i].EventId == EventId)
+		{
+			TargetIdx = i;
+			break;
+		}
+	}
+
+	if (TargetIdx == INDEX_NONE)
+	{
+		return;
+	}
+
+	// Keep bits strictly below TargetIdx, clear the rest.
+	const int32 KeepMask = (TargetIdx == 0) ? 0 : ((1 << TargetIdx) - 1);
+	const int32 NewMask = CurrentStepTaskCompletionMask & KeepMask;
+
+	if (NewMask == CurrentStepTaskCompletionMask)
+	{
+		return;
+	}
+
+	CurrentStepTaskCompletionMask = NewMask;
+
+	// Server-side notify (OnRep_ only fires on clients).
+	OnTutorialTaskProgress.Broadcast(GetCompletedTaskCount(), GetTotalTaskCount(), GetCurrentTaskName());
+	UpdateArrowForCurrentTask();
+}
+
 void UTutorialManagerComponent::SkipTutorial()
 {
 	if (GetOwnerRole() == ROLE_Authority)
@@ -119,38 +158,47 @@ bool UTutorialManagerComponent::IsTutorialActive() const
 
 void UTutorialManagerComponent::ServerReportEvent_Implementation(FName EventId, AActor* Source)
 {
-	if (!IsTutorialActive())
+	if (bTutorialComplete)
 	{
 		return;
 	}
 
-	const FTutorialStepData& Step = TutorialSequence->Steps[CurrentStepIndex];
+	bool bMatched = false;
 
-	bool bMaskChanged = false;
-	for (int32 i = 0; i < Step.Tasks.Num() && i < 32; ++i)
+	if (IsTutorialActive())
 	{
-		const FTutorialTaskData& Task = Step.Tasks[i];
-		const int32 Bit = 1 << i;
-
-		if ((CurrentStepTaskCompletionMask & Bit) != 0)
+		const FTutorialStepData& Step = TutorialSequence->Steps[CurrentStepIndex];
+		for (int32 i = 0; i < Step.Tasks.Num() && i < 32; ++i)
 		{
-			continue; // already complete
-		}
+			const FTutorialTaskData& Task = Step.Tasks[i];
+			const int32 Bit = 1 << i;
 
-		if (Task.EventId == EventId)
-		{
-			// v1: single event completes task (RequiredCount reserved for future use).
-			CurrentStepTaskCompletionMask |= Bit;
-			bMaskChanged = true;
+			if ((CurrentStepTaskCompletionMask & Bit) != 0)
+			{
+				continue;
+			}
+
+			if (Task.EventId == EventId)
+			{
+				CurrentStepTaskCompletionMask |= Bit;
+				bMatched = true;
+				break;
+			}
 		}
 	}
 
-	if (bMaskChanged)
+	if (bMatched)
 	{
-		// Server-side notify — mirrors what OnRep does on clients.
 		OnTutorialTaskProgress.Broadcast(GetCompletedTaskCount(), GetTotalTaskCount(), GetCurrentTaskName());
 		UpdateArrowForCurrentTask();
 		Server_AdvanceIfStepComplete();
+	}
+	else
+	{
+		// Event didn't land on the current step's mask. Queue it — a future step may have a
+		// task with this EventId, and doing it early should credit the player when that step
+		// becomes active. Drained by ApplyUnconsumedEvents on step start/advance.
+		UnconsumedEvents.Add(EventId);
 	}
 }
 
@@ -164,6 +212,7 @@ void UTutorialManagerComponent::ServerSkip_Implementation()
 	CurrentStepIndex = TutorialSequence->Steps.Num();
 	CurrentStepTaskCompletionMask = 0;
 	bTutorialComplete = true;
+	UnconsumedEvents.Reset();
 
 	// Server-side notify.
 	OnTutorialCompleted.Broadcast();
@@ -180,6 +229,7 @@ void UTutorialManagerComponent::ServerRestart_Implementation()
 	bTutorialComplete = false;
 	CurrentStepTaskCompletionMask = 0;
 	CurrentStepIndex = -1;
+	UnconsumedEvents.Reset();
 	Server_StartTutorial();
 }
 
@@ -217,10 +267,16 @@ void UTutorialManagerComponent::Server_StartTutorial()
 	CurrentStepTaskCompletionMask = 0;
 	bTutorialComplete = false;
 
+	// Drain any events reported before the tutorial started.
+	ApplyUnconsumedEvents();
+
 	// Server-side notify (OnRep_ only fires on clients).
 	OnTutorialStepChanged.Broadcast(TutorialSequence->Steps[CurrentStepIndex], CurrentStepIndex, GetCurrentTaskIndex(), GetTotalTaskCount());
 	OnTutorialTaskProgress.Broadcast(GetCompletedTaskCount(), GetTotalTaskCount(), GetCurrentTaskName());
 	UpdateArrowForCurrentTask();
+
+	// If the drain already completed step 0 entirely, cascade-advance.
+	Server_AdvanceIfStepComplete();
 }
 
 void UTutorialManagerComponent::Server_AdvanceIfStepComplete()
@@ -239,6 +295,7 @@ void UTutorialManagerComponent::Server_AdvanceIfStepComplete()
 		// No more steps — tutorial complete.
 		CurrentStepIndex = NextIndex;
 		bTutorialComplete = true;
+		UnconsumedEvents.Reset();
 		OnTutorialCompleted.Broadcast();
 
 		if (ArrowInstance)
@@ -251,10 +308,48 @@ void UTutorialManagerComponent::Server_AdvanceIfStepComplete()
 
 	CurrentStepIndex = NextIndex;
 
+	// Drain queued events into the new step's mask before broadcasting, so clients see the
+	// final post-drain state in a single update.
+	ApplyUnconsumedEvents();
+
 	// Server-side notify.
 	OnTutorialStepChanged.Broadcast(TutorialSequence->Steps[CurrentStepIndex], CurrentStepIndex, GetCurrentTaskIndex(), GetTotalTaskCount());
 	OnTutorialTaskProgress.Broadcast(GetCompletedTaskCount(), GetTotalTaskCount(), GetCurrentTaskName());
 	UpdateArrowForCurrentTask();
+
+	// If the drain completed the new step entirely (e.g. a future license was already bought),
+	// recursively advance. Recursion terminates at end-of-tutorial or an incomplete step.
+	Server_AdvanceIfStepComplete();
+}
+
+void UTutorialManagerComponent::ApplyUnconsumedEvents()
+{
+	if (!IsTutorialActive() || UnconsumedEvents.Num() == 0)
+	{
+		return;
+	}
+
+	const FTutorialStepData& Step = TutorialSequence->Steps[CurrentStepIndex];
+
+	// Walk backwards so RemoveAt is safe.
+	for (int32 e = UnconsumedEvents.Num() - 1; e >= 0; --e)
+	{
+		const FName EventId = UnconsumedEvents[e];
+		for (int32 i = 0; i < Step.Tasks.Num() && i < 32; ++i)
+		{
+			const int32 Bit = 1 << i;
+			if ((CurrentStepTaskCompletionMask & Bit) != 0)
+			{
+				continue;
+			}
+			if (Step.Tasks[i].EventId == EventId)
+			{
+				CurrentStepTaskCompletionMask |= Bit;
+				UnconsumedEvents.RemoveAt(e);
+				break;
+			}
+		}
+	}
 }
 
 int32 UTutorialManagerComponent::ComputeFullMaskForCurrentStep() const
