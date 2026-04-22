@@ -30,6 +30,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Tutorial")
 	bool bAutoStart = true;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Tutorial|IDs")
+	FName StoreShelfID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Tutorial|IDs")
+	FName AvailableLicenseID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Tutorial|IDs")
+	FName RepairShelfID;
+
 	// --- Replicated state ---
 
 	// -1 = not started. 0..N-1 = active step. N (== Steps.Num()) = finished.
