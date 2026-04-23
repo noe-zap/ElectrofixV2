@@ -243,6 +243,12 @@ private:
 	static const FName CoverTag;
 	static const FName CoverToolPosTag;
 	static const FName CoverPosTag;
+	static const FName PartsSpawnTag;
+
+	USceneComponent* FindPartsSpawn();
+
+	UPROPERTY()
+	TWeakObjectPtr<USceneComponent> CachedPartsSpawn;
 
 	// --- Part State ---
 	UPROPERTY()
