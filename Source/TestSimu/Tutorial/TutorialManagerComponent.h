@@ -108,6 +108,13 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Tutorial")
 	bool IsTutorialActive() const;
 
+	// True if a task with this EventId has already been credited: tutorial finished, the event is
+	// queued in UnconsumedEvents (done early), an occurrence sits in a past step, or its bit is
+	// set in the current step's mask. False if EventId is None, missing from the sequence, or
+	// only present in future/unfinished slots.
+	UFUNCTION(BlueprintPure, Category = "Tutorial")
+	bool IsEventCompleted(FName EventId) const;
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 protected:

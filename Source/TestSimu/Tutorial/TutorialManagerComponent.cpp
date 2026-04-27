@@ -154,6 +154,49 @@ bool UTutorialManagerComponent::IsTutorialActive() const
 		&& TutorialSequence->Steps.IsValidIndex(CurrentStepIndex);
 }
 
+bool UTutorialManagerComponent::IsEventCompleted(FName EventId) const
+{
+	if (EventId.IsNone() || !TutorialSequence)
+	{
+		return false;
+	}
+
+	if (bTutorialComplete)
+	{
+		return true;
+	}
+
+	if (UnconsumedEvents.Contains(EventId))
+	{
+		return true;
+	}
+
+	for (int32 StepIdx = 0; StepIdx < TutorialSequence->Steps.Num(); ++StepIdx)
+	{
+		const FTutorialStepData& Step = TutorialSequence->Steps[StepIdx];
+		for (int32 TaskIdx = 0; TaskIdx < Step.Tasks.Num() && TaskIdx < 32; ++TaskIdx)
+		{
+			if (Step.Tasks[TaskIdx].EventId != EventId)
+			{
+				continue;
+			}
+
+			if (StepIdx < CurrentStepIndex)
+			{
+				return true;
+			}
+
+			if (StepIdx == CurrentStepIndex
+				&& (CurrentStepTaskCompletionMask & (1 << TaskIdx)) != 0)
+			{
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
 // ---- Server RPCs ----
 
 void UTutorialManagerComponent::ServerReportEvent_Implementation(FName EventId, AActor* Source)
