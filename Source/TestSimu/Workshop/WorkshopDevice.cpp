@@ -2,6 +2,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "DrawDebugHelpers.h"
 
 const FString AWorkshopDevice::BrokenSuffix = TEXT("_broken");
@@ -11,6 +12,45 @@ const FName AWorkshopDevice::CoverToolTag = FName("CoverTool");
 const FName AWorkshopDevice::CoverTag = FName("Cover");
 const FName AWorkshopDevice::CoverToolPosTag = FName("CoverToolPos");
 const FName AWorkshopDevice::CoverPosTag = FName("CoverPos");
+const FName AWorkshopDevice::PartsSpawnTag = FName("PartsSpawn");
+
+USceneComponent* AWorkshopDevice::FindPartsSpawn()
+{
+	if (CachedPartsSpawn.IsValid())
+	{
+		return CachedPartsSpawn.Get();
+	}
+
+	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+	{
+		AActor* Actor = *It;
+		if (!Actor)
+		{
+			continue;
+		}
+
+		if (Actor->ActorHasTag(PartsSpawnTag))
+		{
+			if (USceneComponent* Root = Actor->GetRootComponent())
+			{
+				CachedPartsSpawn = Root;
+				return Root;
+			}
+		}
+
+		TArray<USceneComponent*> Comps;
+		Actor->GetComponents<USceneComponent>(Comps);
+		for (USceneComponent* Comp : Comps)
+		{
+			if (Comp && Comp->ComponentHasTag(PartsSpawnTag))
+			{
+				CachedPartsSpawn = Comp;
+				return Comp;
+			}
+		}
+	}
+	return nullptr;
+}
 
 void AWorkshopDevice::SetupWorkshopCollision(UStaticMeshComponent* Comp)
 {
@@ -176,8 +216,18 @@ UStaticMeshComponent* AWorkshopDevice::SpawnNewPart(UStaticMesh* Mesh, FName Bro
 
 	// Match scale from the broken part's slot
 	FTransform* SlotTransform = SlotTransforms.Find(BrokenPartId);
-	FVector SpawnLoc = GetActorLocation() + GetActorRotation().RotateVector(SpawnOffset);
-	SpawnLoc.Z += SpawnHeightOffset;
+
+	FVector SpawnLoc;
+	if (USceneComponent* SpawnPoint = FindPartsSpawn())
+	{
+		SpawnLoc = SpawnPoint->GetComponentLocation();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice: no actor or scene component tagged '%s' found in level; using offset fallback"), *PartsSpawnTag.ToString());
+		SpawnLoc = GetActorLocation() + GetActorRotation().RotateVector(SpawnOffset);
+		SpawnLoc.Z += SpawnHeightOffset;
+	}
 
 	NewComp->SetWorldLocation(SpawnLoc);
 	if (SlotTransform)
@@ -185,7 +235,7 @@ UStaticMeshComponent* AWorkshopDevice::SpawnNewPart(UStaticMesh* Mesh, FName Bro
 		NewComp->SetWorldScale3D(SlotTransform->GetScale3D());
 	}
 
-	NewComp->SetSimulatePhysics(true);
+	NewComp->SetSimulatePhysics(false);
 
 	return NewComp;
 }
