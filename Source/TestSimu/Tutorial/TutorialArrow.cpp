@@ -36,6 +36,16 @@ void ATutorialArrow::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(ATutorialArrow, TargetActor);
 	DOREPLIFETIME(ATutorialArrow, TargetOffset);
+	DOREPLIFETIME(ATutorialArrow, BaseRotation);
+}
+
+void ATutorialArrow::SetBaseRotation(FRotator NewRotation)
+{
+	if (!HasAuthority())
+	{
+		return;
+	}
+	BaseRotation = NewRotation;
 }
 
 void ATutorialArrow::SetTarget(AActor* NewTarget, FVector Offset)
@@ -100,5 +110,8 @@ void ATutorialArrow::Tick(float DeltaTime)
 	DesiredLoc.Z += FMath::Sin(BobPhase) * BobAmplitude;
 
 	SetActorLocation(DesiredLoc);
-	SetActorRotation(FRotator(0.f, SpinYaw, 0.f));
+
+	const FQuat BaseQuat = BaseRotation.Quaternion();
+	const FQuat SpinQuat(FVector::UpVector, FMath::DegreesToRadians(SpinYaw));
+	SetActorRotation(SpinQuat * BaseQuat);
 }
