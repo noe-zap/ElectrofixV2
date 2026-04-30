@@ -29,9 +29,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tutorial|Arrow")
 	float BobFrequency = 1.5f;
 
-	// Spin speed (deg/s). 0 = no spin.
+	// Spin speed (deg/s) around the yaw axis. 0 = no spin.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tutorial|Arrow")
 	float SpinSpeed = 45.f;
+
+	// Static rotation applied to the arrow before the spin (e.g. pitch -90 to point down).
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Tutorial|Arrow")
+	FRotator BaseRotation = FRotator::ZeroRotator;
+
+	// Set the arrow's static orientation at runtime. Replicates to clients.
+	UFUNCTION(BlueprintCallable, Category = "Tutorial|Arrow")
+	void SetBaseRotation(FRotator NewRotation);
 
 	// Set a new follow target. Server-only; replicates to clients.
 	UFUNCTION(BlueprintCallable, Category = "Tutorial|Arrow")
