@@ -18,12 +18,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tool")
 	UStaticMeshComponent* ToolMesh;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tool|Attachment")
-	FVector AttachOffset = FVector::ZeroVector;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tool|Attachment")
-	FRotator AttachRotation = FRotator::ZeroRotator;
-
 	UFUNCTION(BlueprintNativeEvent, Category = "Tool")
 	void OnEquipped(AActor* NewOwner);
 

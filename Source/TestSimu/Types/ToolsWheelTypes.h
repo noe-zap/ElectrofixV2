@@ -18,4 +18,7 @@ struct FToolSlotInfo
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tool Slot")
 	UTexture2D* Icon = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tool Slot")
+	FName AttachSocketName = FName("hand_r");
 };
