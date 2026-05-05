@@ -31,7 +31,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Cleaning", meta = (ClampMin = "0.0"))
 	float CleanTraceRadius = 6.f;
 
+	// Seconds between clean ticks while the use input is held.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Cleaning", meta = (ClampMin = "0.01"))
+	float CleanInterval = 0.1f;
+
 	virtual void UseStart_Implementation() override;
+	virtual void UseStop_Implementation() override;
 
 private:
 	UFUNCTION(Server, Reliable)
@@ -40,6 +45,12 @@ private:
 	UFUNCTION(NetMulticast, Reliable)
 	void Multicast_PlayCleaningMontage();
 
+	UFUNCTION(NetMulticast, Reliable)
+	void Multicast_StopCleaningMontage();
+
 	bool ComputeAimRay(FVector& OutStart, FVector& OutEnd) const;
 	void DoCleanAt(const FVector& Start, const FVector& End);
+	void CleanTick();
+
+	FTimerHandle CleanHoldTimer;
 };

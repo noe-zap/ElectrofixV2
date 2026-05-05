@@ -8,8 +8,7 @@
 #include "Engine/World.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
-
-DEFINE_LOG_CATEGORY_STATIC(LogCleaning, Log, All);
+#include "TimerManager.h"
 
 ACleaningTool::ACleaningTool()
 {
@@ -18,13 +17,30 @@ ACleaningTool::ACleaningTool()
 
 void ACleaningTool::UseStart_Implementation()
 {
-	UE_LOG(LogCleaning, Log, TEXT("[Tool] UseStart called (HasAuthority=%s)"),
-		HasAuthority() ? TEXT("yes") : TEXT("no"));
+	Multicast_PlayCleaningMontage();
+	CleanTick();
 
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().SetTimer(CleanHoldTimer, this, &ACleaningTool::CleanTick, CleanInterval, true);
+	}
+}
+
+void ACleaningTool::UseStop_Implementation()
+{
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().ClearTimer(CleanHoldTimer);
+	}
+
+	Multicast_StopCleaningMontage();
+}
+
+void ACleaningTool::CleanTick()
+{
 	FVector Start, End;
 	if (!ComputeAimRay(Start, End))
 	{
-		UE_LOG(LogCleaning, Warning, TEXT("[Tool] Could not compute aim ray (no local PC / no viewport)."));
 		return;
 	}
 
@@ -74,22 +90,14 @@ bool ACleaningTool::ComputeAimRay(FVector& OutStart, FVector& OutEnd) const
 
 void ACleaningTool::ServerCleanAt_Implementation(FVector_NetQuantize Start, FVector_NetQuantize End)
 {
-	UE_LOG(LogCleaning, Log, TEXT("[Tool] ServerCleanAt RPC received."));
 	DoCleanAt(Start, End);
 }
 
 void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 {
-	UE_LOG(LogCleaning, Log, TEXT("[Tool] DoCleanAt — tool=%s owner=%s tag='%s' Start=%s End=%s"),
-		*GetName(),
-		GetOwner() ? *GetOwner()->GetName() : TEXT("null"),
-		*CleaningTag.ToString(),
-		*Start.ToCompactString(), *End.ToCompactString());
-
 	APawn* OwnerPawn = Cast<APawn>(GetOwner());
 	if (OwnerPawn == nullptr)
 	{
-		UE_LOG(LogCleaning, Warning, TEXT("[Tool] No owner pawn — aborting."));
 		return;
 	}
 
@@ -109,9 +117,6 @@ void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 		bAnyHit = GetWorld()->LineTraceMultiByChannel(Hits, Start, End, ECC_Visibility, Params);
 	}
 
-	Multicast_PlayCleaningMontage();
-
-	// Walk every hit along the ray and pick the first valid cleanable target.
 	ACleanableActor* TargetCleanable = nullptr;
 	FVector ImpactForDebug = End;
 	for (const FHitResult& H : Hits)
@@ -130,8 +135,6 @@ void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 
 		if (!CleaningTag.IsNone() && !HitComp->ComponentHasTag(CleaningTag))
 		{
-			UE_LOG(LogCleaning, Verbose, TEXT("[Tool] Skipping cleanable %s: component '%s' lacks tag '%s'"),
-				*Cleanable->GetName(), *HitComp->GetName(), *CleaningTag.ToString());
 			continue;
 		}
 
@@ -148,26 +151,14 @@ void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 
 	if (CleaningTag.IsNone())
 	{
-		UE_LOG(LogCleaning, Warning, TEXT("[Tool] CleaningTag is None on this tool — fill it in the BP."));
 		return;
 	}
 
 	if (TargetCleanable == nullptr)
 	{
-		FString HitDump;
-		for (const FHitResult& H : Hits)
-		{
-			HitDump += FString::Printf(TEXT(" [%s/%s @%s]"),
-				H.GetActor() ? *H.GetActor()->GetName() : TEXT("?"),
-				H.GetComponent() ? *H.GetComponent()->GetName() : TEXT("?"),
-				*H.ImpactPoint.ToCompactString());
-		}
-		UE_LOG(LogCleaning, Log, TEXT("[Tool] No cleanable along ray. %d hits:%s"), Hits.Num(), *HitDump);
 		return;
 	}
 
-	UE_LOG(LogCleaning, Log, TEXT("[Tool] Applying clean %.2f to %s (current dirt=%.2f)."),
-		CleanAmountPerClick, *TargetCleanable->GetName(), TargetCleanable->DirtAmount);
 	TargetCleanable->ApplyClean(CleanAmountPerClick);
 }
 
@@ -175,21 +166,18 @@ void ACleaningTool::Multicast_PlayCleaningMontage_Implementation()
 {
 	if (CleaningMontage == nullptr)
 	{
-		UE_LOG(LogCleaning, Verbose, TEXT("[Tool] Multicast: no montage assigned."));
 		return;
 	}
 
 	AActor* OwningActor = GetOwner();
 	if (OwningActor == nullptr)
 	{
-		UE_LOG(LogCleaning, Warning, TEXT("[Tool] Multicast: no owner actor."));
 		return;
 	}
 
 	USkeletalMeshComponent* OwnerMesh = OwningActor->FindComponentByClass<USkeletalMeshComponent>();
 	if (OwnerMesh == nullptr)
 	{
-		UE_LOG(LogCleaning, Warning, TEXT("[Tool] Multicast: owner has no skeletal mesh."));
 		return;
 	}
 
@@ -197,8 +185,29 @@ void ACleaningTool::Multicast_PlayCleaningMontage_Implementation()
 	{
 		AnimInstance->Montage_Play(CleaningMontage);
 	}
-	else
+}
+
+void ACleaningTool::Multicast_StopCleaningMontage_Implementation()
+{
+	if (CleaningMontage == nullptr)
 	{
-		UE_LOG(LogCleaning, Warning, TEXT("[Tool] Multicast: skeletal mesh has no AnimInstance."));
+		return;
+	}
+
+	AActor* OwningActor = GetOwner();
+	if (OwningActor == nullptr)
+	{
+		return;
+	}
+
+	USkeletalMeshComponent* OwnerMesh = OwningActor->FindComponentByClass<USkeletalMeshComponent>();
+	if (OwnerMesh == nullptr)
+	{
+		return;
+	}
+
+	if (UAnimInstance* AnimInstance = OwnerMesh->GetAnimInstance())
+	{
+		AnimInstance->Montage_Stop(CleaningMontage->BlendOut.GetBlendTime(), CleaningMontage);
 	}
 }

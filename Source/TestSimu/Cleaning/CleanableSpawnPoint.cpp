@@ -5,8 +5,6 @@
 #include "Engine/World.h"
 #include "EngineUtils.h"
 
-DEFINE_LOG_CATEGORY_STATIC(LogCleaning, Log, All);
-
 namespace
 {
 	UCleanableSpawnerComponent* FindSpawnerInWorld(UWorld* World)
@@ -61,14 +59,7 @@ void ACleanableSpawnPoint::BeginPlay()
 
 	if (UCleanableSpawnerComponent* Spawner = FindSpawnerInWorld(GetWorld()))
 	{
-		UE_LOG(LogCleaning, Log, TEXT("[SpawnPoint] %s registering with spawner on %s (tag=%s)"),
-			*GetName(), *Spawner->GetOwner()->GetName(), *CleaningTag.ToString());
 		Spawner->RegisterSpawnPoint(this);
-	}
-	else
-	{
-		UE_LOG(LogCleaning, Verbose, TEXT("[SpawnPoint] %s BeginPlay: no spawner in world yet — it will adopt us when it starts."),
-			*GetName());
 	}
 }
 
