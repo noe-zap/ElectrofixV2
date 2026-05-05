@@ -28,9 +28,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tools Wheel|UI")
 	TSubclassOf<UToolsWheelWidget> WheelWidgetClass;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tools Wheel|Attachment")
-	FName AttachSocketName = FName("hand_r");
-
 	// Text shown for the default empty-hands slot
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tools Wheel")
 	FText EmptyHandsName = FText::FromString(TEXT("Empty Hands"));

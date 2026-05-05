@@ -120,6 +120,7 @@ void UToolsWheelComponent::UnequipCurrentTool()
 
 	if (CurrentTool != nullptr)
 	{
+		CurrentTool->UseStop();
 		CurrentTool->OnUnequipped();
 		CurrentTool->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		CurrentTool->Destroy();
@@ -138,11 +139,13 @@ void UToolsWheelComponent::ServerEquipTool_Implementation(int32 SlotIndex)
 	// Destroy current tool
 	if (CurrentTool != nullptr)
 	{
+		CurrentTool->UseStop();
 		CurrentTool->OnUnequipped();
 		CurrentTool->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		CurrentTool->Destroy();
 		CurrentTool = nullptr;
 	}
+	bHasToolEquipped = false;
 
 	const FToolSlotInfo& Slot = ToolSlots[SlotIndex];
 	if (Slot.ToolClass == nullptr)
@@ -166,9 +169,7 @@ void UToolsWheelComponent::ServerEquipTool_Implementation(int32 SlotIndex)
 	USkeletalMeshComponent* OwnerMesh = GetOwner()->FindComponentByClass<USkeletalMeshComponent>();
 	if (OwnerMesh != nullptr)
 	{
-		NewTool->AttachToComponent(OwnerMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, AttachSocketName);
-		NewTool->SetActorRelativeLocation(NewTool->AttachOffset);
-		NewTool->SetActorRelativeRotation(NewTool->AttachRotation);
+		NewTool->AttachToComponent(OwnerMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, Slot.AttachSocketName);
 	}
 
 	NewTool->OnEquipped(GetOwner());

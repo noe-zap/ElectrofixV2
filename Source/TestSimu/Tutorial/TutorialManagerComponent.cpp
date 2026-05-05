@@ -72,7 +72,7 @@ void UTutorialManagerComponent::RewindCurrentStepToTask(FName EventId)
 	}
 
 	// Keep bits strictly below TargetIdx, clear the rest.
-	const int32 KeepMask = (TargetIdx == 0) ? 0 : ((1 << TargetIdx) - 1);t
+	const int32 KeepMask = (TargetIdx == 0) ? 0 : ((1 << TargetIdx) - 1);
 	const int32 NewMask = CurrentStepTaskCompletionMask & KeepMask;
 
 	if (NewMask == CurrentStepTaskCompletionMask)
