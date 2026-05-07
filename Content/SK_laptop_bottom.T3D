@@ -1,0 +1,9 @@
+Begin Object Class=/Script/Engine.Skeleton Name="SK_laptop_bottom" ExportPath="/Script/Engine.Skeleton'/Game/_Main/Assets/Meshes/MiniGames/Laptop/Bottom/SK_laptop_bottom.SK_laptop_bottom'"
+   Begin Object Class=/Script/Engine.AnimCurveMetaData Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/_Main/Assets/Meshes/MiniGames/Laptop/Bottom/SK_laptop_bottom.SK_laptop_bottom:AnimCurveMetaData_0'"
+   End Object
+   Begin Object Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/_Main/Assets/Meshes/MiniGames/Laptop/Bottom/SK_laptop_bottom.SK_laptop_bottom:AnimCurveMetaData_0'"
+   End Object
+   BoneTree(0)=()
+   PreviewSkeletalMesh="/Game/_Main/Assets/Meshes/MiniGames/Laptop/Bottom/SKM_laptop_bottom.SKM_laptop_bottom"
+   AssetUserData(0)="/Script/Engine.AnimCurveMetaData'AnimCurveMetaData_0'"
+End Object
