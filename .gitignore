@@ -29,6 +29,9 @@ Content/electronic_component/
 Content/Bike_Shop_Environment/
 Content/Civilian_Character_Pack/
 
+# Personal downloads / installers — keep out of the repo
+Content/Downloads/
+
 
 # Thumbnails
 *.thumb
