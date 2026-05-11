@@ -5,6 +5,14 @@
 
 class ATool;
 
+UENUM(BlueprintType)
+enum class EToolType : uint8
+{
+	None   UMETA(DisplayName = "None"),
+	Broom  UMETA(DisplayName = "Broom"),
+	Sponge UMETA(DisplayName = "Sponge")
+};
+
 USTRUCT(BlueprintType)
 struct FToolSlotInfo
 {
