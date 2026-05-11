@@ -173,6 +173,7 @@ void UToolsWheelComponent::ServerEquipTool_Implementation(int32 SlotIndex)
 	}
 
 	NewTool->OnEquipped(GetOwner());
+	NewTool->Client_AttachFirstPersonMesh();
 	CurrentTool = NewTool;
 	bHasToolEquipped = true;
 	OnToolEquipped.Broadcast(CurrentTool);

@@ -4,7 +4,6 @@
 #include "Animation/AnimMontage.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/PrimitiveComponent.h"
-#include "DrawDebugHelpers.h"
 #include "Engine/World.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
@@ -12,11 +11,12 @@
 
 ACleaningTool::ACleaningTool()
 {
-	PrimaryActorTick.bCanEverTick = false;
 }
 
 void ACleaningTool::UseStart_Implementation()
 {
+	Super::UseStart_Implementation();
+
 	Multicast_PlayCleaningMontage();
 	CleanTick();
 
@@ -28,6 +28,8 @@ void ACleaningTool::UseStart_Implementation()
 
 void ACleaningTool::UseStop_Implementation()
 {
+	Super::UseStop_Implementation();
+
 	if (UWorld* World = GetWorld())
 	{
 		World->GetTimerManager().ClearTimer(CleanHoldTimer);
@@ -105,20 +107,18 @@ void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 	Params.AddIgnoredActor(OwnerPawn);
 
 	TArray<FHitResult> Hits;
-	bool bAnyHit = false;
 	if (CleanTraceRadius > 0.f)
 	{
-		bAnyHit = GetWorld()->SweepMultiByChannel(
+		GetWorld()->SweepMultiByChannel(
 			Hits, Start, End, FQuat::Identity, ECC_Visibility,
 			FCollisionShape::MakeSphere(CleanTraceRadius), Params);
 	}
 	else
 	{
-		bAnyHit = GetWorld()->LineTraceMultiByChannel(Hits, Start, End, ECC_Visibility, Params);
+		GetWorld()->LineTraceMultiByChannel(Hits, Start, End, ECC_Visibility, Params);
 	}
 
 	ACleanableActor* TargetCleanable = nullptr;
-	FVector ImpactForDebug = End;
 	for (const FHitResult& H : Hits)
 	{
 		ACleanableActor* Cleanable = Cast<ACleanableActor>(H.GetActor());
@@ -139,14 +139,7 @@ void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 		}
 
 		TargetCleanable = Cleanable;
-		ImpactForDebug = H.ImpactPoint;
 		break;
-	}
-
-	if (UWorld* World = GetWorld())
-	{
-		const FColor LineColor = TargetCleanable ? FColor::Green : (bAnyHit ? FColor::Yellow : FColor::Red);
-		DrawDebugLine(World, Start, TargetCleanable ? ImpactForDebug : End, LineColor, false, 2.f, 0, 1.f);
 	}
 
 	if (CleaningTag.IsNone())
