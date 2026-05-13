@@ -62,6 +62,26 @@ void ATutorialArrow::SetTarget(AActor* NewTarget, FVector Offset)
 	OnRep_Target();
 }
 
+void ATutorialArrow::SetTargetComponent(USceneComponent* NewComponent, FVector Offset)
+{
+	TargetComponent = NewComponent;
+	TargetOffset = Offset;
+
+	// Local-only path: don't gate on authority. Make visible if we have something to follow.
+	if (TargetComponent.IsValid() || TargetActor.IsValid())
+	{
+		SetActorHiddenInGame(false);
+	}
+}
+
+void ATutorialArrow::SetArrowScale(float NewScale)
+{
+	if (ArrowMesh)
+	{
+		ArrowMesh->SetRelativeScale3D(FVector(NewScale));
+	}
+}
+
 void ATutorialArrow::OnRep_Target()
 {
 	TargetResolveElapsed = 0.f;
@@ -97,8 +117,16 @@ void ATutorialArrow::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	AActor* T = TargetActor.Get();
-	if (!T)
+	FVector BaseLoc;
+	if (USceneComponent* TC = TargetComponent.Get())
+	{
+		BaseLoc = TC->GetComponentLocation();
+	}
+	else if (AActor* T = TargetActor.Get())
+	{
+		BaseLoc = T->GetActorLocation();
+	}
+	else
 	{
 		return;
 	}
@@ -106,7 +134,7 @@ void ATutorialArrow::Tick(float DeltaTime)
 	BobPhase += DeltaTime * BobFrequency * 2.f * PI;
 	SpinYaw += DeltaTime * SpinSpeed;
 
-	FVector DesiredLoc = T->GetActorLocation() + TargetOffset;
+	FVector DesiredLoc = BaseLoc + TargetOffset;
 	DesiredLoc.Z += FMath::Sin(BobPhase) * BobAmplitude;
 
 	SetActorLocation(DesiredLoc);

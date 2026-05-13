@@ -45,6 +45,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Tutorial|Arrow")
 	void SetTarget(AActor* NewTarget, FVector Offset);
 
+	// Local-only follow target (use for non-replicated arrows that track a specific scene component,
+	// e.g. workshop sub-components). Takes precedence over TargetActor while set.
+	UFUNCTION(BlueprintCallable, Category = "Tutorial|Arrow")
+	void SetTargetComponent(USceneComponent* NewComponent, FVector Offset);
+
+	// Per-instance uniform scale for the arrow mesh. 1.0 = default size.
+	UFUNCTION(BlueprintCallable, Category = "Tutorial|Arrow")
+	void SetArrowScale(float NewScale);
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void Tick(float DeltaTime) override;
 
@@ -57,6 +66,9 @@ private:
 
 	UPROPERTY(Replicated)
 	FVector TargetOffset = FVector(0.f, 0.f, 120.f);
+
+	// Local-only (not replicated). When set, overrides TargetActor for position resolution.
+	TWeakObjectPtr<USceneComponent> TargetComponent;
 
 	UFUNCTION()
 	void OnRep_Target();

@@ -181,6 +181,22 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Debug")
 	bool bDebugTrace = false;
 
+	// --- Tutorial Highlight Settings ---
+
+	// Overlay material applied to whichever component(s) the player should interact with next
+	// during the repair tutorial. Leave null to disable highlighting entirely.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Tutorial")
+	UMaterialInterface* TutorialHighlightOverlay = nullptr;
+
+	// Force-enable workshop tutorial highlights even when no TutorialManagerComponent is found or active.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Tutorial")
+	bool bForceShowTutorialHighlights = false;
+
+public:
+	// Manually enable/disable workshop tutorial highlights (overrides auto-detect for one toggle).
+	UFUNCTION(BlueprintCallable, Category = "Workshop|Tutorial")
+	void SetTutorialHighlightsEnabled(bool bEnabled);
+
 private:
 	// --- Cover Pull ---
 	void InitCoverPhase();
@@ -244,6 +260,21 @@ private:
 	static const FName CoverToolPosTag;
 	static const FName CoverPosTag;
 	static const FName PartsSpawnTag;
+
+	// --- Tutorial Highlights ---
+	void UpdateTutorialHighlights();
+	void ClearTutorialHighlights();
+	bool ShouldShowTutorialHighlights() const;
+	void RestoreOverlay(UStaticMeshComponent* Comp);
+	UStaticMeshComponent* FindComponentByTag(FName Tag);
+
+	UPROPERTY()
+	TSet<TObjectPtr<UStaticMeshComponent>> HighlightedComponents;
+
+	UPROPERTY()
+	TMap<FName, TObjectPtr<UStaticMeshComponent>> NewPartsBySlot;
+
+	bool bTutorialHighlightsForceEnabled = false;
 
 	USceneComponent* FindPartsSpawn();
 
