@@ -4,6 +4,9 @@
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "DrawDebugHelpers.h"
+#include "Materials/MaterialInterface.h"
+#include "Tutorial/TutorialManagerComponent.h"
+#include "Tutorial/TutorialFunctionLibrary.h"
 
 const FString AWorkshopDevice::BrokenSuffix = TEXT("_broken");
 const FName AWorkshopDevice::ScrewTag = FName("Screw");
@@ -143,6 +146,9 @@ void AWorkshopDevice::Repair(const TArray<FName>& BrokenPartIds, FVector SpawnLo
 
 	bIsRepairing = true;
 	SetActorTickEnabled(true);
+
+	NewPartsBySlot.Empty();
+	UpdateTutorialHighlights();
 }
 
 void AWorkshopDevice::RegisterScrews()
@@ -237,6 +243,9 @@ UStaticMeshComponent* AWorkshopDevice::SpawnNewPart(UStaticMesh* Mesh, FName Bro
 
 	NewComp->SetSimulatePhysics(false);
 
+	NewPartsBySlot.Add(BrokenPartId, NewComp);
+	UpdateTutorialHighlights();
+
 	return NewComp;
 }
 
@@ -294,6 +303,9 @@ void AWorkshopDevice::StopRepair()
 	bWasLeftMouseDown = false;
 	bIsRepairing = false;
 	SetActorTickEnabled(false);
+
+	NewPartsBySlot.Empty();
+	ClearTutorialHighlights();
 }
 
 // ============================================================
@@ -562,6 +574,7 @@ void AWorkshopDevice::TryGrabPart()
 		ScrewDriverComp->SetWorldRotation(ReadyRotation);
 
 		UE_LOG(LogTemp, Warning, TEXT("TryGrabScrewDriver - PICKED UP: %s"), *ScrewDriverComp->GetName());
+		UpdateTutorialHighlights();
 		return;
 	}
 
@@ -606,6 +619,7 @@ void AWorkshopDevice::TryGrabPart()
 	}
 	DraggedComponent->SetWorldLocation(LiftedPos);
 	DragTargetLocation = LiftedPos;
+	UpdateTutorialHighlights();
 }
 
 void AWorkshopDevice::UpdateDrag(float DeltaTime)
@@ -699,6 +713,7 @@ void AWorkshopDevice::ReleasePart()
 	}
 
 	DraggedComponent = nullptr;
+	UpdateTutorialHighlights();
 }
 
 void AWorkshopDevice::SnapToSlot(UStaticMeshComponent* Comp, FName PartId)
@@ -709,6 +724,15 @@ void AWorkshopDevice::SnapToSlot(UStaticMeshComponent* Comp, FName PartId)
 	Comp->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
 
 	SlotOccupants[PartId] = Comp;
+
+	// If this was the tracked new part for this slot, retire it from the pending map.
+	if (UStaticMeshComponent* Tracked = NewPartsBySlot.FindRef(PartId))
+	{
+		if (Tracked == Comp)
+		{
+			NewPartsBySlot.Remove(PartId);
+		}
+	}
 
 	OnPartSnappedBack.Broadcast(PartId);
 
@@ -850,6 +874,7 @@ void AWorkshopDevice::UpdateCoverPhase(float DeltaTime)
 						CoverToolMoveAlpha = 0.f;
 						CoverState = ECoverRemovalState::ToolMovingToSnap;
 						UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Tool clicked, moving to snap position."));
+						UpdateTutorialHighlights();
 					}
 				}
 			}
@@ -998,6 +1023,7 @@ void AWorkshopDevice::FinishCoverRemoval()
 	CoverState = ECoverRemovalState::Done;
 	OnCoverRemoved.Broadcast();
 	UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Complete. Transitioning to screw/drag flow."));
+	UpdateTutorialHighlights();
 }
 
 // ============================================================
@@ -1008,6 +1034,7 @@ void AWorkshopDevice::StartResetAnimation()
 {
 	bResettingAfterRepair = true;
 	ResetAnimAlpha = 0.f;
+	ClearTutorialHighlights();
 
 	if (CoverComp)
 	{
@@ -1072,6 +1099,7 @@ void AWorkshopDevice::FinishResetAnimation()
 	}
 
 	bResettingAfterRepair = false;
+	ClearTutorialHighlights();
 	OnRepairFinished.Broadcast();
 }
 
@@ -1144,6 +1172,7 @@ void AWorkshopDevice::ReleaseScrewDriver()
 	bHoldingScrewDriver = false;
 	SetupWorkshopCollision(ScrewDriverComp);
 	ScrewDriverComp->SetSimulatePhysics(true);
+	UpdateTutorialHighlights();
 }
 
 // ============================================================
@@ -1258,6 +1287,8 @@ void AWorkshopDevice::FinishUnscrew()
 	ScrewDriverDragTarget = ScrewDriverComp->GetComponentLocation();
 	ActiveScrew = nullptr;
 	UnscrewTimer = 0.f;
+
+	UpdateTutorialHighlights();
 }
 
 void AWorkshopDevice::CancelUnscrew()
@@ -1272,4 +1303,218 @@ void AWorkshopDevice::CancelUnscrew()
 
 	ActiveScrew = nullptr;
 	UnscrewTimer = 0.f;
+}
+
+// ============================================================
+// Tutorial Highlights
+// ============================================================
+
+void AWorkshopDevice::SetTutorialHighlightsEnabled(bool bEnabled)
+{
+	bTutorialHighlightsForceEnabled = bEnabled;
+	UpdateTutorialHighlights();
+}
+
+bool AWorkshopDevice::ShouldShowTutorialHighlights() const
+{
+	if (bForceShowTutorialHighlights || bTutorialHighlightsForceEnabled)
+	{
+		return true;
+	}
+
+	if (UTutorialManagerComponent* Mgr = UTutorialFunctionLibrary::GetTutorialManager(this))
+	{
+		return Mgr->IsTutorialActive();
+	}
+	return false;
+}
+
+UStaticMeshComponent* AWorkshopDevice::FindComponentByTag(FName Tag)
+{
+	// First: own components (covers cases where the tool is a sub-component of the workshop).
+	TArray<UStaticMeshComponent*> Own;
+	GetComponents<UStaticMeshComponent>(Own);
+	for (UStaticMeshComponent* Mesh : Own)
+	{
+		if (Mesh && Mesh->ComponentTags.Contains(Tag))
+		{
+			return Mesh;
+		}
+	}
+
+	// Fallback: scan the world. CoverTool and ScrewDriver are separate actors in the level.
+	// Prefer the actor nearest to the workshop so multi-workshop scenes don't cross-talk.
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		return nullptr;
+	}
+
+	const FVector MyLoc = GetActorLocation();
+	UStaticMeshComponent* Best = nullptr;
+	float BestDistSq = TNumericLimits<float>::Max();
+
+	for (TActorIterator<AActor> It(World); It; ++It)
+	{
+		AActor* Actor = *It;
+		if (!IsValid(Actor))
+		{
+			continue;
+		}
+		TArray<UStaticMeshComponent*> ActorMeshes;
+		Actor->GetComponents<UStaticMeshComponent>(ActorMeshes);
+		for (UStaticMeshComponent* Mesh : ActorMeshes)
+		{
+			if (!Mesh || !Mesh->ComponentTags.Contains(Tag))
+			{
+				continue;
+			}
+			const float DistSq = FVector::DistSquared(Mesh->GetComponentLocation(), MyLoc);
+			if (DistSq < BestDistSq)
+			{
+				BestDistSq = DistSq;
+				Best = Mesh;
+			}
+		}
+	}
+	return Best;
+}
+
+void AWorkshopDevice::RestoreOverlay(UStaticMeshComponent* Comp)
+{
+	if (!Comp)
+	{
+		return;
+	}
+	// Broken parts keep their original "broken" tint when the tutorial highlight is removed.
+	if (Comp->ComponentTags.Num() > 0 && IsBrokenTag(Comp->ComponentTags[0]))
+	{
+		Comp->SetOverlayMaterial(BrokenMatOverlay);
+	}
+	else
+	{
+		Comp->SetOverlayMaterial(nullptr);
+	}
+}
+
+void AWorkshopDevice::ClearTutorialHighlights()
+{
+	for (const TObjectPtr<UStaticMeshComponent>& Comp : HighlightedComponents)
+	{
+		RestoreOverlay(Comp.Get());
+	}
+	HighlightedComponents.Empty();
+}
+
+void AWorkshopDevice::UpdateTutorialHighlights()
+{
+	if (!bIsRepairing || !ShouldShowTutorialHighlights() || !TutorialHighlightOverlay)
+	{
+		UE_LOG(LogTemp, Verbose, TEXT("WorkshopDevice: highlights skipped (bIsRepairing=%d, ShouldShow=%d, Overlay=%d)"),
+			bIsRepairing, ShouldShowTutorialHighlights(), TutorialHighlightOverlay != nullptr);
+		ClearTutorialHighlights();
+		return;
+	}
+
+	TSet<TObjectPtr<UStaticMeshComponent>> NewHighlights;
+
+	auto AddHighlight = [&](UStaticMeshComponent* Comp)
+	{
+		if (Comp)
+		{
+			NewHighlights.Add(Comp);
+		}
+	};
+
+	// --- Phase 1: Cover removal (only the tool-pickup sub-phase guides the player) ---
+	if (bHasCover && CoverState != ECoverRemovalState::Inactive && CoverState != ECoverRemovalState::Done)
+	{
+		if (CoverState == ECoverRemovalState::ToolAtBase)
+		{
+			UStaticMeshComponent* CoverTool = CoverToolComp ? CoverToolComp : FindComponentByTag(CoverToolTag);
+			if (!CoverTool)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice: no CoverTool found by tag '%s' — highlight skipped"), *CoverToolTag.ToString());
+			}
+			AddHighlight(CoverTool);
+		}
+		// No highlight during auto-driven sub-states (ToolMovingToSnap / Pulling / Animating).
+	}
+	// --- Phase 2: Screw removal ---
+	else if (ScrewToPartMap.Num() > 0)
+	{
+		if (!bHoldingScrewDriver)
+		{
+			UStaticMeshComponent* Driver = ScrewDriverComp ? ScrewDriverComp : FindComponentByTag(ScrewDriverTag);
+			if (!Driver)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("WorkshopDevice: no ScrewDriver found by tag '%s' — highlight skipped"), *ScrewDriverTag.ToString());
+			}
+			AddHighlight(Driver);
+		}
+		else
+		{
+			// Highlight every remaining screw (including the active one — overlay isn't in the way).
+			for (const TPair<TObjectPtr<UStaticMeshComponent>, FName>& Pair : ScrewToPartMap)
+			{
+				AddHighlight(Pair.Key);
+			}
+		}
+	}
+	// --- Phase 3: Broken parts out / new parts in ---
+	else
+	{
+		for (const TPair<FName, FTransform>& SlotPair : SlotTransforms)
+		{
+			const FName SlotId = SlotPair.Key;
+			UStaticMeshComponent* Occupant = SlotOccupants.FindRef(SlotId);
+
+			// Fully repaired slot — skip.
+			if (Occupant && Occupant->ComponentTags.Num() > 0 && !IsBrokenTag(Occupant->ComponentTags[0]))
+			{
+				continue;
+			}
+
+			// Broken part still attached → highlight it.
+			if (Occupant && Occupant->ComponentTags.Num() > 0 && IsBrokenTag(Occupant->ComponentTags[0]))
+			{
+				AddHighlight(Occupant);
+				continue;
+			}
+
+			// Broken part being dragged out → keep it highlighted.
+			if (DraggedComponent && DraggedComponent->ComponentTags.Num() > 0
+				&& IsBrokenTag(DraggedComponent->ComponentTags[0])
+				&& GetBasePartId(DraggedComponent) == SlotId)
+			{
+				AddHighlight(DraggedComponent);
+				continue;
+			}
+
+			// Otherwise, highlight the new part (whether on the bench or being carried —
+			// the slot itself has no mesh to overlay).
+			if (UStaticMeshComponent* NewPart = NewPartsBySlot.FindRef(SlotId))
+			{
+				AddHighlight(NewPart);
+			}
+		}
+	}
+
+	// Reconcile: clear overlay on components that dropped out, apply overlay to new entries.
+	for (const TObjectPtr<UStaticMeshComponent>& Comp : HighlightedComponents)
+	{
+		if (!NewHighlights.Contains(Comp))
+		{
+			RestoreOverlay(Comp.Get());
+		}
+	}
+	for (const TObjectPtr<UStaticMeshComponent>& Comp : NewHighlights)
+	{
+		if (!HighlightedComponents.Contains(Comp) && Comp)
+		{
+			Comp->SetOverlayMaterial(TutorialHighlightOverlay);
+		}
+	}
+
+	HighlightedComponents = MoveTemp(NewHighlights);
 }
