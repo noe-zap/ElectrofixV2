@@ -16,6 +16,8 @@
 #include "Framework/Application/SlateApplication.h"
 #include "Styling/CoreStyle.h"
 #include "Misc/ConfigCacheIni.h"
+#include "Internationalization/Internationalization.h"
+#include "Internationalization/Culture.h"
 #include "Engine/Engine.h"
 #include "Engine/LocalPlayer.h"
 #include "Engine/GameInstance.h"
@@ -23,6 +25,7 @@
 
 static const TCHAR* MouseSettingsSection = TEXT("TestSimu.MouseSettings");
 static const TCHAR* AudioSettingsSection = TEXT("TestSimu.Audio");
+static const TCHAR* LanguageSettingsSection = TEXT("TestSimu.Language");
 
 static FSlateFontInfo MakeFont(int32 Size)
 {
@@ -60,11 +63,13 @@ UEnhancedInputUserSettings* SSettingsWidget::GetUserSettings()
 void SSettingsWidget::Construct(const FArguments& InArgs)
 {
 	OnBackDelegate = InArgs._OnBack;
+	bShowLanguageTab = InArgs._ShowLanguageTab;
 
 	ResolutionOptions.Reset();
 	RebindableActions.Reset();
 	KeyTexts.Reset();
 	TabButtonTexts.Reset();
+	LanguageButtonTexts.Reset();
 
 	WindowModeOptions = {
 		NSLOCTEXT("TestSimu", "WindowMode_Fullscreen", "Fullscreen"),
@@ -373,10 +378,83 @@ void SSettingsWidget::Construct(const FArguments& InArgs)
 		.Font(GetLabelFont()).ColorAndOpacity(FLinearColor(0.7f, 0.7f, 0.7f))
 	];
 
+	// --- General tab (language) — only shown from the main menu ---
+	TSharedPtr<SWidget> GeneralContent;
+	if (bShowLanguageTab)
+	{
+		LanguageCultureCodes = {
+			TEXT("en"), TEXT("fr"), TEXT("it"), TEXT("de"), TEXT("es"),
+			TEXT("ja"), TEXT("ko"), TEXT("pl"), TEXT("pt-BR"), TEXT("pt"),
+			TEXT("ru"), TEXT("zh-Hans"), TEXT("es-419"), TEXT("tr")
+		};
+		LanguageDisplayNames = {
+			MakeShared<FString>(TEXT("English")),
+			MakeShared<FString>(TEXT("Français")),
+			MakeShared<FString>(TEXT("Italiano")),
+			MakeShared<FString>(TEXT("Deutsch")),
+			MakeShared<FString>(TEXT("Español")),
+			MakeShared<FString>(TEXT("日本語")),
+			MakeShared<FString>(TEXT("한국어")),
+			MakeShared<FString>(TEXT("Polski")),
+			MakeShared<FString>(TEXT("Português (Brasil)")),
+			MakeShared<FString>(TEXT("Português")),
+			MakeShared<FString>(TEXT("Русский")),
+			MakeShared<FString>(TEXT("简体中文")),
+			MakeShared<FString>(TEXT("Español (Latinoamérica)")),
+			MakeShared<FString>(TEXT("Türkçe"))
+		};
+		LoadLanguageSetting();
+
+		TSharedRef<SVerticalBox> LangContent = SNew(SVerticalBox);
+		LangContent->AddSlot().AutoHeight().Padding(0.f, 4.f, 0.f, 8.f)
+		[
+			SNew(STextBlock).Text(NSLOCTEXT("TestSimu", "Settings_LanguageHeader", "Language")).Font(GetHeaderFont()).ColorAndOpacity(FLinearColor(1.f, 0.8f, 0.2f))
+		];
+
+		TSharedRef<SScrollBox> LanguageScrollBox = SNew(SScrollBox);
+		for (int32 i = 0; i < LanguageDisplayNames.Num(); i++)
+		{
+			LanguageScrollBox->AddSlot().Padding(2.f)
+			[
+				SNew(SButton)
+				.HAlign(HAlign_Center)
+				.OnClicked_Lambda([this, i]()
+				{
+					SelectedLanguage = i;
+					SaveLanguageSetting();
+					ApplyLanguageSetting();
+					for (int32 j = 0; j < LanguageButtonTexts.Num(); j++)
+					{
+						if (LanguageButtonTexts[j].IsValid())
+							LanguageButtonTexts[j]->SetColorAndOpacity(j == i ? FLinearColor(1.f, 0.8f, 0.2f) : FLinearColor::White);
+					}
+					return FReply::Handled();
+				})
+				.ContentPadding(FMargin(20.f, 6.f))
+				[
+					SAssignNew(LanguageButtonTexts.AddDefaulted_GetRef(), STextBlock)
+					.Text(FText::FromString(*LanguageDisplayNames[i]))
+					.Font(GetButtonFont())
+					.ColorAndOpacity(i == SelectedLanguage ? FLinearColor(1.f, 0.8f, 0.2f) : FLinearColor::White)
+				]
+			];
+		}
+
+		LangContent->AddSlot().FillHeight(1.f).Padding(0.f, 6.f)
+		[ SNew(SBox).MaxDesiredHeight(300.f) [ LanguageScrollBox ] ];
+
+		GeneralContent = LangContent;
+	}
+
 	// --- Tab bar ---
 	TArray<FText> TabNames;
 	TArray<TSharedRef<SWidget>> TabContents;
 
+	if (bShowLanguageTab && GeneralContent.IsValid())
+	{
+		TabNames.Add(NSLOCTEXT("TestSimu", "Settings_TabGeneral", "General"));
+		TabContents.Add(SNew(SScrollBox) + SScrollBox::Slot().Padding(0.f, 0.f, 16.f, 0.f) [ GeneralContent.ToSharedRef() ]);
+	}
 	TabNames.Add(NSLOCTEXT("TestSimu", "Settings_TabControls", "Controls"));
 	TabContents.Add(SNew(SScrollBox) + SScrollBox::Slot().Padding(0.f, 0.f, 16.f, 0.f) [ ControlsContent ]);
 	TabNames.Add(NSLOCTEXT("TestSimu", "Settings_TabSound", "Sound"));
@@ -763,4 +841,49 @@ void SSettingsWidget::OnEffectsVolumeChanged(float Value)
 	if (EffectsVolumeText.IsValid())
 		EffectsVolumeText->SetText(FText::FromString(FString::Printf(TEXT("%d%%"), FMath::RoundToInt(EffectsVolume * 100.f))));
 	SaveSoundSettings();
+}
+
+void SSettingsWidget::LoadLanguageSetting()
+{
+	FString SavedCulture;
+	if (GConfig->GetString(LanguageSettingsSection, TEXT("Culture"), SavedCulture, GGameUserSettingsIni))
+	{
+		for (int32 i = 0; i < LanguageCultureCodes.Num(); i++)
+		{
+			if (LanguageCultureCodes[i] == SavedCulture)
+			{
+				SelectedLanguage = i;
+				return;
+			}
+		}
+	}
+
+	const FString CurrentCulture = FInternationalization::Get().GetCurrentCulture()->GetName();
+	for (int32 i = 0; i < LanguageCultureCodes.Num(); i++)
+	{
+		if (CurrentCulture.StartsWith(LanguageCultureCodes[i]))
+		{
+			SelectedLanguage = i;
+			return;
+		}
+	}
+	SelectedLanguage = 0;
+}
+
+void SSettingsWidget::SaveLanguageSetting()
+{
+	if (LanguageCultureCodes.IsValidIndex(SelectedLanguage))
+	{
+		GConfig->SetString(LanguageSettingsSection, TEXT("Culture"), *LanguageCultureCodes[SelectedLanguage], GGameUserSettingsIni);
+		GConfig->SetString(TEXT("Internationalization"), TEXT("Culture"), *LanguageCultureCodes[SelectedLanguage], GGameUserSettingsIni);
+		GConfig->Flush(false, GGameUserSettingsIni);
+	}
+}
+
+void SSettingsWidget::ApplyLanguageSetting()
+{
+	if (LanguageCultureCodes.IsValidIndex(SelectedLanguage))
+	{
+		FInternationalization::Get().SetCurrentCulture(LanguageCultureCodes[SelectedLanguage]);
+	}
 }

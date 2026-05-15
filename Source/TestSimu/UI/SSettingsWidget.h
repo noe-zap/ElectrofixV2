@@ -14,8 +14,11 @@ class SSlider;
 class TESTSIMU_API SSettingsWidget : public SCompoundWidget
 {
 public:
-	SLATE_BEGIN_ARGS(SSettingsWidget) {}
+	SLATE_BEGIN_ARGS(SSettingsWidget)
+		: _ShowLanguageTab(false)
+	{}
 		SLATE_EVENT(FSimpleDelegate, OnBack)
+		SLATE_ARGUMENT(bool, ShowLanguageTab)
 	SLATE_END_ARGS()
 
 	void Construct(const FArguments& InArgs);
@@ -104,6 +107,16 @@ private:
 	void ApplyVideoSettings();
 
 	FSimpleDelegate OnBackDelegate;
+	bool bShowLanguageTab = false;
+
+	TArray<TSharedPtr<FString>> LanguageDisplayNames;
+	TArray<FString> LanguageCultureCodes;
+	int32 SelectedLanguage = 0;
+	TArray<TSharedPtr<STextBlock>> LanguageButtonTexts;
+
+	void LoadLanguageSetting();
+	void SaveLanguageSetting();
+	void ApplyLanguageSetting();
 
 	static FSlateFontInfo GetTitleFont();
 	static FSlateFontInfo GetButtonFont();
