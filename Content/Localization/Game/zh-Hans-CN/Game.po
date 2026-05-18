@@ -1,11 +1,11 @@
-# Game Chinese (Simplified, China) translation.
+﻿# Game Chinese (Simplified, China) translation.
 # Fill out your copyright notice in the Description page of Project Settings.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Game\n"
-"POT-Creation-Date: 2026-05-13 15:24\n"
-"PO-Revision-Date: 2026-05-13 15:24\n"
+"POT-Creation-Date: 2026-05-15 13:27\n"
+"PO-Revision-Date: 2026-05-15 13:27\n"
 "Language-Team: \n"
 "Language: zh-Hans-CN\n"
 "MIME-Version: 1.0\n"
@@ -930,7 +930,6 @@ msgctxt ",D248984D403A8B4978423E814E98700A"
 msgid "Small Store Shelf"
 msgstr "小型商店货架"
 
-
 #. Key:	1B597FC145AE31137A054E85BA3CDE12
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.105600.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.105600.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1356,98 +1355,98 @@ msgstr "Pawctori"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Checkout.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",5A03E31845E02B4909A966BE1C474E22"
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "收银台"
 
 #. Key:	A27F1753420097CA4C57DA8A29C210DD
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Checkout.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Checkout.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",A27F1753420097CA4C57DA8A29C210DD"
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "收银台"
 
 #. Key:	A413767A48AA2E9B99966FB8D731A62E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",A413767A48AA2E9B99966FB8D731A62E"
 msgid "Computer 1"
-msgstr "Computer 1"
+msgstr "电脑 1"
 
 #. Key:	D1D1AF3441C592AB7E8540ABFE23A6C6
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",D1D1AF3441C592AB7E8540ABFE23A6C6"
 msgid "Computer 1"
-msgstr "Computer 1"
+msgstr "电脑 1"
 
 #. Key:	CBB7AC834F6A8790618AA2A674C760D2
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",CBB7AC834F6A8790618AA2A674C760D2"
 msgid "Computer 2"
-msgstr "Computer 2"
+msgstr "电脑 2"
 
 #. Key:	C441D9A647FDBBEC2D241E89BACF48B2
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Computer2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",C441D9A647FDBBEC2D241E89BACF48B2"
 msgid "Computer 2"
-msgstr "Computer 2"
+msgstr "电脑 2"
 
 #. Key:	92E6545D47752727DC667FA417FD4FD4
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",92E6545D47752727DC667FA417FD4FD4"
 msgid "ComputerScreen 1"
-msgstr "ComputerScreen 1"
+msgstr "电脑显示器 1"
 
 #. Key:	9C4EDC954FF4B35C6A4ECD8814A44C57
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",9C4EDC954FF4B35C6A4ECD8814A44C57"
 msgid "ComputerScreen 1"
-msgstr "ComputerScreen 1"
+msgstr "电脑显示器 1"
 
 #. Key:	AD2DBBA146036A08ECF4C38920491D27
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",AD2DBBA146036A08ECF4C38920491D27"
 msgid "ComputerScreen 2"
-msgstr "ComputerScreen 2"
+msgstr "电脑显示器 2"
 
 #. Key:	4D5BDDFB44D30EE1CEBC6CA7F01423AF
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ComputerScreen2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",4D5BDDFB44D30EE1CEBC6CA7F01423AF"
 msgid "ComputerScreen 2"
-msgstr "ComputerScreen 2"
+msgstr "电脑显示器 2"
 
 #. Key:	585A7D8644393C6E5091B68A7FD4C5EA
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",585A7D8644393C6E5091B68A7FD4C5EA"
 msgid "Console 1"
-msgstr "Console 1"
+msgstr "游戏机 1"
 
 #. Key:	5F108C964FEC0081149145A96B01EF21
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",5F108C964FEC0081149145A96B01EF21"
 msgid "Console 1"
-msgstr "Console 1"
+msgstr "游戏机 1"
 
 #. Key:	959266A84070C631C5C3D1B94F9565E4
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",959266A84070C631C5C3D1B94F9565E4"
 msgid "Console 2"
-msgstr "Console 2"
+msgstr "游戏机 2"
 
 #. Key:	9CE246604313B87B537382A0E145A9D7
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Console2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",9CE246604313B87B537382A0E145A9D7"
 msgid "Console 2"
-msgstr "Console 2"
+msgstr "游戏机 2"
 
 #. Key:	CF92D06243B7DA32FC120E8BD58C6BD8
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ConsoleFan.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1468,14 +1467,14 @@ msgstr "Console Fan"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.CyanPhoneCase.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",E2B440074313A986DE0D4087BF3EC9A3"
 msgid "Cyan PhoneCase"
-msgstr "Cyan PhoneCase"
+msgstr "青色手机壳"
 
 #. Key:	1132EB334A40B9A0D96DCA91383EAFBE
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.CyanPhoneCase.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.CyanPhoneCase.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",1132EB334A40B9A0D96DCA91383EAFBE"
 msgid "Cyan PhoneCase"
-msgstr "Cyan PhoneCase"
+msgstr "青色手机壳"
 
 #. Key:	371ECC49446EA64816F84D938FDB89B1
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.HDD.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1496,252 +1495,252 @@ msgstr "HDD"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",D615815C43DB95599658C48B9DDBC98E"
 msgid "Headset 1"
-msgstr "Headset 1"
+msgstr "耳机 1"
 
 #. Key:	BCEB16C6422C84A6DB0CBDAA6B97EF5D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",BCEB16C6422C84A6DB0CBDAA6B97EF5D"
 msgid "Headset 1"
-msgstr "Headset 1"
+msgstr "耳机 1"
 
 #. Key:	7FDA3AB641746170BA8AB08E43150356
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",7FDA3AB641746170BA8AB08E43150356"
 msgid "Headset 2"
-msgstr "Headset 2"
+msgstr "耳机 2"
 
 #. Key:	F34DFADF42942DA9E6C79DAD20ECCC0F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",F34DFADF42942DA9E6C79DAD20ECCC0F"
 msgid "Headset 2"
-msgstr "Headset 2"
+msgstr "耳机 2"
 
 #. Key:	C8D76F964E94692E83F53BBD1299F568
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset3.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset3.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",C8D76F964E94692E83F53BBD1299F568"
 msgid "Headset 3"
-msgstr "Headset 3"
+msgstr "耳机 3"
 
 #. Key:	463D35264CB640B857673892590C5C94
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset3.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset3.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",463D35264CB640B857673892590C5C94"
 msgid "Headset 3"
-msgstr "Headset 3"
+msgstr "耳机 3"
 
 #. Key:	7ED7B6D24AB4C0DDDBB586991F30013E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",7ED7B6D24AB4C0DDDBB586991F30013E"
 msgid "Keyboard 1"
-msgstr "Keyboard 1"
+msgstr "键盘 1"
 
 #. Key:	E292899A411C28539B18DCB79224DC93
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",E292899A411C28539B18DCB79224DC93"
 msgid "Keyboard 1"
-msgstr "Keyboard 1"
+msgstr "键盘 1"
 
 #. Key:	C525FA524414225F03581CB7E9C8EA05
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",C525FA524414225F03581CB7E9C8EA05"
 msgid "Keyboard 2"
-msgstr "Keyboard 2"
+msgstr "键盘 2"
 
 #. Key:	DF2E6BA447352FAB4AF37BA23DFEE7B5
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",DF2E6BA447352FAB4AF37BA23DFEE7B5"
 msgid "Keyboard 2"
-msgstr "Keyboard 2"
+msgstr "键盘 2"
 
 #. Key:	D1DC73AB488550F0D8A7608B3674C02A
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard3.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard3.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",D1DC73AB488550F0D8A7608B3674C02A"
 msgid "Keyboard 3"
-msgstr "Keyboard 3"
+msgstr "键盘 3"
 
 #. Key:	07693B404FB07D1AC088879364B5AE59
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard3.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Keyboard3.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",07693B404FB07D1AC088879364B5AE59"
 msgid "Keyboard 3"
-msgstr "Keyboard 3"
+msgstr "键盘 3"
 
 #. Key:	73D00CD44B68343B454741A03391D081
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",73D00CD44B68343B454741A03391D081"
 msgid "Laptop 1"
-msgstr "Laptop 1"
+msgstr "笔记本电脑 1"
 
 #. Key:	3A6137334EC0018B9CC6FFAF417D6CC0
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",3A6137334EC0018B9CC6FFAF417D6CC0"
 msgid "Laptop 1"
-msgstr "Laptop 1"
+msgstr "笔记本电脑 1"
 
 #. Key:	DA17A9E5442CE8464F68A184DE4A27D3
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",DA17A9E5442CE8464F68A184DE4A27D3"
 msgid "Laptop 2"
-msgstr "Laptop 2"
+msgstr "笔记本电脑 2"
 
 #. Key:	CFF3379640101279091FF2946A96BAC5
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Laptop2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",CFF3379640101279091FF2946A96BAC5"
 msgid "Laptop 2"
-msgstr "Laptop 2"
+msgstr "笔记本电脑 2"
 
 #. Key:	20FD8B034052D8FDAEB3B88ECD340746
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",20FD8B034052D8FDAEB3B88ECD340746"
 msgid "Large Game Shelf"
-msgstr "Large Game Shelf"
+msgstr "大型游戏货架"
 
 #. Key:	CE81E1D94979EA3FFF459293463C8F9F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",CE81E1D94979EA3FFF459293463C8F9F"
 msgid "Large Game Shelf"
-msgstr "Large Game Shelf"
+msgstr "大型游戏货架"
 
 #. Key:	7B13E957456523C661E11A8F7A8B9D19
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",7B13E957456523C661E11A8F7A8B9D19"
 msgid "Large Repair Shelf"
-msgstr "Large Repair Shelf"
+msgstr "大型维修货架"
 
 #. Key:	DF62CD9A455BA2B31C69B1A179827558
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeRepairShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeRepairShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",DF62CD9A455BA2B31C69B1A179827558"
 msgid "Large Repair Shelf"
-msgstr "Large Repair Shelf"
+msgstr "大型维修货架"
 
 #. Key:	E12CE14846CEDE67516CC79FB245C10D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeStoreShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeStoreShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",E12CE14846CEDE67516CC79FB245C10D"
 msgid "Large Store Shelf"
-msgstr "Large Store Shelf"
+msgstr "大型商店货架"
 
 #. Key:	832CCE0349DE927AFCEEA1897AE4D08B
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeStoreShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeStoreShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",832CCE0349DE927AFCEEA1897AE4D08B"
 msgid "Large Store Shelf"
-msgstr "Large Store Shelf"
+msgstr "大型商店货架"
 
 #. Key:	206F52EF4E990173BFC8629454A981B1
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",206F52EF4E990173BFC8629454A981B1"
 msgid "Medium Game Shelf"
-msgstr "Medium Game Shelf"
+msgstr "中型游戏货架"
 
 #. Key:	40F60DA14143B7B31B8ABB8DE7246B4E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",40F60DA14143B7B31B8ABB8DE7246B4E"
 msgid "Medium Game Shelf"
-msgstr "Medium Game Shelf"
+msgstr "中型游戏货架"
 
 #. Key:	10B4D5C54F7BFF90416688949988C8B9
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",10B4D5C54F7BFF90416688949988C8B9"
 msgid "Medium Repair Shelf"
-msgstr "Medium Repair Shelf"
+msgstr "中型维修货架"
 
 #. Key:	206C26864E7B93C7A29C4FBBAE5E4365
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumRepairShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumRepairShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",206C26864E7B93C7A29C4FBBAE5E4365"
 msgid "Medium Repair Shelf"
-msgstr "Medium Repair Shelf"
+msgstr "中型维修货架"
 
 #. Key:	B8CB318849BE61207875CCB38FF077EB
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumStoreShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumStoreShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",B8CB318849BE61207875CCB38FF077EB"
 msgid "Medium Store Shelf"
-msgstr "Medium Store Shelf"
+msgstr "中型商店货架"
 
 #. Key:	A3E60AC14D861752EEF18FB112C69A25
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumStoreShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumStoreShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",A3E60AC14D861752EEF18FB112C69A25"
 msgid "Medium Store Shelf"
-msgstr "Medium Store Shelf"
+msgstr "中型商店货架"
 
 #. Key:	9F252C4E4BF0A48533485D8EBE397370
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse1.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",9F252C4E4BF0A48533485D8EBE397370"
 msgid "Mouse 1"
-msgstr "Mouse 1"
+msgstr "鼠标 1"
 
 #. Key:	DF4A22EF45FF6545C4C930BC5A5E45C0
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse1.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",DF4A22EF45FF6545C4C930BC5A5E45C0"
 msgid "Mouse 1"
-msgstr "Mouse 1"
+msgstr "鼠标 1"
 
 #. Key:	56B20DB346527781A728769FB71BBAB4
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse2.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",56B20DB346527781A728769FB71BBAB4"
 msgid "Mouse 2"
-msgstr "Mouse 2"
+msgstr "鼠标 2"
 
 #. Key:	EBAB55724AF498538CADDC8FF804AAB3
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse2.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",EBAB55724AF498538CADDC8FF804AAB3"
 msgid "Mouse 2"
-msgstr "Mouse 2"
+msgstr "鼠标 2"
 
 #. Key:	CAF130164DF2A7BE9EB1B08D6CBFDF76
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse3.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse3.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",CAF130164DF2A7BE9EB1B08D6CBFDF76"
 msgid "Mouse 3"
-msgstr "Mouse 3"
+msgstr "鼠标 3"
 
 #. Key:	50B2B3334897FD087D7395A3092F1BE7
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse3.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Mouse3.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",50B2B3334897FD087D7395A3092F1BE7"
 msgid "Mouse 3"
-msgstr "Mouse 3"
+msgstr "鼠标 3"
 
 #. Key:	83443E5A4F438A2EFF42F1BA384FCEC9
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.OrangePhoneCase.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.OrangePhoneCase.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",83443E5A4F438A2EFF42F1BA384FCEC9"
 msgid "Orange PhoneCase"
-msgstr "Orange PhoneCase"
+msgstr "橙色手机壳"
 
 #. Key:	61B801D44D3C366029A47BB2F92D5852
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.OrangePhoneCase.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.OrangePhoneCase.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",61B801D44D3C366029A47BB2F92D5852"
 msgid "Orange PhoneCase"
-msgstr "Orange PhoneCase"
+msgstr "橙色手机壳"
 
 #. Key:	484A37AA4FF1027EFA92569BB4D9C6D0
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Phone1.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1776,14 +1775,14 @@ msgstr "Phone 2"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.PhoneBattery.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",0F70017A4A079BBABB209FA96C770035"
 msgid "Phone battery"
-msgstr "Phone battery"
+msgstr "Phone Battery"
 
 #. Key:	0A1E2A52445F8E0703E20A987BBE0869
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.PhoneBattery.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.PhoneBattery.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",0A1E2A52445F8E0703E20A987BBE0869"
 msgid "Phone battery"
-msgstr "Phone battery"
+msgstr "Phone Battery"
 
 #. Key:	829B2CCB477AB5399A2302B4949D6B2F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Ram.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1804,70 +1803,70 @@ msgstr "Ram"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairCounter.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",D2D411EF456EE3D72A95629EE95C7847"
 msgid "Repair Counter"
-msgstr "Repair Counter"
+msgstr "维修柜台"
 
 #. Key:	791E79374F4147A645C995897FAA261D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairCounter.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairCounter.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",791E79374F4147A645C995897FAA261D"
 msgid "Repair Counter"
-msgstr "Repair Counter"
+msgstr "维修柜台"
 
 #. Key:	E40FB1A5438111493E7894896964EAA1
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairWorkshop.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairWorkshop.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",E40FB1A5438111493E7894896964EAA1"
 msgid "Repair Workshop"
-msgstr "Repair Workshop"
+msgstr "维修工坊"
 
 #. Key:	75C568DC418F6903AEEF1399EF81E4CD
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairWorkshop.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairWorkshop.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",75C568DC418F6903AEEF1399EF81E4CD"
 msgid "Repair Workshop"
-msgstr "Repair Workshop"
+msgstr "维修工坊"
 
 #. Key:	C4605E864F4C3925E2E5BFB26319E44D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",C4605E864F4C3925E2E5BFB26319E44D"
 msgid "Small Game Shelf"
-msgstr "Small Game Shelf"
+msgstr "小型游戏货架"
 
 #. Key:	29E765394ED28F91E1B1A6B8C5A9C542
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",29E765394ED28F91E1B1A6B8C5A9C542"
 msgid "Small Game Shelf"
-msgstr "Small Game Shelf"
+msgstr "小型游戏货架"
 
 #. Key:	06CA4087478ED8E4CEB3038819600884
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",06CA4087478ED8E4CEB3038819600884"
 msgid "Small Repair Shelf"
-msgstr "Small Repair Shelf"
+msgstr "小型维修货架"
 
 #. Key:	8B65234C49DB781DB7918885A6E5E19F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallRepairShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallRepairShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",8B65234C49DB781DB7918885A6E5E19F"
 msgid "Small Repair Shelf"
-msgstr "Small Repair Shelf"
+msgstr "小型维修货架"
 
 #. Key:	DE2BC02047C37743358301B287CC9F2C
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallStoreShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallStoreShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",DE2BC02047C37743358301B287CC9F2C"
 msgid "Small Store Shelf"
-msgstr "Small Store Shelf"
+msgstr "小型商店货架"
 
 #. Key:	AF23E75E46F0B075331998BA7DF8E1D7
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallStoreShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SmallStoreShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",AF23E75E46F0B075331998BA7DF8E1D7"
 msgid "Small Store Shelf"
-msgstr "Small Store Shelf"
+msgstr "小型商店货架"
 
 #. Key:	7A3BBB7A41B3011729E103B1E024E319
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.SSD.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1888,154 +1887,154 @@ msgstr "SSD"
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingAccessories.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 msgctxt ",523F0E28402F272D395700A4BF73D860"
 msgid "Gaming Accessories"
-msgstr "Gaming Accessories"
+msgstr "游戏配件"
 
 #. Key:	6F7C93C84245E94AAD2285B6DA161461
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingAccessories.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingAccessories.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",6F7C93C84245E94AAD2285B6DA161461"
 msgid "Gaming Accessories"
-msgstr "Gaming Accessories"
+msgstr "游戏配件"
 
 #. Key:	2A2D6FFD41C5B75B834EA9882D6C512B
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingHardware.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingHardware.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 msgctxt ",2A2D6FFD41C5B75B834EA9882D6C512B"
 msgid "Gaming Hardware"
-msgstr "Gaming Hardware"
+msgstr "游戏硬件"
 
 #. Key:	5775C23542C0A228EC848FB3EE88B28E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingHardware.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.GamingHardware.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",5775C23542C0A228EC848FB3EE88B28E"
 msgid "Gaming Hardware"
-msgstr "Gaming Hardware"
+msgstr "游戏硬件"
 
 #. Key:	A9586F684FB9EBE4BB5393BE81B6C715
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.MainStreamGames.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.MainStreamGames.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 msgctxt ",A9586F684FB9EBE4BB5393BE81B6C715"
 msgid "MainStream Games"
-msgstr "MainStream Games"
+msgstr "主流游戏"
 
 #. Key:	05A1876449369004A4283BA2D37CE2BF
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.MainStreamGames.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.MainStreamGames.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",05A1876449369004A4283BA2D37CE2BF"
 msgid "MainStream Games"
-msgstr "MainStream Games"
+msgstr "主流游戏"
 
 #. Key:	367F9FEF43BD32F5A182CB9031502B61
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Mid-tierGames.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Mid-tierGames.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 msgctxt ",367F9FEF43BD32F5A182CB9031502B61"
 msgid "Mid-tier Games"
-msgstr "Mid-tier Games"
+msgstr "中端游戏"
 
 #. Key:	841291C54A3D24C44B6C3D840AF598A0
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Mid-tierGames.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Mid-tierGames.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",841291C54A3D24C44B6C3D840AF598A0"
 msgid "Mid-tier Games"
-msgstr "Mid-tier Games"
+msgstr "中端游戏"
 
 #. Key:	6A023AD14C2C1516F5D1C39C369B3C3D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.NicheGames.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.NicheGames.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 msgctxt ",6A023AD14C2C1516F5D1C39C369B3C3D"
 msgid "Niche Games"
-msgstr "Niche Games"
+msgstr "小众游戏"
 
 #. Key:	C6B9913B45E48A3FB71CB89A114F906E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.NicheGames.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.NicheGames.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",C6B9913B45E48A3FB71CB89A114F906E"
 msgid "Niche Games"
-msgstr "Niche Games"
+msgstr "小众游戏"
 
 #. Key:	7B5B2A50413674F220DA358DCB05F264
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Phones.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Phones.CompanyName_17_3D517E8C43D1DA8E122A089E1A38AE17
 msgctxt ",7B5B2A50413674F220DA358DCB05F264"
 msgid "Phones"
-msgstr "Phones"
+msgstr "手机"
 
 #. Key:	81F7B8E74076774AD830BEA43FC06320
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Phones.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Phones.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",81F7B8E74076774AD830BEA43FC06320"
 msgid "Unlock the ability to sell smartphones, phone accessories, and replacement batteries."
-msgstr "Unlock the ability to sell smartphones, phone accessories, and replacement batteries."
+msgstr "解锁销售智能手机、手机配件和替换电池的能力。"
 
 #. Key:	DDD9509249455413E5EC2583C3F2B424
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Cheap.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Cheap.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 msgctxt ",DDD9509249455413E5EC2583C3F2B424"
 msgid "Cheaper than most."
-msgstr "Cheaper than most."
+msgstr "比大多数便宜。"
 
 #. Key:	76CD5D5F4DD8D43DFEEB9E97891B7B7D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Cheap.Name_5_99D279F14FA30C531CA026B0759DD561
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Cheap.Name_5_99D279F14FA30C531CA026B0759DD561
 msgctxt ",76CD5D5F4DD8D43DFEEB9E97891B7B7D"
 msgid "Cheap"
-msgstr "Cheap"
+msgstr "便宜"
 
 #. Key:	C2B5E6584E98553BEC83E8B880188B2B
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Expensive.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Expensive.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 msgctxt ",C2B5E6584E98553BEC83E8B880188B2B"
 msgid "More expensive than most."
-msgstr "More expensive than most."
+msgstr "比大多数昂贵。"
 
 #. Key:	B7EBC92F465BB941D4FAFE9CF16C8079
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Expensive.Name_5_99D279F14FA30C531CA026B0759DD561
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Expensive.Name_5_99D279F14FA30C531CA026B0759DD561
 msgctxt ",B7EBC92F465BB941D4FAFE9CF16C8079"
 msgid "Expensive"
-msgstr "Expensive"
+msgstr "昂贵"
 
 #. Key:	D85E18EB46D61FC255DD7E869838E2F7
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Fast.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Fast.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 msgctxt ",D85E18EB46D61FC255DD7E869838E2F7"
 msgid "Faster than most."
-msgstr "Faster than most."
+msgstr "比大多数更快。"
 
 #. Key:	5F3310C242335B6EC738D995AE07D60B
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Fast.Name_5_99D279F14FA30C531CA026B0759DD561
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Fast.Name_5_99D279F14FA30C531CA026B0759DD561
 msgctxt ",5F3310C242335B6EC738D995AE07D60B"
 msgid "Fast"
-msgstr "Fast"
+msgstr "快速"
 
 #. Key:	7F8A33A54D376D62EBC7F096E9A0D299
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Lazy.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Lazy.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 msgctxt ",7F8A33A54D376D62EBC7F096E9A0D299"
 msgid "Sometimes misses work."
-msgstr "Sometimes misses work."
+msgstr "有时会缺勤。"
 
 #. Key:	0FEED387418A354A7D6C42B25CC135E7
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Lazy.Name_5_99D279F14FA30C531CA026B0759DD561
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Lazy.Name_5_99D279F14FA30C531CA026B0759DD561
 msgctxt ",0FEED387418A354A7D6C42B25CC135E7"
 msgid "Lazy"
-msgstr "Lazy"
+msgstr "懒惰"
 
 #. Key:	2CE1716B49C5D2BDAEA48B92E12F9638
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Slow.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Slow.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
 msgctxt ",2CE1716B49C5D2BDAEA48B92E12F9638"
 msgid "Slower than most."
-msgstr "Slower than most."
+msgstr "比大多数更慢。"
 
 #. Key:	7FC17D414B3560C277C1489A02A3C921
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Slow.Name_5_99D279F14FA30C531CA026B0759DD561
 #: /Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Slow.Name_5_99D279F14FA30C531CA026B0759DD561
 msgctxt ",7FC17D414B3560C277C1489A02A3C921"
 msgid "Slow"
-msgstr "Slow"
+msgstr "缓慢"
 
 #. Key:	78355F0343DA53F678B0BE8D5C559B8C
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Workers_Demo.Workers_Demo.Dan.Name_20_992607CE478017ACD19C308630806604
@@ -2056,28 +2055,28 @@ msgstr "John"
 #: /Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.Cashier.Name_8_1A83548048908F1A2716728585619013
 msgctxt ",E0C1A71749B1E2CCFB4EA88900E60F0B"
 msgid "Cashier"
-msgstr "Cashier"
+msgstr "收银员"
 
 #. Key:	655214534E2C5563F2382FA15FB178F6
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.ShelfStocker.Name_8_1A83548048908F1A2716728585619013
 #: /Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.ShelfStocker.Name_8_1A83548048908F1A2716728585619013
 msgctxt ",655214534E2C5563F2382FA15FB178F6"
 msgid "Shelf Stocker"
-msgstr "Shelf Stocker"
+msgstr "理货员"
 
 #. Key:	D530DABC4894922918AA73A73E68043E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.Technician.Name_8_1A83548048908F1A2716728585619013
 #: /Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.Technician.Name_8_1A83548048908F1A2716728585619013
 msgctxt ",D530DABC4894922918AA73A73E68043E"
 msgid "Technician"
-msgstr "Technician"
+msgstr "技术员"
 
 #. Key:	8C8DAB2042B475FC683CA19470AD842D
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.Warehouse.Name_8_1A83548048908F1A2716728585619013
 #: /Game/ShopSim/Blueprints/Data/WorkerTypes_Demo.WorkerTypes_Demo.Warehouse.Name_8_1A83548048908F1A2716728585619013
 msgctxt ",8C8DAB2042B475FC683CA19470AD842D"
 msgid "Warehouse Worker"
-msgstr "Warehouse Worker"
+msgstr "仓库工人"
 
 #. Key:	73ED51A64548F48B87B6738F3A3E10FA
 #. SourceLocation:	/Game/ShopSim/Blueprints/Game/BP_NPC_Cashier.BP_NPC_Cashier_C:GetInteractText [Script Bytecode]
@@ -2091,21 +2090,21 @@ msgstr "{name} ({type})"
 #: /Game/ShopSim/Blueprints/Game/BP_NPC_Merchant.BP_NPC_Merchant_C:GetInteractText [Script Bytecode]
 msgctxt ",F3B53D064488130AE2BEC1A6A7C78A23"
 msgid "Merchant - Sell Held or Moving Items"
-msgstr "Merchant - Sell Held or Moving Items"
+msgstr "商家 - 出售持有或移动的物品"
 
 #. Key:	C430722C4077542D27DCB9B49EA16E68
 #. SourceLocation:	/Game/ShopSim/Blueprints/Game/BP_NPC_RepairCustomer.BP_NPC_RepairCustomer_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Game/BP_NPC_RepairCustomer.BP_NPC_RepairCustomer_C:GetInteractText [Script Bytecode]
 msgctxt ",C430722C4077542D27DCB9B49EA16E68"
 msgid "Deliver (earn $0)"
-msgstr "Deliver (earn $0)"
+msgstr "送货 (赚取 $0)"
 
 #. Key:	E24CCC0A4AD0E82E9E2EE4B7A88F1D88
 #. SourceLocation:	/Game/ShopSim/Blueprints/Game/BP_NPC_RepairCustomer.BP_NPC_RepairCustomer_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Game/BP_NPC_RepairCustomer.BP_NPC_RepairCustomer_C:GetInteractText [Script Bytecode]
 msgctxt ",E24CCC0A4AD0E82E9E2EE4B7A88F1D88"
 msgid "Deliver"
-msgstr "Deliver"
+msgstr "送货"
 
 #. Key:	D8AD90464B6F588B4C6933AA4A2030EE
 #. SourceLocation:	/Game/ShopSim/Blueprints/Game/BP_NPC_ShelfStocker.BP_NPC_ShelfStocker_C:GetInteractText [Script Bytecode]
@@ -2133,49 +2132,49 @@ msgstr "{name} ({type})"
 #: /Game/ShopSim/Blueprints/Game/BP_StoreCharacter.BP_StoreCharacter_C:ToolsWheelComponent_GEN_VARIABLE.ToolSlots(0).ToolSlots.DisplayName
 msgctxt ",8DAA98EC49F64C4CF6C0F78AC18F3011"
 msgid "Broom"
-msgstr "Broom"
+msgstr "扫帚"
 
 #. Key:	B8F66A104674FC8F48FD029597E9DDBF
 #. SourceLocation:	/Game/ShopSim/Blueprints/Game/BP_StoreCharacter.BP_StoreCharacter_C:ToolsWheelComponent_GEN_VARIABLE.ToolSlots(1).ToolSlots.DisplayName
 #: /Game/ShopSim/Blueprints/Game/BP_StoreCharacter.BP_StoreCharacter_C:ToolsWheelComponent_GEN_VARIABLE.ToolSlots(1).ToolSlots.DisplayName
 msgctxt ",B8F66A104674FC8F48FD029597E9DDBF"
 msgid "Sponge"
-msgstr "Sponge"
+msgstr "海绵"
 
 #. Key:	B0B0FFA9465AFE85832763AA87B6F9A7
 #. SourceLocation:	/Game/ShopSim/Blueprints/Game/GI_TestSimu.Default__GI_TestSimu_C.LoadingTipText
 #: /Game/ShopSim/Blueprints/Game/GI_TestSimu.Default__GI_TestSimu_C.LoadingTipText
 msgctxt ",B0B0FFA9465AFE85832763AA87B6F9A7"
 msgid "LOADING THE STORE..."
-msgstr "LOADING THE STORE..."
+msgstr "正在加载商店..."
 
 #. Key:	B8D33F1E43F70A34A7211B9F71C8CB57
 #. SourceLocation:	/Game/ShopSim/Blueprints/Items/Box.Box_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Items/Box.Box_C:GetInteractText [Script Bytecode]
 msgctxt ",B8D33F1E43F70A34A7211B9F71C8CB57"
 msgid "Empty"
-msgstr "Empty"
+msgstr "空"
 
 #. Key:	043E11B14C6304E37F0270A5672E487E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Items/BP_RepairOrder.BP_RepairOrder_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Items/BP_RepairOrder.BP_RepairOrder_C:GetInteractText [Script Bytecode]
 msgctxt ",043E11B14C6304E37F0270A5672E487E"
 msgid "REPAIR ORDER#{Id} ({State})"
-msgstr "REPAIR ORDER#{Id} ({State})"
+msgstr "维修订单#{Id} ({State})"
 
 #. Key:	DD1C96DC4996123AF79C77BC839AA90B
 #. SourceLocation:	/Game/ShopSim/Blueprints/Items/BP_RepairOrder.BP_RepairOrder_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Items/BP_RepairOrder.BP_RepairOrder_C:GetInteractText [Script Bytecode]
 msgctxt ",DD1C96DC4996123AF79C77BC839AA90B"
 msgid "Scan"
-msgstr "Scan"
+msgstr "扫描"
 
 #. Key:	E9C8C0F14835A73FA28998AE85FDE05F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Items/BP_RepairOrder.BP_RepairOrder_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Items/BP_RepairOrder.BP_RepairOrder_C:GetInteractText [Script Bytecode]
 msgctxt ",E9C8C0F14835A73FA28998AE85FDE05F"
 msgid " REPAIR ORDER#{Id} (Not fixed)"
-msgstr " REPAIR ORDER#{Id} (Not fixed)"
+msgstr " 维修订单#{Id} (未修复)"
 
 #. Key:	774C045F4596C2B500C99992A2F2CC41
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/Checkout.Checkout_C:FloatToTextPrice [Script Bytecode]
@@ -2245,7 +2244,7 @@ msgstr "{name} - {cost}"
 #: /Game/ShopSim/Blueprints/Store/PriceTag.PriceTag_C:GetInteractText [Script Bytecode]
 msgctxt ",34A4995A42F919508A53269A4BEEB4CA"
 msgid "Price Tag"
-msgstr "Price Tag"
+msgstr "价签"
 
 #. Key:	05B9065C42A02C5EFB0ADB9D1AD1B607
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/ReturnButton.ReturnButton_C:GetInteractText [Script Bytecode]
@@ -2259,63 +2258,63 @@ msgstr "_hide"
 #: /Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetAltInteractText [Script Bytecode]
 msgctxt ",43BCE1F145EE2FCC3F55CCB9B2CF5BA3"
 msgid "Take 1"
-msgstr "Take 1"
+msgstr "拿取 1"
 
 #. Key:	F80CFE434BD8391F59ABBB86021E0CD6
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetAltInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetAltInteractText [Script Bytecode]
 msgctxt ",F80CFE434BD8391F59ABBB86021E0CD6"
 msgid "Configure"
-msgstr "Configure"
+msgstr "配置"
 
 #. Key:	47575E38422277BB58C4129BCD1D3FEE
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetInteractText [Script Bytecode]
 msgctxt ",47575E38422277BB58C4129BCD1D3FEE"
 msgid "Box \"{name}\""
-msgstr "Box \"{name}\""
+msgstr "盒子 \"{name}\""
 
 #. Key:	660D8D224E38BF5B828D23A019C63E36
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/ShelfArea.ShelfArea_C:GetInteractText [Script Bytecode]
 msgctxt ",660D8D224E38BF5B828D23A019C63E36"
 msgid "Place Item"
-msgstr "Place Item"
+msgstr "放置物品"
 
 #. Key:	133C276C416FF9DA403EA9B1AFB42316
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/Shelving.Shelving_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/Shelving.Shelving_C:GetInteractText [Script Bytecode]
 msgctxt ",133C276C416FF9DA403EA9B1AFB42316"
 msgid "Place Item"
-msgstr "Place Item"
+msgstr "放置物品"
 
 #. Key:	E928C8A44F2E236BC4210BB378DAB2E4
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:SignText_GEN_VARIABLE.Text
 #: /Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:SignText_GEN_VARIABLE.Text
 msgctxt ",E928C8A44F2E236BC4210BB378DAB2E4"
 msgid "Closed"
-msgstr "Closed"
+msgstr "已关门"
 
 #. Key:	3ED581384249FD048FFF2FA488F3FC40
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
 msgctxt ",3ED581384249FD048FFF2FA488F3FC40"
 msgid "Open"
-msgstr "Open"
+msgstr "开门"
 
 #. Key:	985642664B91594E83ED8FA3D87E2707
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
 msgctxt ",985642664B91594E83ED8FA3D87E2707"
 msgid "Closed"
-msgstr "Closed"
+msgstr "已关门"
 
 #. Key:	4403779E4D542135E76831A0269F4BAF
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/StorageShelving.StorageShelving_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/StorageShelving.StorageShelving_C:GetInteractText [Script Bytecode]
 msgctxt ",4403779E4D542135E76831A0269F4BAF"
 msgid "Store Box"
-msgstr "Store Box"
+msgstr "商店箱子"
 
 #. Key:	1476BBAB494E161D674857948CE3E8C6
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/Store.Default__Store_C.WorkerFemaleNames(0).WorkerFemaleNames
@@ -2616,42 +2615,42 @@ msgstr "Sam"
 #: /Game/ShopSim/Blueprints/Store/Store.Store_C:MakeRandomRepairOrder [Script Bytecode]
 msgctxt ",E51221C0449B1FCDB78946BD2E967170"
 msgid "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
-msgstr "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
+msgstr "派对结束后室友吐在了键盘上。按键粘手,风扇发出咕噜声,而且气味难闻。今天有考试,需要数据恢复。"
 
 #. Key:	79EF742D4036FCD1989A48B55AB51A07
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/StoreSign.StoreSign_C:SignText_GEN_VARIABLE.Text
 #: /Game/ShopSim/Blueprints/Store/StoreSign.StoreSign_C:SignText_GEN_VARIABLE.Text
 msgctxt ",79EF742D4036FCD1989A48B55AB51A07"
 msgid "Store Name"
-msgstr "Store Name"
+msgstr "商店名称"
 
 #. Key:	75A38DA2410DD31E1BA02AA4E10FB851
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/TrashCan.TrashCan_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/TrashCan.TrashCan_C:GetInteractText [Script Bytecode]
 msgctxt ",75A38DA2410DD31E1BA02AA4E10FB851"
 msgid "Trash"
-msgstr "Trash"
+msgstr "垃圾"
 
 #. Key:	288856094E50D96DEF9C21A924984330
 #. SourceLocation:	/Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.PlayText.Text
 #: /Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.PlayText.Text
 msgctxt ",288856094E50D96DEF9C21A924984330"
 msgid "PLAY"
-msgstr "PLAY"
+msgstr "开始"
 
 #. Key:	8C03FB39404382E50B665C9D752CBAD1
 #. SourceLocation:	/Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.QuitText.Text
 #: /Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.QuitText.Text
 msgctxt ",8C03FB39404382E50B665C9D752CBAD1"
 msgid "QUIT"
-msgstr "QUIT"
+msgstr "退出"
 
 #. Key:	1A2C814E4836D12330855C960492FE96
 #. SourceLocation:	/Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.SettingsText.Text
 #: /Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.SettingsText.Text
 msgctxt ",1A2C814E4836D12330855C960492FE96"
 msgid "SETTINGS"
-msgstr "SETTINGS"
+msgstr "设置"
 
 #. Key:	1DC9D5DC4775E7259183ED85CCEC025F
 #. SourceLocation:	/Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:SetFromExpenseData [Script Bytecode]
@@ -2665,42 +2664,42 @@ msgstr "s"
 #: /Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:SetFromExpenseData [Script Bytecode]
 msgctxt ",43CECC5349EDB27409BF84A3DE17FA18"
 msgid "Due: {Cost}"
-msgstr "Due: {Cost}"
+msgstr "应付: {Cost}"
 
 #. Key:	F5B02BB74E028FF1081110A224BA86A4
 #. SourceLocation:	/Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:SetFromExpenseData [Script Bytecode]
 #: /Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:SetFromExpenseData [Script Bytecode]
 msgctxt ",F5B02BB74E028FF1081110A224BA86A4"
 msgid "Daily: {cost} over {Count} unit{s}"
-msgstr "Daily: {cost} over {Count} unit{s}"
+msgstr "每日: {cost},共 {Count} 单位{s}"
 
 #. Key:	084649094850E59A8D68E5AF6482FB91
 #. SourceLocation:	/Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.Text_Cost.Text
 #: /Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.Text_Cost.Text
 msgctxt ",084649094850E59A8D68E5AF6482FB91"
 msgid "Due: $1000"
-msgstr "Due: $1000"
+msgstr "应付: $1000"
 
 #. Key:	892C8DD640DBDFCFA57DAAACC40BFB85
 #. SourceLocation:	/Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.Text_Desc.Text
 #: /Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.Text_Desc.Text
 msgctxt ",892C8DD640DBDFCFA57DAAACC40BFB85"
 msgid "$100 per day"
-msgstr "$100 per day"
+msgstr "$100 每天"
 
 #. Key:	EE360A1D4A3A6DF95926E8B6D5AD97FE
 #. SourceLocation:	/Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.Text_Name.Text
 #: /Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",EE360A1D4A3A6DF95926E8B6D5AD97FE"
 msgid "Electricity"
-msgstr "Electricity"
+msgstr "电费"
 
 #. Key:	309940B54E0DEB8B16DD948449976976
 #. SourceLocation:	/Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/BillsEntry_Widget.BillsEntry_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",309940B54E0DEB8B16DD948449976976"
 msgid "Pay"
-msgstr "Pay"
+msgstr "支付"
 
 #. Key:	A01B408A4C868F9FDE9146912CDE55BA
 #. SourceLocation:	/Game/ShopSim/Widgets/CartCountWidget_Widget.CartCountWidget_Widget_C:WidgetTree.Text_Count.Text
@@ -2721,7 +2720,7 @@ msgstr "3"
 #: /Game/ShopSim/Widgets/CartItem_Widget.CartItem_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",BC73A41545C1CEB14887EB80BBD5B39F"
 msgid "Item"
-msgstr "Item"
+msgstr "物品"
 
 #. Key:	1345D343431D07D0C8DABDBF28977EB3
 #. SourceLocation:	/Game/ShopSim/Widgets/CartItem_Widget.CartItem_Widget_C:WidgetTree.TextBlock.Text
@@ -2749,28 +2748,35 @@ msgstr "-"
 #: /Game/ShopSim/Widgets/CartWidget_Widget.CartWidget_Widget_C:SetFromCart [Script Bytecode]
 msgctxt ",4D4B5BE74A0D9C378CE4979B57C544F2"
 msgid "Total: {amt}"
-msgstr "Total: {amt}"
+msgstr "总计: {amt}"
 
 #. Key:	A9A0724F4131CE736A0FACA2CC0412FC
 #. SourceLocation:	/Game/ShopSim/Widgets/CartWidget_Widget.CartWidget_Widget_C:WidgetTree.Text_Checkout.Text
 #: /Game/ShopSim/Widgets/CartWidget_Widget.CartWidget_Widget_C:WidgetTree.Text_Checkout.Text
 msgctxt ",A9A0724F4131CE736A0FACA2CC0412FC"
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "收银台"
 
 #. Key:	34DEFDDD43753ECE6EE477B0F50CBFB8
 #. SourceLocation:	/Game/ShopSim/Widgets/CartWidget_Widget.CartWidget_Widget_C:WidgetTree.Text_Money.Text
 #: /Game/ShopSim/Widgets/CartWidget_Widget.CartWidget_Widget_C:WidgetTree.Text_Money.Text
 msgctxt ",34DEFDDD43753ECE6EE477B0F50CBFB8"
 msgid "Total: $0.00"
-msgstr "Total: $0.00"
+msgstr "总计: $0.00"
+
+#. Key:	6BD6ED0745D44F442C10C187E96221EF
+#. SourceLocation:	/Game/ShopSim/Widgets/CategoryButton_Widget.CategoryButton_Widget_C:WidgetTree.Text_CategoryName.Text
+#: /Game/ShopSim/Widgets/CategoryButton_Widget.CategoryButton_Widget_C:WidgetTree.Text_CategoryName.Text
+msgctxt ",6BD6ED0745D44F442C10C187E96221EF"
+msgid "None"
+msgstr "无"
 
 #. Key:	287D338E4A3E2B3A1DF006A1D8B6DA5B
 #. SourceLocation:	/Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:SetTime [Script Bytecode]
 #: /Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:SetTime [Script Bytecode]
 msgctxt ",287D338E4A3E2B3A1DF006A1D8B6DA5B"
 msgid "AM"
-msgstr "AM"
+msgstr "上午"
 
 #. Key:	9C60EF2D457B1B8F8DDBF7BA3EB90140
 #. SourceLocation:	/Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:SetTime [Script Bytecode]
@@ -2784,7 +2790,7 @@ msgstr "{h}:{m} {ampm}"
 #: /Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:SetTime [Script Bytecode]
 msgctxt ",C52CE45744CDD7C4CC1C1FBA5E0BAE81"
 msgid "PM"
-msgstr "PM"
+msgstr "下午"
 
 #. Key:	27B444D742D06DE32EBE0383B6012E7B
 #. SourceLocation:	/Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:WidgetTree.Text_Time.Text
@@ -2798,21 +2804,21 @@ msgstr "11:00 AM"
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_Category_Demo_Widget.Configure_Category_Demo_Widget_C:WidgetTree.Text_CategoryName.Text
 msgctxt ",9CA7A54F4A6B06F2B0E540B6961FA349"
 msgid "Category"
-msgstr "Category"
+msgstr "类别"
 
 #. Key:	04F8563444ED9481D4007799FC961F6C
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:SetItemText [Script Bytecode]
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:SetItemText [Script Bytecode]
 msgctxt ",04F8563444ED9481D4007799FC961F6C"
 msgid "MSRP: {msrp}"
-msgstr "MSRP: {msrp}"
+msgstr "建议零售价: {msrp}"
 
 #. Key:	63B533BE40C8A49065445A98E0FEE546
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:SetItemText [Script Bytecode]
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:SetItemText [Script Bytecode]
 msgctxt ",63B533BE40C8A49065445A98E0FEE546"
 msgid "Base Price: {price}"
-msgstr "Base Price: {price}"
+msgstr "基础价格: {price}"
 
 #. Key:	6A072799433401CE2B319AA952020397
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.EditableText_SetCost.Text
@@ -2826,28 +2832,28 @@ msgstr "2.00"
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_Cancel.Text
 msgctxt ",5EEB30C64DF3CE338C2A5EBE0446B47D"
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "取消"
 
 #. Key:	E39E49904172A979B8CDAA9C9860FBFF
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_Cost.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_Cost.Text
 msgctxt ",E39E49904172A979B8CDAA9C9860FBFF"
 msgid "Cost: $0.89"
-msgstr "Cost: $0.89"
+msgstr "费用: $0.89"
 
 #. Key:	C7E64689465FF91000DDB9947E035D53
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_DollarSign.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_DollarSign.Text
 msgctxt ",C7E64689465FF91000DDB9947E035D53"
 msgid "Current: $"
-msgstr "Current: $"
+msgstr "当前: $"
 
 #. Key:	AA303D174C8847E0756BE4AA0BE3F98A
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_MSRP.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_MSRP.Text
 msgctxt ",AA303D174C8847E0756BE4AA0BE3F98A"
 msgid "MSRP: $2.00"
-msgstr "MSRP: $2.00"
+msgstr "建议零售价: $2.00"
 
 #. Key:	9D2FD28144C04636E58A51A77BCA3410
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_Name.Text
@@ -2861,28 +2867,28 @@ msgstr "Apples"
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_PriceTag_Demo_Widget.Configure_PriceTag_Demo_Widget_C:WidgetTree.Text_Set.Text
 msgctxt ",D2EAD308418A1B8C2188DF9BD30F3873"
 msgid "Set"
-msgstr "Set"
+msgstr "设置"
 
 #. Key:	E4B8FA874F81FB44BB1802B9FDC49F03
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_ShelfArea_Demo_Widget.Configure_ShelfArea_Demo_Widget_C:WidgetTree.Text_Title.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_ShelfArea_Demo_Widget.Configure_ShelfArea_Demo_Widget_C:WidgetTree.Text_Title.Text
 msgctxt ",E4B8FA874F81FB44BB1802B9FDC49F03"
 msgid "Configure Shelf"
-msgstr "Configure Shelf"
+msgstr "配置货架"
 
 #. Key:	F8A57A204D3B6CA10747C28C1F5C92DF
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_ShelfArea_Demo_Widget.Configure_ShelfArea_Demo_Widget_C:WidgetTree.TextBlock.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_ShelfArea_Demo_Widget.Configure_ShelfArea_Demo_Widget_C:WidgetTree.TextBlock.Text
 msgctxt ",F8A57A204D3B6CA10747C28C1F5C92DF"
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "取消"
 
 #. Key:	2AD3206242EC43A0B07ADF8E39110033
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_ShelfArea_Demo_Widget.Configure_ShelfArea_Demo_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_ShelfArea_Demo_Widget.Configure_ShelfArea_Demo_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",2AD3206242EC43A0B07ADF8E39110033"
 msgid "Accept"
-msgstr "Accept"
+msgstr "接受"
 
 #. Key:	575FFFFD40F5B61383F329A0F6D3E56B
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_StoreSign_Demo_Widget.Configure_StoreSign_Demo_Widget_C:WidgetTree.EditableText_StoreName.Text
@@ -2896,21 +2902,21 @@ msgstr "StoreSim"
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_StoreSign_Demo_Widget.Configure_StoreSign_Demo_Widget_C:WidgetTree.Text_Title.Text
 msgctxt ",C7529BF546F81DA94013799A495D987A"
 msgid "Set Store Name"
-msgstr "Set Store Name"
+msgstr "设置商店名称"
 
 #. Key:	2ADB1F5747370C424D19349A8E9F29C1
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_StoreSign_Demo_Widget.Configure_StoreSign_Demo_Widget_C:WidgetTree.TextBlock.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_StoreSign_Demo_Widget.Configure_StoreSign_Demo_Widget_C:WidgetTree.TextBlock.Text
 msgctxt ",2ADB1F5747370C424D19349A8E9F29C1"
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "取消"
 
 #. Key:	81D17761477FE9370074B48BBC4B23F8
 #. SourceLocation:	/Game/ShopSim/Widgets/Configure/Demo/Configure_StoreSign_Demo_Widget.Configure_StoreSign_Demo_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/Configure/Demo/Configure_StoreSign_Demo_Widget.Configure_StoreSign_Demo_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",81D17761477FE9370074B48BBC4B23F8"
 msgid "Accept"
-msgstr "Accept"
+msgstr "接受"
 
 #. Key:	6175584442D518FC262B379BDF81F76B
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlDisplay_Widget.ControlDisplay_Widget_C:SetControlDisplay [Script Bytecode]
@@ -2931,21 +2937,21 @@ msgstr "[    ]"
 #: /Game/ShopSim/Widgets/ControlDisplay_Widget.ControlDisplay_Widget_C:WidgetTree.InteractText.Text
 msgctxt ",ACD69BF24D800A49D9C1C0AE0D6D48F0"
 msgid "Interact"
-msgstr "Interact"
+msgstr "互动"
 
 #. Key:	82E55973445A2B5BF1F14CA5DC862853
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlDisplay_Widget.Default__ControlDisplay_Widget_C.DefaultText
 #: /Game/ShopSim/Widgets/ControlDisplay_Widget.Default__ControlDisplay_Widget_C.DefaultText
 msgctxt ",82E55973445A2B5BF1F14CA5DC862853"
 msgid "Interact"
-msgstr "Interact"
+msgstr "互动"
 
 #. Key:	501B92B344956114FC4C7F8004F700F4
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.Control_Interact.Description
 #: /Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.Control_Interact.Description
 msgctxt ",501B92B344956114FC4C7F8004F700F4"
 msgid "Tools Wheel"
-msgstr "Tools Wheel"
+msgstr "工具轮盘"
 
 #. Key:	E70D38CF4502B56696EDBDB3FB553A46
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.Control_Interact.Key
@@ -2959,7 +2965,7 @@ msgstr "F"
 #: /Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.Control_Interact_3.Description
 msgctxt ",E394C02C447D05802D3D0FB52E7B31B1"
 msgid "Hide Help"
-msgstr "Hide Help"
+msgstr "隐藏帮助"
 
 #. Key:	55C9EE80486B9AAF4312A4B97083A79A
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.Control_Interact_3.Key
@@ -2973,154 +2979,154 @@ msgstr "H"
 #: /Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock.Text
 msgctxt ",72EC3C6F47728F882E9904A71DC0CE03"
 msgid "Interact"
-msgstr "Interact"
+msgstr "互动"
 
 #. Key:	7D90709B40F58ED26C433D931A1A010F
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock_0.Text
 #: /Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock_0.Text
 msgctxt ",7D90709B40F58ED26C433D931A1A010F"
 msgid "Zoom Camera / Rotate Placement"
-msgstr "Zoom Camera / Rotate Placement"
+msgstr "缩放镜头 / 旋转放置"
 
 #. Key:	621CF2714DACDA97A9BA54A5C3A026EA
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock_1.Text
 #: /Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock_1.Text
 msgctxt ",621CF2714DACDA97A9BA54A5C3A026EA"
 msgid "Drop/Back/Config"
-msgstr "Drop/Back/Config"
+msgstr "丢弃/返回/配置"
 
 #. Key:	EE453DCA420350D47EC88E93C20278EC
 #. SourceLocation:	/Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/ControlsWindow_Widget.ControlsWindow_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",EE453DCA420350D47EC88E93C20278EC"
 msgid "Camera Toggle"
-msgstr "Camera Toggle"
+msgstr "切换镜头"
 
 #. Key:	2C04AE794C1A621E953F34AB50FBFCE2
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 msgctxt ",2C04AE794C1A621E953F34AB50FBFCE2"
 msgid "Day {num} Ended"
-msgstr "Day {num} Ended"
+msgstr "第 {num} 天结束"
 
 #. Key:	8C536A5D460C17F56622B6BE016AD0C8
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 msgctxt ",8C536A5D460C17F56622B6BE016AD0C8"
 msgid "Made: {Cost}"
-msgstr "Made: {Cost}"
+msgstr "收入: {Cost}"
 
 #. Key:	B3410D0C47280BAD46CF959AE9865DFA
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 msgctxt ",B3410D0C47280BAD46CF959AE9865DFA"
 msgid "Spent: {Cost}"
-msgstr "Spent: {Cost}"
+msgstr "支出: {Cost}"
 
 #. Key:	B0F4BF604938C712CBC5C38F69ED7689
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_DayTitle.Text
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_DayTitle.Text
 msgctxt ",B0F4BF604938C712CBC5C38F69ED7689"
 msgid "Day 1 Ended"
-msgstr "Day 1 Ended"
+msgstr "第 1 天结束"
 
 #. Key:	9BA1E3864F86DA908F8B568EAE989EEB
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Made.Text
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Made.Text
 msgctxt ",9BA1E3864F86DA908F8B568EAE989EEB"
 msgid "Made: $1000"
-msgstr "Made: $1000"
+msgstr "收入: $1000"
 
 #. Key:	77F8637A4305FABD05363EBD69FDB0B3
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Spent.Text
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Spent.Text
 msgctxt ",77F8637A4305FABD05363EBD69FDB0B3"
 msgid "Spent: $1000"
-msgstr "Spent: $1000"
+msgstr "支出: $1000"
 
 #. Key:	96FB12404DCD8A207A318DA2264EEE1B
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",96FB12404DCD8A207A318DA2264EEE1B"
 msgid "Next Day"
-msgstr "Next Day"
+msgstr "下一天"
 
 #. Key:	990CF7D84D6238EF05E3DA8B850A3D81
 #. SourceLocation:	/Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock.Text
 #: /Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock.Text
 msgctxt ",990CF7D84D6238EF05E3DA8B850A3D81"
 msgid "Clear Save"
-msgstr "Clear Save"
+msgstr "清除存档"
 
 #. Key:	89D5AC614B1FD003F3B788A850706B77
 #. SourceLocation:	/Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock_1.Text
 #: /Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock_1.Text
 msgctxt ",89D5AC614B1FD003F3B788A850706B77"
 msgid "Return"
-msgstr "Return"
+msgstr "返回"
 
 #. Key:	A5806B46414092C99B145CABC1E52925
 #. SourceLocation:	/Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock_119.Text
 #: /Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock_119.Text
 msgctxt ",A5806B46414092C99B145CABC1E52925"
 msgid "Save Game"
-msgstr "Save Game"
+msgstr "保存游戏"
 
 #. Key:	DA2B7EDC4D3803BC1975269DD4023883
 #. SourceLocation:	/Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/EscapeMenu_Widget.EscapeMenu_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",DA2B7EDC4D3803BC1975269DD4023883"
 msgid "Quit"
-msgstr "Quit"
+msgstr "退出"
 
 #. Key:	6F79BB34401204634B6368A6FFFD69B4
 #. SourceLocation:	/Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:SetFromImprovementData [Script Bytecode]
 #: /Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:SetFromImprovementData [Script Bytecode]
 msgctxt ",6F79BB34401204634B6368A6FFFD69B4"
 msgid "Required Level: {lvl}"
-msgstr "Required Level: {lvl}"
+msgstr "所需等级: {lvl}"
 
 #. Key:	9BE6C48B44FAA494A3DD9983B79D8391
 #. SourceLocation:	/Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Button.Text
 #: /Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Button.Text
 msgctxt ",9BE6C48B44FAA494A3DD9983B79D8391"
 msgid "Build"
-msgstr "Build"
+msgstr "建造"
 
 #. Key:	22730D2F4229ED773A5E0E8CB1C32E5C
 #. SourceLocation:	/Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Cost.Text
 #: /Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Cost.Text
 msgctxt ",22730D2F4229ED773A5E0E8CB1C32E5C"
 msgid "Cost: $1000"
-msgstr "Cost: $1000"
+msgstr "费用: $1000"
 
 #. Key:	26827B3147953F25FD8415B2B65969B8
 #. SourceLocation:	/Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Description.Text
 #: /Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Description.Text
 msgctxt ",26827B3147953F25FD8415B2B65969B8"
 msgid "Description"
-msgstr "Description"
+msgstr "描述"
 
 #. Key:	25C49F6045809821B3B9DEBF574F8302
 #. SourceLocation:	/Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Name.Text
 #: /Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",25C49F6045809821B3B9DEBF574F8302"
 msgid "Storage Area"
-msgstr "Storage Area"
+msgstr "储藏区"
 
 #. Key:	B58172BA4C935071B33BD7BEAF28DF8E
 #. SourceLocation:	/Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Require.Text
 #: /Game/ShopSim/Widgets/ImprovementEntry_Widget.ImprovementEntry_Widget_C:WidgetTree.Text_Require.Text
 msgctxt ",B58172BA4C935071B33BD7BEAF28DF8E"
 msgid "Requires something or other"
-msgstr "Requires something or other"
+msgstr "需要某些条件"
 
 #. Key:	4FE7251E401CAB96D9750292E7553CC1
 #. SourceLocation:	/Game/ShopSim/Widgets/KeyboardControl_Widget.Default__KeyboardControl_Widget_C.Description
 #: /Game/ShopSim/Widgets/KeyboardControl_Widget.Default__KeyboardControl_Widget_C.Description
 msgctxt ",4FE7251E401CAB96D9750292E7553CC1"
 msgid "Interact"
-msgstr "Interact"
+msgstr "互动"
 
 #. Key:	7FEA13DC477CBC4A2DCBC1B3A0286CF1
 #. SourceLocation:	/Game/ShopSim/Widgets/KeyboardControl_Widget.Default__KeyboardControl_Widget_C.Key
@@ -3134,7 +3140,7 @@ msgstr "E"
 #: /Game/ShopSim/Widgets/KeyboardControl_Widget.KeyboardControl_Widget_C:WidgetTree.Text_Description.Text
 msgctxt ",4B454BF0464E17F15ACF41A049C05716"
 msgid "Interact"
-msgstr "Interact"
+msgstr "互动"
 
 #. Key:	DDB6A08C443677E1DB621CB354B25719
 #. SourceLocation:	/Game/ShopSim/Widgets/KeyboardControl_Widget.KeyboardControl_Widget_C:WidgetTree.Text_Key.Text
@@ -3148,182 +3154,182 @@ msgstr "F"
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:SetFromLicenseData [Script Bytecode]
 msgctxt ",172FA98D4D64E861567CD695B2FA2008"
 msgid "Cost: {Cost}"
-msgstr "Cost: {Cost}"
+msgstr "费用: {Cost}"
 
 #. Key:	EE33C0E1484648F34F25C186CE038F09
 #. SourceLocation:	/Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:SetFromLicenseData [Script Bytecode]
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:SetFromLicenseData [Script Bytecode]
 msgctxt ",EE33C0E1484648F34F25C186CE038F09"
 msgid "Requires Level: {lvl}"
-msgstr "Requires Level: {lvl}"
+msgstr "需要等级: {lvl}"
 
 #. Key:	5B8185E24889A5CFA6E6A194A4D1E6D3
 #. SourceLocation:	/Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Button_Text.Text
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Button_Text.Text
 msgctxt ",5B8185E24889A5CFA6E6A194A4D1E6D3"
 msgid "Purchase"
-msgstr "Purchase"
+msgstr "购买"
 
 #. Key:	030AB567418FADDBE07D40B5E4C895CD
 #. SourceLocation:	/Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Cost.Text
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Cost.Text
 msgctxt ",030AB567418FADDBE07D40B5E4C895CD"
 msgid "Cost: $1000"
-msgstr "Cost: $1000"
+msgstr "费用: $1000"
 
 #. Key:	0AB9EBEF4C0D5192DEBC12A198EBB672
 #. SourceLocation:	/Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Desc.Text
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Desc.Text
 msgctxt ",0AB9EBEF4C0D5192DEBC12A198EBB672"
 msgid "Supplier of beverages that are all the rage."
-msgstr "Supplier of beverages that are all the rage."
+msgstr "供应风靡一时的饮料的供应商。"
 
 #. Key:	4B1AB09C42FF42BE17ED2DA806527998
 #. SourceLocation:	/Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Name.Text
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",4B1AB09C42FF42BE17ED2DA806527998"
 msgid "SoGood Beverages"
-msgstr "SoGood Beverages"
+msgstr "SoGood 饮料"
 
 #. Key:	F48793E64C310EBE9BE98890ACD432CB
 #. SourceLocation:	/Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Require.Text
 #: /Game/ShopSim/Widgets/LicenseEntry_Widget.LicenseEntry_Widget_C:WidgetTree.Text_Require.Text
 msgctxt ",F48793E64C310EBE9BE98890ACD432CB"
 msgid "Requires something or other"
-msgstr "Requires something or other"
+msgstr "需要某些条件"
 
 #. Key:	3B9549A7460CA29B9959D395AC500E54
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.Default__LoanEntry_Widget_C.LoanNameText
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.Default__LoanEntry_Widget_C.LoanNameText
 msgctxt ",3B9549A7460CA29B9959D395AC500E54"
 msgid "Small Business Loan"
-msgstr "Small Business Loan"
+msgstr "小型商业贷款"
 
 #. Key:	2DE0ACB449C72C4C7C2B7FB25158276D
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:ExecuteUbergraph_LoanEntry_Widget [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:ExecuteUbergraph_LoanEntry_Widget [Script Bytecode]
 msgctxt ",2DE0ACB449C72C4C7C2B7FB25158276D"
 msgid "Pay Amount: ${amt}"
-msgstr "Pay Amount: ${amt}"
+msgstr "支付金额: ${amt}"
 
 #. Key:	04AB77FE437444813D50D29521138438
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetFromLoanData [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetFromLoanData [Script Bytecode]
 msgctxt ",04AB77FE437444813D50D29521138438"
 msgid "{percent}% per day"
-msgstr "{percent}% per day"
+msgstr "{percent}% 每天"
 
 #. Key:	0CF2DB544C422025FCADD48EF3A63990
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetFromLoanData [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetFromLoanData [Script Bytecode]
 msgctxt ",0CF2DB544C422025FCADD48EF3A63990"
 msgid "Due: {due}"
-msgstr "Due: {due}"
+msgstr "应付: {due}"
 
 #. Key:	8257717C45297B44B9B6C1910B34C020
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetFromLoanData [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetFromLoanData [Script Bytecode]
 msgctxt ",8257717C45297B44B9B6C1910B34C020"
 msgid "Pay Amount"
-msgstr "Pay Amount"
+msgstr "支付金额"
 
 #. Key:	1844DA8842EB19BD61D4B4A7D5A44ECC
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 msgctxt ",1844DA8842EB19BD61D4B4A7D5A44ECC"
 msgid "Requires Level {lvl}"
-msgstr "Requires Level {lvl}"
+msgstr "需要等级 {lvl}"
 
 #. Key:	6A8ED8564A83E9A27F74249F365DEB4A
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 msgctxt ",6A8ED8564A83E9A27F74249F365DEB4A"
 msgid "Cost: ${cost} + %{pct} per day"
-msgstr "Cost: ${cost} + %{pct} per day"
+msgstr "费用: ${cost} + %{pct} 每天"
 
 #. Key:	C7B3CB134D423DF2638C51B5B88E00BA
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 msgctxt ",C7B3CB134D423DF2638C51B5B88E00BA"
 msgid "Amount: ${amt}"
-msgstr "Amount: ${amt}"
+msgstr "金额: ${amt}"
 
 #. Key:	D43EC73348DE4A27A03FF4A64CD1395C
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanAvailable [Script Bytecode]
 msgctxt ",D43EC73348DE4A27A03FF4A64CD1395C"
 msgid "Take Loan"
-msgstr "Take Loan"
+msgstr "申请贷款"
 
 #. Key:	16345D2646EF1B8C37F825BB6DDA8D17
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanPaid [Script Bytecode]
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:SetLoanPaid [Script Bytecode]
 msgctxt ",16345D2646EF1B8C37F825BB6DDA8D17"
 msgid "Loan Paid"
-msgstr "Loan Paid"
+msgstr "贷款已还清"
 
 #. Key:	220387B24CAA6ABD84AD7CB97F800BBB
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_AmountOrDue.Text
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_AmountOrDue.Text
 msgctxt ",220387B24CAA6ABD84AD7CB97F800BBB"
 msgid "Due: $1000"
-msgstr "Due: $1000"
+msgstr "应付: $1000"
 
 #. Key:	8D56CB78498904F2FF0C45A443D9843D
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_Button.Text
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_Button.Text
 msgctxt ",8D56CB78498904F2FF0C45A443D9843D"
 msgid "Take Loan"
-msgstr "Take Loan"
+msgstr "申请贷款"
 
 #. Key:	2AFFBD54437CFCA7C48D7289771D471C
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_CostOrPerDay.Text
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_CostOrPerDay.Text
 msgctxt ",2AFFBD54437CFCA7C48D7289771D471C"
 msgid "2% per day"
-msgstr "2% per day"
+msgstr "2% 每天"
 
 #. Key:	E344F4C2487689E9B410B8B561FF084E
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_PayAmount.Text
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_PayAmount.Text
 msgctxt ",E344F4C2487689E9B410B8B561FF084E"
 msgid "Pay Amount: $0"
-msgstr "Pay Amount: $0"
+msgstr "支付金额: $0"
 
 #. Key:	1591A415411A6AB5ADFBED8E335C410F
 #. SourceLocation:	/Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_Require.Text
 #: /Game/ShopSim/Widgets/LoanEntry_Widget.LoanEntry_Widget_C:WidgetTree.Text_Require.Text
 msgctxt ",1591A415411A6AB5ADFBED8E335C410F"
 msgid "Requires something or other"
-msgstr "Requires something or other"
+msgstr "需要某些条件"
 
 #. Key:	FBC488ED42FB874A93BB64B410B55282
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_Interact_Widget.Overlay_Interact_Widget_C:WidgetTree.ActorNameText.Text
 #: /Game/ShopSim/Widgets/Overlay_Interact_Widget.Overlay_Interact_Widget_C:WidgetTree.ActorNameText.Text
 msgctxt ",FBC488ED42FB874A93BB64B410B55282"
 msgid "Selected Actor"
-msgstr "Selected Actor"
+msgstr "已选对象"
 
 #. Key:	104A43FA44E4F8F5F3A151B4E153ECF5
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_Interact_Widget.Overlay_Interact_Widget_C:WidgetTree.ControlDisplay_AltInteract.DefaultText
 #: /Game/ShopSim/Widgets/Overlay_Interact_Widget.Overlay_Interact_Widget_C:WidgetTree.ControlDisplay_AltInteract.DefaultText
 msgctxt ",104A43FA44E4F8F5F3A151B4E153ECF5"
 msgid "Configure"
-msgstr "Configure"
+msgstr "配置"
 
 #. Key:	49C61B9B45562E6F0AE3F7AC20D23786
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_Placement_Widget.Overlay_Placement_Widget_C:WidgetTree.InteractText.Text
 #: /Game/ShopSim/Widgets/Overlay_Placement_Widget.Overlay_Placement_Widget_C:WidgetTree.InteractText.Text
 msgctxt ",49C61B9B45562E6F0AE3F7AC20D23786"
 msgid "Move"
-msgstr "Move"
+msgstr "移动"
 
 #. Key:	6C51EDA0433DEA75A889FBAEFDC106E5
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_Placement_Widget.Overlay_Placement_Widget_C:WidgetTree.Text_Place.Text
 #: /Game/ShopSim/Widgets/Overlay_Placement_Widget.Overlay_Placement_Widget_C:WidgetTree.Text_Place.Text
 msgctxt ",6C51EDA0433DEA75A889FBAEFDC106E5"
 msgid "Place"
-msgstr "Place"
+msgstr "放置"
 
 #. Key:	FB7D4DA14FC3E799143F738D9C2781ED
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_Placement_Widget.Overlay_Placement_Widget_C:WidgetTree.Text_PlaceBrackets.Text
@@ -3351,14 +3357,14 @@ msgstr "[   ]"
 #: /Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.Text_ComputerBack.Text
 msgctxt ",8D89E6DA46FD693C7C1E348A13C83042"
 msgid "Close / Back"
-msgstr "Close / Back"
+msgstr "关闭 / 返回"
 
 #. Key:	2554F1504C025924B3FCA991DC163ED4
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.Text_EndDay.Text
 #: /Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.Text_EndDay.Text
 msgctxt ",2554F1504C025924B3FCA991DC163ED4"
 msgid "Press Enter to end the day"
-msgstr "Press Enter to end the day"
+msgstr "按回车键结束当天"
 
 #. Key:	D189989347DEDDB34561B79541D53DAE
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.Text_Money.Text
@@ -3372,21 +3378,21 @@ msgstr "$1000"
 #: /Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.Text_Waiting.Text
 msgctxt ",9D24771746198F12D72B3E854427B7FE"
 msgid "Waiting for customers to finish..."
-msgstr "Waiting for customers to finish..."
+msgstr "等待顾客结账完成..."
 
 #. Key:	BA34F7E744E745D859CD62B840A3117D
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.TextBlock_164.Text
 #: /Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.TextBlock_164.Text
 msgctxt ",BA34F7E744E745D859CD62B840A3117D"
 msgid "LEVEL UP"
-msgstr "LEVEL UP"
+msgstr "升级"
 
 #. Key:	BDEBDD9B49F660A1115DF59343A5A380
 #. SourceLocation:	/Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.XPText.Text
 #: /Game/ShopSim/Widgets/Overlay_ShopSim_Widget.Overlay_ShopSim_Widget_C:WidgetTree.XPText.Text
 msgctxt ",BDEBDD9B49F660A1115DF59343A5A380"
 msgid "+5 XP"
-msgstr "+5 XP"
+msgstr "+5 经验"
 
 #. Key:	34B3B2774CAB8259BB910CBF21353EE7
 #. SourceLocation:	/Game/ShopSim/Widgets/PriceTag_Widget.PriceTag_Widget_C:WidgetTree.Text_Bottom.Text
@@ -3449,7 +3455,7 @@ msgstr "$5.50"
 #: /Game/ShopSim/Widgets/ScannedItem_Widget.ScannedItem_Widget_C:WidgetTree.Text_Product.Text
 msgctxt ",395DEE0F4F3711CB8A235B8285106682"
 msgid "Product"
-msgstr "Product"
+msgstr "产品"
 
 #. Key:	D45526F84835292CF38033AF4C5CA901
 #. SourceLocation:	/Game/ShopSim/Widgets/ScannedItem_Widget.ScannedItem_Widget_C:WidgetTree.Text_TotalPrice.Text
@@ -3470,7 +3476,7 @@ msgstr "0/{TotalToFound}"
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:ExecuteUbergraph_ScanningRepairOrder_Widget [Script Bytecode]
 msgctxt ",0E0B66B3418418558A6AA7A71BA025D4"
 msgid "Found broken {PartName}"
-msgstr "Found broken {PartName}"
+msgstr "发现损坏的 {PartName}"
 
 #. Key:	25B0105D4DAAE28C73B0D28FFE39FAD2
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:ExecuteUbergraph_ScanningRepairOrder_Widget [Script Bytecode]
@@ -3526,7 +3532,7 @@ msgstr "$150"
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.BrokenPartFoundTextAnim.Text
 msgctxt ",413202B742815A0309432E8F8BA0A6EF"
 msgid "Found broken HDD"
-msgstr "Found broken HDD"
+msgstr "发现损坏的 HDD"
 
 #. Key:	238F68D142493065B3F17BBE5D07DD60
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.BrokenPartsFoundText.Text
@@ -3540,14 +3546,14 @@ msgstr "0/4"
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.DeadlineText_1.Text
 msgctxt ",F0BDC5AE442900229CD27687A896360C"
 msgid "30 min"
-msgstr "30 min"
+msgstr "30 分钟"
 
 #. Key:	6E5479FA46349A53346357B7127A21C9
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.DECLINE.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.DECLINE.Text
 msgctxt ",6E5479FA46349A53346357B7127A21C9"
 msgid "DECLINE ORDER"
-msgstr "DECLINE ORDER"
+msgstr "拒绝订单"
 
 #. Key:	10DFC3C54AEC07A96010A78D27C982C3
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.DeviceName.Text
@@ -3561,21 +3567,21 @@ msgstr "FunStation 4"
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.EstimatedTimeText.Text
 msgctxt ",84AEE6BB42FF8966C43DB2B1A9094074"
 msgid "1h30"
-msgstr "1h30"
+msgstr "1小时30分"
 
 #. Key:	6CE7005C4F706BD8EF8EB883A8843788
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.ProblemDescription.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.ProblemDescription.Text
 msgctxt ",6CE7005C4F706BD8EF8EB883A8843788"
 msgid "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
-msgstr "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
+msgstr "派对结束后室友吐在了键盘上。按键粘手,风扇发出咕噜声,而且气味难闻。今天有考试,需要数据恢复。"
 
 #. Key:	68EC17E448A4AF08020733AC7CA1C2B5
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.ProblemDescription_1.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.ProblemDescription_1.Text
 msgctxt ",68EC17E448A4AF08020733AC7CA1C2B5"
 msgid "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
-msgstr "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
+msgstr "派对结束后室友吐在了键盘上。按键粘手,风扇发出咕噜声,而且气味难闻。今天有考试,需要数据恢复。"
 
 #. Key:	CFB7B38B4336D398345A1EA9C2DD194C
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.RentabilityText.Text
@@ -3596,98 +3602,98 @@ msgstr "#2acf5657"
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.RepairOrderText.Text
 msgctxt ",CA6C0B9A4F27A199D4BD38BEBF28CDC2"
 msgid "REPAIR ORDER"
-msgstr "REPAIR ORDER"
+msgstr "维修订单"
 
 #. Key:	8FEAA20E43FC68B4B027B4AEC2B7802B
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_1.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_1.Text
 msgctxt ",8FEAA20E43FC68B4B027B4AEC2B7802B"
 msgid "Asking Price"
-msgstr "Asking Price"
+msgstr "要价"
 
 #. Key:	958C98204DBE68C4007DD89CDCDB2488
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_1147.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_1147.Text
 msgctxt ",958C98204DBE68C4007DD89CDCDB2488"
 msgid "DIAGNOSTIC"
-msgstr "DIAGNOSTIC"
+msgstr "诊断"
 
 #. Key:	711F36D6498C534FAA74E0BFC4AC394B
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_329.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_329.Text
 msgctxt ",711F36D6498C534FAA74E0BFC4AC394B"
 msgid "Deadline"
-msgstr "Deadline"
+msgstr "截止时间"
 
 #. Key:	E8D600EF44B85967299AE9A5BE9C0366
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_4.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_4.Text
 msgctxt ",E8D600EF44B85967299AE9A5BE9C0366"
 msgid "Profit"
-msgstr "Profit"
+msgstr "利润"
 
 #. Key:	8282F7DA4F6303DB4C1C6FB100FB088E
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_475.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_475.Text
 msgctxt ",8282F7DA4F6303DB4C1C6FB100FB088E"
 msgid "Broken Parts Found"
-msgstr "Broken Parts Found"
+msgstr "发现的损坏零件"
 
 #. Key:	BC1C3D084BCB11EDBD94CAAC8ADFFB2B
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_665.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_665.Text
 msgctxt ",BC1C3D084BCB11EDBD94CAAC8ADFFB2B"
 msgid "ACCEPT ORDER"
-msgstr "ACCEPT ORDER"
+msgstr "接受订单"
 
 #. Key:	914658494AD6DAECA9177AA993BF8BC0
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_7.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_7.Text
 msgctxt ",914658494AD6DAECA9177AA993BF8BC0"
 msgid "Broken parts"
-msgstr "Broken parts"
+msgstr "损坏零件"
 
 #. Key:	37FA1589412BFF5DE40766B3CB11CEB9
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_8.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_8.Text
 msgctxt ",37FA1589412BFF5DE40766B3CB11CEB9"
 msgid "Parts Cost"
-msgstr "Parts Cost"
+msgstr "零件费用"
 
 #. Key:	40E3C6184A2A7C8BF4629699B49DE50D
 #. SourceLocation:	/Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_9.Text
 #: /Game/ShopSim/Widgets/ScanningRepairOrder_Widget.ScanningRepairOrder_Widget_C:WidgetTree.TextBlock_9.Text
 msgctxt ",40E3C6184A2A7C8BF4629699B49DE50D"
 msgid "Estimated time"
-msgstr "Estimated time"
+msgstr "预计时间"
 
 #. Key:	1C83B7C24AB7C26334400FB4F40968A3
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Bank_Widget.Screen_Bank_Widget_C:WidgetTree.LoanEntry_1.LoanNameText
 #: /Game/ShopSim/Widgets/Screen_Bank_Widget.Screen_Bank_Widget_C:WidgetTree.LoanEntry_1.LoanNameText
 msgctxt ",1C83B7C24AB7C26334400FB4F40968A3"
 msgid "Growing Business Loan"
-msgstr "Growing Business Loan"
+msgstr "成长型商业贷款"
 
 #. Key:	AD4CB69747CB45533F8A1FB3E05F3317
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Bank_Widget.Screen_Bank_Widget_C:WidgetTree.LoanEntry_2.LoanNameText
 #: /Game/ShopSim/Widgets/Screen_Bank_Widget.Screen_Bank_Widget_C:WidgetTree.LoanEntry_2.LoanNameText
 msgctxt ",AD4CB69747CB45533F8A1FB3E05F3317"
 msgid "Large Business Loan"
-msgstr "Large Business Loan"
+msgstr "大型商业贷款"
 
 #. Key:	7D47026547D75F5FFB29678DEC9761B1
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Bank_Widget.Screen_Bank_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Bank_Widget.Screen_Bank_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",7D47026547D75F5FFB29678DEC9761B1"
 msgid "Bank Loans"
-msgstr "Bank Loans"
+msgstr "银行贷款"
 
 #. Key:	3604BDD84CA79AC7304A7E8415CE91D9
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Bills_Widget.Screen_Bills_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Bills_Widget.Screen_Bills_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",3604BDD84CA79AC7304A7E8415CE91D9"
 msgid "Bill Manager"
-msgstr "Bill Manager"
+msgstr "账单管理器"
 
 #. Key:	D69EC4EB4A07EE7556CFF287A771861D
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_CC_Widget.Screen_CC_Widget_C:WidgetTree.TextBlock.Text
@@ -3722,7 +3728,7 @@ msgstr "1"
 #: /Game/ShopSim/Widgets/Screen_CC_Widget.Screen_CC_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",9C48260D4EBB5BCDCF7144A1D3A517A5"
 msgid "Credit Total:"
-msgstr "Credit Total:"
+msgstr "信贷总额:"
 
 #. Key:	6FB6498D4BD3E4CF9D859B9E86D60293
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_CC_Widget.Screen_CC_Widget_C:WidgetTree.TextBlock_2.Text
@@ -3799,28 +3805,28 @@ msgstr "{h}:{m}"
 #: /Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store.Text
 msgctxt ",685F1A49455E3177FB1C4FB461D4135E"
 msgid "PRODUCTS"
-msgstr "PRODUCTS"
+msgstr "产品"
 
 #. Key:	D9A78FD74639EF4169ED9DA307453121
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store_1.Text
 #: /Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store_1.Text
 msgctxt ",D9A78FD74639EF4169ED9DA307453121"
 msgid "LICENSES"
-msgstr "LICENSES"
+msgstr "许可证"
 
 #. Key:	B6098C82410D142DA20D3B97A2C12C2A
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store_2.Text
 #: /Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store_2.Text
 msgctxt ",B6098C82410D142DA20D3B97A2C12C2A"
 msgid "UPGRADES"
-msgstr "UPGRADES"
+msgstr "升级"
 
 #. Key:	4CEF5FB14EDDA998C4E2CC9FFAFC62FD
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store_3.Text
 #: /Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Store_3.Text
 msgctxt ",4CEF5FB14EDDA998C4E2CC9FFAFC62FD"
 msgid "STAFF"
-msgstr "STAFF"
+msgstr "员工"
 
 #. Key:	E05718E24B29811EBCF2D78D00CAB391
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.Text_Time.Text
@@ -3834,98 +3840,98 @@ msgstr "00:00"
 #: /Game/ShopSim/Widgets/Screen_Computer_Widget.Screen_Computer_Widget_C:WidgetTree.TextBlock_135.Text
 msgctxt ",BB83F2364F127CDA2B36B5901802FF60"
 msgid "MENU"
-msgstr "MENU"
+msgstr "菜单"
 
 #. Key:	BF5A073D46A348D31BE134B508CEBB62
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:SetFromImprovements [Script Bytecode]
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:SetFromImprovements [Script Bytecode]
 msgctxt ",BF5A073D46A348D31BE134B508CEBB62"
 msgid "Built"
-msgstr "Built"
+msgstr "已建造"
 
 #. Key:	F86B164C45DDF55AD5355BAA6AB88D6C
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Description
 msgctxt ",F86B164C45DDF55AD5355BAA6AB88D6C"
 msgid "Unlocks: Medium Store Shelf"
-msgstr "Unlocks: Medium Store Shelf"
+msgstr "解锁: 中型商店货架"
 
 #. Key:	2B76D36E4DFE9ED22F159A853AA0BE23
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Name
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Name
 msgctxt ",2B76D36E4DFE9ED22F159A853AA0BE23"
 msgid "Store Upgrade 1"
-msgstr "Store Upgrade 1"
+msgstr "商店升级 1"
 
 #. Key:	05E0DFA049B33F6E06BAA88E160DAD27
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade2.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade2.Description
 msgctxt ",05E0DFA049B33F6E06BAA88E160DAD27"
 msgid "Unlocks: Checkout"
-msgstr "Unlocks: Checkout"
+msgstr "解锁: 收银台"
 
 #. Key:	1E1FA86F4EC9BFFABA0A10B650073A1F
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade2.Name
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade2.Name
 msgctxt ",1E1FA86F4EC9BFFABA0A10B650073A1F"
 msgid "Store Upgrade 2"
-msgstr "Store Upgrade 2"
+msgstr "商店升级 2"
 
 #. Key:	BF188DDB4E747B38C337FCB219F7E6FD
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Description
 msgctxt ",BF188DDB4E747B38C337FCB219F7E6FD"
 msgid "Unlocks: Expension1, Repair Consoles"
-msgstr "Unlocks: Expension1, Repair Consoles"
+msgstr "解锁: 扩建1、维修游戏机"
 
 #. Key:	54960CA149340B8B0F0C5BB6621B9A06
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Name
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Name
 msgctxt ",54960CA149340B8B0F0C5BB6621B9A06"
 msgid "Store Upgrade 3"
-msgstr "Store Upgrade 3"
+msgstr "商店升级 3"
 
 #. Key:	F6C6CE3C403AAB2CA7BAEDBD346C1040
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade4.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade4.Description
 msgctxt ",F6C6CE3C403AAB2CA7BAEDBD346C1040"
 msgid "Unlocks: Repair workshop, Medium Repair Shelf"
-msgstr "Unlocks: Repair workshop, Medium Repair Shelf"
+msgstr "解锁: 维修工坊、中型维修货架"
 
 #. Key:	A84B27ED455A9A109504E5B7C9E1A62D
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade4.Name
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade4.Name
 msgctxt ",A84B27ED455A9A109504E5B7C9E1A62D"
 msgid "Store Upgrade 4"
-msgstr "Store Upgrade 4"
+msgstr "商店升级 4"
 
 #. Key:	8E7C319A48162C7DDAD5AC93759357F0
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",8E7C319A48162C7DDAD5AC93759357F0"
 msgid "Improvement Center"
-msgstr "Improvement Center"
+msgstr "改进中心"
 
 #. Key:	3D8B77E2413FFB28A7E1119DBD357B30
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Licenses_Widget.Screen_Licenses_Widget_C:CreateLicenses [Script Bytecode]
 #: /Game/ShopSim/Widgets/Screen_Licenses_Widget.Screen_Licenses_Widget_C:CreateLicenses [Script Bytecode]
 msgctxt ",3D8B77E2413FFB28A7E1119DBD357B30"
 msgid "Owned"
-msgstr "Owned"
+msgstr "已拥有"
 
 #. Key:	6A16ABF24D4937FD4E8C49AE9F6307CD
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Licenses_Widget.Screen_Licenses_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Licenses_Widget.Screen_Licenses_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",6A16ABF24D4937FD4E8C49AE9F6307CD"
 msgid "Commercial Licenses"
-msgstr "Commercial Licenses"
+msgstr "商业许可证"
 
 #. Key:	8CDFCCE44201887B240C22A63E0F005E
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_Count.Text
 #: /Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_Count.Text
 msgctxt ",8CDFCCE44201887B240C22A63E0F005E"
 msgid "Count"
-msgstr "Count"
+msgstr "数量"
 
 #. Key:	64DA52CF4E28542B79F89DB957BCFBCE
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_FinalPrice.Text
@@ -3939,35 +3945,35 @@ msgstr "$0.00"
 #: /Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_Price.Text
 msgctxt ",0683F9B94186C4EDD18F7899271FE5EF"
 msgid "Each"
-msgstr "Each"
+msgstr "每个"
 
 #. Key:	BA68267F40FE8026E55A898499C1A012
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_Product.Text
 #: /Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_Product.Text
 msgctxt ",BA68267F40FE8026E55A898499C1A012"
 msgid "Product"
-msgstr "Product"
+msgstr "产品"
 
 #. Key:	41867B614A87C9BB096C3891B46EB907
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_TotalPrice.Text
 #: /Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.Text_TotalPrice.Text
 msgctxt ",41867B614A87C9BB096C3891B46EB907"
 msgid "Total"
-msgstr "Total"
+msgstr "总计"
 
 #. Key:	AE749ABD48B97E1B711EDC98B23C655D
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",AE749ABD48B97E1B711EDC98B23C655D"
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "收银台"
 
 #. Key:	208ACE0146D9D104AE8212B1397EFDC2
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.TextBlock_85.Text
 #: /Game/ShopSim/Widgets/Screen_POS_Widget.Screen_POS_Widget_C:WidgetTree.TextBlock_85.Text
 msgctxt ",208ACE0146D9D104AE8212B1397EFDC2"
 msgid "TOTAL"
-msgstr "TOTAL"
+msgstr "总计"
 
 #. Key:	C60E15A34E36C8DE5812DFAEF814C1EA
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.Text_ChangeDue.Text
@@ -4002,56 +4008,56 @@ msgstr "$0.00"
 #: /Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock.Text
 msgctxt ",D26B57114DD4058DD8323FB10A61E85C"
 msgid "Recieved"
-msgstr "Recieved"
+msgstr "已收到"
 
 #. Key:	C8BC9184465996DFEF9416ABFE612F2D
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_1.Text
 #: /Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_1.Text
 msgctxt ",C8BC9184465996DFEF9416ABFE612F2D"
 msgid "Total"
-msgstr "Total"
+msgstr "总计"
 
 #. Key:	28EC4BF146246B8005168A8C4151E2B5
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",28EC4BF146246B8005168A8C4151E2B5"
 msgid "Cash Register"
-msgstr "Cash Register"
+msgstr "收银台"
 
 #. Key:	1246FA674E1A10256D227EB5920D6E06
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_2.Text
 #: /Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_2.Text
 msgctxt ",1246FA674E1A10256D227EB5920D6E06"
 msgid "Change Due"
-msgstr "Change Due"
+msgstr "找零"
 
 #. Key:	7C415EC04C229F7C5BDEA3B798583ED8
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_85.Text
 #: /Game/ShopSim/Widgets/Screen_Register_Widget.Screen_Register_Widget_C:WidgetTree.TextBlock_85.Text
 msgctxt ",7C415EC04C229F7C5BDEA3B798583ED8"
 msgid "Giving"
-msgstr "Giving"
+msgstr "给予"
 
 #. Key:	41C1EBF64A71C30F948912BFE2738297
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Staff_Widget.Screen_Staff_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Staff_Widget.Screen_Staff_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",41C1EBF64A71C30F948912BFE2738297"
 msgid "Staffing Solutions"
-msgstr "Staffing Solutions"
+msgstr "人力资源"
 
 #. Key:	0B57C9D64342AAA4F14C4E8122F595F9
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Store_Widget.Screen_Store_Widget_C:WidgetTree.Text_Desc.Text
 #: /Game/ShopSim/Widgets/Screen_Store_Widget.Screen_Store_Widget_C:WidgetTree.Text_Desc.Text
 msgctxt ",0B57C9D64342AAA4F14C4E8122F595F9"
 msgid "Search:"
-msgstr "Search:"
+msgstr "搜索:"
 
 #. Key:	5BFF331A473B0E9C85CF48BA87792434
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Store_Widget.Screen_Store_Widget_C:WidgetTree.TextBlock_189.Text
 #: /Game/ShopSim/Widgets/Screen_Store_Widget.Screen_Store_Widget_C:WidgetTree.TextBlock_189.Text
 msgctxt ",5BFF331A473B0E9C85CF48BA87792434"
 msgid "Supplies Shop"
-msgstr "Supplies Shop"
+msgstr "用品商店"
 
 #. Key:	1A07FF2F49AE0A67BD3699AC6896E6CF
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Store_Widget.Screen_Store_Widget_C:WidgetTree.TextBlock_269.Text
@@ -4065,84 +4071,84 @@ msgstr "x"
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 msgctxt ",0F9D50D0450C8E20295B99AFFD59EEE4"
 msgid "Add"
-msgstr "Add"
+msgstr "添加"
 
 #. Key:	2971A5F34BDCB405E0F4FB9FF9C0857C
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 msgctxt ",2971A5F34BDCB405E0F4FB9FF9C0857C"
 msgid "REQUIRED IMPROVEMENT: {ImprovementName}"
-msgstr "REQUIRED IMPROVEMENT: {ImprovementName}"
+msgstr "所需改进: {ImprovementName}"
 
 #. Key:	7287A3AD406ED2E2DCE263A0F4450ECC
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 msgctxt ",7287A3AD406ED2E2DCE263A0F4450ECC"
-msgid "UnitPrice {UnitPrice}\r\nx{Units}"
-msgstr "UnitPrice {UnitPrice}\r\nx{Units}"
+msgid "{UnitPrice}"
+msgstr "{UnitPrice}"
 
 #. Key:	D6C4D6644D0D9848766783AE8CA71DF2
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 msgctxt ",D6C4D6644D0D9848766783AE8CA71DF2"
 msgid "Locked"
-msgstr "Locked"
+msgstr "已锁定"
 
 #. Key:	D902CCF64CD2B6DA73612D92643D1CEE
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 msgctxt ",D902CCF64CD2B6DA73612D92643D1CEE"
 msgid "Add"
-msgstr "Add"
+msgstr "添加"
 
 #. Key:	126437564C2049735EE4B783BB72B98C
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.RequiredLeveltext.Text
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.RequiredLeveltext.Text
 msgctxt ",126437564C2049735EE4B783BB72B98C"
 msgid "Required: 2"
-msgstr "Required: 2"
+msgstr "需要: 2"
 
 #. Key:	D4EEDA0E4265E4FACA34D9B133944E87
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.Text_Buy.Text
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.Text_Buy.Text
 msgctxt ",D4EEDA0E4265E4FACA34D9B133944E87"
 msgid "Add"
-msgstr "Add"
+msgstr "添加"
 
 #. Key:	238D111D4AF7A1E188C2AC86EA39C71E
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.Text_Cost.Text
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.Text_Cost.Text
 msgctxt ",238D111D4AF7A1E188C2AC86EA39C71E"
-msgid "30 for $35"
-msgstr "30 for $35"
+msgid "$50"
+msgstr "$50"
 
 #. Key:	BF6CFF2049125ED55202D8962F7B7591
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreLevel_Widget.StoreLevel_Widget_C:SetLevelInfo [Script Bytecode]
 #: /Game/ShopSim/Widgets/StoreLevel_Widget.StoreLevel_Widget_C:SetLevelInfo [Script Bytecode]
 msgctxt ",BF6CFF2049125ED55202D8962F7B7591"
 msgid "Store Level: {lvl}"
-msgstr "Store Level: {lvl}"
+msgstr "商店等级: {lvl}"
 
 #. Key:	5CB0864945B85EFE4BC8A3A3C920EEED
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreLevel_Widget.StoreLevel_Widget_C:WidgetTree.Text_Level.Text
 #: /Game/ShopSim/Widgets/StoreLevel_Widget.StoreLevel_Widget_C:WidgetTree.Text_Level.Text
 msgctxt ",5CB0864945B85EFE4BC8A3A3C920EEED"
 msgid "Store Level: 1"
-msgstr "Store Level: 1"
+msgstr "商店等级: 1"
 
 #. Key:	18D17AE2439F631D65DB73B2B0CC681C
 #. SourceLocation:	/Game/ShopSim/Widgets/ToolTip_Item_Widget.ToolTip_Item_Widget_C:WidgetTree.Text_Desc.Text
 #: /Game/ShopSim/Widgets/ToolTip_Item_Widget.ToolTip_Item_Widget_C:WidgetTree.Text_Desc.Text
 msgctxt ",18D17AE2439F631D65DB73B2B0CC681C"
 msgid "It is an item."
-msgstr "It is an item."
+msgstr "这是一件物品。"
 
 #. Key:	9B366544484AF598BB1B4AB6CBA98EB9
 #. SourceLocation:	/Game/ShopSim/Widgets/ToolTip_Item_Widget.ToolTip_Item_Widget_C:WidgetTree.Text_Name.Text
 #: /Game/ShopSim/Widgets/ToolTip_Item_Widget.ToolTip_Item_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",9B366544484AF598BB1B4AB6CBA98EB9"
 msgid "Item"
-msgstr "Item"
+msgstr "物品"
 
 #. Key:	9824059F425FDD5FB55BA89E96BE3CDC
 #. SourceLocation:	/Game/ShopSim/Widgets/ToolTip_License_Widget.ToolTip_License_Widget_C:SetItemListText [Script Bytecode]
@@ -4177,7 +4183,7 @@ msgstr "Apples, Oranges, Bananas, Cumquats, Tomatoes, Cranberries, Cream Cheese.
 #: /Game/ShopSim/Widgets/ToolTip_License_Widget.ToolTip_License_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",89D8B02D49F4562F6CA961A02D249F77"
 msgid "Unlocks:"
-msgstr "Unlocks:"
+msgstr "解锁:"
 
 #. Key:	3CB4778A4FF1A9A27949CDBB1BAC9452
 #. SourceLocation:	/Game/ShopSim/Widgets/ToolTip_Trait_Attribute_Widget.ToolTip_Trait_Attribute_Widget_C:SetFromAttributeInfo [Script Bytecode]
@@ -4219,14 +4225,14 @@ msgstr "+"
 #: /Game/ShopSim/Widgets/ToolTip_Trait_Widget.ToolTip_Trait_Widget_C:WidgetTree.Text_Desc.Text
 msgctxt ",EBC2F30148ECF9AF09E853AED50B2715"
 msgid "Faster than most."
-msgstr "Faster than most."
+msgstr "比大多数更快。"
 
 #. Key:	5B39AB924BDEEDC2AD3659A42854CFE4
 #. SourceLocation:	/Game/ShopSim/Widgets/ToolTip_Trait_Widget.ToolTip_Trait_Widget_C:WidgetTree.Text_Name.Text
 #: /Game/ShopSim/Widgets/ToolTip_Trait_Widget.ToolTip_Trait_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",5B39AB924BDEEDC2AD3659A42854CFE4"
 msgid "Fast:"
-msgstr "Fast:"
+msgstr "快速:"
 
 #. Key:	EDA6BE9645B21327535B2E8CE642DA71
 #. SourceLocation:	/Game/ShopSim/Widgets/TraitIcon_Widget.TraitIcon_Widget_C:WidgetTree.Text_Level.Text
@@ -4240,14 +4246,14 @@ msgstr "1"
 #: /Game/ShopSim/Widgets/WBP_AvailableParts.WBP_AvailableParts_C:WidgetTree.DeviceFixedText.Text
 msgctxt ",0E83E5B642477E5753217B92DA17BF27"
 msgid "DEVICE FIXED"
-msgstr "DEVICE FIXED"
+msgstr "设备已修复"
 
 #. Key:	B42ED9C9492E9AA1427FB5BD75DD43AB
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_AvailableParts.WBP_AvailableParts_C:WidgetTree.RepairOrderText.Text
 #: /Game/ShopSim/Widgets/WBP_AvailableParts.WBP_AvailableParts_C:WidgetTree.RepairOrderText.Text
 msgctxt ",B42ED9C9492E9AA1427FB5BD75DD43AB"
 msgid "AVAILABLE PARTS"
-msgstr "AVAILABLE PARTS"
+msgstr "可用零件"
 
 #. Key:	A5CAE2084D279939E5658A8C6A745670
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:DisplayPartsCostText [Script Bytecode]
@@ -4261,7 +4267,7 @@ msgstr "${Cost}"
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:ExecuteUbergraph_WBP_CurrentRepairOrder [Script Bytecode]
 msgctxt ",29985AD341DDB9FF654CA0913A33596E"
 msgid "Overtime"
-msgstr "Overtime"
+msgstr "加班"
 
 #. Key:	74BC698E41D6C7D44E67BA8468B51818
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:ExecuteUbergraph_WBP_CurrentRepairOrder [Script Bytecode]
@@ -4303,7 +4309,7 @@ msgstr "-$3"
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.PartsCostText.Text
 msgctxt ",44B61F5C46A876D699C49A993EB5C65F"
 msgid "1h30"
-msgstr "1h30"
+msgstr "1小时30分"
 
 #. Key:	862DA00545382DF697CA8A84D4C7CA6D
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.RepairOrderId.Text
@@ -4317,7 +4323,7 @@ msgstr "#2acf5657"
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.RepairOrderText.Text
 msgctxt ",8C74C6E640811FA572938BAA408DA376"
 msgid "REPAIR ORDER"
-msgstr "REPAIR ORDER"
+msgstr "维修订单"
 
 #. Key:	5B1AD1FA48E57B61CB87BEADDD166DA4
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.RewardText.Text
@@ -4331,49 +4337,49 @@ msgstr "$150"
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock.Text
 msgctxt ",6B9A0E524ECCB6E2A29198A2AB13A836"
 msgid "Reward"
-msgstr "Reward"
+msgstr "奖励"
 
 #. Key:	D1BC98B642C40AC626964EA62B27388A
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock_1.Text
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock_1.Text
 msgctxt ",D1BC98B642C40AC626964EA62B27388A"
 msgid "Parts cost"
-msgstr "Parts cost"
+msgstr "零件费用"
 
 #. Key:	969E4BBA43005C6DFF3B7DA4121377F4
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock_7.Text
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock_7.Text
 msgctxt ",969E4BBA43005C6DFF3B7DA4121377F4"
 msgid "Broken parts"
-msgstr "Broken parts"
+msgstr "损坏零件"
 
 #. Key:	7356676D49FE6813F018DCAE428D3D7F
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock_80.Text
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TextBlock_80.Text
 msgctxt ",7356676D49FE6813F018DCAE428D3D7F"
 msgid "FIXED"
-msgstr "FIXED"
+msgstr "已修复"
 
 #. Key:	644B47F841140939D993B9B9DC8D167D
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TimeRemainingStatusText.Text
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TimeRemainingStatusText.Text
 msgctxt ",644B47F841140939D993B9B9DC8D167D"
 msgid "Time remaining"
-msgstr "Time remaining"
+msgstr "剩余时间"
 
 #. Key:	A443A8D9470C9393678C6D97340369E7
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TimeRemainingText.Text
 #: /Game/ShopSim/Widgets/WBP_CurrentRepairOrder.WBP_CurrentRepairOrder_C:WidgetTree.TimeRemainingText.Text
 msgctxt ",A443A8D9470C9393678C6D97340369E7"
 msgid "1H31"
-msgstr "1H31"
+msgstr "1小时31分"
 
 #. Key:	AB4858C8436C0CCAC0D2F0A004376ED0
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_CustomerText.WBP_CustomerText_C:WidgetTree.CustomerText.Text
 #: /Game/ShopSim/Widgets/WBP_CustomerText.WBP_CustomerText_C:WidgetTree.CustomerText.Text
 msgctxt ",AB4858C8436C0CCAC0D2F0A004376ED0"
 msgid "Too expensive"
-msgstr "Too expensive"
+msgstr "太贵了"
 
 #. Key:	EFA91797428F705BA9FDA6B5E4D95ADF
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_PartBox.WBP_PartBox_C:WidgetTree.PartNametext.Text
@@ -4408,7 +4414,7 @@ msgstr "HDD"
 #: /Game/ShopSim/Widgets/WBP_Task.WBP_Task_C:WidgetTree.TaskNametext.Text
 msgctxt ",26A0A0B342DE2477DAB8CC904BE56DF2"
 msgid "- Go to the computer located in the store"
-msgstr "- Go to the computer located in the store"
+msgstr "- 前往商店内的电脑"
 
 #. Key:	4B9B815842D936CB3D27509651654E71
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_TutorialStepWidget.WBP_TutorialStepWidget_C:ExecuteUbergraph_WBP_TutorialStepWidget [Script Bytecode]
@@ -4436,224 +4442,224 @@ msgstr "1/5"
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 msgctxt ",29E454F047E8A5CE28A1739C1C8E4445"
 msgid "Level Required: {lvl}"
-msgstr "Level Required: {lvl}"
+msgstr "需要等级: {lvl}"
 
 #. Key:	66C6FC724D7C8CC954896EB1EA5A40A6
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 msgctxt ",66C6FC724D7C8CC954896EB1EA5A40A6"
 msgid "Unlock : ${UnlockPrice}"
-msgstr "Unlock : ${UnlockPrice}"
+msgstr "解锁: ${UnlockPrice}"
 
 #. Key:	8356BCFF45839DD79D73A085102F41FB
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 msgctxt ",8356BCFF45839DD79D73A085102F41FB"
 msgid "Owned"
-msgstr "Owned"
+msgstr "已拥有"
 
 #. Key:	C5B47BC94E8BE013BACFB1B166DDDA91
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:SetFromWorkerData [Script Bytecode]
 msgctxt ",C5B47BC94E8BE013BACFB1B166DDDA91"
 msgid "Daily Wage: {cost}"
-msgstr "Daily Wage: {cost}"
+msgstr "日工资: {cost}"
 
 #. Key:	FC0D4AA34445DF84B54CB6AC285CB7E0
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Button_Hire.Text
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Button_Hire.Text
 msgctxt ",FC0D4AA34445DF84B54CB6AC285CB7E0"
 msgid "Unlock : $30000"
-msgstr "Unlock : $30000"
+msgstr "解锁: $30000"
 
 #. Key:	D5FEA4F94F8917B6BA08759B7889718F
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Name.Text
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Name.Text
 msgctxt ",D5FEA4F94F8917B6BA08759B7889718F"
 msgid "Name"
-msgstr "Name"
+msgstr "姓名"
 
 #. Key:	45C077294919EAED8BB066884E531281
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Required.Text
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Required.Text
 msgctxt ",45C077294919EAED8BB066884E531281"
 msgid "Requires something or other"
-msgstr "Requires something or other"
+msgstr "需要某些条件"
 
 #. Key:	F1C2F0DA4B0F0CA77CFA868668BD5644
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Wage.Text
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_Wage.Text
 msgctxt ",F1C2F0DA4B0F0CA77CFA868668BD5644"
 msgid "Unlock Price"
-msgstr "Unlock Price"
+msgstr "解锁价格"
 
 #. Key:	692A80FA4F308D342C2EBE8E97313578
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_WorkerType.Text
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.Text_WorkerType.Text
 msgctxt ",692A80FA4F308D342C2EBE8E97313578"
 msgid "Cashier"
-msgstr "Cashier"
+msgstr "收银员"
 
 #. Key:	4413EA8F49C1B26E5FEDC7867C63808C
 #. SourceLocation:	/Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.TextBlock_1.Text
 #: /Game/ShopSim/Widgets/WorkerEntry_Widget.WorkerEntry_Widget_C:WidgetTree.TextBlock_1.Text
 msgctxt ",4413EA8F49C1B26E5FEDC7867C63808C"
 msgid "Traits:"
-msgstr "Traits:"
+msgstr "特性:"
 
 #. Key:	Lobby_Leave
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(110)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(110)
 msgctxt "TestSimu,Lobby_Leave"
 msgid "Leave"
-msgstr "Leave"
+msgstr "离开"
 
 #. Key:	Lobby_Loading
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(271)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(271)
 msgctxt "TestSimu,Lobby_Loading"
 msgid "Loading..."
-msgstr "Loading..."
+msgstr "正在加载..."
 
 #. Key:	Lobby_StartGame
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(271)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(271)
 msgctxt "TestSimu,Lobby_StartGame"
 msgid "Start Game"
-msgstr "Start Game"
+msgstr "开始游戏"
 
 #. Key:	Lobby_Title
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(59)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(59)
 msgctxt "TestSimu,Lobby_Title"
 msgid "Lobby"
-msgstr "Lobby"
+msgstr "大厅"
 
 #. Key:	Lobby_Players
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(70)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(70)
 msgctxt "TestSimu,Lobby_Players"
 msgid "Players"
-msgstr "Players"
+msgstr "玩家"
 
 #. Key:	Lobby_InviteFriends
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(76)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(76)
 msgctxt "TestSimu,Lobby_InviteFriends"
 msgid "Invite Friends"
-msgstr "Invite Friends"
+msgstr "邀请好友"
 
 #. Key:	Lobby_Chat
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(86)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(86)
 msgctxt "TestSimu,Lobby_Chat"
 msgid "Chat"
-msgstr "Chat"
+msgstr "聊天"
 
 #. Key:	Lobby_ChatHint
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(93)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(93)
 msgctxt "TestSimu,Lobby_ChatHint"
 msgid "Type a message..."
-msgstr "Type a message..."
+msgstr "输入消息..."
 
 #. Key:	Lobby_Send
 #. SourceLocation:	Source/TestSimu/UI/SLobbyWidget.cpp(97)
 #: Source/TestSimu/UI/SLobbyWidget.cpp(97)
 msgctxt "TestSimu,Lobby_Send"
 msgid "Send"
-msgstr "Send"
+msgstr "发送"
 
 #. Key:	MainMenu_SteamConnected
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(105)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(105)
 msgctxt "TestSimu,MainMenu_SteamConnected"
 msgid "Steam Connected"
-msgstr "Steam Connected"
+msgstr "Steam 已连接"
 
 #. Key:	MainMenu_SteamOffline
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(105)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(105)
 msgctxt "TestSimu,MainMenu_SteamOffline"
 msgid "Steam Offline - LAN Only"
-msgstr "Steam Offline - LAN Only"
+msgstr "Steam 离线 - 仅局域网"
 
 #. Key:	MainMenu_HostSettings
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(119)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(119)
 msgctxt "TestSimu,MainMenu_HostSettings"
 msgid "Host Settings"
-msgstr "Host Settings"
+msgstr "主机设置"
 
 #. Key:	MainMenu_SessionVisibility
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(122)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(122)
 msgctxt "TestSimu,MainMenu_SessionVisibility"
 msgid "Session Visibility"
-msgstr "Session Visibility"
+msgstr "会话可见性"
 
 #. Key:	MainMenu_Public
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(130)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(130)
 msgctxt "TestSimu,MainMenu_Public"
 msgid "Public"
-msgstr "Public"
+msgstr "公开"
 
 #. Key:	MainMenu_FriendsOnly
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(141)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(141)
 msgctxt "TestSimu,MainMenu_FriendsOnly"
 msgid "Friends Only"
-msgstr "Friends Only"
+msgstr "仅好友"
 
 #. Key:	MainMenu_Private
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(152)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(152)
 msgctxt "TestSimu,MainMenu_Private"
 msgid "Private"
-msgstr "Private"
+msgstr "私密"
 
 #. Key:	MainMenu_CreateLobby
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(162)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(162)
 msgctxt "TestSimu,MainMenu_CreateLobby"
 msgid "Create Lobby"
-msgstr "Create Lobby"
+msgstr "创建大厅"
 
 #. Key:	MainMenu_Back
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(168)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(168)
 msgctxt "TestSimu,MainMenu_Back"
 msgid "Back"
-msgstr "Back"
+msgstr "返回"
 
 #. Key:	MainMenu_SessionCreated
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(198)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(198)
 msgctxt "TestSimu,MainMenu_SessionCreated"
 msgid "Session created"
-msgstr "Session created"
+msgstr "会话已创建"
 
 #. Key:	MainMenu_FailedCreateSession
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(202)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(202)
 msgctxt "TestSimu,MainMenu_FailedCreateSession"
 msgid "Failed to create session"
-msgstr "Failed to create session"
+msgstr "创建会话失败"
 
 #. Key:	MainMenu_FailedJoinSession
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(211)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(211)
 msgctxt "TestSimu,MainMenu_FailedJoinSession"
 msgid "Failed to join session"
-msgstr "Failed to join session"
+msgstr "加入会话失败"
 
 #. Key:	MainMenu_CreatingLobby
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(234)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(234)
 msgctxt "TestSimu,MainMenu_CreatingLobby"
 msgid "Creating lobby..."
-msgstr "Creating lobby..."
+msgstr "正在创建大厅..."
 
 #. Key:	MainMenu_Title
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(68)
@@ -4667,217 +4673,217 @@ msgstr "TestSimu"
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(73)
 msgctxt "TestSimu,MainMenu_Play"
 msgid "Play"
-msgstr "Play"
+msgstr "开始游戏"
 
 #. Key:	MainMenu_HostGame
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(79)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(79)
 msgctxt "TestSimu,MainMenu_HostGame"
 msgid "Host Game"
-msgstr "Host Game"
+msgstr "创建游戏"
 
 #. Key:	MainMenu_BrowseGames
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(85)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(85)
 msgctxt "TestSimu,MainMenu_BrowseGames"
 msgid "Browse Games"
-msgstr "Browse Games"
+msgstr "浏览游戏"
 
 #. Key:	MainMenu_Settings
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(93)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(93)
 msgctxt "TestSimu,MainMenu_Settings"
 msgid "Settings"
-msgstr "Settings"
+msgstr "设置"
 
 #. Key:	MainMenu_Quit
 #. SourceLocation:	Source/TestSimu/UI/SMainMenuWidget.cpp(99)
 #: Source/TestSimu/UI/SMainMenuWidget.cpp(99)
 msgctxt "TestSimu,MainMenu_Quit"
 msgid "Quit"
-msgstr "Quit"
+msgstr "退出"
 
 #. Key:	Settings_MouseHeader
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(112)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(112)
 msgctxt "TestSimu,Settings_MouseHeader"
 msgid "Mouse"
-msgstr "Mouse"
+msgstr "鼠标"
 
 #. Key:	Settings_InvertYAxis
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(126)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(126)
 msgctxt "TestSimu,Settings_InvertYAxis"
 msgid "Invert Y Axis"
-msgstr "Invert Y Axis"
+msgstr "反转 Y 轴"
 
 #. Key:	Settings_InvertXAxis
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(141)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(141)
 msgctxt "TestSimu,Settings_InvertXAxis"
 msgid "Invert X Axis"
-msgstr "Invert X Axis"
+msgstr "反转 X 轴"
 
 #. Key:	Settings_MouseSensitivity
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(150)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(150)
 msgctxt "TestSimu,Settings_MouseSensitivity"
 msgid "Mouse Sensitivity"
-msgstr "Mouse Sensitivity"
+msgstr "鼠标灵敏度"
 
 #. Key:	Settings_KeyBindingsHeader
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(178)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(178)
 msgctxt "TestSimu,Settings_KeyBindingsHeader"
 msgid "Key Bindings"
-msgstr "Key Bindings"
+msgstr "按键绑定"
 
 #. Key:	Settings_ResetToDefaults
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(212)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(212)
 msgctxt "TestSimu,Settings_ResetToDefaults"
 msgid "Reset to Defaults"
-msgstr "Reset to Defaults"
+msgstr "重置为默认"
 
 #. Key:	Settings_WindowMode
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(239)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(239)
 msgctxt "TestSimu,Settings_WindowMode"
 msgid "Window Mode"
-msgstr "Window Mode"
+msgstr "窗口模式"
 
 #. Key:	Settings_Resolution
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(249)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(249)
 msgctxt "TestSimu,Settings_Resolution"
 msgid "Resolution"
-msgstr "Resolution"
+msgstr "分辨率"
 
 #. Key:	Settings_VSync
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(262)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(262)
 msgctxt "TestSimu,Settings_VSync"
 msgid "VSync"
-msgstr "VSync"
+msgstr "垂直同步"
 
 #. Key:	Settings_Quality
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(274)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(274)
 msgctxt "TestSimu,Settings_Quality"
 msgid "Quality"
-msgstr "Quality"
+msgstr "画质"
 
 #. Key:	Settings_FPSLimit
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(284)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(284)
 msgctxt "TestSimu,Settings_FPSLimit"
 msgid "FPS Limit"
-msgstr "FPS Limit"
+msgstr "帧率限制"
 
 #. Key:	Settings_FOV
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(297)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(297)
 msgctxt "TestSimu,Settings_FOV"
 msgid "Field of View"
-msgstr "Field of View"
+msgstr "视野"
 
 #. Key:	Settings_Apply
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(327)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(327)
 msgctxt "TestSimu,Settings_Apply"
 msgid "Apply"
-msgstr "Apply"
+msgstr "应用"
 
 #. Key:	Settings_VolumeHeader
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(336)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(336)
 msgctxt "TestSimu,Settings_VolumeHeader"
 msgid "Volume"
-msgstr "Volume"
+msgstr "音量"
 
 #. Key:	Settings_MasterVolume
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(343)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(343)
 msgctxt "TestSimu,Settings_MasterVolume"
 msgid "Master Volume"
-msgstr "Master Volume"
+msgstr "主音量"
 
 #. Key:	Settings_MusicVolume
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(354)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(354)
 msgctxt "TestSimu,Settings_MusicVolume"
 msgid "Music Volume"
-msgstr "Music Volume"
+msgstr "音乐音量"
 
 #. Key:	Settings_EffectsVolume
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(365)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(365)
 msgctxt "TestSimu,Settings_EffectsVolume"
 msgid "Effects Volume"
-msgstr "Effects Volume"
+msgstr "音效音量"
 
 #. Key:	Settings_GameplayPlaceholder
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(377)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(377)
 msgctxt "TestSimu,Settings_GameplayPlaceholder"
 msgid "Gameplay options coming soon"
-msgstr "Gameplay options coming soon"
+msgstr "玩法选项即将推出"
 
 #. Key:	Settings_LanguageHeader
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(411)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(411)
 msgctxt "TestSimu,Settings_LanguageHeader"
 msgid "Language"
-msgstr "Language"
+msgstr "语言"
 
 #. Key:	Settings_TabGeneral
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(455)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(455)
 msgctxt "TestSimu,Settings_TabGeneral"
 msgid "General"
-msgstr "General"
+msgstr "常规"
 
 #. Key:	Settings_TabControls
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(458)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(458)
 msgctxt "TestSimu,Settings_TabControls"
 msgid "Controls"
-msgstr "Controls"
+msgstr "控制"
 
 #. Key:	Settings_TabSound
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(460)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(460)
 msgctxt "TestSimu,Settings_TabSound"
 msgid "Sound"
-msgstr "Sound"
+msgstr "声音"
 
 #. Key:	Settings_TabVideo
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(462)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(462)
 msgctxt "TestSimu,Settings_TabVideo"
 msgid "Video"
-msgstr "Video"
+msgstr "视频"
 
 #. Key:	Settings_TabGameplay
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(464)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(464)
 msgctxt "TestSimu,Settings_TabGameplay"
 msgid "Gameplay"
-msgstr "Gameplay"
+msgstr "玩法"
 
 #. Key:	Settings_Title
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(496)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(496)
 msgctxt "TestSimu,Settings_Title"
 msgid "Settings"
-msgstr "Settings"
+msgstr "设置"
 
 #. Key:	Settings_Back
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(507)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(507)
 msgctxt "TestSimu,Settings_Back"
 msgid "Back"
-msgstr "Back"
+msgstr "返回"
 
 #. Key:	Settings_ListeningForKey
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(564)
@@ -4891,117 +4897,116 @@ msgstr "..."
 #: Source/TestSimu/UI/SSettingsWidget.cpp(75)
 msgctxt "TestSimu,WindowMode_Fullscreen"
 msgid "Fullscreen"
-msgstr "Fullscreen"
+msgstr "全屏"
 
 #. Key:	WindowMode_WindowedFullscreen
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(76)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(76)
 msgctxt "TestSimu,WindowMode_WindowedFullscreen"
 msgid "Windowed Fullscreen"
-msgstr "Windowed Fullscreen"
+msgstr "窗口化全屏"
 
 #. Key:	WindowMode_Windowed
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(77)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(77)
 msgctxt "TestSimu,WindowMode_Windowed"
 msgid "Windowed"
-msgstr "Windowed"
+msgstr "窗口"
 
 #. Key:	Quality_Low
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(87)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(87)
 msgctxt "TestSimu,Quality_Low"
 msgid "Low"
-msgstr "Low"
+msgstr "低"
 
 #. Key:	Quality_Medium
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(88)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(88)
 msgctxt "TestSimu,Quality_Medium"
 msgid "Medium"
-msgstr "Medium"
+msgstr "中"
 
 #. Key:	Quality_High
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(89)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(89)
 msgctxt "TestSimu,Quality_High"
 msgid "High"
-msgstr "High"
+msgstr "高"
 
 #. Key:	Quality_Epic
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(90)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(90)
 msgctxt "TestSimu,Quality_Epic"
 msgid "Epic"
-msgstr "Epic"
+msgstr "极致"
 
 #. Key:	FPS_Unlimited
 #. SourceLocation:	Source/TestSimu/UI/SSettingsWidget.cpp(99)
 #: Source/TestSimu/UI/SSettingsWidget.cpp(99)
 msgctxt "TestSimu,FPS_Unlimited"
 msgid "Unlimited"
-msgstr "Unlimited"
+msgstr "无限制"
 
 #. Key:	ServerBrowser_Joining
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(112)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(112)
 msgctxt "TestSimu,ServerBrowser_Joining"
 msgid "Joining..."
-msgstr "Joining..."
+msgstr "正在加入..."
 
 #. Key:	ServerBrowser_Join
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(145)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(145)
 msgctxt "TestSimu,ServerBrowser_Join"
 msgid "Join"
-msgstr "Join"
+msgstr "加入"
 
 #. Key:	ServerBrowser_Title
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(49)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(49)
 msgctxt "TestSimu,ServerBrowser_Title"
 msgid "Server Browser"
-msgstr "Server Browser"
+msgstr "服务器列表"
 
 #. Key:	ServerBrowser_ClickRefresh
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(52)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(52)
 msgctxt "TestSimu,ServerBrowser_ClickRefresh"
 msgid "Click Refresh to search"
-msgstr "Click Refresh to search"
+msgstr "点击刷新以搜索"
 
 #. Key:	ServerBrowser_Refresh
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(65)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(65)
 msgctxt "TestSimu,ServerBrowser_Refresh"
 msgid "Refresh"
-msgstr "Refresh"
+msgstr "刷新"
 
 #. Key:	ServerBrowser_Back
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(70)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(70)
 msgctxt "TestSimu,ServerBrowser_Back"
 msgid "Back"
-msgstr "Back"
+msgstr "返回"
 
 #. Key:	ServerBrowser_Searching
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(86)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(86)
 msgctxt "TestSimu,ServerBrowser_Searching"
 msgid "Searching..."
-msgstr "Searching..."
+msgstr "正在搜索..."
 
 #. Key:	ServerBrowser_FoundSessions
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(97)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(97)
 msgctxt "TestSimu,ServerBrowser_FoundSessions"
 msgid "Found {0} session(s)"
-msgstr "Found {0} session(s)"
+msgstr "找到 {0} 个会话"
 
 #. Key:	ServerBrowser_NoSessions
 #. SourceLocation:	Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(99)
 #: Source/TestSimu/UI/SSlateServerBrowserWidget.cpp(99)
 msgctxt "TestSimu,ServerBrowser_NoSessions"
 msgid "No sessions found"
-msgstr "No sessions found"
-
+msgstr "未找到会话"

@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Game\n"
-"POT-Creation-Date: 2026-05-13 15:24\n"
-"PO-Revision-Date: 2026-05-13 15:24\n"
+"POT-Creation-Date: 2026-05-15 13:27\n"
+"PO-Revision-Date: 2026-05-15 13:27\n"
 "Language-Team: \n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -2764,6 +2764,13 @@ msgctxt ",34DEFDDD43753ECE6EE477B0F50CBFB8"
 msgid "Total: $0.00"
 msgstr "Total: $0.00"
 
+#. Key:	6BD6ED0745D44F442C10C187E96221EF
+#. SourceLocation:	/Game/ShopSim/Widgets/CategoryButton_Widget.CategoryButton_Widget_C:WidgetTree.Text_CategoryName.Text
+#: /Game/ShopSim/Widgets/CategoryButton_Widget.CategoryButton_Widget_C:WidgetTree.Text_CategoryName.Text
+msgctxt ",6BD6ED0745D44F442C10C187E96221EF"
+msgid "None"
+msgstr "Nenhuma"
+
 #. Key:	287D338E4A3E2B3A1DF006A1D8B6DA5B
 #. SourceLocation:	/Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:SetTime [Script Bytecode]
 #: /Game/ShopSim/Widgets/Clock_Widget.Clock_Widget_C:SetTime [Script Bytecode]
@@ -4077,8 +4084,8 @@ msgstr "MELHORIA NECESSÁRIA: {ImprovementName}"
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
 msgctxt ",7287A3AD406ED2E2DCE263A0F4450ECC"
-msgid "UnitPrice {UnitPrice}\r\nx{Units}"
-msgstr "Preço Unitário {UnitPrice}\r\nx{Units}"
+msgid "{UnitPrice}"
+msgstr "{UnitPrice}"
 
 #. Key:	D6C4D6644D0D9848766783AE8CA71DF2
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:ExecuteUbergraph_StoreItem_Widget [Script Bytecode]
@@ -4112,8 +4119,8 @@ msgstr "Adicionar"
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.Text_Cost.Text
 #: /Game/ShopSim/Widgets/StoreItem_Widget.StoreItem_Widget_C:WidgetTree.Text_Cost.Text
 msgctxt ",238D111D4AF7A1E188C2AC86EA39C71E"
-msgid "30 for $35"
-msgstr "30 for $35"
+msgid "$50"
+msgstr "$50"
 
 #. Key:	BF6CFF2049125ED55202D8962F7B7591
 #. SourceLocation:	/Game/ShopSim/Widgets/StoreLevel_Widget.StoreLevel_Widget_C:SetLevelInfo [Script Bytecode]

@@ -10,7 +10,7 @@
 static const TArray<FString> TestSimuSupportedCultures = {
 	TEXT("en"), TEXT("fr"), TEXT("it"), TEXT("de"), TEXT("es"),
 	TEXT("ja"), TEXT("ko"), TEXT("pl"), TEXT("pt-BR"), TEXT("pt"),
-	TEXT("ru"), TEXT("zh-Hans"), TEXT("es-419"), TEXT("tr")
+	TEXT("ru"), TEXT("zh-Hans-CN"), TEXT("es-419"), TEXT("tr")
 };
 
 static FString FindMatchingSupportedCulture(const FString& InCulture)
@@ -70,14 +70,14 @@ void UTestSimuGameInstance::Init()
 	GConfig->SetString(TEXT("Internationalization"), TEXT("Culture"), *TargetCulture, GGameUserSettingsIni);
 	GConfig->Flush(false, GGameUserSettingsIni);
 
-	FInternationalization::Get().SetCurrentCulture(TargetCulture);
+	FInternationalization::Get().SetCurrentLanguageAndLocale(TargetCulture);
 }
 
 void UTestSimuGameInstance::Shutdown()
 {
 	if (GIsEditor && !EditorCulture.IsEmpty())
 	{
-		FInternationalization::Get().SetCurrentCulture(EditorCulture);
+		FInternationalization::Get().SetCurrentLanguageAndLocale(EditorCulture);
 	}
 
 	FCoreUObjectDelegates::PreLoadMap.RemoveAll(this);

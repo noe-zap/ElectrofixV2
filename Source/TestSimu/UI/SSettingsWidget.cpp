@@ -385,7 +385,7 @@ void SSettingsWidget::Construct(const FArguments& InArgs)
 		LanguageCultureCodes = {
 			TEXT("en"), TEXT("fr"), TEXT("it"), TEXT("de"), TEXT("es"),
 			TEXT("ja"), TEXT("ko"), TEXT("pl"), TEXT("pt-BR"), TEXT("pt"),
-			TEXT("ru"), TEXT("zh-Hans"), TEXT("es-419"), TEXT("tr")
+			TEXT("ru"), TEXT("zh-Hans-CN"), TEXT("es-419"), TEXT("tr")
 		};
 		LanguageDisplayNames = {
 			MakeShared<FString>(TEXT("English")),
@@ -884,6 +884,6 @@ void SSettingsWidget::ApplyLanguageSetting()
 {
 	if (LanguageCultureCodes.IsValidIndex(SelectedLanguage))
 	{
-		FInternationalization::Get().SetCurrentCulture(LanguageCultureCodes[SelectedLanguage]);
+		FInternationalization::Get().SetCurrentLanguageAndLocale(LanguageCultureCodes[SelectedLanguage]);
 	}
 }
