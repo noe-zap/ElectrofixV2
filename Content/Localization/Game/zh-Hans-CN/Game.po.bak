@@ -1,0 +1,932 @@
+# Game Chinese (Simplified, China) translation.
+# Fill out your copyright notice in the Description page of Project Settings.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Game\n"
+"POT-Creation-Date: 2026-05-13 15:24\n"
+"PO-Revision-Date: 2026-05-13 15:24\n"
+"Language-Team: \n"
+"Language: zh-Hans-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Key:	3147F9A84019C831A8859E9C86149FDA
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Cost.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
+#: /Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Cost.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
+msgctxt ",3147F9A84019C831A8859E9C86149FDA"
+msgid "The worker's daily wage."
+msgstr "员工的日工资。"
+
+#. Key:	A2AAE658416B210458F797AF14BE54AF
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Cost.Name_5_99D279F14FA30C531CA026B0759DD561
+#: /Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Cost.Name_5_99D279F14FA30C531CA026B0759DD561
+msgctxt ",A2AAE658416B210458F797AF14BE54AF"
+msgid "Cost"
+msgstr "费用"
+
+#. Key:	4DBB276A434D9C94BE9A76B97453E9C6
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Speed.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
+#: /Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Speed.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
+msgctxt ",4DBB276A434D9C94BE9A76B97453E9C6"
+msgid "This character's speed."
+msgstr "此角色的速度。"
+
+#. Key:	C954F0344CBC3D81C46948B2F3D5B17D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Speed.Name_5_99D279F14FA30C531CA026B0759DD561
+#: /Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Speed.Name_5_99D279F14FA30C531CA026B0759DD561
+msgctxt ",C954F0344CBC3D81C46948B2F3D5B17D"
+msgid "Speed"
+msgstr "速度"
+
+#. Key:	F8F788F0424FFBC95E026AA76120349C
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Devices.DT_Devices.FunStation4.DeviceName_2_DF93796E47C15FDEE4DF9E8F100CE928
+#: /Game/ShopSim/Blueprints/Data/DT_Devices.DT_Devices.FunStation4.DeviceName_2_DF93796E47C15FDEE4DF9E8F100CE928
+msgctxt ",F8F788F0424FFBC95E026AA76120349C"
+msgid "FunStation 4"
+msgstr "FunStation 4"
+
+#. Key:	CAB239764C53EB79131F39B8A0B1966A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Devices.DT_Devices.Phone.DeviceName_2_DF93796E47C15FDEE4DF9E8F100CE928
+#: /Game/ShopSim/Blueprints/Data/DT_Devices.DT_Devices.Phone.DeviceName_2_DF93796E47C15FDEE4DF9E8F100CE928
+msgctxt ",CAB239764C53EB79131F39B8A0B1966A"
+msgid "Phone"
+msgstr "Phone"
+
+#. Key:	A168664844540F6E4095A99E1640893A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.ConsoleFan.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+#: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.ConsoleFan.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+msgctxt ",A168664844540F6E4095A99E1640893A"
+msgid "Console Fan"
+msgstr "Console Fan"
+
+#. Key:	693B5E6C43A9B555E4591DA2B8338A98
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.HDD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+#: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.HDD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+msgctxt ",693B5E6C43A9B555E4591DA2B8338A98"
+msgid "HDD"
+msgstr "HDD"
+
+#. Key:	C2007AFA49BF97F8630AE596839A8B4E
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.PhoneBattery.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+#: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.PhoneBattery.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+msgctxt ",C2007AFA49BF97F8630AE596839A8B4E"
+msgid "Phone Battery"
+msgstr "Phone Battery"
+
+#. Key:	8A4734044D5BF18029251FBD1C87E11F
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.Ram.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+#: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.Ram.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+msgctxt ",8A4734044D5BF18029251FBD1C87E11F"
+msgid "Ram"
+msgstr "Ram"
+
+#. Key:	814A1D974CA62816F96D50AA80BA11CD
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.SSD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+#: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.SSD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
+msgctxt ",814A1D974CA62816F96D50AA80BA11CD"
+msgid "SSD"
+msgstr "SSD"
+
+#. Key:	6EF57CAC4618B35AB6E56DACEC456447
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.1.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.1.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",6EF57CAC4618B35AB6E56DACEC456447"
+msgid "Unlocked Niche Games license"
+msgstr "已解锁小众游戏许可证"
+
+#. Key:	110831FB4892E67FEEDACF8D4EB279F4
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.10.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.10.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",110831FB4892E67FEEDACF8D4EB279F4"
+msgid "Unlocked Store Upgrade 9"
+msgstr "已解锁商店升级 9"
+
+#. Key:	492886AD4B2541BC63506CA8B76D8B27
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.11.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.11.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",492886AD4B2541BC63506CA8B76D8B27"
+msgid "Unlocked Store Upgrade 10"
+msgstr "已解锁商店升级 10"
+
+#. Key:	D459EC7E482C1DE0AE1F25A099FBA9F9
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.11.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.11.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",D459EC7E482C1DE0AE1F25A099FBA9F9"
+msgid "Technician Worker"
+msgstr "技术员"
+
+#. Key:	33C29F134FC2AE772D11B2AEE89D36D9
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.12.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.12.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",33C29F134FC2AE772D11B2AEE89D36D9"
+msgid "Unlocked Store Upgrade 11"
+msgstr "已解锁商店升级 11"
+
+#. Key:	5EBBE08745FD8AE4C4D1BCB152C04CFD
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.13.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.13.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",5EBBE08745FD8AE4C4D1BCB152C04CFD"
+msgid "Unlocked Store Upgrade 12"
+msgstr "已解锁商店升级 12"
+
+#. Key:	8170CADE47EEBD839AF4588CF03306CD
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.14.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.14.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",8170CADE47EEBD839AF4588CF03306CD"
+msgid "Unlocked Store Upgrade 13"
+msgstr "已解锁商店升级 13"
+
+#. Key:	5C13488C40C5CAF6337D71992F1F0F8B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.2.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.2.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",5C13488C40C5CAF6337D71992F1F0F8B"
+msgid "Unlocked Store Upgrade 1"
+msgstr "已解锁商店升级 1"
+
+#. Key:	B12174AA42E1B115C5D0078114D16507
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.3.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.3.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",B12174AA42E1B115C5D0078114D16507"
+msgid "Unlocked Gaming Accessories license"
+msgstr "已解锁游戏配件许可证"
+
+#. Key:	2D19B95F476D2CDDDF32A6B38C53BC40
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.3.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.3.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",2D19B95F476D2CDDDF32A6B38C53BC40"
+msgid "Unlocked Store Upgrade 2"
+msgstr "已解锁商店升级 2"
+
+#. Key:	1E43990B4C74A015630FF59DF01CB959
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",1E43990B4C74A015630FF59DF01CB959"
+msgid "Unlocked Store Upgrade 3"
+msgstr "已解锁商店升级 3"
+
+#. Key:	0270FA4343F757EBEF2DCB8F1D019EEF
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",0270FA4343F757EBEF2DCB8F1D019EEF"
+msgid "Unlocked Mid-tier Games license"
+msgstr "已解锁中端游戏许可证"
+
+#. Key:	FD92DE154801D94155B6D9A3676C6595
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(2).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(2).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",FD92DE154801D94155B6D9A3676C6595"
+msgid "Unlocked Console repair "
+msgstr "已解锁主机维修 "
+
+#. Key:	0C55483B4C7DE3A395E965A6FD6D8ECC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.5.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.5.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",0C55483B4C7DE3A395E965A6FD6D8ECC"
+msgid "Unlocked Store Upgrade 4"
+msgstr "已解锁商店升级 4"
+
+#. Key:	06CF19514D546BE6E8E6A892219EEEB5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.6.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.6.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",06CF19514D546BE6E8E6A892219EEEB5"
+msgid "Unlocked Store Upgrade 5"
+msgstr "已解锁商店升级 5"
+
+#. Key:	55F7BCB64310FB9E84E74DA229955797
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.6.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.6.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",55F7BCB64310FB9E84E74DA229955797"
+msgid "Unlocked Mainstream Games license"
+msgstr "已解锁主流游戏许可证"
+
+#. Key:	D013DE234E5327BC26E76CB54D49C7D3
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.7.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.7.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",D013DE234E5327BC26E76CB54D49C7D3"
+msgid "Unlocked Store Upgrade 6"
+msgstr "已解锁商店升级 6"
+
+#. Key:	6660EDBF4FDECF58550F69BBBE75E311
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.7.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.7.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",6660EDBF4FDECF58550F69BBBE75E311"
+msgid "Unlocked Laptop repair"
+msgstr "已解锁笔记本电脑维修"
+
+#. Key:	A8F998F144A5FA0FED19B3837AC5091A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.7.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(2).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.7.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(2).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",A8F998F144A5FA0FED19B3837AC5091A"
+msgid "Unlocked Cashier Worker"
+msgstr "已解锁收银员"
+
+#. Key:	8943E3B44418DABC68118F8BB7E59D04
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.8.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.8.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",8943E3B44418DABC68118F8BB7E59D04"
+msgid "Unlocked Store Upgrade 7"
+msgstr "已解锁商店升级 7"
+
+#. Key:	3FC35EAD4A9DDCC68B53E483CA5483D3
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.8.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.8.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",3FC35EAD4A9DDCC68B53E483CA5483D3"
+msgid "Unlocked Gaming Hardware license"
+msgstr "已解锁游戏硬件许可证"
+
+#. Key:	3F305C3346645A2508E3FF9D3DFF76F0
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.9.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.9.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",3F305C3346645A2508E3FF9D3DFF76F0"
+msgid "Unlocked Store Upgrade 8"
+msgstr "已解锁商店升级 8"
+
+#. Key:	F7EFBE8348476666384548A5F9887C5A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",F7EFBE8348476666384548A5F9887C5A"
+msgid "Cash"
+msgstr "现金"
+
+#. Key:	C665CFEA4E2BDA695C8F129B5D457B18
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",C665CFEA4E2BDA695C8F129B5D457B18"
+msgid "Checking"
+msgstr "支票账户"
+
+#. Key:	BCF3D9264E4B503C2EA21296C9B800F4
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",BCF3D9264E4B503C2EA21296C9B800F4"
+msgid "Savings"
+msgstr "储蓄账户"
+
+#. Key:	188641DC4FA3305BAC28438F763F3510
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BankAccountType.BankAccountType.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",188641DC4FA3305BAC28438F763F3510"
+msgid "Any"
+msgstr "任意"
+
+#. Key:	F39B33E8431F1BDB4C06C8A295C5F7AC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BoxType.BoxType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BoxType.BoxType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",F39B33E8431F1BDB4C06C8A295C5F7AC"
+msgid "Small"
+msgstr "小"
+
+#. Key:	32CC72EE457406EA646CC3B1BA25EB8F
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BoxType.BoxType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BoxType.BoxType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",32CC72EE457406EA646CC3B1BA25EB8F"
+msgid "Medium"
+msgstr "中"
+
+#. Key:	CC6A07CE480E4B1370CF2C8EA7E4FED5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/BoxType.BoxType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/BoxType.BoxType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",CC6A07CE480E4B1370CF2C8EA7E4FED5"
+msgid "Large"
+msgstr "大"
+
+#. Key:	2269D61443121834C884EEBDE413FA5D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",2269D61443121834C884EEBDE413FA5D"
+msgid "Penny"
+msgstr "1美分"
+
+#. Key:	2D805AD243820DC8A9C3169B72F68384
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",2D805AD243820DC8A9C3169B72F68384"
+msgid "Nickel"
+msgstr "5美分"
+
+#. Key:	9F00100846D6DD7065DB50A25BA3DFD4
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",9F00100846D6DD7065DB50A25BA3DFD4"
+msgid "Dime"
+msgstr "10美分"
+
+#. Key:	590C5807439040758819548D41D5599B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/CoinDenomination.CoinDenomination.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",590C5807439040758819548D41D5599B"
+msgid "Quarter"
+msgstr "25美分"
+
+#. Key:	D44F46FD4DDFA313350258B6FD451B8C
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DeviceType.DeviceType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DeviceType.DeviceType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",D44F46FD4DDFA313350258B6FD451B8C"
+msgid "Smartphone"
+msgstr "智能手机"
+
+#. Key:	1E9D7050419855FC3FCEEB8F7CF45B86
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DeviceType.DeviceType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DeviceType.DeviceType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",1E9D7050419855FC3FCEEB8F7CF45B86"
+msgid "Laptop"
+msgstr "笔记本电脑"
+
+#. Key:	A3656BB8497B5C71D42EA782F756FCB6
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DeviceType.DeviceType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DeviceType.DeviceType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",A3656BB8497B5C71D42EA782F756FCB6"
+msgid "Console"
+msgstr "游戏主机"
+
+#. Key:	98BFC33A4F51C8C63AE3DA973BE9B4EC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",98BFC33A4F51C8C63AE3DA973BE9B4EC"
+msgid "1"
+msgstr "1"
+
+#. Key:	77BF49704A880DF9CA6A75A6C114C5CB
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",77BF49704A880DF9CA6A75A6C114C5CB"
+msgid "5"
+msgstr "5"
+
+#. Key:	2E3CEC0A4A063CB171D94199A1A75CEC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",2E3CEC0A4A063CB171D94199A1A75CEC"
+msgid "10"
+msgstr "10"
+
+#. Key:	20E85EF144EA6317F274838D8AF9DC05
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",20E85EF144EA6317F274838D8AF9DC05"
+msgid "20"
+msgstr "20"
+
+#. Key:	AFD6891E4E07137753806BBCF5EC49F2
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(4 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(4 - Value).DisplayNameMap
+msgctxt ",AFD6891E4E07137753806BBCF5EC49F2"
+msgid "50"
+msgstr "50"
+
+#. Key:	98DABCDD453EEE79689364BB71A47374
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(5 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/DollarDenomination.DollarDenomination.DisplayNameMap(5 - Value).DisplayNameMap
+msgctxt ",98DABCDD453EEE79689364BB71A47374"
+msgid "100"
+msgstr "100"
+
+#. Key:	B969EC9E414B6D3E95EDFE8C4D6A1B78
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",B969EC9E414B6D3E95EDFE8C4D6A1B78"
+msgid "Unfixed"
+msgstr "未修复"
+
+#. Key:	2A2913E242FEFC95C49B70B6A416F065
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",2A2913E242FEFC95C49B70B6A416F065"
+msgid "Fixed"
+msgstr "已修复"
+
+#. Key:	7D24F6D749749CD1D535258F44B7BCDF
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",7D24F6D749749CD1D535258F44B7BCDF"
+msgid "WaitForScan"
+msgstr "等待扫描"
+
+#. Key:	C3016F0A47F08CC0F4976F913E134A41
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_RepairOrderState.E_RepairOrderState.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",C3016F0A47F08CC0F4976F913E134A41"
+msgid "InScan"
+msgstr "扫描中"
+
+#. Key:	E1CC69CE4B1FC45222C45FB8F17BA030
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_StopScanReason.E_StopScanReason.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_StopScanReason.E_StopScanReason.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",E1CC69CE4B1FC45222C45FB8F17BA030"
+msgid "Escape"
+msgstr "退出"
+
+#. Key:	9146EB1F4323908CC5B12EBC605C16C9
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_StopScanReason.E_StopScanReason.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_StopScanReason.E_StopScanReason.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",9146EB1F4323908CC5B12EBC605C16C9"
+msgid "Decline"
+msgstr "拒绝"
+
+#. Key:	3B179EF8451A2A7A7E1FD39BA63A4A0F
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/E_StopScanReason.E_StopScanReason.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/E_StopScanReason.E_StopScanReason.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",3B179EF8451A2A7A7E1FD39BA63A4A0F"
+msgid "Accept"
+msgstr "接受"
+
+#. Key:	4C43300B47908398A31A5897E1783DE4
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",4C43300B47908398A31A5897E1783DE4"
+msgid "Broom"
+msgstr "扫把"
+
+#. Key:	0DB875E0472E87F522EB6EBC03EEEEE9
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",0DB875E0472E87F522EB6EBC03EEEEE9"
+msgid "Sponge"
+msgstr "海绵"
+
+#. Key:	C981F3314C0A817AFDE15D84E7D28087
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",C981F3314C0A817AFDE15D84E7D28087"
+msgid "Phone"
+msgstr "Phone"
+
+#. Key:	1B7698204E164F2F4667018394E2D04D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",1B7698204E164F2F4667018394E2D04D"
+msgid "Laptop"
+msgstr "笔记本电脑"
+
+#. Key:	6E08A3374B5C7F0D239AB29053652A1A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(4 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(4 - Value).DisplayNameMap
+msgctxt ",6E08A3374B5C7F0D239AB29053652A1A"
+msgid "Console"
+msgstr "游戏主机"
+
+#. Key:	C51A6C7D4A8BBE1B3DF59DBB986C3662
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(5 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(5 - Value).DisplayNameMap
+msgctxt ",C51A6C7D4A8BBE1B3DF59DBB986C3662"
+msgid "Box"
+msgstr "箱子"
+
+#. Key:	916562764C9AB4AF40AA9BA1DAD65731
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(6 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(6 - Value).DisplayNameMap
+msgctxt ",916562764C9AB4AF40AA9BA1DAD65731"
+msgid "EmptyHands"
+msgstr "空手"
+
+#. Key:	6AC3E028407D4132CF72CF96B2A5E56B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",6AC3E028407D4132CF72CF96B2A5E56B"
+msgid "Rent"
+msgstr "租金"
+
+#. Key:	CDCAD8D5487A16129E826F85E4E9B53B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",CDCAD8D5487A16129E826F85E4E9B53B"
+msgid "Electricity"
+msgstr "电费"
+
+#. Key:	07FAD274476F983C356CFCA5109D4E39
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",07FAD274476F983C356CFCA5109D4E39"
+msgid "Wages"
+msgstr "工资"
+
+#. Key:	739DA981449227FF8689A0A7731783D0
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/ExpType.ExpType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/ExpType.ExpType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",739DA981449227FF8689A0A7731783D0"
+msgid "CustomerPaid"
+msgstr "顾客已付款"
+
+#. Key:	494BBBC34A508ADDF17685A03DE82CC4
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/ExpType.ExpType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/ExpType.ExpType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",494BBBC34A508ADDF17685A03DE82CC4"
+msgid "NewFurnitureInstalled"
+msgstr "新家具已安装"
+
+#. Key:	29EAD4D24752E05AFCDF8AB87CAB9E77
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/NPCType.NPCType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/NPCType.NPCType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",29EAD4D24752E05AFCDF8AB87CAB9E77"
+msgid "Shopper"
+msgstr "顾客"
+
+#. Key:	56B526234575E2C0D625E2BA00049011
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/NPCType.NPCType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/NPCType.NPCType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",56B526234575E2C0D625E2BA00049011"
+msgid "RepairCustomer"
+msgstr "维修客户"
+
+#. Key:	CC5D2B204F9B6374361541A04AD1C25C
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/NPCType.NPCType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/NPCType.NPCType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",CC5D2B204F9B6374361541A04AD1C25C"
+msgid "Worker"
+msgstr "员工"
+
+#. Key:	252A325D43C1743E97AC2BA7A986CCCC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",252A325D43C1743E97AC2BA7A986CCCC"
+msgid "Build"
+msgstr "建造"
+
+#. Key:	6BFFD22A4F34739C7ABDED99E0AA3379
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",6BFFD22A4F34739C7ABDED99E0AA3379"
+msgid "Buy"
+msgstr "购买"
+
+#. Key:	1B2B0A144F547258E71BD1B99869315A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",1B2B0A144F547258E71BD1B99869315A"
+msgid "Place"
+msgstr "放置"
+
+#. Key:	20EBAD474F7D42C5E6FC939CA7478088
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",20EBAD474F7D42C5E6FC939CA7478088"
+msgid "Move"
+msgstr "移动"
+
+#. Key:	5A8659454926B4A34948D0973008E0FA
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(4 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(4 - Value).DisplayNameMap
+msgctxt ",5A8659454926B4A34948D0973008E0FA"
+msgid "Destroy"
+msgstr "拆除"
+
+#. Key:	A58578F34EF5E3608B7CA09D1E370ACB
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(5 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(5 - Value).DisplayNameMap
+msgctxt ",A58578F34EF5E3608B7CA09D1E370ACB"
+msgid "AccessComputer"
+msgstr "使用电脑"
+
+#. Key:	2891F1DA4A2418ECE6DC99909BBBF4B0
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(6 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(6 - Value).DisplayNameMap
+msgctxt ",2891F1DA4A2418ECE6DC99909BBBF4B0"
+msgid "Interact"
+msgstr "互动"
+
+#. Key:	25D443F348A00C3554C46897A631AE8D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(7 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(7 - Value).DisplayNameMap
+msgctxt ",25D443F348A00C3554C46897A631AE8D"
+msgid "Hire"
+msgstr "雇佣"
+
+#. Key:	0AA1FF6747A36FB11C3CD981AED3B875
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(8 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(8 - Value).DisplayNameMap
+msgctxt ",0AA1FF6747A36FB11C3CD981AED3B875"
+msgid "Pay"
+msgstr "支付"
+
+#. Key:	12728CA04AD1AD541719D7B2F9271EA8
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(9 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/PermissionType.PermissionType.DisplayNameMap(9 - Value).DisplayNameMap
+msgctxt ",12728CA04AD1AD541719D7B2F9271EA8"
+msgid "Work"
+msgstr "工作"
+
+#. Key:	70A3A2EE40E4D576E63BAD95B088F7C6
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",70A3A2EE40E4D576E63BAD95B088F7C6"
+msgid "GettingItems"
+msgstr "正在取货"
+
+#. Key:	09B3F9574C7935A8CE73879B829224DC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",09B3F9574C7935A8CE73879B829224DC"
+msgid "GoingToRegister"
+msgstr "前往收银台"
+
+#. Key:	C46AA57343AB00193D9451B2ACCE4848
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(10 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(10 - Value).DisplayNameMap
+msgctxt ",C46AA57343AB00193D9451B2ACCE4848"
+msgid "Rejected"
+msgstr "已拒绝"
+
+#. Key:	DBE4B991493A58710B7120B5E49B99E5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(11 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(11 - Value).DisplayNameMap
+msgctxt ",DBE4B991493A58710B7120B5E49B99E5"
+msgid "ShelfStocker"
+msgstr "货架理货员"
+
+#. Key:	2804AEE64CB95F8E6768FE8C945F19C5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",2804AEE64CB95F8E6768FE8C945F19C5"
+msgid "Waiting"
+msgstr "等待中"
+
+#. Key:	9CD28DE541D7B90D0870D4976FA5747B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",9CD28DE541D7B90D0870D4976FA5747B"
+msgid "PayingCash"
+msgstr "现金支付中"
+
+#. Key:	594DD33C4BCDCB14BC95798658922DA5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(4 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(4 - Value).DisplayNameMap
+msgctxt ",594DD33C4BCDCB14BC95798658922DA5"
+msgid "PayingCredit"
+msgstr "刷卡支付中"
+
+#. Key:	4D82C5B04434DD0DDB510D915CAC0AA6
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(5 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(5 - Value).DisplayNameMap
+msgctxt ",4D82C5B04434DD0DDB510D915CAC0AA6"
+msgid "Exiting"
+msgstr "正在离开"
+
+#. Key:	7B33C7194ED2609EBC7AB590663EF6F5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(6 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(6 - Value).DisplayNameMap
+msgctxt ",7B33C7194ED2609EBC7AB590663EF6F5"
+msgid "Unknown"
+msgstr "未知"
+
+#. Key:	CED5FBC543DC2C80EBC1F6835A426B6E
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(7 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(7 - Value).DisplayNameMap
+msgctxt ",CED5FBC543DC2C80EBC1F6835A426B6E"
+msgid "Cashier"
+msgstr "收银员"
+
+#. Key:	98BF6A7A484CD36C5CD42D96CD3F49EB
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(8 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(8 - Value).DisplayNameMap
+msgctxt ",98BF6A7A484CD36C5CD42D96CD3F49EB"
+msgid "WarehouseWorker"
+msgstr "仓库员工"
+
+#. Key:	D51062AC4CFA35E872C6439CDF36165D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(9 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StatusIconType.StatusIconType.DisplayNameMap(9 - Value).DisplayNameMap
+msgctxt ",D51062AC4CFA35E872C6439CDF36165D"
+msgid "Merchant"
+msgstr "商人"
+
+#. Key:	9A1A144840B13F590EF8ACBA602CF308
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",9A1A144840B13F590EF8ACBA602CF308"
+msgid "SmallStoreShelf"
+msgstr "小型商店货架"
+
+#. Key:	C109561C41D34030052B7A8466DAE467
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",C109561C41D34030052B7A8466DAE467"
+msgid "SmallRepairShelf"
+msgstr "小型维修货架"
+
+#. Key:	6D2B02CE4C865FF6A703DC9C55865F36
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",6D2B02CE4C865FF6A703DC9C55865F36"
+msgid "SmallGameShelf"
+msgstr "小型游戏货架"
+
+#. Key:	1AACCCFE474A1A0977AFCAB85D698955
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",1AACCCFE474A1A0977AFCAB85D698955"
+msgid "MediumStoreShelf"
+msgstr "中型商店货架"
+
+#. Key:	3ACBBF024AD4B2F6220A3FA6012D1EA0
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(4 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(4 - Value).DisplayNameMap
+msgctxt ",3ACBBF024AD4B2F6220A3FA6012D1EA0"
+msgid "MediumRepairShelf"
+msgstr "中型维修货架"
+
+#. Key:	9554EC7C4415FF61274861B60A988265
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(5 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(5 - Value).DisplayNameMap
+msgctxt ",9554EC7C4415FF61274861B60A988265"
+msgid "MediumGameShelf"
+msgstr "中型游戏货架"
+
+#. Key:	E9B7E1B54BD1050405D36CBC28DB84FD
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(6 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(6 - Value).DisplayNameMap
+msgctxt ",E9B7E1B54BD1050405D36CBC28DB84FD"
+msgid "LargeStoreShelf"
+msgstr "大型商店货架"
+
+#. Key:	B4ED5206425D6F8B3DEF2F98513107A8
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(7 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(7 - Value).DisplayNameMap
+msgctxt ",B4ED5206425D6F8B3DEF2F98513107A8"
+msgid "LargeRepairShelf"
+msgstr "大型维修货架"
+
+#. Key:	88A9984144BE8A5132E10787B4CC7445
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(8 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/StorageType.StorageType.DisplayNameMap(8 - Value).DisplayNameMap
+msgctxt ",88A9984144BE8A5132E10787B4CC7445"
+msgid "LargeGameShelf"
+msgstr "大型游戏货架"
+
+#. Key:	433CEEC84371D298966E61811BF6C951
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(0 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(0 - Value).DisplayNameMap
+msgctxt ",433CEEC84371D298966E61811BF6C951"
+msgid "MicroTransaction"
+msgstr "极小额交易"
+
+#. Key:	2A5E5AFA42B05BA77688F9B954B30FA1
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(1 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(1 - Value).DisplayNameMap
+msgctxt ",2A5E5AFA42B05BA77688F9B954B30FA1"
+msgid "MiniTransaction"
+msgstr "小额交易"
+
+#. Key:	7C3E3EDA4BE9DE913B008081CABD518C
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(2 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(2 - Value).DisplayNameMap
+msgctxt ",7C3E3EDA4BE9DE913B008081CABD518C"
+msgid "AverageTransaction"
+msgstr "普通交易"
+
+#. Key:	7D7AA9F048F008E7C010A5A3C502E93B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(3 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(3 - Value).DisplayNameMap
+msgctxt ",7D7AA9F048F008E7C010A5A3C502E93B"
+msgid "LargeTransaction"
+msgstr "大额交易"
+
+#. Key:	8745DB4B465AE45882EAA7BFCD0E816B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(4 - Value).DisplayNameMap
+#: /Game/ShopSim/Blueprints/Data/Enum/TransactionType.TransactionType.DisplayNameMap(4 - Value).DisplayNameMap
+msgctxt ",8745DB4B465AE45882EAA7BFCD0E816B"
+msgid "OversizedTransaction"
+msgstr "超大额交易"
+
+#. Key:	E3FDBC764F5CE8F14E4C31AAAC50917E
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.Checkout.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.Checkout.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",E3FDBC764F5CE8F14E4C31AAAC50917E"
+msgid "A point-of-sale system."
+msgstr "销售点系统。"
+
+#. Key:	2BFA58354742AAFC37308D95CCC51CED
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.Checkout.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.Checkout.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",2BFA58354742AAFC37308D95CCC51CED"
+msgid "Checkout"
+msgstr "收银台"
+
+#. Key:	696B94D648BEF10A8485D49BBA30BE10
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeRepairShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeRepairShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",696B94D648BEF10A8485D49BBA30BE10"
+msgid "Large Repair Shelf"
+msgstr "大型维修货架"
+
+#. Key:	111F402B4F8213BB83085BBC81DE606E
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeRepairShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeRepairShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",111F402B4F8213BB83085BBC81DE606E"
+msgid "Large Repair Shelf"
+msgstr "大型维修货架"
+
+#. Key:	C9104A35488263424BA5A1934736039F
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeStoreShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeStoreShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",C9104A35488263424BA5A1934736039F"
+msgid "Large Store Shelf"
+msgstr "大型商店货架"
+
+#. Key:	3D70BB124123E1AB4FD2A591DF84AB2D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeStoreShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.LargeStoreShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",3D70BB124123E1AB4FD2A591DF84AB2D"
+msgid "Large Store Shelf"
+msgstr "大型商店货架"
+
+#. Key:	E53CB4914BC50366AABFFBBA6DF0DAD8
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumRepairShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumRepairShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",E53CB4914BC50366AABFFBBA6DF0DAD8"
+msgid "Medium Repair Shelf"
+msgstr "中型维修货架"
+
+#. Key:	472FD980451236C255D869AFF6FF5461
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumRepairShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumRepairShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",472FD980451236C255D869AFF6FF5461"
+msgid "Medium Repair Shelf"
+msgstr "中型维修货架"
+
+#. Key:	CDCC352D475C76AE14141381EC42BC9E
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumStoreShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumStoreShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",CDCC352D475C76AE14141381EC42BC9E"
+msgid "Medium Store Shelf"
+msgstr "中型商店货架"
+
+#. Key:	FC5D508F47FA0922790ADA9D845AC924
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumStoreShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.MediumStoreShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",FC5D508F47FA0922790ADA9D845AC924"
+msgid "Medium Store Shelf"
+msgstr "中型商店货架"
+
+#. Key:	FA7EA30D42F506D1FEA3D5A8D270A2A3
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairCounter.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairCounter.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",FA7EA30D42F506D1FEA3D5A8D270A2A3"
+msgid "A counter to take the orders of the clients."
+msgstr "用于接收客户订单的柜台。"
+
+#. Key:	B496226641F40067811E7791445BD340
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairCounter.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairCounter.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",B496226641F40067811E7791445BD340"
+msgid "Repair Counter"
+msgstr "维修柜台"
+
+#. Key:	4B940E25449975FF65D796BC7604677C
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairWorkshop.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairWorkshop.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",4B940E25449975FF65D796BC7604677C"
+msgid "Workshop to repair devices"
+msgstr "用于维修设备的工作台"
+
+#. Key:	C22019214F236F3DE267769C27CE6438
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairWorkshop.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.RepairWorkshop.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",C22019214F236F3DE267769C27CE6438"
+msgid "Repair Workshop"
+msgstr "维修工作台"
+
+#. Key:	27EDE3D3456433255926A09336DDBA89
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallGameShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallGameShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",27EDE3D3456433255926A09336DDBA89"
+msgid "Small Game Shelf"
+msgstr "小型游戏货架"
+
+#. Key:	4E1516B84EA98082B4566AA59A098442
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallGameShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallGameShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",4E1516B84EA98082B4566AA59A098442"
+msgid "Small Game Shelf"
+msgstr "小型游戏货架"
+
+#. Key:	77341160448FD74348D93985739AFFCA
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallRepairShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallRepairShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",77341160448FD74348D93985739AFFCA"
+msgid "Small Repair Shelf"
+msgstr "小型维修货架"
+
+#. Key:	557F4BDF43F67313D85C938F5926BDDE
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallRepairShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallRepairShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",557F4BDF43F67313D85C938F5926BDDE"
+msgid "Small Repair Shelf"
+msgstr "小型维修货架"
+
+#. Key:	84F1800C4F73CF34678FCC9C9DEDB0DF
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallStoreShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallStoreShelf.Description_18_0B4D03CA43795FC2B8EE41A43FF68BD2
+msgctxt ",84F1800C4F73CF34678FCC9C9DEDB0DF"
+msgid "Small Store Shelf"
+msgstr "小型商店货架"
+
+#. Key:	D248984D403A8B4978423E814E98700A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallStoreShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+#: /Game/ShopSim/Blueprints/Data/Furniture_Demo.Furniture_Demo.SmallStoreShelf.Name_16_BBF2D1A74A63A1F3EF578DAE80FE4342
+msgctxt ",D248984D403A8B4978423E814E98700A"
+msgid "Small Store Shelf"
+msgstr "小型商店货架"
+

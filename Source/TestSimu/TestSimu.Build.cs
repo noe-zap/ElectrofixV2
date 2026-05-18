@@ -13,6 +13,7 @@ public class TestSimu : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] {
 			"Core", "CoreUObject", "Engine", "InputCore", "UMG",
 			"EnhancedInput",
+			"AIModule", "NavigationSystem",
 			"OnlineSubsystem", "OnlineSubsystemUtils"
 		});
 

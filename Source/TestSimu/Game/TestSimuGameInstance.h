@@ -32,4 +32,7 @@ public:
 
 protected:
 	void HandlePreLoadMap(const FString& MapName);
+
+private:
+	FString EditorCulture;
 };

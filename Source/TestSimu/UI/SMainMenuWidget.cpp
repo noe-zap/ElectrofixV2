@@ -262,6 +262,7 @@ void SMainMenuWidget::ShowSettings()
 	if (!GEngine || !GEngine->GameViewport) return;
 
 	SettingsWidget = SNew(SSettingsWidget)
+		.ShowLanguageTab(true)
 		.OnBack(FSimpleDelegate::CreateLambda([this]() { HideSettings(); }));
 
 	SettingsViewportHost =
