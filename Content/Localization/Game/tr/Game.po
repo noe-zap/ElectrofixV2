@@ -4,14 +4,161 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Game\n"
-"POT-Creation-Date: 2026-05-15 13:27\n"
-"PO-Revision-Date: 2026-05-15 13:27\n"
+"POT-Creation-Date: 2026-05-18 14:34\n"
+"PO-Revision-Date: 2026-05-18 14:34\n"
 "Language-Team: \n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Key:	8F083961445185471194CE904D2FA3D9
+#. SourceLocation:	/Game/electronic_component/map/TestMap.TestMap:PersistentLevel.BP_1602_Display_2.TextDisplay
+#: /Game/electronic_component/map/TestMap.TestMap:PersistentLevel.BP_1602_Display_2.TextDisplay
+msgctxt ",8F083961445185471194CE904D2FA3D9"
+msgid "Hello,world!"
+msgstr ""
+
+#. Key:	5F52440842DB801C9A82188521925F22
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
+msgctxt ",5F52440842DB801C9A82188521925F22"
+msgid "STRUCTURES"
+msgstr ""
+
+#. Key:	EE8BAA8C4D44A44A312DDA8127C6F5D4
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_10.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_10.NewTextRenderComponent.Text
+msgctxt ",EE8BAA8C4D44A44A312DDA8127C6F5D4"
+msgid "CHECKOUT"
+msgstr ""
+
+#. Key:	7B47162B45E98358CBA99D9D6C7DEF33
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_11.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_11.NewTextRenderComponent.Text
+msgctxt ",7B47162B45E98358CBA99D9D6C7DEF33"
+msgid "COLUMN PROPS"
+msgstr ""
+
+#. Key:	E6A5314D4BA66104D32F35923B470D23
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_12.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_12.NewTextRenderComponent.Text
+msgctxt ",E6A5314D4BA66104D32F35923B470D23"
+msgid "DOORS"
+msgstr ""
+
+#. Key:	BFDEFBCF49B0D2B42963ED8548FCDE5E
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_13.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_13.NewTextRenderComponent.Text
+msgctxt ",BFDEFBCF49B0D2B42963ED8548FCDE5E"
+msgid "PCs"
+msgstr ""
+
+#. Key:	E98D20994EBECF4E41E51AB7FFC68BE1
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_14.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_14.NewTextRenderComponent.Text
+msgctxt ",E98D20994EBECF4E41E51AB7FFC68BE1"
+msgid "PHONES AND TABLETS"
+msgstr ""
+
+#. Key:	54DD54CC4DF913CAF2172684A634FD45
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_15.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_15.NewTextRenderComponent.Text
+msgctxt ",54DD54CC4DF913CAF2172684A634FD45"
+msgid "SHELVES"
+msgstr ""
+
+#. Key:	C9F4DD9D42BAC6FE3B171D8B52D0E919
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_16.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_16.NewTextRenderComponent.Text
+msgctxt ",C9F4DD9D42BAC6FE3B171D8B52D0E919"
+msgid "SHELVES PROPS"
+msgstr ""
+
+#. Key:	94BC85F54288B94BA4AD1ABAEA5F2A3A
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_17.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_17.NewTextRenderComponent.Text
+msgctxt ",94BC85F54288B94BA4AD1ABAEA5F2A3A"
+msgid "TVs"
+msgstr ""
+
+#. Key:	4EEC59DC48C6412C09CE139E02020035
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_18.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_18.NewTextRenderComponent.Text
+msgctxt ",4EEC59DC48C6412C09CE139E02020035"
+msgid "WALL"
+msgstr ""
+
+#. Key:	4E374DB14DF5E4902318578B89F20D91
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_19.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_19.NewTextRenderComponent.Text
+msgctxt ",4E374DB14DF5E4902318578B89F20D91"
+msgid "CEILING"
+msgstr ""
+
+#. Key:	D4E7DD0F4BB325A5E2D13E929CED0FF2
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_20.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_20.NewTextRenderComponent.Text
+msgctxt ",D4E7DD0F4BB325A5E2D13E929CED0FF2"
+msgid "DECALS"
+msgstr ""
+
+#. Key:	EF385FC0485693317AD6B588E0AEE55F
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_3.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_3.NewTextRenderComponent.Text
+msgctxt ",EF385FC0485693317AD6B588E0AEE55F"
+msgid "ENTRANCE"
+msgstr ""
+
+#. Key:	CF1A39D64D9E6A26208B06AA79A2BE1F
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_4.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_4.NewTextRenderComponent.Text
+msgctxt ",CF1A39D64D9E6A26208B06AA79A2BE1F"
+msgid "PIPES"
+msgstr ""
+
+#. Key:	A6F43BFF48EAFDEA8ABD6297B102232D
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_5.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_5.NewTextRenderComponent.Text
+msgctxt ",A6F43BFF48EAFDEA8ABD6297B102232D"
+msgid "FLOOR"
+msgstr ""
+
+#. Key:	58B20CCF4D734152AFBAF497BC11A0DD
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_7.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_7.NewTextRenderComponent.Text
+msgctxt ",58B20CCF4D734152AFBAF497BC11A0DD"
+msgid "LIGHTS"
+msgstr ""
+
+#. Key:	6AEF09BE414B725097D263A5CAF3B2A9
+#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_9.NewTextRenderComponent.Text
+#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_9.NewTextRenderComponent.Text
+msgctxt ",6AEF09BE414B725097D263A5CAF3B2A9"
+msgid "APPLIANCES"
+msgstr ""
+
+#. Key:	8D3C6248440C23327C9874AA20A12BA2
+#. SourceLocation:	/Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Text3DActor_2.Text3DComponent.Text
+#: /Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Text3DActor_2.Text3DComponent.Text
+msgctxt ",8D3C6248440C23327C9874AA20A12BA2"
+msgid "ELECTROFIX"
+msgstr ""
+
+#. Key:	C716B4314286E3956E80D29E299C0B40
+#. SourceLocation:	/Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Ultra_Dynamic_Weather_C_1.UDS_Weather_Settings_C_3.User Friendly Name
+#: /Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Ultra_Dynamic_Weather_C_1.UDS_Weather_Settings_C_3.User Friendly Name
+msgctxt ",C716B4314286E3956E80D29E299C0B40"
+msgid "Manual Weather State"
+msgstr ""
+
+#. Key:	972FF48A4903EB67913A479F6958D1BB
+#. SourceLocation:	/Game/ShoppingMall/Maps/Demonstration.Demonstration:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
+#: /Game/ShoppingMall/Maps/Demonstration.Demonstration:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
+msgctxt ",972FF48A4903EB67913A479F6958D1BB"
+msgid "DELIVERY AREA"
+msgstr "TESLİMAT ALANI"
 
 #. Key:	3147F9A84019C831A8859E9C86149FDA
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Cost.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
@@ -60,28 +207,28 @@ msgstr "Phone"
 #: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.ConsoleFan.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 msgctxt ",A168664844540F6E4095A99E1640893A"
 msgid "Console Fan"
-msgstr "Console Fan"
+msgstr "Konsol fanı"
 
 #. Key:	693B5E6C43A9B555E4591DA2B8338A98
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.HDD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 #: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.HDD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 msgctxt ",693B5E6C43A9B555E4591DA2B8338A98"
 msgid "HDD"
-msgstr "HDD"
+msgstr "Sabit disk"
 
 #. Key:	C2007AFA49BF97F8630AE596839A8B4E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.PhoneBattery.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 #: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.PhoneBattery.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 msgctxt ",C2007AFA49BF97F8630AE596839A8B4E"
 msgid "Phone Battery"
-msgstr "Phone Battery"
+msgstr "Telefon pili"
 
 #. Key:	8A4734044D5BF18029251FBD1C87E11F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.Ram.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 #: /Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.Ram.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
 msgctxt ",8A4734044D5BF18029251FBD1C87E11F"
 msgid "Ram"
-msgstr "Ram"
+msgstr "RAM"
 
 #. Key:	814A1D974CA62816F96D50AA80BA11CD
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_Parts.DT_Parts.SSD.Name_8_5CB4152A4CC986B00FF4568B3D3DA55C
@@ -480,7 +627,7 @@ msgstr "Kutu"
 #: /Game/ShopSim/Blueprints/Data/Enum/EquippableType.EquippableType.DisplayNameMap(6 - Value).DisplayNameMap
 msgctxt ",916562764C9AB4AF40AA9BA1DAD65731"
 msgid "EmptyHands"
-msgstr "BoşEller"
+msgstr "Boş eller"
 
 #. Key:	6AC3E028407D4132CF72CF96B2A5E56B
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Enum/ExpenseType.ExpenseType.DisplayNameMap(0 - Value).DisplayNameMap
@@ -1453,14 +1600,14 @@ msgstr "Konsol 2"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ConsoleFan.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",CF92D06243B7DA32FC120E8BD58C6BD8"
 msgid "Console Fan"
-msgstr "Console Fan"
+msgstr "Konsol fanı"
 
 #. Key:	4F0A7AFB4E375C72B0E6CBADDE0F4AF0
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ConsoleFan.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.ConsoleFan.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",4F0A7AFB4E375C72B0E6CBADDE0F4AF0"
 msgid "Console Fan"
-msgstr "Console Fan"
+msgstr "Konsol fanı"
 
 #. Key:	E2B440074313A986DE0D4087BF3EC9A3
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.CyanPhoneCase.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1481,14 +1628,14 @@ msgstr "Camgöbeği Phone Kılıfı"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.HDD.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",371ECC49446EA64816F84D938FDB89B1"
 msgid "HDD"
-msgstr "HDD"
+msgstr "Sabit disk"
 
 #. Key:	684EC06040BCB2C421947CAF398BBAA4
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.HDD.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.HDD.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",684EC06040BCB2C421947CAF398BBAA4"
 msgid "HDD"
-msgstr "HDD"
+msgstr "Sabit disk"
 
 #. Key:	D615815C43DB95599658C48B9DDBC98E
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Headset1.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1602,20 +1749,6 @@ msgctxt ",CFF3379640101279091FF2946A96BAC5"
 msgid "Laptop 2"
 msgstr "Laptop 2"
 
-#. Key:	20FD8B034052D8FDAEB3B88ECD340746
-#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
-#: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
-msgctxt ",20FD8B034052D8FDAEB3B88ECD340746"
-msgid "Large Game Shelf"
-msgstr "Büyük Oyun Rafı"
-
-#. Key:	CE81E1D94979EA3FFF459293463C8F9F
-#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
-#: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
-msgctxt ",CE81E1D94979EA3FFF459293463C8F9F"
-msgid "Large Game Shelf"
-msgstr "Büyük Oyun Rafı"
-
 #. Key:	7B13E957456523C661E11A8F7A8B9D19
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.LargeRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1643,20 +1776,6 @@ msgstr "Büyük Mağaza Rafı"
 msgctxt ",832CCE0349DE927AFCEEA1897AE4D08B"
 msgid "Large Store Shelf"
 msgstr "Büyük Mağaza Rafı"
-
-#. Key:	206F52EF4E990173BFC8629454A981B1
-#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
-#: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
-msgctxt ",206F52EF4E990173BFC8629454A981B1"
-msgid "Medium Game Shelf"
-msgstr "Orta Oyun Rafı"
-
-#. Key:	40F60DA14143B7B31B8ABB8DE7246B4E
-#. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
-#: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumGameShelf.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
-msgctxt ",40F60DA14143B7B31B8ABB8DE7246B4E"
-msgid "Medium Game Shelf"
-msgstr "Orta Oyun Rafı"
 
 #. Key:	10B4D5C54F7BFF90416688949988C8B9
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.MediumRepairShelf.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -1775,28 +1894,28 @@ msgstr "Phone 2"
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.PhoneBattery.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",0F70017A4A079BBABB209FA96C770035"
 msgid "Phone battery"
-msgstr "Phone Battery"
+msgstr "Telefon pili"
 
 #. Key:	0A1E2A52445F8E0703E20A987BBE0869
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.PhoneBattery.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.PhoneBattery.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",0A1E2A52445F8E0703E20A987BBE0869"
 msgid "Phone battery"
-msgstr "Phone Battery"
+msgstr "Telefon pili"
 
 #. Key:	829B2CCB477AB5399A2302B4949D6B2F
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Ram.Description_11_4047A5E2436378AA64E2A7920C799D9D
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Ram.Description_11_4047A5E2436378AA64E2A7920C799D9D
 msgctxt ",829B2CCB477AB5399A2302B4949D6B2F"
 msgid "Ram"
-msgstr "Ram"
+msgstr "RAM"
 
 #. Key:	5A03AB3541CD3CFFF92EA8B87D5883AD
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Ram.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 #: /Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.Ram.Name_9_48E3C44F4DD3825BE08BCF97AA93DE36
 msgctxt ",5A03AB3541CD3CFFF92EA8B87D5883AD"
 msgid "Ram"
-msgstr "Ram"
+msgstr "RAM"
 
 #. Key:	D2D411EF456EE3D72A95629EE95C7847
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Items_Demo.Items_Demo.RepairCounter.Description_11_4047A5E2436378AA64E2A7920C799D9D
@@ -2288,27 +2407,6 @@ msgctxt ",133C276C416FF9DA403EA9B1AFB42316"
 msgid "Place Item"
 msgstr "Ürün Yerleştir"
 
-#. Key:	E928C8A44F2E236BC4210BB378DAB2E4
-#. SourceLocation:	/Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:SignText_GEN_VARIABLE.Text
-#: /Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:SignText_GEN_VARIABLE.Text
-msgctxt ",E928C8A44F2E236BC4210BB378DAB2E4"
-msgid "Closed"
-msgstr "Kapalı"
-
-#. Key:	3ED581384249FD048FFF2FA488F3FC40
-#. SourceLocation:	/Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
-#: /Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
-msgctxt ",3ED581384249FD048FFF2FA488F3FC40"
-msgid "Open"
-msgstr "Açık"
-
-#. Key:	985642664B91594E83ED8FA3D87E2707
-#. SourceLocation:	/Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
-#: /Game/ShopSim/Blueprints/Store/SignOpenClosed.SignOpenClosed_C:UpdateSign [Script Bytecode]
-msgctxt ",985642664B91594E83ED8FA3D87E2707"
-msgid "Closed"
-msgstr "Kapalı"
-
 #. Key:	4403779E4D542135E76831A0269F4BAF
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/StorageShelving.StorageShelving_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/StorageShelving.StorageShelving_C:GetInteractText [Script Bytecode]
@@ -2617,19 +2715,208 @@ msgctxt ",E51221C0449B1FCDB78946BD2E967170"
 msgid "Roomate vomited on the keyboard after a party. Keys are sticky, fan makes a gurgling noise, and it smells terrible. Needs data recovery for an upcoming exam today."
 msgstr "Ev arkadaşı bir partiden sonra klavyenin üzerine kustu. Tuşlar yapış yapış, fan tuhaf bir ses çıkarıyor ve berbat kokuyor. Bugünkü sınav için veri kurtarma gerekiyor."
 
-#. Key:	79EF742D4036FCD1989A48B55AB51A07
-#. SourceLocation:	/Game/ShopSim/Blueprints/Store/StoreSign.StoreSign_C:SignText_GEN_VARIABLE.Text
-#: /Game/ShopSim/Blueprints/Store/StoreSign.StoreSign_C:SignText_GEN_VARIABLE.Text
-msgctxt ",79EF742D4036FCD1989A48B55AB51A07"
-msgid "Store Name"
-msgstr "Mağaza Adı"
-
 #. Key:	75A38DA2410DD31E1BA02AA4E10FB851
 #. SourceLocation:	/Game/ShopSim/Blueprints/Store/TrashCan.TrashCan_C:GetInteractText [Script Bytecode]
 #: /Game/ShopSim/Blueprints/Store/TrashCan.TrashCan_C:GetInteractText [Script Bytecode]
 msgctxt ",75A38DA2410DD31E1BA02AA4E10FB851"
 msgid "Trash"
 msgstr "Çöp"
+
+#. Key:	5D25CB1945CC5DB171CC6DA6D2A1114F
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.StepName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.StepName
+msgctxt ",5D25CB1945CC5DB171CC6DA6D2A1114F"
+msgid "The shelf"
+msgstr "Raf"
+
+#. Key:	D862A4A44A9FDA5F18A0D19022AF0901
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(0).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(0).Tasks.TaskName
+msgctxt ",D862A4A44A9FDA5F18A0D19022AF0901"
+msgid "- Go to the computer."
+msgstr "- Bilgisayara git."
+
+#. Key:	9D9346EF486C8D7ECE906C9106644799
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(1).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(1).Tasks.TaskName
+msgctxt ",9D9346EF486C8D7ECE906C9106644799"
+msgid "- Buy a small store shelf from the store."
+msgstr "- Mağazadan küçük bir dükkân rafı satın al."
+
+#. Key:	D7D4B91048EC2406FEE5548EB4199644
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(2).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(2).Tasks.TaskName
+msgctxt ",D7D4B91048EC2406FEE5548EB4199644"
+msgid "- Pickup the order from the delivery area."
+msgstr "- Siparişi teslimat alanından al."
+
+#. Key:	5EAD41BE4D79E1C3C9533F9605914E0A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(3).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(0).Steps.Tasks(3).Tasks.TaskName
+msgctxt ",5EAD41BE4D79E1C3C9533F9605914E0A"
+msgid "- Place a small shelf in the store."
+msgstr "- Mağazaya küçük bir raf yerleştir."
+
+#. Key:	C51045774209B06E3B789F9807990F6A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.StepName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.StepName
+msgctxt ",C51045774209B06E3B789F9807990F6A"
+msgid "The items"
+msgstr "Ürünler"
+
+#. Key:	8A7ABC964F1D5655DF76BABA4752B20A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(0).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(0).Tasks.TaskName
+msgctxt ",8A7ABC964F1D5655DF76BABA4752B20A"
+msgid "- Buy the phone license from the computer."
+msgstr "- Bilgisayardan telefon lisansını satın al."
+
+#. Key:	C2DDFE1C4ADBF9B3BDDC46B5B35F06B5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(1).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(1).Tasks.TaskName
+msgctxt ",C2DDFE1C4ADBF9B3BDDC46B5B35F06B5"
+msgid "- Buy products from the phone licenses. (not parts)"
+msgstr "- Telefon lisanslarından ürünler satın al. (parça değil)"
+
+#. Key:	7CB626BC4CDB44CE80DB08978166AA38
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(2).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(2).Tasks.TaskName
+msgctxt ",7CB626BC4CDB44CE80DB08978166AA38"
+msgid "- Pickup the order from the delivery area."
+msgstr "- Siparişi teslimat alanından al."
+
+#. Key:	FB5DE7D341B8A3E56F5C8DBE9FB8BF33
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(3).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(1).Steps.Tasks(3).Tasks.TaskName
+msgctxt ",FB5DE7D341B8A3E56F5C8DBE9FB8BF33"
+msgid "- Place products on a shelf."
+msgstr "- Ürünleri rafa yerleştir."
+
+#. Key:	906288AC44CB71AD3F24009B551FC51B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(2).Steps.StepName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(2).Steps.StepName
+msgctxt ",906288AC44CB71AD3F24009B551FC51B"
+msgid "First sale"
+msgstr "İlk satış"
+
+#. Key:	AEFA7C314FD3B8BBF1D827A903438529
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(2).Steps.Tasks(0).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(2).Steps.Tasks(0).Tasks.TaskName
+msgctxt ",AEFA7C314FD3B8BBF1D827A903438529"
+msgid "- Open your shop on interacting with the sign located in the store."
+msgstr "- Mağazadaki tabela ile etkileşime geçerek dükkânını aç."
+
+#. Key:	7A44E7344A84E5B9D7C72C8809DB6F7A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(2).Steps.Tasks(1).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(2).Steps.Tasks(1).Tasks.TaskName
+msgctxt ",7A44E7344A84E5B9D7C72C8809DB6F7A"
+msgid "- Go to the checkout in the store and wait for a customer to check out."
+msgstr "- Mağazadaki kasaya git ve bir müşterinin ödeme yapmasını bekle."
+
+#. Key:	D4DA4D8B421FD41C98166C9622E25557
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.StepName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.StepName
+msgctxt ",D4DA4D8B421FD41C98166C9622E25557"
+msgid "First Repair"
+msgstr "İlk tamir"
+
+#. Key:	9CD1FF3F43E2CD2DE1563FAB48BED753
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(0).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(0).Tasks.TaskName
+msgctxt ",9CD1FF3F43E2CD2DE1563FAB48BED753"
+msgid "- Buy a Repair Shelf from the store."
+msgstr "- Mağazadan tamir rafı satın al."
+
+#. Key:	3826B9574C7BDAD15AA06285ED1C18A8
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(1).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(1).Tasks.TaskName
+msgctxt ",3826B9574C7BDAD15AA06285ED1C18A8"
+msgid "- Pickup the order from the delivery area."
+msgstr "- Siparişi teslimat alanından al."
+
+#. Key:	D5FB761740A0ECED8A9513A6BC72B2E3
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(10).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(10).Tasks.TaskName
+msgctxt ",D5FB761740A0ECED8A9513A6BC72B2E3"
+msgid "- Pick up the screwdriver on your left and hold left-click to remove the screws on the broken part you are hovering over."
+msgstr "- Solunda bulunan tornavidayı al ve üzerine geldiğin bozuk parçanın vidalarını çıkarmak için sol tıkı basılı tut."
+
+#. Key:	E0593F374F9D7552ECC2C3B946F69B6D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(11).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(11).Tasks.TaskName
+msgctxt ",E0593F374F9D7552ECC2C3B946F69B6D"
+msgid "- Drag the broken parts and place them outside the device."
+msgstr "- Bozuk parçaları sürükleyip cihazın dışına bırak."
+
+#. Key:	73D2FB6E446E12E70863259594A6AA64
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(12).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(12).Tasks.TaskName
+msgctxt ",73D2FB6E446E12E70863259594A6AA64"
+msgid "- Spawn the new parts from the available parts to your right and drag them into the device slots."
+msgstr "- Sağındaki mevcut parçalardan yeni parçaları üret ve cihaz yuvalarına sürükle."
+
+#. Key:	713307DE42C126FEA44086BFDC0B92D4
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(13).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(13).Tasks.TaskName
+msgctxt ",713307DE42C126FEA44086BFDC0B92D4"
+msgid "- Deliver a fixed repair order to the customer."
+msgstr "- Tamamlanmış bir tamir siparişini müşteriye teslim et."
+
+#. Key:	2DDEB56E48BB859D19A5F9AEC5BBD852
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(2).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(2).Tasks.TaskName
+msgctxt ",2DDEB56E48BB859D19A5F9AEC5BBD852"
+msgid "- Place a repair shelf close to the workshop."
+msgstr "- Tamir rafını atölyenin yakınına yerleştir."
+
+#. Key:	4A191DC54AB169D97D103D924269088D
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(3).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(3).Tasks.TaskName
+msgctxt ",4A191DC54AB169D97D103D924269088D"
+msgid "- Buy a phone battery from the store."
+msgstr "- Mağazadan telefon pili satın al."
+
+#. Key:	5BDC872A4D4E234AC7A64A8F5DA7A62B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(4).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(4).Tasks.TaskName
+msgctxt ",5BDC872A4D4E234AC7A64A8F5DA7A62B"
+msgid "- Pickup the order from the delivery area."
+msgstr "- Siparişi teslimat alanından al."
+
+#. Key:	0C1A1662459C78FF7540D386963AD808
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(5).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(5).Tasks.TaskName
+msgctxt ",0C1A1662459C78FF7540D386963AD808"
+msgid "- Place a phone battery in the repair shelf."
+msgstr "- Telefon pilini tamir rafına koy."
+
+#. Key:	E4DAD516480545F89B14DBA7B957BEF8
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(6).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(6).Tasks.TaskName
+msgctxt ",E4DAD516480545F89B14DBA7B957BEF8"
+msgid "- Go to the repair counter in the store and wait for a customer, then scan his device."
+msgstr "- Mağazadaki tamir tezgâhına git, müşteriyi bekle ve cihazını tara."
+
+#. Key:	10BE357940E4634D03855384A0EA8304
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(7).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(7).Tasks.TaskName
+msgctxt ",10BE357940E4634D03855384A0EA8304"
+msgid "- Accept a repair order."
+msgstr "- Bir tamir siparişini kabul et."
+
+#. Key:	4A3CCD604FB46FEDDDE07E98E0DE1DC7
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(8).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(8).Tasks.TaskName
+msgctxt ",4A3CCD604FB46FEDDDE07E98E0DE1DC7"
+msgid "- Put a repair order on the workshop."
+msgstr "- Bir tamir siparişini atölyeye yerleştir."
+
+#. Key:	5A94AA094E493D08B60037B8796E2544
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(9).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(3).Steps.Tasks(9).Tasks.TaskName
+msgctxt ",5A94AA094E493D08B60037B8796E2544"
+msgid "- Pick up the pry bar to your right and drag your mouse down to remove the device cover."
+msgstr "- Sağındaki levyeyi al ve cihaz kapağını çıkarmak için fareyi aşağı sürükle."
 
 #. Key:	288856094E50D96DEF9C21A924984330
 #. SourceLocation:	/Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.PlayText.Text
@@ -3842,12 +4129,19 @@ msgctxt ",BB83F2364F127CDA2B36B5901802FF60"
 msgid "MENU"
 msgstr "MENÜ"
 
+#. Key:	3A98B45A482A11E1315922B0F829FED7
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:SetFromImprovements [Script Bytecode]
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:SetFromImprovements [Script Bytecode]
+msgctxt ",3A98B45A482A11E1315922B0F829FED7"
+msgid "Owned"
+msgstr "Satın alındı"
+
 #. Key:	BF5A073D46A348D31BE134B508CEBB62
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:SetFromImprovements [Script Bytecode]
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:SetFromImprovements [Script Bytecode]
 msgctxt ",BF5A073D46A348D31BE134B508CEBB62"
-msgid "Built"
-msgstr "İnşa Edildi"
+msgid "Owned"
+msgstr "Satın alındı"
 
 #. Key:	F86B164C45DDF55AD5355BAA6AB88D6C
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Description
@@ -3877,12 +4171,12 @@ msgctxt ",1E1FA86F4EC9BFFABA0A10B650073A1F"
 msgid "Store Upgrade 2"
 msgstr "Mağaza Yükseltme 2"
 
-#. Key:	BF188DDB4E747B38C337FCB219F7E6FD
+#. Key:	8884181E4CDD10FB24BAFBBDE00FF6B9
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Description
-msgctxt ",BF188DDB4E747B38C337FCB219F7E6FD"
-msgid "Unlocks: Expension1, Repair Consoles"
-msgstr "Açar: Genişleme1, Konsol Tamiri"
+msgctxt ",8884181E4CDD10FB24BAFBBDE00FF6B9"
+msgid "Unlocks: Store Expension I, Repair Consoles"
+msgstr "Açılır: Mağaza Genişlemesi I, Konsol Tamiri"
 
 #. Key:	54960CA149340B8B0F0C5BB6621B9A06
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Name
@@ -3904,6 +4198,48 @@ msgstr "Açar: Tamir atölyesi, Orta Tamir Rafı"
 msgctxt ",A84B27ED455A9A109504E5B7C9E1A62D"
 msgid "Store Upgrade 4"
 msgstr "Mağaza Yükseltme 4"
+
+#. Key:	F85B84284E75DD5115E7D99F3B9A564D
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade5.Description
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade5.Description
+msgctxt ",F85B84284E75DD5115E7D99F3B9A564D"
+msgid "Unlocks: Repair Counter"
+msgstr "Açılır: Tamir Tezgâhı"
+
+#. Key:	1E93ADB14906592F30C33FA089957290
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade5.Name
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade5.Name
+msgctxt ",1E93ADB14906592F30C33FA089957290"
+msgid "Store Upgrade 5"
+msgstr "Mağaza Yükseltmesi 5"
+
+#. Key:	02C7A82649379693F0236DABC5915CDB
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade6.Description
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade6.Description
+msgctxt ",02C7A82649379693F0236DABC5915CDB"
+msgid "Unlocks : Large Repair Shelf, Repair laptops"
+msgstr "Açılır: Büyük Tamir Rafı, Dizüstü Tamiri"
+
+#. Key:	B08D3F614382D6337C53E382D7877671
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade6.Name
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade6.Name
+msgctxt ",B08D3F614382D6337C53E382D7877671"
+msgid "Store Upgrade 6"
+msgstr "Mağaza Yükseltmesi 6"
+
+#. Key:	240B50BC4526F58FDECE9B8DB89A4D6A
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade7.Description
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade7.Description
+msgctxt ",240B50BC4526F58FDECE9B8DB89A4D6A"
+msgid "Unlocks: Store Expension II, Large Store Shelf"
+msgstr "Açılır: Mağaza Genişlemesi II, Büyük Mağaza Rafı"
+
+#. Key:	CA15BF274F609B6EEFB67E86CB6CEBE9
+#. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade7.Name
+#: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade7.Name
+msgctxt ",CA15BF274F609B6EEFB67E86CB6CEBE9"
+msgid "Store Upgrade 7"
+msgstr "Mağaza Yükseltmesi 7"
 
 #. Key:	8E7C319A48162C7DDAD5AC93759357F0
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.TextBlock_189.Text
@@ -4381,12 +4717,19 @@ msgctxt ",AB4858C8436C0CCAC0D2F0A004376ED0"
 msgid "Too expensive"
 msgstr "Çok pahalı"
 
+#. Key:	94B7218A44C12498CBA683AAC30A6AAE
+#. SourceLocation:	/Game/ShopSim/Widgets/WBP_DeliveryArea.WBP_DeliveryArea_C:WidgetTree.TextBlock_31.Text
+#: /Game/ShopSim/Widgets/WBP_DeliveryArea.WBP_DeliveryArea_C:WidgetTree.TextBlock_31.Text
+msgctxt ",94B7218A44C12498CBA683AAC30A6AAE"
+msgid "DELIVERY AREA"
+msgstr "TESLİMAT ALANI"
+
 #. Key:	EFA91797428F705BA9FDA6B5E4D95ADF
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_PartBox.WBP_PartBox_C:WidgetTree.PartNametext.Text
 #: /Game/ShopSim/Widgets/WBP_PartBox.WBP_PartBox_C:WidgetTree.PartNametext.Text
 msgctxt ",EFA91797428F705BA9FDA6B5E4D95ADF"
 msgid "HDD"
-msgstr "HDD"
+msgstr "Sabit disk"
 
 #. Key:	157336AB4B6B358F2F7CE3806F8482DE
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_PartBoxButton.WBP_PartBoxButton_C:ExecuteUbergraph_WBP_PartBoxButton [Script Bytecode]
@@ -4407,7 +4750,28 @@ msgstr "x5"
 #: /Game/ShopSim/Widgets/WBP_PartBoxButton.WBP_PartBoxButton_C:WidgetTree.PartNametext.Text
 msgctxt ",EB89C2384CA48E652C48E8B6A74F8D4E"
 msgid "HDD"
-msgstr "HDD"
+msgstr "Sabit disk"
+
+#. Key:	62933E2449F0A17EA6EFD59B587100EF
+#. SourceLocation:	/Game/ShopSim/Widgets/WBP_SignOpenClosed.WBP_SignOpenClosed_C:SetOpenClosedText [Script Bytecode]
+#: /Game/ShopSim/Widgets/WBP_SignOpenClosed.WBP_SignOpenClosed_C:SetOpenClosedText [Script Bytecode]
+msgctxt ",62933E2449F0A17EA6EFD59B587100EF"
+msgid "Closed"
+msgstr "Kapalı"
+
+#. Key:	F9CBEEED4C7665CCFF21B1811EE4E03F
+#. SourceLocation:	/Game/ShopSim/Widgets/WBP_SignOpenClosed.WBP_SignOpenClosed_C:SetOpenClosedText [Script Bytecode]
+#: /Game/ShopSim/Widgets/WBP_SignOpenClosed.WBP_SignOpenClosed_C:SetOpenClosedText [Script Bytecode]
+msgctxt ",F9CBEEED4C7665CCFF21B1811EE4E03F"
+msgid "Open"
+msgstr "Açık"
+
+#. Key:	458630A04EE909B5AB987582218724AA
+#. SourceLocation:	/Game/ShopSim/Widgets/WBP_SignOpenClosed.WBP_SignOpenClosed_C:WidgetTree.OpenClosedText.Text
+#: /Game/ShopSim/Widgets/WBP_SignOpenClosed.WBP_SignOpenClosed_C:WidgetTree.OpenClosedText.Text
+msgctxt ",458630A04EE909B5AB987582218724AA"
+msgid "Open/Closed"
+msgstr "Açık/Kapalı"
 
 #. Key:	26A0A0B342DE2477DAB8CC904BE56DF2
 #. SourceLocation:	/Game/ShopSim/Widgets/WBP_Task.WBP_Task_C:WidgetTree.TaskNametext.Text
