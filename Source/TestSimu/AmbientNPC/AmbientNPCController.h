@@ -12,25 +12,21 @@ class TESTSIMU_API AAmbientNPCController : public AAIController
 public:
 	AAmbientNPCController();
 
-	// Hand the controller an ordered list of world-space waypoints to walk.
-	// On reaching the last one (or running out of retries), the pawn is destroyed.
+	// Send the pawn toward a single world-space destination. On arrival the pawn destroys
+	// itself. The navmesh handles the actual pathing so movement is continuous (no
+	// per-segment braking).
 	UFUNCTION()
-	void AssignPath(const TArray<FVector>& InWaypoints);
+	void AssignDestination(const FVector& InDestination);
 
 protected:
 	virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 
 private:
-	UPROPERTY(Transient)
-	TArray<FVector> Waypoints;
-
-	int32 CurrentIndex = 0;
+	FVector Destination = FVector::ZeroVector;
 	int32 RetryCount = 0;
 
-	static constexpr int32 MaxRetriesPerWaypoint = 2;
+	static constexpr int32 MaxRetries = 3;
 	static constexpr float AcceptanceRadius = 80.f;
 
-	void MoveToCurrent();
-	void AdvanceOrDestroy();
 	void DestroyPawnSafe();
 };

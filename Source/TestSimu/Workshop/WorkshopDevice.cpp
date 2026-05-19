@@ -1,10 +1,13 @@
 #include "Workshop/WorkshopDevice.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/AudioComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "DrawDebugHelpers.h"
 #include "Materials/MaterialInterface.h"
+#include "Sound/SoundBase.h"
+#include "Kismet/GameplayStatics.h"
 #include "Tutorial/TutorialManagerComponent.h"
 #include "Tutorial/TutorialFunctionLibrary.h"
 
@@ -24,7 +27,17 @@ USceneComponent* AWorkshopDevice::FindPartsSpawn()
 		return CachedPartsSpawn.Get();
 	}
 
-	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		return nullptr;
+	}
+
+	const FVector MyLoc = GetActorLocation();
+	USceneComponent* Best = nullptr;
+	float BestDistSq = TNumericLimits<float>::Max();
+
+	for (TActorIterator<AActor> It(World); It; ++It)
 	{
 		AActor* Actor = *It;
 		if (!Actor)
@@ -36,8 +49,12 @@ USceneComponent* AWorkshopDevice::FindPartsSpawn()
 		{
 			if (USceneComponent* Root = Actor->GetRootComponent())
 			{
-				CachedPartsSpawn = Root;
-				return Root;
+				const float DistSq = FVector::DistSquared(Root->GetComponentLocation(), MyLoc);
+				if (DistSq < BestDistSq)
+				{
+					BestDistSq = DistSq;
+					Best = Root;
+				}
 			}
 		}
 
@@ -47,12 +64,21 @@ USceneComponent* AWorkshopDevice::FindPartsSpawn()
 		{
 			if (Comp && Comp->ComponentHasTag(PartsSpawnTag))
 			{
-				CachedPartsSpawn = Comp;
-				return Comp;
+				const float DistSq = FVector::DistSquared(Comp->GetComponentLocation(), MyLoc);
+				if (DistSq < BestDistSq)
+				{
+					BestDistSq = DistSq;
+					Best = Comp;
+				}
 			}
 		}
 	}
-	return nullptr;
+
+	if (Best)
+	{
+		CachedPartsSpawn = Best;
+	}
+	return Best;
 }
 
 void AWorkshopDevice::SetupWorkshopCollision(UStaticMeshComponent* Comp)
@@ -75,9 +101,10 @@ AWorkshopDevice::AWorkshopDevice()
 // Repair Entry / Exit
 // ============================================================
 
-void AWorkshopDevice::Repair(const TArray<FName>& BrokenPartIds, FVector SpawnLocation)
+void AWorkshopDevice::Repair(const TArray<FName>& BrokenPartIds, FTransform SpawnTransform)
 {
-	SetActorLocation(SpawnLocation);
+	const FQuat FinalRotation = SpawnTransform.GetRotation() * RepairRotationOffset.Quaternion();
+	SetActorLocationAndRotation(SpawnTransform.GetLocation(), FinalRotation);
 
 	ActiveBrokenPartIds = BrokenPartIds;
 	SlotTransforms.Empty();
@@ -680,6 +707,10 @@ void AWorkshopDevice::ReleasePart()
 	if (!SlotTransform)
 	{
 		DraggedComponent->SetSimulatePhysics(true);
+		if (ComponentFallingSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, ComponentFallingSound, DraggedComponent->GetComponentLocation());
+		}
 		DraggedComponent = nullptr;
 		return;
 	}
@@ -696,6 +727,11 @@ void AWorkshopDevice::ReleasePart()
 	else
 	{
 		DraggedComponent->SetSimulatePhysics(true);
+
+		if (ComponentFallingSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, ComponentFallingSound, DraggedComponent->GetComponentLocation());
+		}
 
 		bool bAllSlotsEmpty = true;
 		for (const auto& Pair : SlotOccupants)
@@ -724,6 +760,11 @@ void AWorkshopDevice::SnapToSlot(UStaticMeshComponent* Comp, FName PartId)
 	Comp->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
 
 	SlotOccupants[PartId] = Comp;
+
+	if (PlaceComponentSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, PlaceComponentSound, SlotTransformValue.GetLocation());
+	}
 
 	// If this was the tracked new part for this slot, retire it from the pending map.
 	if (UStaticMeshComponent* Tracked = NewPartsBySlot.FindRef(PartId))
@@ -965,6 +1006,11 @@ void AWorkshopDevice::UpdateCoverPulling(float DeltaTime)
 			CoverAnimAlpha = 0.f;
 			CoverState = ECoverRemovalState::Animating;
 			UE_LOG(LogTemp, Warning, TEXT("CoverPhase - Pull threshold reached. Animating removal."));
+
+			if (PryOpenSound)
+			{
+				UGameplayStatics::PlaySoundAtLocation(this, PryOpenSound, CoverComp->GetComponentLocation());
+			}
 		}
 	}
 }
@@ -1172,6 +1218,12 @@ void AWorkshopDevice::ReleaseScrewDriver()
 	bHoldingScrewDriver = false;
 	SetupWorkshopCollision(ScrewDriverComp);
 	ScrewDriverComp->SetSimulatePhysics(true);
+
+	if (ScrewDriverFallingSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, ScrewDriverFallingSound, ScrewDriverComp->GetComponentLocation());
+	}
+
 	UpdateTutorialHighlights();
 }
 
@@ -1216,6 +1268,17 @@ void AWorkshopDevice::StartUnscrew(UStaticMeshComponent* Screw)
 	AboveScrew.Z += ScrewDriverHeightAboveScrew;
 	ScrewDriverComp->SetWorldLocation(AboveScrew);
 	ScrewDriverDragTarget = AboveScrew;
+
+	if (UnscrewSound)
+	{
+		ActiveUnscrewAudio = UGameplayStatics::SpawnSoundAttached(
+			UnscrewSound,
+			Screw,
+			NAME_None,
+			FVector::ZeroVector,
+			EAttachLocation::KeepRelativeOffset,
+			true /* bStopWhenAttachedToDestroyed */);
+	}
 }
 
 void AWorkshopDevice::UpdateUnscrew(float DeltaTime)
@@ -1262,6 +1325,12 @@ void AWorkshopDevice::FinishUnscrew()
 		return;
 	}
 
+	if (ActiveUnscrewAudio)
+	{
+		ActiveUnscrewAudio->Stop();
+		ActiveUnscrewAudio = nullptr;
+	}
+
 	FName* PartIdPtr = ScrewToPartMap.Find(ActiveScrew);
 	FName PartId = PartIdPtr ? *PartIdPtr : NAME_None;
 
@@ -1296,6 +1365,12 @@ void AWorkshopDevice::CancelUnscrew()
 	if (!ActiveScrew)
 	{
 		return;
+	}
+
+	if (ActiveUnscrewAudio)
+	{
+		ActiveUnscrewAudio->Stop();
+		ActiveUnscrewAudio = nullptr;
 	}
 
 	// Reset screw to original position

@@ -1,31 +1,22 @@
 #include "AmbientNPCPath.h"
 #include "AmbientNPCCharacter.h"
 #include "AmbientNPCController.h"
-#include "Components/SplineComponent.h"
-#include "Engine/Engine.h"
+#include "AmbientNPCSpawnPoint.h"
+#include "AmbientNPCExitPoint.h"
+#include "Components/SceneComponent.h"
 #include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogAmbientNPC, Log, All);
-
-namespace
-{
-	void ScreenMsg(int32 Key, float Duration, const FColor& Color, const FString& Text)
-	{
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(Key, Duration, Color, Text);
-		}
-	}
-}
 
 AAmbientNPCPath::AAmbientNPCPath()
 {
 	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = false;
 
-	Spline = CreateDefaultSubobject<USplineComponent>(TEXT("Spline"));
-	RootComponent = Spline;
+	SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
+	RootComponent = SceneRoot;
 }
 
 void AAmbientNPCPath::BeginPlay()
@@ -37,16 +28,12 @@ void AAmbientNPCPath::BeginPlay()
 		return;
 	}
 
-	BuildWaypoints();
+	RefreshPoints();
 
-	UE_LOG(LogAmbientNPC, Log, TEXT("Path %s ready | classes=%d waypoints=%d interval=[%.1f, %.1f] maxAlive=%d"),
-		*GetName(), NPCClasses.Num(), CachedWaypoints.Num(), MinSpawnInterval, MaxSpawnInterval, MaxAlive);
+	UE_LOG(LogAmbientNPC, Log, TEXT("Director %s ready | classes=%d spawnPts=%d exitPts=%d interval=%.1fs perWave=%d maxAlive=%d"),
+		*GetName(), NPCClasses.Num(), SpawnPoints.Num(), ExitPoints.Num(), SpawnInterval, NPCsPerWave, MaxAlive);
 
-	ScreenMsg(GetUniqueID(), 15.f, FColor::Cyan, FString::Printf(
-		TEXT("[AmbientNPC] %s ready | classes=%d waypoints=%d maxAlive=%d"),
-		*GetName(), NPCClasses.Num(), CachedWaypoints.Num(), MaxAlive));
-
-	ScheduleNextSpawn();
+	ScheduleNextWave();
 }
 
 void AAmbientNPCPath::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -63,30 +50,35 @@ void AAmbientNPCPath::SetSpawnPaused(bool bPaused)
 	bSpawnPaused = bPaused;
 }
 
-void AAmbientNPCPath::BuildWaypoints()
+void AAmbientNPCPath::RefreshPoints()
 {
-	CachedWaypoints.Reset();
-	if (Spline == nullptr)
+	SpawnPoints.Reset();
+	ExitPoints.Reset();
+
+	TArray<AActor*> Found;
+	UGameplayStatics::GetAllActorsOfClass(this, AAmbientNPCSpawnPoint::StaticClass(), Found);
+	SpawnPoints.Reserve(Found.Num());
+	for (AActor* A : Found)
 	{
-		return;
+		if (AAmbientNPCSpawnPoint* SP = Cast<AAmbientNPCSpawnPoint>(A))
+		{
+			SpawnPoints.Add(SP);
+		}
 	}
 
-	const float Length = Spline->GetSplineLength();
-	if (Length <= KINDA_SMALL_NUMBER)
+	Found.Reset();
+	UGameplayStatics::GetAllActorsOfClass(this, AAmbientNPCExitPoint::StaticClass(), Found);
+	ExitPoints.Reserve(Found.Num());
+	for (AActor* A : Found)
 	{
-		return;
+		if (AAmbientNPCExitPoint* EP = Cast<AAmbientNPCExitPoint>(A))
+		{
+			ExitPoints.Add(EP);
+		}
 	}
-
-	const float Step = FMath::Max(50.f, WaypointSpacing);
-	for (float Dist = 0.f; Dist < Length; Dist += Step)
-	{
-		CachedWaypoints.Add(Spline->GetLocationAtDistanceAlongSpline(Dist, ESplineCoordinateSpace::World));
-	}
-	// Always include the exact end point.
-	CachedWaypoints.Add(Spline->GetLocationAtDistanceAlongSpline(Length, ESplineCoordinateSpace::World));
 }
 
-void AAmbientNPCPath::ScheduleNextSpawn()
+void AAmbientNPCPath::ScheduleNextWave()
 {
 	UWorld* World = GetWorld();
 	if (World == nullptr)
@@ -94,12 +86,9 @@ void AAmbientNPCPath::ScheduleNextSpawn()
 		return;
 	}
 
-	const float Min = FMath::Max(0.5f, MinSpawnInterval);
-	const float Max = FMath::Max(Min, MaxSpawnInterval);
-	const float Delay = FMath::FRandRange(Min, Max);
-
+	const float Delay = FMath::Max(0.1f, SpawnInterval);
 	World->GetTimerManager().ClearTimer(SpawnTimer);
-	FTimerDelegate Delegate = FTimerDelegate::CreateUObject(this, &AAmbientNPCPath::TrySpawn);
+	FTimerDelegate Delegate = FTimerDelegate::CreateUObject(this, &AAmbientNPCPath::SpawnWave);
 	World->GetTimerManager().SetTimer(SpawnTimer, Delegate, Delay, false);
 }
 
@@ -111,7 +100,35 @@ void AAmbientNPCPath::PurgeStale()
 	});
 }
 
-void AAmbientNPCPath::TrySpawn()
+void AAmbientNPCPath::SpawnWave()
+{
+	PurgeStale();
+
+	if (bSpawnPaused)
+	{
+		ScheduleNextWave();
+		return;
+	}
+
+	if (NPCClasses.Num() == 0 || SpawnPoints.Num() == 0 || ExitPoints.Num() == 0)
+	{
+		UE_LOG(LogAmbientNPC, Warning, TEXT("Director %s skip: classes=%d spawn=%d exit=%d"),
+			*GetName(), NPCClasses.Num(), SpawnPoints.Num(), ExitPoints.Num());
+		ScheduleNextWave();
+		return;
+	}
+
+	const int32 Slots = FMath::Max(0, MaxAlive - Alive.Num());
+	const int32 ToSpawn = FMath::Min(NPCsPerWave, Slots);
+	for (int32 i = 0; i < ToSpawn; ++i)
+	{
+		SpawnOne();
+	}
+
+	ScheduleNextWave();
+}
+
+void AAmbientNPCPath::SpawnOne()
 {
 	UWorld* World = GetWorld();
 	if (World == nullptr)
@@ -119,53 +136,43 @@ void AAmbientNPCPath::TrySpawn()
 		return;
 	}
 
-	PurgeStale();
-
-	if (bSpawnPaused)
+	// Resolve a valid spawn/exit/class from the cached lists.
+	AAmbientNPCSpawnPoint* SpawnPt = nullptr;
+	for (int32 Tries = 0; Tries < 4 && SpawnPt == nullptr && SpawnPoints.Num() > 0; ++Tries)
 	{
-		ScheduleNextSpawn();
-		return;
+		const int32 Idx = FMath::RandRange(0, SpawnPoints.Num() - 1);
+		SpawnPt = SpawnPoints[Idx].Get();
 	}
-	if (NPCClasses.Num() == 0)
+	if (SpawnPt == nullptr)
 	{
-		UE_LOG(LogAmbientNPC, Warning, TEXT("Path %s skip: NPCClasses is empty"), *GetName());
-		ScreenMsg(GetUniqueID() + 1, 6.f, FColor::Red, FString::Printf(TEXT("[AmbientNPC] %s skip: NPCClasses empty"), *GetName()));
-		ScheduleNextSpawn();
-		return;
-	}
-	if (CachedWaypoints.Num() < 2)
-	{
-		UE_LOG(LogAmbientNPC, Warning, TEXT("Path %s skip: spline has no length"), *GetName());
-		ScreenMsg(GetUniqueID() + 1, 6.f, FColor::Red, FString::Printf(TEXT("[AmbientNPC] %s skip: spline empty"), *GetName()));
-		ScheduleNextSpawn();
-		return;
-	}
-	if (Alive.Num() >= MaxAlive)
-	{
-		ScheduleNextSpawn();
 		return;
 	}
 
-	TArray<TSubclassOf<AAmbientNPCCharacter>> ValidClasses;
-	ValidClasses.Reserve(NPCClasses.Num());
-	for (const TSubclassOf<AAmbientNPCCharacter>& Class : NPCClasses)
+	AAmbientNPCExitPoint* ExitPt = nullptr;
+	for (int32 Tries = 0; Tries < 4 && ExitPt == nullptr && ExitPoints.Num() > 0; ++Tries)
 	{
-		if (Class != nullptr)
-		{
-			ValidClasses.Add(Class);
-		}
+		const int32 Idx = FMath::RandRange(0, ExitPoints.Num() - 1);
+		ExitPt = ExitPoints[Idx].Get();
 	}
-	if (ValidClasses.Num() == 0)
+	if (ExitPt == nullptr)
 	{
-		ScheduleNextSpawn();
 		return;
 	}
 
-	TSubclassOf<AAmbientNPCCharacter> PickedClass = ValidClasses[FMath::RandRange(0, ValidClasses.Num() - 1)];
+	TSubclassOf<AAmbientNPCCharacter> PickedClass = nullptr;
+	for (int32 Tries = 0; Tries < 4 && PickedClass == nullptr && NPCClasses.Num() > 0; ++Tries)
+	{
+		const int32 Idx = FMath::RandRange(0, NPCClasses.Num() - 1);
+		PickedClass = NPCClasses[Idx];
+	}
+	if (PickedClass == nullptr)
+	{
+		return;
+	}
 
-	const FVector StartLocation = CachedWaypoints[0];
-	const FVector NextLocation = CachedWaypoints.Num() > 1 ? CachedWaypoints[1] : StartLocation;
-	const FRotator StartRotation = (NextLocation - StartLocation).GetSafeNormal2D().Rotation();
+	const FVector StartLocation = SpawnPt->GetActorLocation();
+	const FVector ExitLocation = ExitPt->GetActorLocation();
+	const FRotator StartRotation = (ExitLocation - StartLocation).GetSafeNormal2D().Rotation();
 	const FTransform StartXform(StartRotation, StartLocation);
 
 	FActorSpawnParameters SpawnParams;
@@ -175,27 +182,23 @@ void AAmbientNPCPath::TrySpawn()
 	AAmbientNPCCharacter* Spawned = World->SpawnActor<AAmbientNPCCharacter>(PickedClass, StartXform, SpawnParams);
 	if (Spawned == nullptr)
 	{
-		UE_LOG(LogAmbientNPC, Warning, TEXT("Path %s: SpawnActor returned null"), *GetName());
-		ScreenMsg(GetUniqueID() + 1, 6.f, FColor::Red, FString::Printf(TEXT("[AmbientNPC] %s: spawn failed"), *GetName()));
-		ScheduleNextSpawn();
+		UE_LOG(LogAmbientNPC, Warning, TEXT("Director %s: SpawnActor returned null"), *GetName());
 		return;
 	}
 
 	Alive.Add(Spawned);
+	UE_LOG(LogAmbientNPC, Log, TEXT("Director %s spawned %s @ %s -> exit %s (alive=%d/%d)"),
+		*GetName(), *GetNameSafe(Spawned), *GetNameSafe(SpawnPt), *GetNameSafe(ExitPt), Alive.Num(), MaxAlive);
 
-	UE_LOG(LogAmbientNPC, Log, TEXT("Path %s spawned %s (alive=%d/%d)"), *GetName(), *GetNameSafe(Spawned), Alive.Num(), MaxAlive);
-	ScreenMsg(-1, 4.f, FColor::Green, FString::Printf(TEXT("[AmbientNPC] %s spawned (alive=%d/%d)"), *GetName(), Alive.Num(), MaxAlive));
-
-	// Hand the waypoint queue to the controller. AutoPossess may need a frame to run.
-	TArray<FVector> WaypointsCopy = CachedWaypoints;
+	// AutoPossess may need a frame to assign the controller.
 	if (AAmbientNPCController* AICtrl = Cast<AAmbientNPCController>(Spawned->GetController()))
 	{
-		AICtrl->AssignPath(WaypointsCopy);
+		AICtrl->AssignDestination(ExitLocation);
 	}
 	else
 	{
 		TWeakObjectPtr<AAmbientNPCCharacter> WeakSpawned = Spawned;
-		World->GetTimerManager().SetTimerForNextTick([WeakSpawned, WaypointsCopy]()
+		World->GetTimerManager().SetTimerForNextTick([WeakSpawned, ExitLocation]()
 		{
 			AAmbientNPCCharacter* P = WeakSpawned.Get();
 			if (P == nullptr)
@@ -204,10 +207,8 @@ void AAmbientNPCPath::TrySpawn()
 			}
 			if (AAmbientNPCController* C = Cast<AAmbientNPCController>(P->GetController()))
 			{
-				C->AssignPath(WaypointsCopy);
+				C->AssignDestination(ExitLocation);
 			}
 		});
 	}
-
-	ScheduleNextSpawn();
 }

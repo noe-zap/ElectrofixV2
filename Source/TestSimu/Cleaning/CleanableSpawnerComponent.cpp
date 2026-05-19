@@ -143,6 +143,18 @@ void UCleanableSpawnerComponent::TrySpawn()
 	}
 
 	ACleanableSpawnPoint* PickedAnchor = FreeAnchors[FMath::RandRange(0, FreeAnchors.Num() - 1)];
+	SpawnAtAnchor(PickedAnchor);
+
+	ScheduleNextSpawn();
+}
+
+ACleanableActor* UCleanableSpawnerComponent::SpawnAtAnchor(ACleanableSpawnPoint* Anchor)
+{
+	UWorld* World = GetWorld();
+	if (World == nullptr || Anchor == nullptr)
+	{
+		return nullptr;
+	}
 
 	TArray<TSubclassOf<ACleanableActor>> Compatible;
 	for (const TSubclassOf<ACleanableActor>& Class : CleanableClasses)
@@ -156,8 +168,8 @@ void UCleanableSpawnerComponent::TrySpawn()
 		{
 			continue;
 		}
-		const bool bAnchorAcceptsAny = PickedAnchor->CleaningTag.IsNone();
-		const bool bTagsMatch = PickedAnchor->CleaningTag == CDO->CleaningTag;
+		const bool bAnchorAcceptsAny = Anchor->CleaningTag.IsNone();
+		const bool bTagsMatch = Anchor->CleaningTag == CDO->CleaningTag;
 		if (bAnchorAcceptsAny || bTagsMatch)
 		{
 			Compatible.Add(Class);
@@ -166,8 +178,7 @@ void UCleanableSpawnerComponent::TrySpawn()
 
 	if (Compatible.Num() == 0)
 	{
-		ScheduleNextSpawn();
-		return;
+		return nullptr;
 	}
 
 	TSubclassOf<ACleanableActor> PickedClass = Compatible[FMath::RandRange(0, Compatible.Num() - 1)];
@@ -175,7 +186,7 @@ void UCleanableSpawnerComponent::TrySpawn()
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-	FTransform Xform = PickedAnchor->GetActorTransform();
+	FTransform Xform = Anchor->GetActorTransform();
 	if (const ACleanableActor* PickedCDO = PickedClass->GetDefaultObject<ACleanableActor>())
 	{
 		Xform.AddToTranslation(Xform.TransformVector(PickedCDO->SpawnOffset));
@@ -185,8 +196,48 @@ void UCleanableSpawnerComponent::TrySpawn()
 	if (Spawned)
 	{
 		Alive.Add(Spawned);
-		PickedAnchor->CurrentCleanable = Spawned;
+		Anchor->CurrentCleanable = Spawned;
+	}
+	return Spawned;
+}
+
+int32 UCleanableSpawnerComponent::ForceSpawnAtTag(FName Tag, int32 Count)
+{
+	if (GetOwnerRole() != ROLE_Authority || Count <= 0)
+	{
+		return 0;
 	}
 
-	ScheduleNextSpawn();
+	UWorld* World = GetWorld();
+	if (World == nullptr || CleanableClasses.Num() == 0 || Anchors.Num() == 0)
+	{
+		return 0;
+	}
+
+	PurgeStale();
+
+	TArray<ACleanableSpawnPoint*> FreeAnchors;
+	for (const TWeakObjectPtr<ACleanableSpawnPoint>& Weak : Anchors)
+	{
+		ACleanableSpawnPoint* Anchor = Weak.Get();
+		if (Anchor && !Anchor->IsOccupied() && Anchor->CleaningTag == Tag)
+		{
+			FreeAnchors.Add(Anchor);
+		}
+	}
+
+	int32 SpawnedCount = 0;
+	while (SpawnedCount < Count && FreeAnchors.Num() > 0 && Alive.Num() < MaxAlive)
+	{
+		const int32 Idx = FMath::RandRange(0, FreeAnchors.Num() - 1);
+		ACleanableSpawnPoint* Anchor = FreeAnchors[Idx];
+		FreeAnchors.RemoveAtSwap(Idx);
+
+		if (SpawnAtAnchor(Anchor) != nullptr)
+		{
+			++SpawnedCount;
+		}
+	}
+
+	return SpawnedCount;
 }

@@ -9,41 +9,11 @@ AAmbientNPCController::AAmbientNPCController()
 	bAttachToPawn = false;
 }
 
-void AAmbientNPCController::AssignPath(const TArray<FVector>& InWaypoints)
+void AAmbientNPCController::AssignDestination(const FVector& InDestination)
 {
-	Waypoints = InWaypoints;
-	CurrentIndex = 0;
+	Destination = InDestination;
 	RetryCount = 0;
-
-	if (Waypoints.Num() == 0)
-	{
-		DestroyPawnSafe();
-		return;
-	}
-
-	MoveToCurrent();
-}
-
-void AAmbientNPCController::MoveToCurrent()
-{
-	if (!Waypoints.IsValidIndex(CurrentIndex))
-	{
-		DestroyPawnSafe();
-		return;
-	}
-	MoveToLocation(Waypoints[CurrentIndex], AcceptanceRadius);
-}
-
-void AAmbientNPCController::AdvanceOrDestroy()
-{
-	++CurrentIndex;
-	RetryCount = 0;
-	if (CurrentIndex >= Waypoints.Num())
-	{
-		DestroyPawnSafe();
-		return;
-	}
-	MoveToCurrent();
+	MoveToLocation(Destination, AcceptanceRadius);
 }
 
 void AAmbientNPCController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result)
@@ -52,18 +22,17 @@ void AAmbientNPCController::OnMoveCompleted(FAIRequestID RequestID, const FPathF
 
 	if (Result.IsSuccess())
 	{
-		AdvanceOrDestroy();
+		DestroyPawnSafe();
 		return;
 	}
 
-	if (++RetryCount > MaxRetriesPerWaypoint)
+	if (++RetryCount > MaxRetries)
 	{
-		// Skip this waypoint and try the next one. If we're at the end, give up.
-		AdvanceOrDestroy();
+		DestroyPawnSafe();
 		return;
 	}
 
-	MoveToCurrent();
+	MoveToLocation(Destination, AcceptanceRadius);
 }
 
 void AAmbientNPCController::DestroyPawnSafe()

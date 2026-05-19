@@ -6,6 +6,8 @@
 
 class UStaticMeshComponent;
 class UMaterialInterface;
+class USoundBase;
+class UAudioComponent;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPartSnappedBack, FName, PartId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAllPartsRepaired);
@@ -54,7 +56,7 @@ public:
 	AWorkshopDevice();
 
 	UFUNCTION(BlueprintCallable, Category = "Workshop")
-	void Repair(const TArray<FName>& BrokenPartIds, FVector SpawnLocation);
+	void Repair(const TArray<FName>& BrokenPartIds, FTransform SpawnTransform);
 
 	UFUNCTION(BlueprintCallable, Category = "Workshop")
 	void StopRepair();
@@ -94,6 +96,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
 	FVector SpawnOffset = FVector(-30.f, 0.f, 0.f);
+
+	// Extra rotation added on top of the spawn transform's rotation when Repair() is called.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
+	FRotator RepairRotationOffset = FRotator::ZeroRotator;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Parts")
 	UMaterialInterface* BrokenMatOverlay = nullptr;
@@ -180,6 +186,27 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Debug")
 	bool bDebugTrace = false;
+
+	// --- Sound FX ---
+	// Played when the cover is pried open (cover pull threshold reached, animation starts).
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Sound")
+	TObjectPtr<USoundBase> PryOpenSound = nullptr;
+
+	// Played when a new component is snapped back into its slot.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Sound")
+	TObjectPtr<USoundBase> PlaceComponentSound = nullptr;
+
+	// Played when the screwdriver is dropped and falls.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Sound")
+	TObjectPtr<USoundBase> ScrewDriverFallingSound = nullptr;
+
+	// Played when a held component is released away from its slot and falls.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Sound")
+	TObjectPtr<USoundBase> ComponentFallingSound = nullptr;
+
+	// Played while the player is unscrewing a screw (looped for the duration).
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Workshop|Sound")
+	TObjectPtr<USoundBase> UnscrewSound = nullptr;
 
 	// --- Tutorial Highlight Settings ---
 
@@ -318,6 +345,9 @@ private:
 	float UnscrewTimer = 0.f;
 	FVector ScrewStartLocation = FVector::ZeroVector;
 	FRotator ScrewStartRotation = FRotator::ZeroRotator;
+
+	UPROPERTY()
+	TObjectPtr<UAudioComponent> ActiveUnscrewAudio = nullptr;
 
 	// --- Hover ---
 	void UpdateHover();

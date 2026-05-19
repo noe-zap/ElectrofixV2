@@ -1,9 +1,12 @@
 #include "XRayScanner.h"
 #include "Camera/PlayerCameraManager.h"
+#include "Components/AudioComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Sound/SoundBase.h"
 
 AXRayScanner::AXRayScanner()
 {
@@ -24,6 +27,17 @@ void AXRayScanner::ActivateScanner(FVector Location, FRotator Rotation, const TA
 	SetActorRotation(Rotation);
 	SetActorTickEnabled(true);
 	SetActorHiddenInGame(false);
+
+	if (ScanningLoopSound && !ActiveScanningAudio)
+	{
+		ActiveScanningAudio = UGameplayStatics::SpawnSoundAttached(
+			ScanningLoopSound,
+			GetRootComponent(),
+			NAME_None,
+			FVector::ZeroVector,
+			EAttachLocation::KeepRelativeOffset,
+			true /* bStopWhenAttachedToDestroyed */);
+	}
 }
 
 void AXRayScanner::SetBrokenPartIds(const TArray<FName>& InBrokenPartIds)
@@ -46,8 +60,18 @@ void AXRayScanner::DeactivateScanner()
 	bIsReturningToStart = false;
 	FoundBrokenParts.Empty();
 	RestoreAllMaterials();
+	StopScanningLoop();
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
+}
+
+void AXRayScanner::StopScanningLoop()
+{
+	if (ActiveScanningAudio)
+	{
+		ActiveScanningAudio->Stop();
+		ActiveScanningAudio = nullptr;
+	}
 }
 
 void AXRayScanner::Tick(float DeltaTime)
@@ -302,12 +326,18 @@ void AXRayScanner::CheckForBrokenPart(UStaticMeshComponent* MeshComp)
 				*Tag.ToString(), FoundBrokenParts.Num(), BrokenPartIds.Num());
 			OnBrokenPartFound.Broadcast(Tag, FoundBrokenParts.Num());
 
+			if (BrokenPartFoundSound)
+			{
+				UGameplayStatics::PlaySoundAtLocation(this, BrokenPartFoundSound, GetActorLocation());
+			}
+
 			if (FoundBrokenParts.Num() >= BrokenPartIds.Num())
 			{
 				UE_LOG(LogTemp, Log, TEXT("XRayScanner: All broken parts scanned! Returning to start."));
 				bIsScanning = false;
 				bIsWaitingToReturn = true;
 				ReturnWaitTimer = 1.f;
+				StopScanningLoop();
 				return;
 			}
 		}

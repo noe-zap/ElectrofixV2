@@ -1,6 +1,7 @@
 #include "ToolsWheelComponent.h"
 #include "UI/ToolsWheelWidget.h"
 #include "Tools/Tool.h"
+#include "Tutorial/TutorialFunctionLibrary.h"
 #include "Net/UnrealNetwork.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -177,6 +178,11 @@ void UToolsWheelComponent::ServerEquipTool_Implementation(int32 SlotIndex)
 	CurrentTool = NewTool;
 	bHasToolEquipped = true;
 	OnToolEquipped.Broadcast(CurrentTool);
+
+	if (!NewTool->PickupEventId.IsNone())
+	{
+		UTutorialFunctionLibrary::ReportTutorialEvent(this, NewTool->PickupEventId, NewTool);
+	}
 }
 
 void UToolsWheelComponent::OnRep_CurrentTool()

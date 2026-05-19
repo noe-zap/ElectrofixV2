@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Game\n"
-"POT-Creation-Date: 2026-05-18 14:34\n"
-"PO-Revision-Date: 2026-05-18 14:34\n"
+"POT-Creation-Date: 2026-05-19 16:42\n"
+"PO-Revision-Date: 2026-05-19 16:42\n"
 "Language-Team: \n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -13,152 +13,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. Key:	8F083961445185471194CE904D2FA3D9
-#. SourceLocation:	/Game/electronic_component/map/TestMap.TestMap:PersistentLevel.BP_1602_Display_2.TextDisplay
-#: /Game/electronic_component/map/TestMap.TestMap:PersistentLevel.BP_1602_Display_2.TextDisplay
-msgctxt ",8F083961445185471194CE904D2FA3D9"
-msgid "Hello,world!"
-msgstr ""
+#. Key:	1515D1FD47C153814599C3ADC7FD3EEC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Components/AI_ShopperComponent.AI_ShopperComponent_C:ExecuteUbergraph_AI_ShopperComponent [Script Bytecode]
+#: /Game/ShopSim/Blueprints/Components/AI_ShopperComponent.AI_ShopperComponent_C:ExecuteUbergraph_AI_ShopperComponent [Script Bytecode]
+msgctxt ",1515D1FD47C153814599C3ADC7FD3EEC"
+msgid "{ItemName} is too expensive"
+msgstr "{ItemName}은(는) 너무 비싸요"
 
-#. Key:	5F52440842DB801C9A82188521925F22
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
-msgctxt ",5F52440842DB801C9A82188521925F22"
-msgid "STRUCTURES"
-msgstr ""
+#. Key:	23D6F88A4EE11F4518D546B9D536163B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Components/AI_ShopperComponent.AI_ShopperComponent_C:ExecuteUbergraph_AI_ShopperComponent [Script Bytecode]
+#: /Game/ShopSim/Blueprints/Components/AI_ShopperComponent.AI_ShopperComponent_C:ExecuteUbergraph_AI_ShopperComponent [Script Bytecode]
+msgctxt ",23D6F88A4EE11F4518D546B9D536163B"
+msgid "No {ItemName} in this shop"
+msgstr "이 가게에 {ItemName}이(가) 없어요"
 
-#. Key:	EE8BAA8C4D44A44A312DDA8127C6F5D4
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_10.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_10.NewTextRenderComponent.Text
-msgctxt ",EE8BAA8C4D44A44A312DDA8127C6F5D4"
-msgid "CHECKOUT"
-msgstr ""
+#. Key:	667073FD435EA48C925B64AB86D3990B
+#. SourceLocation:	/Game/ShopSim/Blueprints/Components/AI_ShopperComponent.AI_ShopperComponent_C:ExecuteUbergraph_AI_ShopperComponent [Script Bytecode]
+#: /Game/ShopSim/Blueprints/Components/AI_ShopperComponent.AI_ShopperComponent_C:ExecuteUbergraph_AI_ShopperComponent [Script Bytecode]
+msgctxt ",667073FD435EA48C925B64AB86D3990B"
+msgid "This shop has never what i want"
+msgstr "이 가게는 내가 원하는 게 없어"
 
-#. Key:	7B47162B45E98358CBA99D9D6C7DEF33
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_11.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_11.NewTextRenderComponent.Text
-msgctxt ",7B47162B45E98358CBA99D9D6C7DEF33"
-msgid "COLUMN PROPS"
-msgstr ""
+#. Key:	D08A46A74BBF89C194E0CD93C6F09D40
+#. SourceLocation:	/Game/ShopSim/Blueprints/Components/BP_TechnicianComponent.BP_TechnicianComponent_C:ExecuteUbergraph_BP_TechnicianComponent [Script Bytecode]
+#: /Game/ShopSim/Blueprints/Components/BP_TechnicianComponent.BP_TechnicianComponent_C:ExecuteUbergraph_BP_TechnicianComponent [Script Bytecode]
+msgctxt ",D08A46A74BBF89C194E0CD93C6F09D40"
+msgid "Thank you and goodbye."
+msgstr "감사합니다, 안녕히 계세요."
 
-#. Key:	E6A5314D4BA66104D32F35923B470D23
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_12.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_12.NewTextRenderComponent.Text
-msgctxt ",E6A5314D4BA66104D32F35923B470D23"
-msgid "DOORS"
-msgstr ""
+#. Key:	8732F09F42C302A7985C56A9F8CCDBD2
+#. SourceLocation:	/Game/ShopSim/Blueprints/Components/StorekeepComponent.StorekeepComponent_C:ExecuteUbergraph_StorekeepComponent [Script Bytecode]
+#: /Game/ShopSim/Blueprints/Components/StorekeepComponent.StorekeepComponent_C:ExecuteUbergraph_StorekeepComponent [Script Bytecode]
+msgctxt ",8732F09F42C302A7985C56A9F8CCDBD2"
+msgid "My device is not fixed. I hate this shop."
+msgstr "내 기기가 수리되지 않았어. 이 가게가 싫어."
 
-#. Key:	BFDEFBCF49B0D2B42963ED8548FCDE5E
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_13.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_13.NewTextRenderComponent.Text
-msgctxt ",BFDEFBCF49B0D2B42963ED8548FCDE5E"
-msgid "PCs"
-msgstr ""
-
-#. Key:	E98D20994EBECF4E41E51AB7FFC68BE1
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_14.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_14.NewTextRenderComponent.Text
-msgctxt ",E98D20994EBECF4E41E51AB7FFC68BE1"
-msgid "PHONES AND TABLETS"
-msgstr ""
-
-#. Key:	54DD54CC4DF913CAF2172684A634FD45
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_15.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_15.NewTextRenderComponent.Text
-msgctxt ",54DD54CC4DF913CAF2172684A634FD45"
-msgid "SHELVES"
-msgstr ""
-
-#. Key:	C9F4DD9D42BAC6FE3B171D8B52D0E919
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_16.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_16.NewTextRenderComponent.Text
-msgctxt ",C9F4DD9D42BAC6FE3B171D8B52D0E919"
-msgid "SHELVES PROPS"
-msgstr ""
-
-#. Key:	94BC85F54288B94BA4AD1ABAEA5F2A3A
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_17.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_17.NewTextRenderComponent.Text
-msgctxt ",94BC85F54288B94BA4AD1ABAEA5F2A3A"
-msgid "TVs"
-msgstr ""
-
-#. Key:	4EEC59DC48C6412C09CE139E02020035
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_18.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_18.NewTextRenderComponent.Text
-msgctxt ",4EEC59DC48C6412C09CE139E02020035"
-msgid "WALL"
-msgstr ""
-
-#. Key:	4E374DB14DF5E4902318578B89F20D91
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_19.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_19.NewTextRenderComponent.Text
-msgctxt ",4E374DB14DF5E4902318578B89F20D91"
-msgid "CEILING"
-msgstr ""
-
-#. Key:	D4E7DD0F4BB325A5E2D13E929CED0FF2
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_20.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_20.NewTextRenderComponent.Text
-msgctxt ",D4E7DD0F4BB325A5E2D13E929CED0FF2"
-msgid "DECALS"
-msgstr ""
-
-#. Key:	EF385FC0485693317AD6B588E0AEE55F
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_3.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_3.NewTextRenderComponent.Text
-msgctxt ",EF385FC0485693317AD6B588E0AEE55F"
-msgid "ENTRANCE"
-msgstr ""
-
-#. Key:	CF1A39D64D9E6A26208B06AA79A2BE1F
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_4.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_4.NewTextRenderComponent.Text
-msgctxt ",CF1A39D64D9E6A26208B06AA79A2BE1F"
-msgid "PIPES"
-msgstr ""
-
-#. Key:	A6F43BFF48EAFDEA8ABD6297B102232D
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_5.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_5.NewTextRenderComponent.Text
-msgctxt ",A6F43BFF48EAFDEA8ABD6297B102232D"
-msgid "FLOOR"
-msgstr ""
-
-#. Key:	58B20CCF4D734152AFBAF497BC11A0DD
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_7.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_7.NewTextRenderComponent.Text
-msgctxt ",58B20CCF4D734152AFBAF497BC11A0DD"
-msgid "LIGHTS"
-msgstr ""
-
-#. Key:	6AEF09BE414B725097D263A5CAF3B2A9
-#. SourceLocation:	/Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_9.NewTextRenderComponent.Text
-#: /Game/ElectronicsShop/Levels/L_Overview.L_Overview:PersistentLevel.TextRenderActor_9.NewTextRenderComponent.Text
-msgctxt ",6AEF09BE414B725097D263A5CAF3B2A9"
-msgid "APPLIANCES"
-msgstr ""
-
-#. Key:	8D3C6248440C23327C9874AA20A12BA2
-#. SourceLocation:	/Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Text3DActor_2.Text3DComponent.Text
-#: /Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Text3DActor_2.Text3DComponent.Text
-msgctxt ",8D3C6248440C23327C9874AA20A12BA2"
-msgid "ELECTROFIX"
-msgstr ""
-
-#. Key:	C716B4314286E3956E80D29E299C0B40
-#. SourceLocation:	/Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Ultra_Dynamic_Weather_C_1.UDS_Weather_Settings_C_3.User Friendly Name
-#: /Game/LV_MallOpti.LV_MallOpti:PersistentLevel.Ultra_Dynamic_Weather_C_1.UDS_Weather_Settings_C_3.User Friendly Name
-msgctxt ",C716B4314286E3956E80D29E299C0B40"
-msgid "Manual Weather State"
-msgstr ""
-
-#. Key:	972FF48A4903EB67913A479F6958D1BB
-#. SourceLocation:	/Game/ShoppingMall/Maps/Demonstration.Demonstration:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
-#: /Game/ShoppingMall/Maps/Demonstration.Demonstration:PersistentLevel.TextRenderActor_1.NewTextRenderComponent.Text
-msgctxt ",972FF48A4903EB67913A479F6958D1BB"
-msgid "DELIVERY AREA"
-msgstr "배송 구역"
+#. Key:	D16C65EB49738EFCD26F959EE3296ED5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Components/StorekeepComponent.StorekeepComponent_C:ExecuteUbergraph_StorekeepComponent [Script Bytecode]
+#: /Game/ShopSim/Blueprints/Components/StorekeepComponent.StorekeepComponent_C:ExecuteUbergraph_StorekeepComponent [Script Bytecode]
+msgctxt ",D16C65EB49738EFCD26F959EE3296ED5"
+msgid "Thank you and goodbye."
+msgstr "감사합니다, 안녕히 계세요."
 
 #. Key:	3147F9A84019C831A8859E9C86149FDA
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Attributes_Demo.Attributes_Demo.Cost.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
@@ -293,6 +188,13 @@ msgctxt ",5C13488C40C5CAF6337D71992F1F0F8B"
 msgid "Unlocked Store Upgrade 1"
 msgstr "상점 업그레이드 1 잠금 해제"
 
+#. Key:	B79FF109411C4523116C7E82E38043AC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.2.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.2.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(1).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
+msgctxt ",B79FF109411C4523116C7E82E38043AC"
+msgid "Unlocked Console repair"
+msgstr "콘솔 수리 잠금 해제됨"
+
 #. Key:	B12174AA42E1B115C5D0078114D16507
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.3.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
 #: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.3.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
@@ -320,13 +222,6 @@ msgstr "상점 업그레이드 3 잠금 해제"
 msgctxt ",0270FA4343F757EBEF2DCB8F1D019EEF"
 msgid "Unlocked Mid-tier Games license"
 msgstr "중급 게임 라이선스 잠금 해제"
-
-#. Key:	FD92DE154801D94155B6D9A3676C6595
-#. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(2).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
-#: /Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.4.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(2).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
-msgctxt ",FD92DE154801D94155B6D9A3676C6595"
-msgid "Unlocked Console repair "
-msgstr "콘솔 수리 잠금 해제 "
 
 #. Key:	0C55483B4C7DE3A395E965A6FD6D8ECC
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/DT_StoreLevels.DT_StoreLevels.5.UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43(0).UnlocksText_19_3FCC38924F498FF117731E8CE30F8C43
@@ -2082,8 +1977,8 @@ msgstr "휴대폰"
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Phones.Description_20_67285EB24E930C0613EC83AE498B3FF8
 #: /Game/ShopSim/Blueprints/Data/Licenses_Demo.Licenses_Demo.Phones.Description_20_67285EB24E930C0613EC83AE498B3FF8
 msgctxt ",81F7B8E74076774AD830BEA43FC06320"
-msgid "Unlock the ability to sell smartphones, phone accessories, and replacement batteries."
-msgstr "스마트폰, 휴대폰 액세서리, 교체용 배터리를 판매할 수 있는 기능을 잠금 해제합니다."
+msgid "Phones"
+msgstr "전화"
 
 #. Key:	DDD9509249455413E5EC2583C3F2B424
 #. SourceLocation:	/Game/ShopSim/Blueprints/Data/Traits_Demo.Traits_Demo.Cheap.Description_18_3A281CE44CD6B38B810BC69B7917B1E6
@@ -2918,6 +2813,41 @@ msgctxt ",5A94AA094E493D08B60037B8796E2544"
 msgid "- Pick up the pry bar to your right and drag your mouse down to remove the device cover."
 msgstr "- 오른쪽에 있는 쇠지렛대를 집어 들고, 마우스를 아래로 드래그하여 기기 덮개를 제거하세요."
 
+#. Key:	EA9618EE4C2C6EC60F75BB801204934A
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.StepName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.StepName
+msgctxt ",EA9618EE4C2C6EC60F75BB801204934A"
+msgid "Cleaning"
+msgstr "청소"
+
+#. Key:	9C50389A49975F7009078B8F03F6FCC0
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(0).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(0).Tasks.TaskName
+msgctxt ",9C50389A49975F7009078B8F03F6FCC0"
+msgid "Equip the broom using the tools wheel"
+msgstr "도구 휠로 빗자루 장착"
+
+#. Key:	B23A614941D896ACBC062CB563AD42F9
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(1).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(1).Tasks.TaskName
+msgctxt ",B23A614941D896ACBC062CB563AD42F9"
+msgid "Clean the dust stain on the floor"
+msgstr "바닥의 먼지 얼룩 청소"
+
+#. Key:	626896A84ED2A9F35F440691990A9EFC
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(2).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(2).Tasks.TaskName
+msgctxt ",626896A84ED2A9F35F440691990A9EFC"
+msgid "Equip the sponge using the tools wheel"
+msgstr "도구 휠로 스펀지 장착"
+
+#. Key:	68C427E141DA610F5C8FA5AE51A2F1D5
+#. SourceLocation:	/Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(3).Tasks.TaskName
+#: /Game/ShopSim/Blueprints/Tutorial/DA_MainTutorial.DA_MainTutorial.Steps(4).Steps.Tasks(3).Tasks.TaskName
+msgctxt ",68C427E141DA610F5C8FA5AE51A2F1D5"
+msgid "Clean the dust stain on the window"
+msgstr "창문의 먼지 얼룩 청소"
+
 #. Key:	288856094E50D96DEF9C21A924984330
 #. SourceLocation:	/Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.PlayText.Text
 #: /Game/ShopSim/MainMenu/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.PlayText.Text
@@ -3293,21 +3223,35 @@ msgstr "카메라 전환"
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 msgctxt ",2C04AE794C1A621E953F34AB50FBFCE2"
-msgid "Day {num} Ended"
+msgid "DAY{num} ENDED"
 msgstr "{num}일차 종료"
+
+#. Key:	358BBCEB44EFED23196E218DC8899D57
+#. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
+#: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
+msgctxt ",358BBCEB44EFED23196E218DC8899D57"
+msgid "Profit: -${Profit}"
+msgstr "이익: -${Profit}"
 
 #. Key:	8C536A5D460C17F56622B6BE016AD0C8
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 msgctxt ",8C536A5D460C17F56622B6BE016AD0C8"
-msgid "Made: {Cost}"
+msgid "MADE: {Cost}"
 msgstr "수입: {Cost}"
+
+#. Key:	9E45A8B742B230ADA62F51A0F13373D0
+#. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
+#: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
+msgctxt ",9E45A8B742B230ADA62F51A0F13373D0"
+msgid "PROFIT: +${Profit}"
+msgstr "이익: +${Profit}"
 
 #. Key:	B3410D0C47280BAD46CF959AE9865DFA
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 #: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:SetEndDayStats [Script Bytecode]
 msgctxt ",B3410D0C47280BAD46CF959AE9865DFA"
-msgid "Spent: {Cost}"
+msgid "SPENT: {Cost}"
 msgstr "지출: {Cost}"
 
 #. Key:	B0F4BF604938C712CBC5C38F69ED7689
@@ -3323,6 +3267,13 @@ msgstr "1일차 종료"
 msgctxt ",9BA1E3864F86DA908F8B568EAE989EEB"
 msgid "Made: $1000"
 msgstr "수입: $1000"
+
+#. Key:	4344AD934CB0C2453882EC9E91D3E8E3
+#. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Profit.Text
+#: /Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Profit.Text
+msgctxt ",4344AD934CB0C2453882EC9E91D3E8E3"
+msgid "Profit: +$1000"
+msgstr "이익: +$1000"
 
 #. Key:	77F8637A4305FABD05363EBD69FDB0B3
 #. SourceLocation:	/Game/ShopSim/Widgets/EndDayStats_Widget.EndDayStats_Widget_C:WidgetTree.Text_Spent.Text
@@ -4147,8 +4098,8 @@ msgstr "구매 완료"
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Description
 msgctxt ",F86B164C45DDF55AD5355BAA6AB88D6C"
-msgid "Unlocks: Medium Store Shelf"
-msgstr "잠금 해제: 중형 상점 진열대"
+msgid "Unlocks: Medium Store Shelf, Consoles Repair"
+msgstr "잠금 해제: 중형 매장 선반, 콘솔 수리"
 
 #. Key:	2B76D36E4DFE9ED22F159A853AA0BE23
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade1.Name
@@ -4175,8 +4126,8 @@ msgstr "상점 업그레이드 2"
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Description
 msgctxt ",8884181E4CDD10FB24BAFBBDE00FF6B9"
-msgid "Unlocks: Store Expension I, Repair Consoles"
-msgstr "잠금 해제: 매장 확장 I, 콘솔 수리"
+msgid "Unlocks: Store Expension I"
+msgstr "잠금 해제: 매장 확장 I"
 
 #. Key:	54960CA149340B8B0F0C5BB6621B9A06
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade3.Name
@@ -4217,7 +4168,7 @@ msgstr "매장 업그레이드 5"
 #. SourceLocation:	/Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade6.Description
 #: /Game/ShopSim/Widgets/Screen_Improvements_Widget.Screen_Improvements_Widget_C:WidgetTree.ImprovementEntry_StoreUpgrade6.Description
 msgctxt ",02C7A82649379693F0236DABC5915CDB"
-msgid "Unlocks : Large Repair Shelf, Repair laptops"
+msgid "Unlocks : Large Repair Shelf, Laptops Repair"
 msgstr "잠금 해제: 대형 수리 선반, 노트북 수리"
 
 #. Key:	B08D3F614382D6337C53E382D7877671

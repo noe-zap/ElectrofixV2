@@ -5,6 +5,9 @@
 #include "GameFramework/Actor.h"
 #include "XRayScanner.generated.h"
 
+class USoundBase;
+class UAudioComponent;
+
 USTRUCT()
 struct FMaterialSlotArray
 {
@@ -62,6 +65,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Bounds")
 	FVector BoundsMax = FVector(50.f, 50.f, 50.f);
 
+	// Looping sound played while the scanner is actively scanning a repair order.
+	// Mark the sound asset as looping for it to sustain for the full scan.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Sound")
+	TObjectPtr<USoundBase> ScanningLoopSound = nullptr;
+
+	// One-shot played each time a new broken part is detected during scanning.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XRay Scanner|Sound")
+	TObjectPtr<USoundBase> BrokenPartFoundSound = nullptr;
+
 	// --- Blueprint API ---
 
 	UFUNCTION(BlueprintCallable, Category = "XRay Scanner")
@@ -104,6 +116,11 @@ private:
 
 	UPROPERTY()
 	TArray<TObjectPtr<UMaterialInstanceDynamic>> ActiveDynamicMaterials;
+
+	UPROPERTY()
+	TObjectPtr<UAudioComponent> ActiveScanningAudio = nullptr;
+
+	void StopScanningLoop();
 
 	void UpdatePositionFromMouse(float DeltaTime);
 	void PerformScanTrace();

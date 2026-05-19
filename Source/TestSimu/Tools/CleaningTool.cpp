@@ -1,5 +1,6 @@
 #include "CleaningTool.h"
 #include "Cleaning/CleanableActor.h"
+#include "Tutorial/TutorialFunctionLibrary.h"
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -153,6 +154,11 @@ void ACleaningTool::DoCleanAt(const FVector& Start, const FVector& End)
 	}
 
 	TargetCleanable->ApplyClean(CleanAmountPerClick);
+
+	if (!CleanEventId.IsNone())
+	{
+		UTutorialFunctionLibrary::ReportTutorialEvent(this, CleanEventId, TargetCleanable);
+	}
 }
 
 void ACleaningTool::Multicast_PlayCleaningMontage_Implementation()

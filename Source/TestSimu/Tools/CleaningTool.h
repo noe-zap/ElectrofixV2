@@ -18,6 +18,11 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Cleaning")
 	FName CleaningTag = NAME_None;
 
+	// Tutorial event ID reported each time this tool successfully cleans a cleanable. Leave as
+	// None to skip reporting.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Cleaning|Tutorial")
+	FName CleanEventId = NAME_None;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Cleaning")
 	UAnimMontage* CleaningMontage = nullptr;
 

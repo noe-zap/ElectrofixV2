@@ -31,6 +31,13 @@ public:
 	void RegisterSpawnPoint(ACleanableSpawnPoint* Point);
 	void UnregisterSpawnPoint(ACleanableSpawnPoint* Point);
 
+	// Server-authoritative: immediately spawn up to Count cleanables at free spawn points whose
+	// CleaningTag matches Tag. Respects MaxAlive. Returns the number actually spawned. Use for
+	// scripted moments (tutorial step completion, events) where dust should appear now rather
+	// than waiting for the random ambient timer.
+	UFUNCTION(BlueprintCallable, Category = "Cleanable Spawner")
+	int32 ForceSpawnAtTag(FName Tag, int32 Count = 1);
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
@@ -48,4 +55,8 @@ private:
 	void TrySpawn();
 	void PurgeStale();
 	bool IsAnchorOccupied(const ACleanableSpawnPoint* Anchor) const;
+
+	// Picks a compatible cleanable class for the anchor and spawns it. Returns the spawned actor
+	// or nullptr if no compatible class exists or the spawn fails.
+	ACleanableActor* SpawnAtAnchor(ACleanableSpawnPoint* Anchor);
 };

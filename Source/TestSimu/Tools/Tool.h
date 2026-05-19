@@ -28,6 +28,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Replicated, Category = "Tool")
 	EToolType ToolType = EToolType::None;
 
+	// Tutorial event ID reported when this tool is picked up. Leave as None to skip reporting.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tool|Tutorial")
+	FName PickupEventId = NAME_None;
+
 	UFUNCTION(Client, Reliable)
 	void Client_AttachFirstPersonMesh();
 
